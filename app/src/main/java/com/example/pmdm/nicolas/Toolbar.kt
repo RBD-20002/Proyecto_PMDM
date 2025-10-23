@@ -24,38 +24,26 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MiPantalla() {
-    Scaffold(
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    Text(text = "Mi toolbar")
-                },
-                actions = {   // 👈 acá van los botones a la derecha
-                    IconButton(onClick = { Log.e("Msg", "Botón de ajustes") },
-                        modifier = Modifier
-                            .size(40.dp)
-                            .clip(CircleShape)
-                            .background(Color(0xFFFF9000))
-
-                        ) {
-                        Icon(Icons.Default.Person, contentDescription = "Ajustes")
-                    }
-                }
-            )
+fun Toolbar() {
+    CenterAlignedTopAppBar(
+        title = { Text("Mi toolbar") },
+        actions = {
+            IconButton(
+                onClick = { Log.e("Msg", "Botón de ajustes") },
+                modifier = Modifier
+                    .size(40.dp)
+                    .clip(CircleShape)
+                    .background(Color(0xFFFF9000))
+            ) {
+                Icon(Icons.Default.Person, contentDescription = "Ajustes")
+            }
         }
-    ) { innerPadding ->
-        Box(modifier = Modifier.padding(innerPadding)) {
-            Text("Contenido de la pantalla")
-        }
-    }
+    )
 }
-
-
 
 @Preview
 @Composable
-fun MiPantalla1() {
-    MiPantalla()
+fun PruebaVista() {
+    Toolbar()
 }
 
