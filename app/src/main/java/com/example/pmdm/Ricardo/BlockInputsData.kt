@@ -39,7 +39,7 @@ fun BlockInputsData(
             shape = RoundedCornerShape(10.dp)
         )
         .padding(10.dp)
-        .background(Color.Black)
+        .background(Color(0xFFD77A28))
     ){
         Column(
             modifier = Modifier
@@ -65,7 +65,7 @@ fun BlockInputsData(
                         state = input.state,
                         placeholder = {
                             TextComponent(
-                                text = input.textPlaceholder
+                                text = input.textPlaceholder,
                             )
                         }
                     )

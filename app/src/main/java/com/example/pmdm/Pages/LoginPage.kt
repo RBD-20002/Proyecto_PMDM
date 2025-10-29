@@ -79,7 +79,7 @@ fun LoginPage(){
                 BlockInputsData(
                     title = "REGISTRATE",
                     input = inputs,
-                    borderColor = Color.Black
+                    borderColor = Color.White
                 )
             }
         }
