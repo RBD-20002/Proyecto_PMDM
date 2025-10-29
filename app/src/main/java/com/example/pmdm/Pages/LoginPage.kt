@@ -40,9 +40,9 @@ fun LoginPage(){
                 contentAlignment = Alignment.TopEnd
             ){
                 Image(
-                    painter = painterResource(id = R.drawable.galeria),
+                    painter = painterResource(id = R.drawable.tema_oscuro),
                     contentDescription = "Logo Imagen Generico",
-                    modifier = Modifier.size(80.dp)
+                    modifier = Modifier.size(90.dp)
                 )
             }
 
@@ -58,7 +58,7 @@ fun LoginPage(){
                     InputFieldConfig(
                         text = "USER:",
                         state = remember { TextFieldState() },
-                        textPlaceholder = "INTRODUCE USUARIO:"
+                        textPlaceholder = "INTRODUCE USUARIO"
                     ),
                     InputFieldConfig(
                         text = "EMAIL:",
@@ -79,7 +79,7 @@ fun LoginPage(){
                 BlockInputsData(
                     title = "REGISTRATE",
                     input = inputs,
-                    borderColor = Color.Black
+                    borderColor = Color.White
                 )
             }
         }
