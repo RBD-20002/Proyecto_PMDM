@@ -110,6 +110,6 @@ fun LoginPage(){
 
 @Preview
 @Composable
-fun PreviewPageLogin(){
+fun PreviewLoginPage(){
     LoginPage()
 }
