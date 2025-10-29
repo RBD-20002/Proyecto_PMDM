@@ -42,4 +42,3 @@ fun Toolbar() {
 fun PruebaVista() {
     Toolbar()
 }
-
