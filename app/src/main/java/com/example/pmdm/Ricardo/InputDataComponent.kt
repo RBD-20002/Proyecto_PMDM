@@ -45,7 +45,7 @@ fun InputDataComponent(
             TextFieldComponent(
                 state = state,
                 placeholder = placeholder,
-                modifier = Modifier.width(900.dp)
+                modifier = Modifier.weight(2f)
             )
         }
 
