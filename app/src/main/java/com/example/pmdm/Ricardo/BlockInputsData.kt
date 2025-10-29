@@ -39,7 +39,7 @@ fun BlockInputsData(
             shape = RoundedCornerShape(10.dp)
         )
         .padding(10.dp)
-        .background(Color(0xFFD77A28))
+        .background(Color(0xFF0A0D1F))
     ){
         Column(
             modifier = Modifier

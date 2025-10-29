@@ -1,3 +1,4 @@
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.input.TextFieldState
@@ -6,6 +7,7 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -15,12 +17,28 @@ fun TextFieldComponent(
     placeholder: (@Composable () -> Unit)? = null, //<- texto que se pone en caso que este vacio
     shape: Shape = TextFieldDefaults.shape
 ){
-    TextField(
-        state = state,
-        modifier = modifier.padding(1.dp),
-        placeholder = placeholder,
-        shape = RoundedCornerShape(20.dp)
-    )
+    val focusManager = LocalFocusManager.current
+
+    Box() {
+        TextField(
+            state = state,
+            modifier = modifier.padding(1.dp),
+            placeholder = placeholder,
+            shape = RoundedCornerShape(20.dp)
+
+            /*
+            //Evita salto de línea
+            keyboardOptions = KeyboardOptions.Default.copy(
+                imeAction = ImeAction.Done // cambia "Enter" por "Done"
+            ),
+
+            //Cierra teclado al presionar "Done"
+            keyboardActions = androidx.compose.foundation.text.KeyboardActions(
+                onDone = { focusManager.clearFocus() }
+            )
+            */
+        )
+    }
 }
 
 /*
