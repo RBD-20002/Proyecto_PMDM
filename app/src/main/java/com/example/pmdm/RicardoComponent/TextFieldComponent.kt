@@ -14,7 +14,7 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.pmdm.Ricardo.TextComponent
+import com.example.pmdm.RicardoComponent.TextComponent
 
 @Composable
 fun TextFieldComponent(
@@ -26,24 +26,7 @@ fun TextFieldComponent(
     val focusManager = LocalFocusManager.current
 
     Box() {
-        TextField(
-            state = state,
-            modifier = modifier.padding(1.dp),
-            placeholder = placeholder,
-            shape = RoundedCornerShape(20.dp)
 
-            /*
-            //Evita salto de línea
-            keyboardOptions = KeyboardOptions.Default.copy(
-                imeAction = ImeAction.Done // cambia "Enter" por "Done"
-            ),
-
-            //Cierra teclado al presionar "Done"
-            keyboardActions = androidx.compose.foundation.text.KeyboardActions(
-                onDone = { focusManager.clearFocus() }
-            )
-            */
-        )
     }
 }
 
