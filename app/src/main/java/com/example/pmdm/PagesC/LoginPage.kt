@@ -58,20 +58,20 @@ fun LoginPage(){
             ){
                 val inputs = listOf(
                     InputFieldConfig(
-                        TextLabel = "USER:",
-                        TextValue = "INTRODUCE USUARIO"
+                        TextLabel = "USER:   ",
+                        TextValue = "ENTER USER"
                     ),
                     InputFieldConfig(
-                        TextLabel = "EMAIL:",
-                        TextValue = "INTRODUCE EMAIL"
+                        TextLabel = "EMAIL: ",
+                        TextValue = "ENTER EMAIL"
                     ),
                     InputFieldConfig(
-                        TextLabel = "PASSWORD:",
-                        TextValue = "INTRODUCE PASSWORD"
+                        TextLabel = "PASS:   ",
+                        TextValue = "ENTER PASSWORD"
                     ),
                     InputFieldConfig(
-                        TextLabel = "REPITE:",
-                        TextValue = "CONFIRMA CONTRASEÑA"
+                        TextLabel = "CONFIRM:",
+                        TextValue = "CONFIRM PASS"
                     )
                 )
 
