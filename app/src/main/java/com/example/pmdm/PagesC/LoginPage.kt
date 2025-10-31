@@ -81,7 +81,7 @@ fun LoginPage(){
                     title = "REGISTRO",
                     input = inputs,
                     borderColor = Color.Red
-                )z
+                )
             }
 
             Box(modifier = Modifier.fillMaxWidth(),
