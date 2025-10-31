@@ -9,18 +9,26 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
-    tertiary = Pink80
+    tertiary = Pink80,
+    background = Fondo_Oscuro,
+    primaryFixed = Icon,
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
-    tertiary = Pink40
+    tertiary = Pink40,
+    background = Fondo_Claro,
+    primaryFixed = Icon
+
+
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -32,6 +40,41 @@ private val LightColorScheme = lightColorScheme(
     onSurface = Color(0xFF1C1B1F),
     */
 )
+
+
+
+// GRADIENTE MÁS VISIBLE (vertical + más contraste)
+val MaterialTheme.backgroundGradient: Brush
+    @Composable
+    get() = if (isSystemInDarkTheme()) {
+        // OSCURO: gradiente sutil pero visible
+        Brush.verticalGradient(
+            colors = listOf(
+                Color(0xFF000000),  // Negro puro
+                Color(0xFF0F1419)   // Gris azulado oscuro
+            )
+        )
+    } else {
+        // CLARO: TUS COLORES + MEJOR CONTRASTE
+        Brush.verticalGradient(
+            0.0f to Color(0xFFFFF4F8),     // Rosa pálido (inicio)
+            0.5f to Color(0xFFB3E5FC),     // Azul más intenso (medio)
+            1.0f to Color(0xFFFDFDF5)      // Crema (final)
+        )
+    }
+
+
+// GRADIENTE NEÓN IGUAL AL TEXTO DEL LOGO
+val MaterialTheme.neonTextGradient: Brush
+    @Composable
+    get() = Brush.horizontalGradient(
+        colors = listOf(
+            Color(0xFFFF00E5),  // Rosa neón (inicio)
+            Color(0xFF00FFFF),  // Cian neón (medio)
+            Color(0xFF0088FF)   // Azul neón (final)
+        )
+    )
+
 
 @Composable
 fun PMDMTheme(
@@ -55,4 +98,8 @@ fun PMDMTheme(
         typography = Typography,
         content = content
     )
+
+
+
+
 }
