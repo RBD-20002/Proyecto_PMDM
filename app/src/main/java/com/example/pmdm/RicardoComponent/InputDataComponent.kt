@@ -1,4 +1,4 @@
-package com.example.pmdm.Ricardo
+package com.example.pmdm.RicardoComponent
 
 import TextFieldComponent
 import androidx.compose.foundation.layout.Arrangement
