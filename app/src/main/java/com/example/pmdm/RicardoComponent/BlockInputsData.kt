@@ -19,11 +19,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 data class InputFieldConfig(
-    val text: String,
-    val state: TextFieldState,
-    val textPlaceholder: String
+    val TextLabel: String,
+    val TextValue: String
 )
-
 @Composable
 fun BlockInputsData(
     title: String = "REGISTRATE",
@@ -58,15 +56,10 @@ fun BlockInputsData(
                 modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
                 verticalArrangement = Arrangement.spacedBy(15.dp)
             ) {
-                input.forEach { input ->
+                input.forEach { inputConfig ->
                     InputDataComponent(
-                        text = input.text,
-                        state = input.state,
-                        placeholder = {
-                            TextComponent(
-                                text = input.textPlaceholder,
-                            )
-                        }
+                        textValue = inputConfig.TextLabel,
+                        textInfo = inputConfig.TextValue
                     )
                 }
             }
@@ -74,31 +67,27 @@ fun BlockInputsData(
     }
 }
 
-
 @Preview
 @Composable
-fun PreviewInputsComponent() {
+fun PreviewInputs(){
     val inputs = listOf(
         InputFieldConfig(
-            text = "USER:",
-            state = remember { TextFieldState() },
-            textPlaceholder = "INTRODUCE TU USUARIO"
+            TextLabel = "USER:",
+            TextValue = "INTRODUCE USUARIO"
         ),
         InputFieldConfig(
-            text = "EMAIL:",
-            state = remember { TextFieldState() },
-            textPlaceholder = "INTRODUCE EMAIL"
+            TextLabel = "EMAIL:",
+            TextValue = "INTRODUCE EMAIL"
         ),
         InputFieldConfig(
-            text = "PASSWORD:",
-            state = remember { TextFieldState() },
-            textPlaceholder = "INTRODUCE PASSWORD"
+            TextLabel = "PASSWORD:",
+            TextValue = "INTRODUCE PASSWORD"
         ),
         InputFieldConfig(
-            text = "CONFIRM:",
-            state = remember { TextFieldState() },
-            textPlaceholder = "REPITE PASSWORD"
+            TextLabel = "REPITE:",
+            TextValue = "CONFIRMA CONTRASEÑA"
         )
     )
     BlockInputsData(input = inputs)
 }
+

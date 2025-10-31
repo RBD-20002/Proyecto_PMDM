@@ -5,9 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,8 +15,8 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun InputDataComponent(
-    text: String,
-    state: TextFieldState,
+    textValue: String,
+    textInfo: String,
     placeholder: (@Composable () -> Unit)? = null
 ){
 
@@ -29,33 +27,22 @@ fun InputDataComponent(
             verticalAlignment = Alignment.CenterVertically
         ){
             TextComponent(
-                text = text,
+                text = textValue,
                 textSize = 15.sp,
                 textColor = Color.White,
                 modifier = Modifier
-                    .padding(end = 8.dp)
-                    .weight(1f)
+                    .padding(3.dp)
             )
 
             TextFieldComponent(
-                state = state,
-                placeholder = placeholder,
-                modifier = Modifier.weight(2f)
+                info = textInfo,
+                color = Color.Black
             )
         }
-
 }
-
 
 @Preview
 @Composable
-fun previewInputBlock(){
-    val state = remember { TextFieldState() }
-    InputDataComponent(
-        state = state,
-        text = "USER:",
-        placeholder = {
-            TextComponent("USUARIO O CORREO ELECTRONICO", 15.sp, Color.LightGray)
-        }
-    )
+fun PreviewInputData(){
+    InputDataComponent("User:","INTRODUCE USER")
 }
