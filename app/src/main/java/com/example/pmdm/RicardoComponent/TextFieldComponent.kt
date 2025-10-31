@@ -1,63 +1,47 @@
-import androidx.compose.ui.graphics.Color
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.input.TextFieldState
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pmdm.RicardoComponent.TextComponent
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextFieldComponent(
-    state: TextFieldState,
-    modifier: Modifier = Modifier,
-    placeholder: (@Composable () -> Unit)? = null, //<- texto que se pone en caso que este vacio
-    shape: Shape = TextFieldDefaults.shape
+    info: String,
+    color: Color,
+    placeholderText: (@Composable () -> Unit )? = null
 ){
-    val focusManager = LocalFocusManager.current
+    var text by remember { mutableStateOf("") }
 
-    Box() {
-        TextField(
-            state = state,
-            modifier = modifier.padding(1.dp),
-            placeholder = placeholder,
-            shape = RoundedCornerShape(20.dp)
-
-            /*
-            //Evita salto de línea
-            keyboardOptions = KeyboardOptions.Default.copy(
-                imeAction = ImeAction.Done // cambia "Enter" por "Done"
-            ),
-
-            //Cierra teclado al presionar "Done"
-            keyboardActions = androidx.compose.foundation.text.KeyboardActions(
-                onDone = { focusManager.clearFocus() }
+    TextField(
+        value = text,
+        onValueChange = { text = it },
+        placeholder = {
+            TextComponent(
+                text = info,
+                textColor = color,
+                textSize = 20.sp
             )
-            */
-        )
-    }
+        },
+        shape = RoundedCornerShape(10.dp),
+        modifier = Modifier
+            .fillMaxWidth().padding(4.dp)
+    )
 }
-
 
 @Preview
 @Composable
-fun previewTextField(){
-    val state = remember { TextFieldState() }
-    TextFieldComponent(
-        state = state,
-        placeholder = {
-            TextComponent("USUARIO O CORREO ELECTRONICO",15.sp, Color.White)
-        },
-        modifier = Modifier
-            .width(2000.dp)
-    )
+fun PreviewTextField(){
+    TextFieldComponent("prueba", Color.Black)
 }

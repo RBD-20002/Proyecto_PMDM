@@ -21,9 +21,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pmdm.R
-import com.example.pmdm.Ricardo.BlockInputsData
-import com.example.pmdm.Ricardo.ButtomComponent
-import com.example.pmdm.Ricardo.InputFieldConfig
+import com.example.pmdm.RicardoComponent.BlockInputsData
+import com.example.pmdm.RicardoComponent.ButtomComponent
+import com.example.pmdm.RicardoComponent.InputFieldConfig
 
 @Composable
 fun LoginPage(){
@@ -60,30 +60,27 @@ fun LoginPage(){
             ){
                 val inputs = listOf(
                     InputFieldConfig(
-                        text = "USER:",
-                        state = remember { TextFieldState() },
-                        textPlaceholder = "INTRODUCE USUARIO"
+                        TextLabel = "USER:",
+                        TextValue = "INTRODUCE USUARIO"
                     ),
                     InputFieldConfig(
-                        text = "EMAIL:",
-                        state = remember { TextFieldState() },
-                        textPlaceholder = "INTRODUCE EMAIL"
+                        TextLabel = "EMAIL:",
+                        TextValue = "INTRODUCE EMAIL"
                     ),
                     InputFieldConfig(
-                        text = "PASSWORD:",
-                        state = remember { TextFieldState() },
-                        textPlaceholder = "INTRODUCE PASSWORD"
+                        TextLabel = "PASSWORD:",
+                        TextValue = "INTRODUCE PASSWORD"
                     ),
                     InputFieldConfig(
-                        text = "CONFIRM:",
-                        state = remember { TextFieldState() },
-                        textPlaceholder = "REPITE PASSWORD"
+                        TextLabel = "REPITE:",
+                        TextValue = "CONFIRMA CONTRASEÑA"
                     )
                 )
+
                 BlockInputsData(
-                    title = "REGISTRATE",
+                    title = "REGISTRO",
                     input = inputs,
-                    borderColor = Color.White
+                    borderColor = Color.Red
                 )
             }
 
