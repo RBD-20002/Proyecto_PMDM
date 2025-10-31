@@ -31,7 +31,7 @@ fun TextFieldComponent(
             TextComponent(
                 text = info,
                 textColor = color,
-                textSize = 20.sp
+                textSize = 15.sp
             )
         },
         shape = RoundedCornerShape(10.dp),

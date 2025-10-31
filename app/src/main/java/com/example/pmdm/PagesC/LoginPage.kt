@@ -28,7 +28,7 @@ fun LoginPage(){
     Box(modifier = Modifier.fillMaxSize()) {
 
         Image(
-            painter = painterResource(id = R.drawable.fondo),
+            painter = painterResource(id = R.drawable.login_page),
             contentDescription = "Fondo de pantalla de Login",
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
@@ -42,7 +42,7 @@ fun LoginPage(){
                 contentAlignment = Alignment.TopEnd
             ){
                 Image(
-                    painter = painterResource(id = R.drawable.tema_oscuro),
+                    painter = painterResource(id = R.drawable.logo),
                     contentDescription = "Logo Imagen Generico",
                     modifier = Modifier
                         .size(90.dp)
@@ -78,7 +78,7 @@ fun LoginPage(){
                 BlockInputsData(
                     title = "REGISTRO",
                     input = inputs,
-                    borderColor = Color.Red
+                    borderColor = Color.White
                 )
             }
 

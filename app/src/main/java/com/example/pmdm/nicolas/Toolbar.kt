@@ -31,7 +31,7 @@ import com.example.pmdm.ui.theme.neonTextGradient
 @Composable
 fun Toolbar() {
     val isDark = isSystemInDarkTheme()
-    val logoRes =  R.drawable.logo
+    val logoRes = R.drawable.logo
 
     CenterAlignedTopAppBar(
         title = {
@@ -57,7 +57,7 @@ fun Toolbar() {
             }
         },
         modifier = Modifier.background(MaterialTheme.neonTextGradient).height(64.dp),
-        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+        colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.Transparent
         )
 

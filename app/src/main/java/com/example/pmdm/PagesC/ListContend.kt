@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.pmdm.R
 import com.example.pmdm.RicardoComponent.BlockCardsComponents
 import com.example.pmdm.RicardoComponent.CardConfig
+import com.example.pmdm.nicolas.Toolbar
 
 @Composable
 fun ListContend() {
@@ -77,21 +78,23 @@ fun ListContend() {
             Title = "ONE PIECE"
         )
     )
-    Box(modifier = Modifier
-        .fillMaxSize()
-    ){
-        Image(
-            painter = painterResource(id = R.drawable.list_content),
-            contentDescription = "Fondo de pantalla de ListContend",
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
-        )
-        Scaffold(
-            topBar = {
+    Scaffold(
+        containerColor = androidx.compose.ui.graphics.Color.Transparent,
+        topBar = { Toolbar() }
+    ) { innerPadding ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.list_content),
+                contentDescription = "Fondo de pantalla de ListContend",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
 
-            },
-        ) { innerPadding ->
-            BlockCardsComponents(input = inputs, Modifier.padding(innerPadding))
+            BlockCardsComponents(input = inputs)
         }
     }
 }
