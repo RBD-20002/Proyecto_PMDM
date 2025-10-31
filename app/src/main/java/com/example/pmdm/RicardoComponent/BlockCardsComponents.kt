@@ -18,8 +18,11 @@ import com.example.pmdm.R
 
 
 @Composable
-fun BlockCardsComponents(input: List<CardConfig>) {
-    LazyColumn(modifier = Modifier.fillMaxWidth().border(2.dp, Color.Black),
+fun BlockCardsComponents(input: List<CardConfig>, modifier: Modifier = Modifier) {
+    LazyColumn(modifier = Modifier
+        .fillMaxWidth()
+        .padding(5.dp)
+        .border(2.dp, Color.Black),
         contentPadding = PaddingValues(5.dp)
     ){
         input.chunked(2).forEach { pares ->
