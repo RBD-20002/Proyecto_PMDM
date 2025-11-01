@@ -87,7 +87,7 @@ fun LoginPage(){
             ){
                 Row(
                     modifier = Modifier.padding(10.dp),
-                    horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    horizontalArrangement = Arrangement.spacedBy(5.dp)
                 ) {
                     ButtomComponent(text = "CREAR CUENTA") {
                         Log.e("Prueba","Clieck en crear cuenta")
@@ -95,6 +95,10 @@ fun LoginPage(){
 
                     ButtomComponent(text = "INICIAR SECION") {
                         Log.e("Prueba2","Click en inicar secion")
+                    }
+
+                    ButtomComponent(text = "INVITADO") {
+                        Log.e("Prueba3","Click en invitado")
                     }
                 }
             }
