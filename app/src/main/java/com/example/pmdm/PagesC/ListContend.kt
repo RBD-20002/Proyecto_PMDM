@@ -14,9 +14,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.pmdm.R
-import com.example.pmdm.RicardoComponent.BlockCardsComponents
-import com.example.pmdm.RicardoComponent.CardConfig
-import com.example.pmdm.nicolas.Toolbar
+import com.example.pmdm.RicardoComponent. *
+import com.example.pmdm.nicolasComponent.Toolbar
 
 @Composable
 fun ListContend() {
