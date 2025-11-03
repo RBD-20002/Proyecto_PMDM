@@ -11,24 +11,33 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
 
-class CardConfig(var ImageId: Int, var ImageDesc: String = "", var Title: String)
+data class CardConfig(
+    val id: Int,
+    val imageId: Int,
+    val imageDesc: String = "",
+    val title: String,
+    val synopsis: String? = null,
+    val info: String? = null
+)
 @Composable
-fun CardComponent(input: List<CardConfig>, action: () -> Unit = {} ){
+fun CardComponent(input: List<CardConfig>, navController: NavController){
 
     Column {
         input.forEach { cardConfig ->
             Card(modifier = Modifier
-                .width(200.dp)
-                .height(80.dp)
+                .width(220.dp)
+                .height(100.dp)
                 .padding(4.dp),
-                onClick = action
+                onClick = { navController.navigate("details/${cardConfig.id}") }
             ){
                 Row{
                     Image(
-                        painter = painterResource(id = cardConfig.ImageId),
-                        contentDescription = cardConfig.ImageDesc
+                        painter = painterResource(id = cardConfig.imageId),
+                        contentDescription = cardConfig.imageDesc
                     )
                     Box(
                         modifier = Modifier
@@ -37,7 +46,7 @@ fun CardComponent(input: List<CardConfig>, action: () -> Unit = {} ){
                     ) {
                         Column {
                             TextComponent(
-                                text = cardConfig.Title,
+                                text = cardConfig.title,
                                 textColor = Color.Black,
                                 textSize = 15.sp
                             )
@@ -54,26 +63,15 @@ fun CardComponent(input: List<CardConfig>, action: () -> Unit = {} ){
 fun PreviewCard(){
     val inputs = listOf(
         CardConfig(
-            ImageId = R.drawable.dragonball,
-            ImageDesc = "Dragon Ball Z",
-            Title = "DRAGON BALL Z"
-        )
-        ,CardConfig(
-            ImageId = R.drawable.naruto,
-            ImageDesc = "Naruto",
-            Title = "NARUTO"
-        ),
-        CardConfig(
-            ImageId = R.drawable.bleach,
-            ImageDesc = "Bleach",
-            Title = "BLEACH"
-        ), CardConfig(
-            ImageId = R.drawable.onepiece,
-            ImageDesc = "onePiece",
-            Title = "ONEPIECE"
+            id = 0,
+            imageId = R.drawable.dragonball,
+            imageDesc = "Dragon Ball Z",
+            title = "DRAGON BALL Z",
+            synopsis = "",
+            info = ""
         )
     )
 
-    CardComponent(input = inputs)
+    CardComponent(input = inputs, navController = rememberNavController())
 
 }
