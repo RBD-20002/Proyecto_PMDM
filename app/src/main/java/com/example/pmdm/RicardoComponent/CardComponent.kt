@@ -20,8 +20,8 @@ data class CardConfig(
     val imageId: Int,
     val imageDesc: String = "",
     val title: String,
-    val synopsis: String? = null,
-    val info: String? = null
+    val synopsis: String,
+    val info: String
 )
 @Composable
 fun CardComponent(input: List<CardConfig>, navController: NavController){
