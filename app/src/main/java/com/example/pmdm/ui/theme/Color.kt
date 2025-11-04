@@ -13,6 +13,6 @@ val Pink40 = Color(0xFF7D5260)
 
 val Fondo_Claro = Color(0xFFFFF4F8)
 
-val Fondo_Oscuro = Color(0xFF27377B)
+val Fondo_Oscuro = Color(0xFF8A149F)
 
 val Icon = Color(0xFFA42898)

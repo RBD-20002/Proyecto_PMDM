@@ -19,6 +19,7 @@ private val DarkColorScheme = darkColorScheme(
     tertiary = Pink80,
     background = Fondo_Oscuro,
     primaryFixed = Icon,
+
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -80,7 +81,7 @@ val MaterialTheme.neonTextGradient: Brush
 fun PMDMTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
