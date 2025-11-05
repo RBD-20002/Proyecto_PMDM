@@ -3,6 +3,7 @@ package com.example.pmdm.RicardoComponent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,7 +56,7 @@ fun CardComponent(input: List<CardConfig>, navController: NavController){
                         Column {
                             TextComponent(
                                 text = cardConfig.title,
-                                textColor = Color.Black,
+                                textColor = MaterialTheme.colorScheme.tertiaryFixed,
                                 textSize = 12.sp
                             )
                         }
