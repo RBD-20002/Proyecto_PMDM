@@ -1,13 +1,13 @@
 package com.example.pmdm.RicardoComponent
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -36,10 +36,17 @@ fun CardComponent(input: List<CardConfig>, navController: NavController){
                 onClick = { navController.navigate("details/${cardConfig.id}") }
             ){
                 Row{
-                    Image(
-                        painter = painterResource(id = cardConfig.imageId),
-                        contentDescription = cardConfig.imageDesc
-                    )
+                    Box(
+                        modifier = Modifier
+                            .width(65.dp)
+                            .fillMaxHeight()
+                    ){
+                        Image(
+                            painter = painterResource(id = cardConfig.imageId),
+                            contentDescription = cardConfig.imageDesc,
+                            contentScale = ContentScale.FillBounds
+                        )
+                    }
                     Box(
                         modifier = Modifier
                             .fillMaxSize(),
@@ -49,7 +56,7 @@ fun CardComponent(input: List<CardConfig>, navController: NavController){
                             TextComponent(
                                 text = cardConfig.title,
                                 textColor = Color.Black,
-                                textSize = 15.sp
+                                textSize = 12.sp
                             )
                         }
                     }
@@ -73,9 +80,9 @@ fun PreviewCard(){
         ),
         CardConfig(
             id = 0,
-            imageId = R.drawable.evangelion,
+            imageId = R.drawable.tokyo_revengers,
             imageDesc = "Dragon Ball Z",
-            title = "DRAGON BALL Z",
+            title = "TOKYO REVENGERS",
             synopsis = "",
             info = ""
         )
