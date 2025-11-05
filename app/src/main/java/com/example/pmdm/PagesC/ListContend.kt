@@ -23,7 +23,7 @@ fun ListContend(navController: NavController) {
         contentAlignment = Alignment.TopCenter
     ) {
         Image(
-            painter = painterResource(id = R.drawable.list_content),
+            painter = painterResource(id = R.drawable.login_page),
             contentDescription = "Fondo",
             modifier = Modifier.fillMaxHeight(),
             contentScale = ContentScale.Crop

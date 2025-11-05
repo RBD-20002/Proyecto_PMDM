@@ -22,7 +22,7 @@ fun AppNavHost(
         startDestination = Destination.Start.route,
         modifier = modifier
     ) {
-        composable(Destination.Start.route)       { StartPage() }
+        composable(Destination.Start.route)       { StartPage(navController = navController) }
         composable(Destination.ListContend.route) { ListContend(navController = navController) }
         composable(Destination.Profile.route)     { ProfilePage() }
         composable(Destination.Login.route)       { LoginPage() }
