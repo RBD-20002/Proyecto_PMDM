@@ -26,16 +26,16 @@ import com.example.pmdm.RicardoComponent.TextBlockConfig
 fun DetailsPage(anime: CardConfig) {
     val infos = listOf(
         TextBlockConfig(
-            titleBlock = "SINOPSIS",
+            titleBlock = "SINOPSIS:",
             title = anime.title,
             descrip = anime.synopsis,
-            titleSize = 20.sp,
+            titleSize = 15.sp,
             descripSize = 15.sp
         ),
         TextBlockConfig(
-            titleBlock = "INFORMACION",
+            titleBlock = "INFORMACION:",
             descrip = anime.info,
-            titleSize = 18.sp,
+            titleSize = 13.sp,
             descripSize = 15.sp
         )
     )
