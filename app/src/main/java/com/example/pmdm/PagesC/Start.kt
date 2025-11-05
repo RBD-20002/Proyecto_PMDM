@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
@@ -49,51 +50,48 @@ fun StartPage(navController: androidx.navigation.NavController) {
         }
 
         // Listas horizontales (debajo del carrusel)
-        Column(
+        LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 260.dp) // ajusta si tu carrusel tiene otra altura
+                .padding(top = 260.dp)
         ) {
-            Text(
-                "Recomendados",
-                color = Color.White,
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.padding(start = 16.dp, bottom = 8.dp)
-            )
-
-            LazyRow(
-                contentPadding = PaddingValues(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                items(DataProvider.animeList, key = { it.id }) { anime ->
-                    VerticalAnimeCard(
-                        cardConfig = anime,
-                        navController = navController
-                    )
+            item {
+                Text(
+                    "Recomendados",
+                    color = Color.White,
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.padding(start = 16.dp, bottom = 8.dp)
+                )
+                LazyRow(
+                    contentPadding = PaddingValues(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    items(DataProvider.animeList, key = { it.id }) { anime ->
+                        VerticalAnimeCard(anime, navController)
+                    }
                 }
+                Spacer(Modifier.height(12.dp))
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Text(
-                "Populares",
-                color = Color.White,
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.padding(start = 16.dp, bottom = 8.dp)
-            )
-
-            LazyRow(
-                contentPadding = PaddingValues(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                items(DataProvider.animeList.shuffled(), key = { it.id }) { anime ->
-                    VerticalAnimeCard(
-                        cardConfig = anime,
-                        navController = navController
-                    )
+            item {
+                Text(
+                    "Populares",
+                    color = Color.White,
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.padding(start = 16.dp, bottom = 8.dp)
+                )
+                LazyRow(
+                    contentPadding = PaddingValues(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    items(DataProvider.animeList.shuffled(), key = { it.id }) { anime ->
+                        VerticalAnimeCard(anime, navController)
+                    }
                 }
+                Spacer(Modifier.height(80.dp)) // por si hay más contenido
             }
         }
+
     }
 }
 
