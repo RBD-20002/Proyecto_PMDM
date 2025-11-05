@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -27,18 +28,31 @@ import com.example.pmdm.ui.theme.neonTextGradient
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Toolbar() {
+fun Toolbar(
+    onSearchClick: () -> Unit
+) {
     isSystemInDarkTheme()
     val logoRes =  R.drawable.logo
 
     CenterAlignedTopAppBar(
         title = {
+
             Image(
                 painter = painterResource(id = logoRes),
                 contentDescription = "Logo de la app",
                 modifier = Modifier.size(160.dp)
             )
         },
+        navigationIcon = {
+            IconButton(
+                onClick = onSearchClick
+            ) {
+                Icon(Icons.Default.Search,
+                    contentDescription = "Buscar",
+                    tint = MaterialTheme.colorScheme.background)
+            }
+        },
+
         actions = {
             IconButton(
                 onClick = { Log.e("Msg", "Botón de ajustes") },
@@ -66,7 +80,7 @@ fun Toolbar() {
 @Composable
 fun ToolbarPreviewLight() {
     PMDMTheme(darkTheme = false) {
-        Toolbar()
+        Toolbar(onSearchClick = {})
     }
 }
 
@@ -78,6 +92,6 @@ fun ToolbarPreviewLight() {
 @Composable
 fun ToolbarPreviewDark() {
     PMDMTheme(darkTheme = true) {
-        Toolbar()
+        Toolbar(onSearchClick = {})
     }
 }
