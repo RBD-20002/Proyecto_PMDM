@@ -12,6 +12,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import com.example.pmdm.R
 import com.example.pmdm.RicardoComponent. *
+import com.example.pmdm.model.DataProvider
 
 @Composable
 fun ListContend(navController: NavController) {

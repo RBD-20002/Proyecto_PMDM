@@ -51,7 +51,7 @@ fun CardComponent(input: List<CardConfig>, navController: NavController){
                     Box(
                         modifier = Modifier
                             .fillMaxSize(),
-                        contentAlignment = Alignment.Center
+                        contentAlignment = Alignment.Center,
                     ) {
                         Column {
                             TextComponent(

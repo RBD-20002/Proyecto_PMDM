@@ -27,7 +27,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pmdm.RicardoComponent.CardConfig
-import com.example.pmdm.RicardoComponent.DataProvider
+import com.example.pmdm.model.DataProvider
 import kotlinx.coroutines.delay
 
 

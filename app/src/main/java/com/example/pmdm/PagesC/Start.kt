@@ -25,7 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
-import com.example.pmdm.RicardoComponent.DataProvider
+import com.example.pmdm.model.DataProvider
 import com.example.pmdm.RicardoComponent.VerticalAnimeCard
 
 @Composable

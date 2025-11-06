@@ -10,7 +10,7 @@ import com.example.pmdm.PagesC.DetailsPage
 import com.example.pmdm.PagesC.ListContend
 import com.example.pmdm.PagesC.ProfilePage
 import com.example.pmdm.PagesC.StartPage
-import com.example.pmdm.RicardoComponent.DataProvider
+import com.example.pmdm.model.DataProvider
 
 @Composable
 fun AppNavHost(
