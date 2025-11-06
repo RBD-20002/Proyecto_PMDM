@@ -19,6 +19,7 @@ private val DarkColorScheme = darkColorScheme(
     tertiary = Pink80,
     background = Fondo_Oscuro,
     primaryFixed = Icon,
+    tertiaryFixed = TextColor
 
 )
 
