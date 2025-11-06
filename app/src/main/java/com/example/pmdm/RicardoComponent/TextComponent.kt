@@ -6,6 +6,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
@@ -16,13 +17,16 @@ fun TextComponent(
     text: String,
     textSize: TextUnit = 10.sp,
     textColor: Color = Color.White,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+//    overflow: TextOverflow?= TextOverflow.Ellipsis,
+//    maxLines: Int = Int.SIZE_BYTES
 ){
     Box{
         Text(
             text = text,
             fontSize = textSize,
-            color = textColor
+            color = textColor,
+            overflow = TextOverflow.Ellipsis
         )
     }
 }

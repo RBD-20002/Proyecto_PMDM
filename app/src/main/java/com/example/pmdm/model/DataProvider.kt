@@ -1,6 +1,7 @@
-package com.example.pmdm.RicardoComponent
+package com.example.pmdm.model
 
 import com.example.pmdm.R
+import com.example.pmdm.RicardoComponent.CardConfig
 
 object DataProvider {
     val animeList = listOf(

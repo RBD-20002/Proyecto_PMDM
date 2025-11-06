@@ -7,7 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.saveable.rememberSaveable
-import com.example.pmdm.RicardoComponent.DataProvider
+import com.example.pmdm.model.DataProvider
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
