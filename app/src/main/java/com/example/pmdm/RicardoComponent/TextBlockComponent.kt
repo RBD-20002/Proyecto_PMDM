@@ -48,7 +48,9 @@ fun TextBlockComponent(info: List<TextBlockConfig>) {
                         TextComponent(
                             text = inf.titleBlock+"\n" + inf.title,
                             textSize = inf.titleSize,
-                            textColor = Color.White
+                            textColor = Color.White,
+                            overflow = null,
+                            maxLines = null
                         )
                     }
                     Box(
