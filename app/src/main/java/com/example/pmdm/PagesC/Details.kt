@@ -1,5 +1,6 @@
 package com.example.pmdm.PagesC
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
@@ -9,6 +10,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -73,6 +78,14 @@ fun DetailsPage(anime: CardConfig) {
             }
 
             item { Spacer(modifier = Modifier.height(80.dp)) }
+        }
+        FloatingActionButton(
+            onClick = { Log.e("Prueba 3","Click en el boton de favorito") },
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(16.dp)
+        ) {
+            Icon(Icons.Filled.Add,"Boton Favorito")
         }
     }
 }
