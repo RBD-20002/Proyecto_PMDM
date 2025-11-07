@@ -20,23 +20,21 @@ fun TextComponent(
     textSize: TextUnit = 10.sp,
     textColor: Color = Color.White,
     modifier: Modifier = Modifier,
-    overflow: TextOverflow = TextOverflow.Ellipsis,
-    maxLines: Int = 2
-){
-    Box{
-        Text(
-            text = text,
-            fontSize = textSize,
-            color = textColor,
-            maxLines = maxLines,
-            overflow = overflow
-        )
-    }
+    overflow: TextOverflow? = null,
+    maxLines: Int? = null,
+) {
+    Text(
+        text = text,
+        fontSize = textSize,
+        color = textColor,
+        maxLines = maxLines ?: Int.MAX_VALUE,
+        overflow = overflow ?: TextOverflow.Ellipsis
+    )
 }
 
 
 @Preview
 @Composable
-fun viewText(){
+fun viewText() {
     TextComponent(text = "USER:", textSize = 10.sp)
 }

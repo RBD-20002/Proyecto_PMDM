@@ -275,7 +275,533 @@ object DataProvider {
                     "24 min por episodio.\n\n" +
                     "Emitido:\n" +
                     "Lunes, 11 de Julio de 2016"
+        ),
+        CardConfig(
+            id = 12,
+            imageId = R.drawable.kaijuu_8gou,
+            imageDesc = "Kaijuu 8-gou",
+            title = "KAIJUU 8-GOU",
+            synopsis = "Kaijuu 8-gou sigue a Kafka Hibino, un hombre de 32 años que trabaja limpiando los restos de monstruos gigantes que atacan Japón. Tras un encuentro inesperado, obtiene la habilidad de transformarse en un kaijuu. Decide usar este poder para cumplir su sueño de unirse a las Fuerzas de Defensa y luchar contra las criaturas que antes solo podía observar.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Ciencia Ficcion, Monstruos, Shounen\n\n" +
+                    "Studios:\n" +
+                    "Production I.G\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2024\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés\n\n" +
+                    "Episodios:\n" +
+                    "12\n\n" +
+                    "Duracion:\n" +
+                    "23 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Sabado, 13 de Abril de 2024"
+        ),
+        CardConfig(
+            id = 13,
+            imageId = R.drawable.shingeki_no_kyojin,
+            imageDesc = "Shingeki no Kyojin",
+            title = "SHINGEKI NO KYOJIN",
+            synopsis = "Shingeki no Kyojin sigue a Eren Jaeger, un joven que vive en un mundo asediado por titanes, gigantes que devoran humanos. Tras la destrucción de su hogar y la muerte de su madre, jura exterminarlos. La historia revela oscuros secretos sobre la humanidad, los titanes y la verdadera naturaleza del mundo en una narrativa intensa y trágica.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Drama, Fantasia, Misterio, Militar, Shounen\n\n" +
+                    "Studios:\n" +
+                    "Wit Studio, MAPPA\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2013\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "75 + Final\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Domingo, 07 de Abril de 2013"
+        ),
+        CardConfig(
+            id = 14,
+            imageId = R.drawable.tokyo_ghoul,
+            imageDesc = "Tokyo Ghoul",
+            title = "TOKYO GHOUL",
+            synopsis = "Tokyo Ghoul sigue a Ken Kaneki, un estudiante universitario que tras un accidente recibe los órganos de un ghoul, una criatura que se alimenta de carne humana. Convertido en mitad humano, mitad ghoul, debe aprender a sobrevivir entre ambos mundos mientras lucha por mantener su humanidad en una sociedad dividida y violenta.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Misterio, Terror, Psicologico, Drama, Seinen\n\n" +
+                    "Studios:\n" +
+                    "Pierrot\n\n" +
+                    "Temporada:\n" +
+                    "Verano 2014\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "12\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Jueves, 04 de Julio de 2014"
+        ),
+        CardConfig(
+            id = 15,
+            imageId = R.drawable.death_note,
+            imageDesc = "Death Note",
+            title = "DEATH NOTE",
+            synopsis = "Death Note sigue a Light Yagami, un estudiante prodigio que encuentra un cuaderno con el poder de matar a cualquiera cuyo nombre se escriba en él. Bajo el alias de Kira, busca crear un mundo libre de criminales, pero su justicia retorcida lo enfrenta a L, un enigmático detective decidido a detenerlo.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Misterio, Psicologico, Sobrenatural, Thriller, Shounen\n\n" +
+                    "Studios:\n" +
+                    "Madhouse\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2006\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "37\n\n" +
+                    "Duracion:\n" +
+                    "23 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Martes, 03 de Octubre de 2006"
+        ),
+        CardConfig(
+            id = 16,
+            imageId = R.drawable.monster,
+            imageDesc = "Monster",
+            title = "MONSTER",
+            synopsis = "Monster sigue al neurocirujano Kenzo Tenma, quien salva la vida de un niño herido que luego se convierte en un asesino en serie. Años después, Tenma se ve envuelto en una oscura conspiración mientras busca detener al monstruo que él mismo salvó. La historia explora la moralidad, la culpa y la naturaleza del mal.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Misterio, Psicologico, Drama, Crimen, Thriller, Seinen\n\n" +
+                    "Studios:\n" +
+                    "Madhouse\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2004\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "74\n\n" +
+                    "Duracion:\n" +
+                    "23 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Martes, 06 de Abril de 2004"
+        ),
+        CardConfig(
+            id = 17,
+            imageId = R.drawable.berserk,
+            imageDesc = "Berserk",
+            title = "BERSERK",
+            synopsis = "Berserk sigue a Guts, un guerrero solitario que viaja por un mundo medieval brutal dominado por demonios y corrupción. Tras ser traicionado por su antiguo camarada Griffith, jura venganza mientras lucha contra monstruos y su propio destino marcado por una maldición. Es una historia de violencia, ambición y supervivencia.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Fantasia, Drama, Horror, Seinen\n\n" +
+                    "Studios:\n" +
+                    "OLM\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 1997\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "25\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Miercoles, 08 de Octubre de 1997"
+        ),
+        CardConfig(
+            id = 18,
+            imageId = R.drawable.another,
+            imageDesc = "Another",
+            title = "ANOTHER",
+            synopsis = "Another sigue a Koichi Sakakibara, un estudiante que se transfiere a una escuela donde una clase está maldita. Un misterioso fenómeno causa muertes horribles entre los alumnos y sus familias. Junto a su compañera Mei Misaki, intenta descubrir el origen de la maldición y detenerla antes de que todos mueran.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Terror, Misterio, Sobrenatural, Thriller, Escolar\n\n" +
+                    "Studios:\n" +
+                    "P.A. Works\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 2012\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "12\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Martes, 10 de Enero de 2012"
+        ),
+        CardConfig(
+            id = 19,
+            imageId = R.drawable.grappler_baki,
+            imageDesc = "Grappler Baki",
+            title = "GRAPPLER BAKI",
+            synopsis = "Grappler Baki sigue a Baki Hanma, un joven luchador decidido a superar a su padre, Yujiro Hanma, el ser más fuerte del mundo. A través de combates brutales y entrenamientos extremos, Baki se enfrenta a poderosos rivales en torneos subterráneos, demostrando su crecimiento físico y mental en la búsqueda de la fuerza absoluta.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Artes Marciales, Deportes, Shounen\n\n" +
+                    "Studios:\n" +
+                    "Group TAC\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2001\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "24\n\n" +
+                    "Duracion:\n" +
+                    "23 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Martes, 08 de Enero de 2001"
+        ),
+        CardConfig(
+            id = 20,
+            imageId = R.drawable.the_god_of_high_school,
+            imageDesc = "The God of High School",
+            title = "THE GOD OF HIGH SCHOOL",
+            synopsis = "The God of High School sigue a Jin Mori, un adolescente que participa en un torneo de artes marciales donde los concursantes luchan usando habilidades sobrenaturales. A medida que avanza la competencia, descubre conspiraciones que amenazan al mundo, y debe enfrentarse a enemigos cada vez más poderosos mientras descubre la verdad sobre su propio pasado.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Artes Marciales, Sobrenatural, Fantasia, Shounen\n\n" +
+                    "Studios:\n" +
+                    "MAPPA\n\n" +
+                    "Temporada:\n" +
+                    "Verano 2020\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "13\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 06 de Julio de 2020"
+        ),
+        CardConfig(
+            id = 21,
+            imageId = R.drawable.megalo_box,
+            imageDesc = "Megalo Box",
+            title = "MEGALO BOX",
+            synopsis = "Megalo Box sigue a Joe, un boxeador que lucha en combates ilegales usando exoesqueletos mecánicos para mejorar su fuerza. Deseando enfrentar a los mejores sin depender de la tecnología, adopta la identidad de 'Gearless Joe'. La serie explora la lucha por la dignidad, la superación personal y el espíritu del boxeo puro.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Deportes, Drama, Shounen\n\n" +
+                    "Studios:\n" +
+                    "TMS Entertainment\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2018\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "13\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 06 de Abril de 2018"
+        ),
+        CardConfig(
+            id = 22,
+            imageId = R.drawable.dororo,
+            imageDesc = "Dororo",
+            title = "DORORO",
+            synopsis = "Dororo sigue a Hyakkimaru, un joven despojado de sus órganos al nacer por un pacto de su padre con demonios, y a Dororo, un niño ladrón que lo acompaña. Juntos viajan enfrentando monstruos y demonios para recuperar las partes perdidas de Hyakkimaru, explorando temas de venganza, humanidad y redención en un Japón feudal oscuro.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Fantasia, Historico, Shounen, Sobrenatural\n\n" +
+                    "Studios:\n" +
+                    "Mappa, Tezuka Productions\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 2019\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "24\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Domingo, 07 de Enero de 2019"
+        ),
+        CardConfig(
+            id = 23,
+            imageId = R.drawable.kimetsu_no_yaiba,
+            imageDesc = "Kimetsu no Yaiba",
+            title = "KIMETSU NO YAIBA",
+            synopsis = "Kimetsu no Yaiba sigue a Tanjiro Kamado, un joven que busca vengar a su familia asesinada por demonios y salvar a su hermana Nezuko, convertida en demonio. Se une al Cuerpo de Exterminio de Demonios y enfrenta enemigos poderosos mientras aprende técnicas de espada y desarrolla su fuerza física y espiritual.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Fantasia, Sobrenatural, Historico, Shounen, Demonios\n\n" +
+                    "Studios:\n" +
+                    "Ufotable\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2019\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "26\n\n" +
+                    "Duracion:\n" +
+                    "23 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Domingo, 06 de Abril de 2019"
+        ),
+        CardConfig(
+            id = 24,
+            imageId = R.drawable.noragami,
+            imageDesc = "Noragami",
+            title = "NORAGAMI",
+            synopsis = "Noragami sigue a Yato, un dios menor que realiza trabajos menores por cinco yen, y a Hiyori Iki, una chica que se convierte en medio espíritu tras un accidente. Juntos enfrentan problemas del mundo espiritual y combaten espíritus maliciosos mientras Yato busca ganar reconocimiento y seguidores para alcanzar su verdadero potencial.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Comedia, Sobrenatural, Fantasia, Shounen\n\n" +
+                    "Studios:\n" +
+                    "Bones\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 2014\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "12\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 05 de Enero de 2014"
+        ),
+        CardConfig(
+            id = 25,
+            imageId = R.drawable.fullmetal_alchemist,
+            imageDesc = "Fullmetal Alchemist",
+            title = "FULLMETAL ALCHEMIST",
+            synopsis = "Fullmetal Alchemist sigue a los hermanos Edward y Alphonse Elric, quienes tras un fallido experimento de alquimia buscan la Piedra Filosofal para recuperar sus cuerpos perdidos. La serie explora temas de sacrificio, ética, guerra y el precio del poder mientras los hermanos enfrentan enemigos y conspiraciones ocultas.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Fantasia, Sobrenatural, Shounen, Drama\n\n" +
+                    "Studios:\n" +
+                    "Bones\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2003\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "51\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Sábado, 04 de Octubre de 2003"
+        ),
+        CardConfig(
+            id = 26,
+            imageId = R.drawable.black_clover,
+            imageDesc = "Black Clover",
+            title = "BLACK CLOVER",
+            synopsis = "Black Clover sigue a Asta, un joven sin poderes mágicos en un mundo donde la magia lo es todo, y a Yuno, su amigo y rival prodigio. Ambos buscan convertirse en el Rey Mago. La serie combina acción, aventuras y desarrollo de habilidades mientras enfrentan enemigos poderosos y desafíos mágicos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Fantasia, Magia, Shounen\n\n" +
+                    "Studios:\n" +
+                    "Studio Pierrot\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2017\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "170+\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Martes, 03 de Octubre de 2017"
+        ),
+        CardConfig(
+            id = 26,
+            imageId = R.drawable.black_clover,
+            imageDesc = "Black Clover",
+            title = "BLACK CLOVER",
+            synopsis = "Black Clover sigue a Asta, un joven sin poderes mágicos en un mundo donde la magia lo es todo, y a Yuno, su amigo y rival prodigio. Ambos buscan convertirse en el Rey Mago. La serie combina acción, aventuras y desarrollo de habilidades mientras enfrentan enemigos poderosos y desafíos mágicos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Fantasia, Magia, Shounen\n\n" +
+                    "Studios:\n" +
+                    "Studio Pierrot\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2017\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "170+\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Martes, 03 de Octubre de 2017"
+        ),
+        CardConfig(
+            id = 27,
+            imageId = R.drawable.boku_dake_ga_inai_machi,
+            imageDesc = "Boku dake ga Inai Machi",
+            title = "BOKU DAKE GA INAI MACHI",
+            synopsis = "Boku dake ga Inai Machi sigue a Satoru Fujinuma, un hombre que posee la habilidad de retroceder en el tiempo momentos antes de que ocurra un desastre. Cuando su madre es asesinada, Satoru es enviado al pasado, a su infancia, para prevenir un secuestro que desencadenó una serie de tragedias, enfrentando misterios y peligros mientras intenta cambiar el destino.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Misterio, Sobrenatural, Drama, Thriller, Escolar\n\n" +
+                    "Studios:\n" +
+                    "A-1 Pictures\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 2016\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "12\n\n" +
+                    "Duracion:\n" +
+                    "23 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 08 de Enero de 2016"
+        ),
+        CardConfig(
+            id = 28,
+            imageId = R.drawable.charlotte,
+            imageDesc = "Charlotte",
+            title = "CHARLOTTE",
+            synopsis = "Charlotte sigue a Yuu Otosaka, un adolescente que descubre que tiene la habilidad de poseer temporalmente el cuerpo de otros. Reclutado por Nao Tomori, se une a una escuela especial para jóvenes con poderes. La serie mezcla comedia, drama y acción mientras los personajes enfrentan las consecuencias de sus habilidades y buscan proteger a otros con poderes similares.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Sobrenatural, Comedia, Drama, Escolar, Shounen\n\n" +
+                    "Studios:\n" +
+                    "P.A. Works\n\n" +
+                    "Temporada:\n" +
+                    "Verano 2015\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "13\n\n" +
+                    "Duracion:\n" +
+                    "23 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 05 de Julio de 2015"
+        ),
+        CardConfig(
+            id = 29,
+            imageId = R.drawable.angel_beats,
+            imageDesc = "Angel Beats!",
+            title = "ANGEL BEATS!",
+            synopsis = "Angel Beats! sigue a Otonashi, un joven que despierta en una vida después de la muerte sin recuerdos de su vida pasada. Se une a la SSS, un grupo de estudiantes que luchan contra Angel, una misteriosa chica que controla la escuela, mientras enfrentan traumas y buscan cumplir sus deseos pendientes antes de descansar en paz.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Comedia, Drama, Escolar, Sobrenatural\n\n" +
+                    "Studios:\n" +
+                    "P.A. Works\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2010\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "13\n\n" +
+                    "Duracion:\n" +
+                    "23 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 03 de Abril de 2010"
+        ),
+        CardConfig(
+            id = 30,
+            imageId = R.drawable.death_parade,
+            imageDesc = "Death Parade",
+            title = "DEATH PARADE",
+            synopsis = "Death Parade sigue a Decim, un árbitro en un bar donde las almas recién fallecidas deben competir en juegos para decidir su destino: reencarnación o vacío. La serie explora la naturaleza humana, la moral y las emociones a través de las historias de quienes llegan al bar, revelando secretos y conflictos internos de cada persona.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Drama, Misterio, Psicologico, Sobrenatural, Thriller\n\n" +
+                    "Studios:\n" +
+                    "Madhouse\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 2015\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "12\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 09 de Enero de 2015"
+        ),
+        CardConfig(
+            id = 31,
+            imageId = R.drawable.psycho_pass,
+            imageDesc = "Psycho-Pass",
+            title = "PSYCHO-PASS",
+            synopsis = "Psycho-Pass sigue a Akane Tsunemori, una oficial novata en la unidad de crimen del sistema Sybil, que controla la sociedad mediante la medición de la probabilidad de que alguien cometa un crimen. La serie explora justicia, moralidad y control social mientras Akane enfrenta casos complejos y criminales con diferentes motivaciones.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Psicologico, Sci-Fi, Thriller, Seinen\n\n" +
+                    "Studios:\n" +
+                    "Production I.G\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2012\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "22\n\n" +
+                    "Duracion:\n" +
+                    "23 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 12 de Octubre de 2012"
         )
+
     )
 
     fun getAnimeById(id: Int): CardConfig? = animeList.find { it.id == id }
