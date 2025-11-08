@@ -53,7 +53,8 @@ private fun MainContent() {
         com.example.pmdm.navigation.Destination.Start.route,
         com.example.pmdm.navigation.Destination.ListContend.route,
         com.example.pmdm.navigation.Destination.Details.route,
-        com.example.pmdm.navigation.Destination.Profile.route
+        com.example.pmdm.navigation.Destination.Profile.route,
+        com.example.pmdm.navigation.Destination.Fav.route
     )
 
     val isBottomRoute: Boolean = if (backStackEntry == null) {

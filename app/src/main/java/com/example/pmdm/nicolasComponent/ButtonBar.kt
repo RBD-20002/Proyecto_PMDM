@@ -21,9 +21,10 @@ fun NavigationBottomBar(
     val items = listOf(
         com.example.pmdm.navigation.Destination.Start,
         com.example.pmdm.navigation.Destination.ListContend,
-        com.example.pmdm.navigation.Destination.Details,
+        com.example.pmdm.navigation.Destination.Fav,
         com.example.pmdm.navigation.Destination.Profile
-    )
+
+        )
 
     val backStackEntry by navController.currentBackStackEntryAsState()
 

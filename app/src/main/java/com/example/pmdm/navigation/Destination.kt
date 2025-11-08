@@ -6,6 +6,7 @@ import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Stars
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class Destination(
@@ -51,8 +52,18 @@ sealed class Destination(
         contentDescription = "Pantalla de login"
     )
 
-    companion object {
+    data object Fav : Destination(
+        route ="favoritos",
+        icon = Icons.Default.Stars,
+        label = "Favoritos",
+        contentDescription = "Favoritos"
+
+    )
+
+        companion
+
+    object {
         // Sólo las pantallas que deben aparecer en la BottomBar
-        val entries: List<Destination> = listOf(Start, ListContend, Details, Profile)
+        val entries: List<Destination> = listOf(Start, ListContend, Fav, Profile)
     }
 }
