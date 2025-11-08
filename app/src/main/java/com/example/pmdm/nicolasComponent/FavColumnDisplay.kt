@@ -16,8 +16,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.RicardoComponent.CardConfig
-import com.example.pmdm.RicardoComponent.DataProvider
+
 import com.example.pmdm.RicardoComponent.VerticalAnimeCard
+import com.example.pmdm.model.DataProvider
 
 /**
  * Muestra una lista de animes favoritos usando una columna básica.
