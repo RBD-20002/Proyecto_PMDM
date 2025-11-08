@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
@@ -22,9 +23,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
 import com.example.pmdm.RicardoComponent.CardConfig
+import com.example.pmdm.RicardoComponent.DataProvider
 import com.example.pmdm.nicolasComponent.DataProfileComponent
+import com.example.pmdm.nicolasComponent.FavColumnDisplay
 import com.example.pmdm.nicolasComponent.PreviewFieldConfig
 import com.example.pmdm.nicolasComponent.ProfileCard
 
@@ -70,64 +74,71 @@ fun ProfilePage() {
             modifier = Modifier.matchParentSize(),
             contentScale = ContentScale.Crop
         )
-
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 26.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            // Tarjeta de perfil del usuario
-            ProfileCard(
-                cardConfig = CardConfig(
-                    id = 1,
-                    imageId = R.drawable.crocs,
-                    imageDesc = "crocs",
-                    title = "Nombre Usuario",
-                    synopsis = "",
-                    info = ""
-                )
-            )
-
-            Spacer(Modifier.padding(top = 8.dp))
-
-            // Botón de configuración
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(end = 43.dp)
-                    .clickable(onClick = { Log.i("TEST", "click en boton") }),
-                horizontalArrangement = Arrangement.End,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "Configurar",
-                    color = Color.White
-                )
-                Icon(
-                    imageVector = Icons.Filled.Settings,
-                    contentDescription = "Configuración",
-                    tint = Color.White,
+        LazyColumn {
+            item {
+                // Contenido principal
+                Column(
                     modifier = Modifier
-                        .size(30.dp)
-                        .padding(start = 10.dp, bottom = 10.dp)
-                )
+                        .fillMaxSize()
+                        .padding(top = 26.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    ProfileCard(
+                        cardConfig = CardConfig(
+                            id = 1,
+                            imageId = R.drawable.crocs,
+                            imageDesc = "crocs",
+                            title = "Nombre Usuario",
+                            synopsis = "",
+                            info = ""
+                        )
+                    )
+
+                    Spacer(Modifier.padding(top = 8.dp))
+
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(end = 43.dp)
+                            .clickable(onClick = { Log.i("TEST", "click en boton") }),
+                        horizontalArrangement = Arrangement.End,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(text = "Configurar", color = Color.White)
+                        Icon(
+                            imageVector = Icons.Filled.Settings,
+                            contentDescription = "Configuración",
+                            tint = Color.White,
+                            modifier = Modifier
+                                .size(30.dp)
+                                .padding(start = 10.dp, bottom = 10.dp)
+                        )
+                    }
+
+                    val previewItems = listOf(
+                        PreviewFieldConfig("USER:", "NicoDev"),
+                        PreviewFieldConfig("EMAIL:", "nico@example.com"),
+                        PreviewFieldConfig("PASS:", "********"),
+                        PreviewFieldConfig("ROLE:", "Premium")
+                    )
+
+                    DataProfileComponent(
+                        title = "DATOS USUARIO",
+                        items = previewItems,
+                        borderColor = Color.White
+                    )
+
+                    Spacer(Modifier.padding(top = 8.dp))
+
+                    FavColumnDisplay(
+                        title = "Tus Favoritos",
+                        favorites = DataProvider.animeList.take(15) //TODO: cambiar a los favoritos cuando se sepamos como
+                    )
+                }
             }
-
-            // Datos de usuario en formato de lista
-            val previewItems = listOf(
-                PreviewFieldConfig("USER:", "NicoDev"),
-                PreviewFieldConfig("EMAIL:", "nico@example.com"),
-                PreviewFieldConfig("PASS:", "********"),
-                PreviewFieldConfig("ROLE:", "Premium")
-            )
-
-            DataProfileComponent(
-                title = "DATOS USUARIO",
-                items = previewItems,
-                borderColor = Color.White
-            )
         }
+
+
     }
 }
 
