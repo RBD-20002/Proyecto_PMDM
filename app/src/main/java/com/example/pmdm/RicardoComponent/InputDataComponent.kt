@@ -13,6 +13,26 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+/**
+ * Componente que muestra una fila con una etiqueta y un campo de texto.
+ *
+ * Se utiliza para representar un par **(label - campo de entrada)** en formularios
+ * o bloques de datos personales. La etiqueta se muestra a la izquierda y
+ * el campo de entrada a la derecha.
+ *
+ * ### Características:
+ * - Alinea texto y campo de entrada en una misma línea mediante [Row].
+ * - Distribuye los elementos equitativamente con [Arrangement.SpaceBetween].
+ * - Usa [TextComponent] para el texto y [TextFieldComponent] para el campo.
+ * - Admite un placeholder opcional para el campo de texto.
+ *
+ * @param textValue Texto de la etiqueta que describe el campo (por ejemplo, "USER:").
+ * @param textInfo Texto informativo o valor inicial del campo.
+ * @param placeholder Composable opcional que se puede usar como marcador de posición.
+ *
+ * @see TextComponent
+ * @see TextFieldComponent
+ */
 @Composable
 fun InputDataComponent(
     textValue: String,
@@ -41,6 +61,14 @@ fun InputDataComponent(
         }
 }
 
+/**
+ * Vista previa del componente [InputDataComponent].
+ *
+ * Muestra un ejemplo con etiqueta y campo de entrada de usuario
+ * para visualizar su diseño dentro del editor.
+ *
+ * @see InputDataComponent
+ */
 @Preview
 @Composable
 fun PreviewInputData(){

@@ -15,6 +15,24 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pmdm.RicardoComponent.TextComponent
 
+/**
+ * Componente de campo de texto personalizado.
+ *
+ * Permite al usuario ingresar información con un placeholder configurable
+ * y bordes redondeados. Ideal para formularios o entradas de datos.
+ *
+ * ### Características:
+ * - Placeholder usando [TextComponent] para mostrar texto de referencia.
+ * - Bordes redondeados con [RoundedCornerShape] de 10.dp.
+ * - Soporta ancho completo y padding interno.
+ * - Estado interno manejado mediante [remember] y [mutableStateOf].
+ *
+ * @param info Texto de placeholder que se mostrará cuando el campo esté vacío.
+ * @param color Color del texto del placeholder.
+ * @param placeholderText Composable opcional para personalizar el placeholder.
+ *
+ * @see TextComponent
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextFieldComponent(
@@ -40,6 +58,13 @@ fun TextFieldComponent(
     )
 }
 
+/**
+ * Vista previa del componente [TextFieldComponent].
+ *
+ * Muestra un ejemplo de campo de texto con placeholder "prueba" y color negro.
+ *
+ * @see TextFieldComponent
+ */
 @Preview
 @Composable
 fun PreviewTextField(){

@@ -7,10 +7,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -18,6 +16,19 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
 
+/**
+ * Modelo de datos que define la configuración de una tarjeta.
+ *
+ * Contiene los datos necesarios para representar un elemento en una vista de tarjetas,
+ * incluyendo el identificador, imagen, título y textos informativos.
+ *
+ * @property id Identificador único del elemento.
+ * @property imageId Recurso de imagen asociado a la tarjeta.
+ * @property imageDesc Descripción de la imagen para accesibilidad.
+ * @property title Título principal mostrado en la tarjeta.
+ * @property synopsis Sinopsis o descripción breve del contenido.
+ * @property info Información adicional o detalle extendido.
+ */
 data class CardConfig(
     val id: Int,
     val imageId: Int,
@@ -26,6 +37,25 @@ data class CardConfig(
     val synopsis: String,
     val info: String
 )
+
+/**
+ * Componente que muestra una o varias tarjetas de contenido.
+ *
+ * Cada tarjeta incluye una imagen, un título y permite navegación
+ * hacia una pantalla de detalles al hacer clic.
+ *
+ * ### Características:
+ * - Usa un [Card] por cada elemento en la lista [input].
+ * - Permite navegar a una ruta dinámica `"details/{id}"` mediante [NavController].
+ * - Ajusta la imagen con [ContentScale.FillBounds] para ocupar el alto completo.
+ * - Muestra el título usando el componente [TextComponent].
+ *
+ * @param input Lista de configuraciones [CardConfig] que definen las tarjetas a mostrar.
+ * @param navController Controlador de navegación que gestiona el evento de clic.
+ *
+ * @see CardConfig
+ * @see TextComponent
+ */
 @Composable
 fun CardComponent(input: List<CardConfig>, navController: NavController){
 
@@ -69,6 +99,14 @@ fun CardComponent(input: List<CardConfig>, navController: NavController){
     }
 }
 
+/**
+ * Vista previa del componente [CardComponent].
+ *
+ * Muestra dos tarjetas de ejemplo con imágenes y títulos de anime.
+ * Se usa [rememberNavController] para simular la navegación.
+ *
+ * @see CardComponent
+ */
 @Preview
 @Composable
 fun PreviewCard(){

@@ -20,6 +20,27 @@ data class InputFieldConfig(
     val TextLabel: String,
     val TextValue: String
 )
+/**
+ * Componente que muestra un bloque de campos de entrada con un título.
+ *
+ * Se usa para formularios o pantallas de registro, donde se agrupan varios campos
+ * definidos por una lista de [InputFieldConfig]. El bloque tiene un borde,
+ * fondo oscuro y espaciado uniforme entre los campos.
+ *
+ * ### Características:
+ * - Aplica borde con color configurable mediante [borderColor].
+ * - Usa un fondo personalizado (Color(0xFF0A0D1F)).
+ * - Incluye un título en la parte superior con [TextComponent].
+ * - Genera los campos dinámicamente con [InputDataComponent].
+ *
+ * @param title Texto del encabezado del bloque. Por defecto, "REGISTRATE".
+ * @param input Lista de configuraciones [InputFieldConfig] que definen las etiquetas y valores de cada campo.
+ * @param modifier Modificador opcional para personalizar el diseño externo.
+ * @param borderColor Color del borde del bloque. Por defecto, negro.
+ *
+ * @see InputFieldConfig
+ * @see InputDataComponent
+ */
 @Composable
 fun BlockInputsData(
     title: String = "REGISTRATE",
@@ -65,6 +86,15 @@ fun BlockInputsData(
     }
 }
 
+
+/**
+ * Vista previa del componente [BlockInputsData].
+ *
+ * Muestra un ejemplo con campos de usuario, correo y contraseñas
+ * para visualizar el diseño del bloque de entrada en Android Studio.
+ *
+ * @see BlockInputsData
+ */
 @Preview
 @Composable
 fun PreviewInputs(){
