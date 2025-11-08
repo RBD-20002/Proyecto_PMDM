@@ -25,18 +25,36 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.MaterialTheme
 import com.example.pmdm.ui.theme.neonTextGradient
 
-
+/**
+ * Barra superior personalizada (Toolbar) con logotipo centrado e icono de búsqueda.
+ *
+ * Este componente utiliza un `CenterAlignedTopAppBar` de Material 3 para crear una barra superior
+ * moderna y adaptativa, con un diseño consistente en temas claro y oscuro.
+ *
+ * ### Características:
+ * - Logotipo centrado en la parte superior de la aplicación.
+ * - Icono de búsqueda en el extremo izquierdo, con acción configurable.
+ * - Fondo con gradiente de color personalizado definido en [neonTextGradient].
+ * - Compatible con el sistema de temas dinámicos de Compose.
+ *
+ * ### Uso típico:
+ * Se utiliza como `topBar` dentro de un `Scaffold` junto con el componente [SearchToggle].
+ *
+ * @param onSearchClick Acción que se ejecuta al presionar el botón de búsqueda.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Toolbar(
     onSearchClick: () -> Unit
 ) {
+    // Detecta si el tema actual es oscuro (por compatibilidad visual)
     isSystemInDarkTheme()
-    val logoRes =  R.drawable.logo
+
+    val logoRes = R.drawable.logo
 
     CenterAlignedTopAppBar(
         title = {
-
+            // Logotipo centrado de la aplicación
             Image(
                 painter = painterResource(id = logoRes),
                 contentDescription = "Logo de la app",
@@ -44,23 +62,28 @@ fun Toolbar(
             )
         },
         navigationIcon = {
-            IconButton(
-                onClick = onSearchClick
-            ) {
-                Icon(Icons.Default.Search,
+            // Botón de búsqueda (lado izquierdo)
+            IconButton(onClick = onSearchClick) {
+                Icon(
+                    Icons.Default.Search,
                     contentDescription = "Buscar",
-                    tint = MaterialTheme.colorScheme.background)
+                    tint = MaterialTheme.colorScheme.background
+                )
             }
         },
-
-        modifier = Modifier.background(MaterialTheme.neonTextGradient).height(64.dp),
+        // Fondo con gradiente personalizado y altura fija
+        modifier = Modifier
+            .background(MaterialTheme.neonTextGradient)
+            .height(64.dp),
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.Transparent
         )
-
     )
 }
 
+/**
+ * Vista previa del componente [Toolbar] en **tema claro**.
+ */
 @Preview(showBackground = true, name = "Toolbar – Tema Claro")
 @Composable
 fun ToolbarPreviewLight() {
@@ -69,6 +92,9 @@ fun ToolbarPreviewLight() {
     }
 }
 
+/**
+ * Vista previa del componente [Toolbar] en **tema oscuro**.
+ */
 @Preview(
     showBackground = true,
     uiMode = Configuration.UI_MODE_NIGHT_YES,
