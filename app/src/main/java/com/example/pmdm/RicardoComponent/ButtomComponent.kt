@@ -14,6 +14,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+/**
+ * Componente de botón reutilizable con estilo personalizado.
+ *
+ * Muestra un botón centrado dentro de un contenedor [Box] con tamaño fijo.
+ * Ejecuta la acción definida en el parámetro [action] al hacer clic.
+ *
+ * ### Características:
+ * - Ancho fijo de **110.dp** y alto de **50.dp**.
+ * - Colores personalizados mediante [ButtonColors].
+ * - Texto interno renderizado con [TextComponent].
+ * - Compatible con vista previa mediante [previewButtom].
+ *
+ * @param text Texto que se muestra dentro del botón.
+ * @param action Acción a ejecutar cuando se presiona el botón.
+ *
+ * @see TextComponent
+ */
 @Composable
 fun ButtomComponent(text: String, action: () -> Unit){
     Box(modifier = Modifier
@@ -35,7 +52,14 @@ fun ButtomComponent(text: String, action: () -> Unit){
         }
     }
 }
-
+/**
+ * Vista previa del componente [ButtomComponent].
+ *
+ * Muestra un botón de ejemplo con el texto "CREAR CUENTA"
+ * y un log de prueba en la consola cuando se hace clic.
+ *
+ * @see ButtomComponent
+ */
 @Preview
 @Composable
 fun previewButtom(){

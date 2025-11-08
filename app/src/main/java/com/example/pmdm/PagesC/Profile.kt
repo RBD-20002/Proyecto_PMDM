@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
 import com.example.pmdm.RicardoComponent.CardConfig
-import com.example.pmdm.RicardoComponent.DataProvider
+import com.example.pmdm.model.DataProvider
 import com.example.pmdm.nicolasComponent.DataProfileComponent
 import com.example.pmdm.nicolasComponent.FavColumnDisplay
 import com.example.pmdm.nicolasComponent.PreviewFieldConfig

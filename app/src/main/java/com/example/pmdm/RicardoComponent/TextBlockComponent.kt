@@ -18,6 +18,18 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+/**
+ * Modelo de datos que define la configuración de un bloque de texto.
+ *
+ * Representa una sección de información con un título principal, un subtítulo opcional
+ * y una descripción. Ideal para mostrar sinopsis, detalles o datos informativos.
+ *
+ * @property titleBlock Título del bloque (por ejemplo, "SINOPSIS" o "INFORMACIÓN").
+ * @property title Subtítulo opcional que complementa al título principal.
+ * @property descrip Texto descriptivo o informativo del bloque.
+ * @property titleSize Tamaño de fuente usado en el título.
+ * @property descripSize Tamaño de fuente usado en la descripción.
+ */
 data class TextBlockConfig(
     var titleBlock: String,
     var title: String = "",
@@ -26,6 +38,24 @@ data class TextBlockConfig(
     var descripSize: TextUnit,
 )
 
+/**
+ * Componente que muestra una lista de bloques de texto con formato estructurado.
+ *
+ * Cada bloque se representa dentro de un contenedor con borde redondeado,
+ * fondo transparente y espaciado interno. Incluye un título y un texto
+ * descriptivo, organizados en una disposición horizontal.
+ *
+ * ### Características:
+ * - Usa un [Column] para apilar los bloques verticalmente.
+ * - Cada bloque tiene un borde negro y esquinas redondeadas (40.dp).
+ * - Separa el título y la descripción con una disposición [Row].
+ * - Aplica espaciado uniforme entre bloques mediante [Spacer].
+ *
+ * @param info Lista de configuraciones [TextBlockConfig] que definen los bloques a renderizar.
+ *
+ * @see TextBlockConfig
+ * @see TextComponent
+ */
 @Composable
 fun TextBlockComponent(info: List<TextBlockConfig>) {
     Column() {
@@ -66,6 +96,15 @@ fun TextBlockComponent(info: List<TextBlockConfig>) {
         }
     }
 }
+
+/**
+ * Vista previa del componente [TextBlockComponent].
+ *
+ * Muestra un ejemplo con dos bloques: uno para la sinopsis de *Naruto* y
+ * otro para información técnica del anime.
+ *
+ * @see TextBlockComponent
+ */
 
 @Preview
 @Composable
