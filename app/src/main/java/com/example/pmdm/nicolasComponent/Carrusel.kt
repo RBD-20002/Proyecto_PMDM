@@ -30,7 +30,26 @@ import com.example.pmdm.RicardoComponent.CardConfig
 import com.example.pmdm.model.DataProvider
 import kotlinx.coroutines.delay
 
-
+/**
+ * Carrusel automático de imágenes de anime mostrado en la pantalla de inicio.
+ *
+ * Este componente presenta una lista de elementos ([CardConfig]) en formato
+ * deslizable horizontal, avanzando automáticamente cada [intervalMs] milisegundos.
+ *
+ * Cada página muestra una imagen de anime con su título superpuesto y un
+ * indicador inferior de posición (círculos activos/inactivos).
+ *
+ * ### Características principales:
+ * - Avance automático entre elementos con animación.
+ * - Repetición infinita (vuelve al primer elemento al llegar al final).
+ * - Indicadores de posición que cambian de tamaño y opacidad según la página activa.
+ * - Adaptable mediante el parámetro [modifier].
+ *
+ * @param modifier Modificador para el tamaño o espaciado externo del carrusel.
+ * @param intervalMs Tiempo en milisegundos entre cada cambio automático de imagen.
+ * @param items Lista de configuraciones de tarjetas ([CardConfig]) a mostrar.
+ *              Por defecto usa `DataProvider.animeList`.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CarouselStartPage(
@@ -38,10 +57,13 @@ fun CarouselStartPage(
     intervalMs: Long = 3000L,
     items: List<CardConfig> = DataProvider.animeList
 ) {
+    // Si la lista está vacía, no renderiza nada
     if (items.isEmpty()) return
 
+    // Controla el estado del pager (posición actual, tamaño total, etc.)
     val pagerState = rememberPagerState(pageCount = { items.size })
 
+    // Efecto lanzado que cambia de página automáticamente cada cierto intervalo
     LaunchedEffect(pagerState.currentPage, items.size, intervalMs) {
         while (true) {
             delay(intervalMs)
@@ -50,6 +72,7 @@ fun CarouselStartPage(
         }
     }
 
+    // Contenedor principal del carrusel
     Box(modifier = modifier) {
         HorizontalPager(
             state = pagerState,
@@ -59,11 +82,14 @@ fun CarouselStartPage(
             pageSpacing = 12.dp
         ) { page ->
             val anime = items[page]
+
+            // Contenedor de cada página individual
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .clip(MaterialTheme.shapes.extraLarge)
             ) {
+                // Imagen principal
                 Image(
                     painter = painterResource(id = anime.imageId),
                     contentDescription = anime.imageDesc,
@@ -71,6 +97,7 @@ fun CarouselStartPage(
                     modifier = Modifier.fillMaxSize()
                 )
 
+                // Degradado superior oscuro para mejorar legibilidad del texto
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -83,6 +110,7 @@ fun CarouselStartPage(
                         .align(Alignment.TopStart)
                 )
 
+                // Título del anime
                 Text(
                     text = anime.title,
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
@@ -94,6 +122,7 @@ fun CarouselStartPage(
             }
         }
 
+        // Indicadores de posición (círculos inferiores)
         Row(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
@@ -116,6 +145,12 @@ fun CarouselStartPage(
     }
 }
 
+/**
+ * Vista previa del carrusel con datos de ejemplo de [DataProvider].
+ *
+ * Muestra el componente con dimensiones fijas y relleno horizontal
+ * para visualizar su comportamiento en el modo de diseño.
+ */
 @Preview(showBackground = true)
 @Composable
 private fun AutoCarouselFromDataPreview() {

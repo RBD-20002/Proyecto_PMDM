@@ -28,10 +28,31 @@ import com.example.pmdm.R
 import com.example.pmdm.model.DataProvider
 import com.example.pmdm.RicardoComponent.VerticalAnimeCard
 
+/**
+ * Pantalla principal de inicio de la aplicación.
+ *
+ * Esta pantalla actúa como la portada principal, mostrando un fondo con un
+ * carrusel superior de animes destacados y dos secciones horizontales con
+ * listas de animes recomendados y populares.
+ *
+ * ### Estructura:
+ * - **Fondo:** Imagen completa que sirve como background.
+ * - **Carrusel superior:** Componente [CarouselStartPage] que rota automáticamente entre animes.
+ * - **Listas inferiores:** Dos secciones horizontales (`Recomendados` y `Populares`)
+ *   con tarjetas de anime ([VerticalAnimeCard]).
+ *
+ * ### Características:
+ * - Diseño completamente adaptable a la pantalla.
+ * - Usa datos desde [DataProvider.animeList].
+ * - Integra navegación hacia la pantalla de detalles al pulsar una tarjeta.
+ * - Mantiene coherencia con el tema de Material 3.
+ *
+ * @param navController Controlador de navegación para redirigir a las pantallas de detalle de anime.
+ */
 @Composable
 fun StartPage(navController: androidx.navigation.NavController) {
     Box(modifier = Modifier.fillMaxSize()) {
-        // Fondo
+        // Fondo principal de la pantalla
         Image(
             painter = painterResource(R.drawable.login_page),
             contentDescription = "Fondo",
@@ -39,7 +60,7 @@ fun StartPage(navController: androidx.navigation.NavController) {
             contentScale = ContentScale.Crop
         )
 
-        // Carrusel superior
+        // Carrusel superior de animes destacados
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -49,12 +70,13 @@ fun StartPage(navController: androidx.navigation.NavController) {
             CarouselStartPage()
         }
 
-        // Listas horizontales (debajo del carrusel)
+        // Listas horizontales de contenido (debajo del carrusel)
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(top = 260.dp)
         ) {
+            // Sección "Recomendados"
             item {
                 Text(
                     "Recomendados",
@@ -73,6 +95,7 @@ fun StartPage(navController: androidx.navigation.NavController) {
                 Spacer(Modifier.height(12.dp))
             }
 
+            // Sección "Populares"
             item {
                 Text(
                     "Populares",
@@ -84,17 +107,23 @@ fun StartPage(navController: androidx.navigation.NavController) {
                     contentPadding = PaddingValues(horizontal = 16.dp),
                     horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
+                    // Se usa .shuffled() para variar el orden de los animes
                     items(DataProvider.animeList.shuffled(), key = { it.id }) { anime ->
                         VerticalAnimeCard(anime, navController)
                     }
                 }
-                Spacer(Modifier.height(80.dp)) // por si hay más contenido
+                Spacer(Modifier.height(80.dp)) // Espaciado adicional al final
             }
         }
-
     }
 }
 
+/**
+ * Vista previa del componente [StartPage].
+ *
+ * Muestra un ejemplo de la pantalla principal con un `NavController` de prueba,
+ * permitiendo revisar el diseño del fondo, el carrusel y las listas horizontales.
+ */
 @Preview(showBackground = true)
 @Composable
 fun StartPagePreview() {

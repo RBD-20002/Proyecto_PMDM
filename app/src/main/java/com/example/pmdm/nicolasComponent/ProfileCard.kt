@@ -25,9 +25,26 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.ui.graphics.Color
 
-
+/**
+ * Tarjeta de perfil del usuario con imagen, nombre y un icono decorativo.
+ *
+ * Este componente muestra una tarjeta vertical que contiene:
+ * - Una imagen principal (por ejemplo, foto de perfil o avatar del usuario).
+ * - El nombre o título del usuario.
+ * - Un pequeño icono de cámara al pie, indicando edición o foto.
+ *
+ * Suele utilizarse dentro de pantallas de perfil o configuraciones del usuario.
+ *
+ * ### Características:
+ * - Bordes redondeados con contorno negro.
+ * - Distribución vertical centrada.
+ * - Altura y anchura fijas para mantener consistencia visual.
+ *
+ * @param cardConfig Objeto [CardConfig] que contiene los datos a mostrar (imagen, descripción y título).
+ * @param modifier Modificador opcional para ajustar el tamaño, bordes o espaciado externo del componente.
+ */
 @Composable
-fun ProfileCard (
+fun ProfileCard(
     cardConfig: CardConfig,
     modifier: Modifier = Modifier
 ) {
@@ -39,9 +56,10 @@ fun ProfileCard (
                 shape = RoundedCornerShape(2.dp)
             )
             .width(140.dp)
-            .height(220.dp),
+            .height(220.dp)
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            // Imagen principal del perfil
             Image(
                 painter = painterResource(id = cardConfig.imageId),
                 contentDescription = cardConfig.imageDesc,
@@ -50,28 +68,35 @@ fun ProfileCard (
                     .fillMaxWidth()
                     .height(170.dp)
             )
+
+            // Título o nombre de usuario
             Text(
                 text = cardConfig.title,
                 style = MaterialTheme.typography.bodyMedium,
                 maxLines = 1,
                 modifier = Modifier.padding(top = 6.dp, start = 8.dp, end = 8.dp)
             )
+
+            // Icono inferior (decorativo o funcional)
             Icon(
                 imageVector = Icons.Default.PhotoCamera,
-                contentDescription = "Camara icon",
+                contentDescription = "Ícono de cámara",
                 modifier = Modifier
                     .padding(top = 4.dp)
                     .height(16.dp)
-                )
-
+            )
         }
     }
 }
 
+/**
+ * Vista previa del componente [ProfileCard].
+ *
+ * Muestra un ejemplo de tarjeta con datos ficticios para diseño y prueba visual.
+ */
 @Preview
 @Composable
 fun ProfileCardPreview() {
-
     val sample = CardConfig(
         id = 1,
         imageId = R.drawable.crocs,
@@ -80,5 +105,5 @@ fun ProfileCardPreview() {
         synopsis = "",
         info = ""
     )
-    ProfileCard(cardConfig = sample,)
+    ProfileCard(cardConfig = sample)
 }

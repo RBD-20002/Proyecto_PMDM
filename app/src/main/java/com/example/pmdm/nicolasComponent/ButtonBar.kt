@@ -13,19 +13,39 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.rememberNavController
 
+/**
+ * Barra de navegación inferior de la aplicación.
+ *
+ * Este componente muestra las secciones principales (rutas) definidas en la clase
+ * [com.example.pmdm.navigation.Destination], permitiendo al usuario cambiar entre
+ * pantallas como Inicio, Lista, Favoritos y Perfil.
+ *
+ * Se integra con `NavController` para navegar dentro del `NavHost` de la app y
+ * mantener el estado de las rutas visitadas.
+ *
+ * ### Características:
+ * - Resalta el ítem actual según la ruta activa.
+ * - Evita duplicar entradas en el back stack (`launchSingleTop = true`).
+ * - Restaura el estado de cada destino al regresar (`restoreState = true`).
+ * - Hace `popUpTo` la raíz del grafo para una navegación eficiente.
+ *
+ * @param navController Controlador de navegación usado para manejar las rutas activas.
+ * @param modifier Modificador opcional para ajustar estilo o tamaño del componente.
+ */
 @Composable
 fun NavigationBottomBar(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
+    // Lista de destinos que aparecerán en la barra inferior
     val items = listOf(
         com.example.pmdm.navigation.Destination.Start,
         com.example.pmdm.navigation.Destination.ListContend,
         com.example.pmdm.navigation.Destination.Fav,
         com.example.pmdm.navigation.Destination.Profile
+    )
 
-        )
-
+    // Obtiene la ruta actual para resaltar el ítem activo
     val backStackEntry by navController.currentBackStackEntryAsState()
 
     NavigationBar(modifier = modifier) {
@@ -39,13 +59,17 @@ fun NavigationBottomBar(
                 selected = selected,
                 onClick = {
                     navController.navigate(dest.route) {
+                        // Mantiene el historial de navegación limpio
                         popUpTo(navController.graph.startDestinationId) { saveState = true }
                         launchSingleTop = true
                         restoreState = true
                     }
                 },
                 icon = {
-                    Icon(imageVector = dest.icon, contentDescription = dest.contentDescription)
+                    Icon(
+                        imageVector = dest.icon,
+                        contentDescription = dest.contentDescription
+                    )
                 },
                 label = { Text(dest.label) }
             )
@@ -53,10 +77,14 @@ fun NavigationBottomBar(
     }
 }
 
+/**
+ * Vista previa del componente [NavigationBottomBar].
+ *
+ * Crea un `NavController` de ejemplo para mostrar la barra inferior en el modo de diseño.
+ */
 @Preview
 @Composable
 fun ButtomPreview() {
     val navController = rememberNavController()
-
     NavigationBottomBar(navController = navController)
 }

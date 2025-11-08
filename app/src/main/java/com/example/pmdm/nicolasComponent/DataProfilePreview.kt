@@ -1,6 +1,5 @@
 package com.example.pmdm.nicolasComponent
 
-
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,16 +18,36 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pmdm.RicardoComponent.TextComponent
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.itemsIndexed
 
+/**
+ * Modelo de datos que representa un campo de vista previa de perfil.
+ *
+ * @property label Etiqueta o nombre del campo (por ejemplo: "USER:", "EMAIL:").
+ * @property value Valor correspondiente al campo (por ejemplo: "NicoDev", "nico@example.com").
+ */
 data class PreviewFieldConfig(
     val label: String,
     val value: String
 )
 
-
+/**
+ * Componente que muestra una tarjeta de información de usuario con formato de perfil.
+ *
+ * Este componente crea un bloque con un título y una lista de pares *etiqueta-valor*
+ * para mostrar datos del usuario (por ejemplo, nombre, email, rol, etc.).
+ *
+ * Se presenta dentro de un contenedor con borde redondeado y color de fondo personalizable.
+ *
+ * ### Características:
+ * - Muestra un título centrado en la parte superior.
+ * - Lista los datos en filas con espaciado uniforme.
+ * - Personalizable en colores y tamaños mediante parámetros.
+ *
+ * @param title Título principal del bloque (por defecto `"DATOS USUARIO"`).
+ * @param items Lista de pares `label` y `value` a mostrar.
+ * @param borderColor Color del borde del contenedor (por defecto negro).
+ * @param backgroundColor Color de fondo del bloque (por defecto un azul oscuro).
+ */
 @Composable
 fun DataProfileComponent(
     title: String = "DATOS USUARIO",
@@ -39,55 +57,58 @@ fun DataProfileComponent(
 ) {
     Column(
         modifier = Modifier
-            .width(width = 300.dp)
+            .width(300.dp)
             .border(5.dp, borderColor, RoundedCornerShape(10.dp))
             .padding(10.dp)
-            .background(backgroundColor, RoundedCornerShape(10.dp)
-                )
+            .background(backgroundColor, RoundedCornerShape(10.dp))
     ) {
+        Box {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                // Título del bloque
+                TextComponent(
+                    text = title,
+                    textSize = 20.sp,
+                    textColor = Color.White,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(bottom = 24.dp)
+                )
 
-            Box {
+                // Lista de campos (usuario, email, rol, etc.)
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                        .padding(top = 10.dp),
+                    verticalArrangement = Arrangement.spacedBy(15.dp)
                 ) {
-                    TextComponent(
-                        text = title,
-                        textSize = 20.sp,
-                        textColor = Color.White,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(bottom = 24.dp)
-                    )
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 10.dp),
-                        verticalArrangement = Arrangement.spacedBy(15.dp)
-                    ) {
-                        items.forEach { item ->
-                            PreviewDataRow(label = item.label, value = item.value)
-                        }
+                    items.forEach { item ->
+                        // Cada fila muestra el label y valor correspondiente
+                        PreviewDataRow(label = item.label, value = item.value)
                     }
                 }
             }
         }
-
     }
+}
 
-
-
-
+/**
+ * Vista previa del componente [DataProfileComponent].
+ *
+ * Muestra un ejemplo de tarjeta de perfil con datos de usuario ficticios.
+ */
 @Preview
 @Composable
 fun DataPreviewComponentPreview() {
     val sampleItems = listOf(
-        PreviewFieldConfig(label = "USER:",  value = "NicoDev"),
+        PreviewFieldConfig(label = "USER:", value = "NicoDev"),
         PreviewFieldConfig(label = "EMAIL:", value = "nico@example.com"),
-        PreviewFieldConfig(label = "PASS:",  value = "********"),
-        PreviewFieldConfig(label = "ROLE:",  value = "Premium")
+        PreviewFieldConfig(label = "PASS:", value = "********"),
+        PreviewFieldConfig(label = "ROLE:", value = "Premium")
     )
 
     Box(
