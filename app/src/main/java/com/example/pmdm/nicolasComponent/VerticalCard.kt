@@ -66,6 +66,7 @@ fun VerticalAnimeCard(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(170.dp)
+                    .padding(top = 5.dp)
             )
 
             // Título del anime

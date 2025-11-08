@@ -16,6 +16,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import com.example.pmdm.R
+import com.example.pmdm.RicardoComponent.DataProvider
+import com.example.pmdm.nicolasComponent.FavColumnDisplay
 
 
 @Composable
@@ -35,10 +37,9 @@ fun FavoritePage() {
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-            Text(
-                text = "Tus Favoritos",
-                color = Color.White,
-                fontSize = 40.sp
+            FavColumnDisplay(
+                title = "Tus Favoritos",
+                favorites = DataProvider.animeList.take(15) //TODO: cambiar a los favoritos cuando se sepamos como
             )
         }
 
