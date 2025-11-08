@@ -1,14 +1,15 @@
 package com.example.pmdm.navigation
 
 import LoginPage
+import ProfilePage
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.pmdm.PagesC.DetailsPage
+import com.example.pmdm.PagesC.FavoritePage
 import com.example.pmdm.PagesC.ListContend
-import com.example.pmdm.PagesC.ProfilePage
 import com.example.pmdm.PagesC.StartPage
 import com.example.pmdm.model.DataProvider
 
@@ -26,6 +27,7 @@ fun AppNavHost(
         composable(Destination.ListContend.route) { ListContend(navController = navController) }
         composable(Destination.Profile.route)     { ProfilePage() }
         composable(Destination.Login.route)       { LoginPage() }
+        composable (Destination.Fav.route)        { FavoritePage() }
 
 
         composable("details/{id}") { backStackEntry ->

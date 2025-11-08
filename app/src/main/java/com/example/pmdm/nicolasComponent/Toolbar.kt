@@ -53,21 +53,6 @@ fun Toolbar(
             }
         },
 
-        actions = {
-            IconButton(
-                onClick = { Log.e("Msg", "Botón de ajustes") },
-                modifier = Modifier
-                    .size(40.dp)
-                    .clip(RoundedCornerShape(size = 16.dp))
-                    .background(MaterialTheme.colorScheme.primaryFixed)
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.Person,
-                    contentDescription = "Ajustes",
-                    tint = MaterialTheme.colorScheme.background
-                )
-            }
-        },
         modifier = Modifier.background(MaterialTheme.neonTextGradient).height(64.dp),
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.Transparent
