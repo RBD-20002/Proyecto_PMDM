@@ -4,6 +4,25 @@ import com.example.pmdm.R
 import com.example.pmdm.Components.CardConfig
 
 object DataProvider {
+
+    val favoriteAnime = mutableSetOf<Int>()
+
+    fun filterFavorite(animeId: Int){
+        if(favoriteAnime.contains(animeId)){
+            favoriteAnime.remove(animeId)
+        }else{
+            favoriteAnime.add(animeId)
+        }
+    }
+
+    fun isFavorite(animeId: Int): Boolean{
+        return favoriteAnime.contains(animeId)
+    }
+
+    fun getListFavoriteAnime(): List<CardConfig> {
+        return animeList.filter { favoriteAnime.contains(it.id) }
+    }
+
     val animeList = listOf(
         CardConfig(
             id = 1,

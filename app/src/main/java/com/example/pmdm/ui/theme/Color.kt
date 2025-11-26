@@ -17,4 +17,4 @@ val Fondo_Oscuro = Color(0xFF8A149F)
 
 val Icon = Color(0xFFA42898)
 
-val TextColor = Color(0xFFFFFFFF)
+val TextColor = Color(0xFF3F51B5)

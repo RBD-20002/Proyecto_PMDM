@@ -37,7 +37,8 @@ data class CardConfig(
     val synopsis: String,
     val info: String,
     val enlace1: String = "",
-    val enlace2: String = ""
+    val enlace2: String = "",
+    val favorite: Boolean ?= false
 )
 
 /**

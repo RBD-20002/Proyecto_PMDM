@@ -23,6 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
 import com.example.pmdm.Components.CardConfig
 import com.example.pmdm.model.DataProvider
@@ -130,8 +131,8 @@ fun ProfilePage() {
                     Spacer(Modifier.padding(top = 8.dp))
 
                     FavColumnDisplay(
-                        title = "Tus Favoritos",
-                        favorites = DataProvider.animeList.take(15) //TODO: cambiar a los favoritos cuando se sepamos como
+                        favorites = DataProvider.animeList.take(15),
+                        navController = rememberNavController()
                     )
                 }
             }

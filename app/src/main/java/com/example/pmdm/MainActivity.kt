@@ -20,6 +20,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.Components.NavigationBottomBar
 import com.example.pmdm.Components.Toolbar
+import com.example.pmdm.navigation.Destination
 import com.example.pmdm.ui.theme.PMDMTheme
 
 class MainActivity : ComponentActivity() {
@@ -58,14 +59,20 @@ private fun MainContent() {
         com.example.pmdm.navigation.Destination.Fav.route
     )
 
-    val isBottomRoute: Boolean = if (backStackEntry == null) {
-        true
-    } else {
-        backStackEntry
-            ?.destination
-            ?.hierarchy
-            ?.mapNotNull { it.route }
-            ?.any { it in bottomRoutes } == true
+    // Mostrar Toolbar en Inicio, Lista, Favoritos, Perfil Y Details
+    val isBottomRoute: Boolean = when {
+        backStackEntry == null -> true
+        else -> {
+            val currentRoute = backStackEntry?.destination?.route
+
+            currentRoute != null && (
+                    currentRoute == Destination.Start.route ||
+                            currentRoute == Destination.ListContend.route ||
+                            currentRoute == Destination.Profile.route ||
+                            currentRoute == Destination.Fav.route ||
+                            currentRoute.startsWith("details/")
+                    )
+        }
     }
 
     Scaffold(
