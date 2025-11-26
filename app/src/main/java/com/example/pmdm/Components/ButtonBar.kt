@@ -56,14 +56,15 @@ fun NavigationBottomBar(
                 ?.hierarchy
                 ?.any { it.route == dest.route } == true
 
+            //SE MODIFICO EN PARA QUE NO SE GUARDE EL ESTADO Y SIEMRPRE SE SETEE
             NavigationBarItem(
                 selected = selected,
                 onClick = {
                     navController.navigate(dest.route) {
                         // Mantiene el historial de navegación limpio
-                        popUpTo(navController.graph.startDestinationId) { saveState = true }
+                        popUpTo(navController.graph.startDestinationId) { saveState = false }
                         launchSingleTop = true
-                        restoreState = true
+                        restoreState = false
                     }
                 },
                 icon = {

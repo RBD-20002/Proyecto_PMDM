@@ -56,7 +56,7 @@ sealed class Destination(
      * Esta pantalla suele recibir un parámetro dinámico `id` en la ruta.
      */
     data object Details : Destination(
-        route = "details",
+        route = "details",  // ← Coincide con NavHost <- modifique esto agregando {id}
         icon = Icons.Default.Info,
         label = "Detalles",
         contentDescription = "Pantalla de detalles"

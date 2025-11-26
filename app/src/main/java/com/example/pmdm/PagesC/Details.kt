@@ -14,7 +14,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,26 +30,16 @@ import androidx.compose.ui.unit.sp
 import com.example.pmdm.R
 import com.example.pmdm.Components.BlockDisplayCardComponent
 import com.example.pmdm.Components.CardConfig
+import com.example.pmdm.Components.SnackbarComponent
 import com.example.pmdm.Components.TextBlockConfig
 import com.example.pmdm.Components.TextComponent
+import com.example.pmdm.model.DataProvider
+import kotlinx.coroutines.launch
 
 @Composable
 fun DetailsPage(anime: CardConfig) {
-    val infos = listOf(
-        TextBlockConfig(
-            titleBlock = "SINOPSIS:",
-            title = anime.title,
-            descrip = anime.synopsis,
-            titleSize = 15.sp,
-            descripSize = 15.sp
-        ),
-        TextBlockConfig(
-            titleBlock = "INFORMACION:",
-            descrip = anime.info,
-            titleSize = 13.sp,
-            descripSize = 15.sp
-        )
-    )
+    val snackbarHostState = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -88,13 +82,32 @@ fun DetailsPage(anime: CardConfig) {
             item { Spacer(modifier = Modifier.height(80.dp)) }
         }
         FloatingActionButton(
-            onClick = { Log.e("Prueba 3", "Click en el boton de favorito") },
+            onClick = {
+                val favorite = DataProvider.isFavorite(animeId = anime.id)
+                DataProvider.filterFavorite(animeId = anime.id)
+
+                scope.launch {
+                    snackbarHostState.showSnackbar(
+                        message = if(!favorite){
+                            "${anime.title} añadido a favoritos"
+                            }else{
+                                "${anime.title} eliminado de favoritos"
+                            },
+                        duration = SnackbarDuration.Short
+                    )
+                }
+            },
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(16.dp)
         ) {
             Icon(Icons.Filled.Add, "Boton Favorito")
         }
+
+        SnackbarComponent(
+            snackbarHostState = snackbarHostState,
+            modifier = Modifier.align(Alignment.BottomCenter)
+        )
     }
 }
 

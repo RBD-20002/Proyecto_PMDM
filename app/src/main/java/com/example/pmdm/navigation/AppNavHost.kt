@@ -9,7 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.pmdm.PagesC.DetailsPage
 import com.example.pmdm.PagesC.FavoritePage
-import com.example.pmdm.Components.ListContend
+import com.example.pmdm.PagesC.ListContend
 import com.example.pmdm.PagesC.StartPage
 import com.example.pmdm.model.DataProvider
 
@@ -48,7 +48,7 @@ fun AppNavHost(
         composable(Destination.ListContend.route) { ListContend(navController = navController) }
         composable(Destination.Profile.route)     { ProfilePage() }
         composable(Destination.Login.route)       { LoginPage() }
-        composable(Destination.Fav.route)         { FavoritePage() }
+        composable(Destination.Fav.route)         { FavoritePage(navController = navController) }
 
         // Ruta dinámica para la pantalla de detalles (recibe un ID por parámetro)
         composable("details/{id}") { backStackEntry ->

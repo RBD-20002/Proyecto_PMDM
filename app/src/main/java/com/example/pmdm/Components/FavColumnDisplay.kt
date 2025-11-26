@@ -1,13 +1,18 @@
 package com.example.pmdm.Components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -35,24 +40,29 @@ import com.example.pmdm.model.DataProvider
  */
 @Composable
 fun FavColumnDisplay(
-    title: String = "Tus Favoritos",
     favorites: List<CardConfig>,
-    navController: NavController? = null
+    navController: NavController
 ) {
     // Si no se recibe un NavController, se crea uno local
-    val controller = navController ?: rememberNavController()
+    val controller = navController
 
     // Dividimos la lista en grupos de 2 animes por fila
     val rows = favorites.chunked(2)
 
     // Columna principal que contiene el título y las filas
-    Column {
-        // Título simple
-        Text(
-            text = title,
-            color = Color.White,
-            fontSize = 24.sp,
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Box(modifier = Modifier
+            .background(
+                color = Color.Gray,
+                shape = RoundedCornerShape(16.dp)
+            ).padding(5.dp)
+        ) {
+            // Título simple
+            TextComponent(
+                text = "FAVORITOS",
+                textSize = 30.sp
             )
+        }
 
         // Cada grupo forma una fila con 2 animes
         for (group in rows) {
@@ -63,7 +73,7 @@ fun FavColumnDisplay(
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 for (anime in group) {
-                    VerticalAnimeCard(anime, controller)
+                    VerticalAnimeCard(anime, navController)
                 }
             }
         }
