@@ -1,4 +1,4 @@
-package com.example.pmdm.RicardoComponent
+package com.example.pmdm.Components
 
 
 import androidx.compose.material3.Text

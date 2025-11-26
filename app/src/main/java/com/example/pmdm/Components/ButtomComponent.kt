@@ -1,4 +1,4 @@
-package com.example.pmdm.RicardoComponent
+package com.example.pmdm.Components
 
 import android.util.Log
 import androidx.compose.foundation.layout.Box

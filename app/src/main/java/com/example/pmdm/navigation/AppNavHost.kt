@@ -9,7 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.pmdm.PagesC.DetailsPage
 import com.example.pmdm.PagesC.FavoritePage
-import com.example.pmdm.PagesC.ListContend
+import com.example.pmdm.Components.ListContend
 import com.example.pmdm.PagesC.StartPage
 import com.example.pmdm.model.DataProvider
 

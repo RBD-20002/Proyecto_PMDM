@@ -1,9 +1,8 @@
-package com.example.pmdm.RicardoComponent
+package com.example.pmdm.Components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Card
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -36,7 +35,9 @@ data class CardConfig(
     val imageDesc: String = "",
     val title: String,
     val synopsis: String,
-    val info: String
+    val info: String,
+    val enlace1: String = "",
+    val enlace2: String = ""
 )
 
 /**
@@ -128,7 +129,6 @@ fun PreviewCard(){
             synopsis = "",
             info = ""
         )
-
     )
 
     CardComponent(input = inputs, navController = rememberNavController())
