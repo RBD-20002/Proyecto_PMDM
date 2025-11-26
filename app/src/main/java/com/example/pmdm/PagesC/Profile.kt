@@ -23,14 +23,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
-import com.example.pmdm.RicardoComponent.CardConfig
+import com.example.pmdm.Components.CardConfig
 import com.example.pmdm.model.DataProvider
-import com.example.pmdm.nicolasComponent.DataProfileComponent
-import com.example.pmdm.nicolasComponent.FavColumnDisplay
-import com.example.pmdm.nicolasComponent.PreviewFieldConfig
-import com.example.pmdm.nicolasComponent.ProfileCard
+import com.example.pmdm.Components.DataProfileComponent
+import com.example.pmdm.Components.FavColumnDisplay
+import com.example.pmdm.Components.PreviewFieldConfig
+import com.example.pmdm.Components.ProfileCard
 
 /**
  * Pantalla de perfil del usuario.

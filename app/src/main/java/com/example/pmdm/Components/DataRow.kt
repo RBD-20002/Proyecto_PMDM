@@ -1,4 +1,4 @@
-package com.example.pmdm.nicolasComponent
+package com.example.pmdm.Components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -10,7 +10,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.pmdm.RicardoComponent.TextComponent
 
 /**
  * Fila de vista previa que muestra un par **etiqueta–valor** dentro de un bloque de datos.

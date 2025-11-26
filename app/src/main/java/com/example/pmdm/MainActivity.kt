@@ -18,7 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.pmdm.nicolasComponent.Toolbar
+import com.example.pmdm.Components.NavigationBottomBar
+import com.example.pmdm.Components.Toolbar
 import com.example.pmdm.ui.theme.PMDMTheme
 
 class MainActivity : ComponentActivity() {
@@ -96,7 +97,7 @@ private fun MainContent() {
         },
         bottomBar = {
             if (isBottomRoute) {
-                com.example.pmdm.nicolasComponent.NavigationBottomBar(navController = navController)
+                NavigationBottomBar(navController = navController)
             }
         }
     ) { innerPadding ->

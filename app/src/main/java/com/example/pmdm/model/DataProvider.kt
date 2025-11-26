@@ -1,7 +1,7 @@
 package com.example.pmdm.model
 
 import com.example.pmdm.R
-import com.example.pmdm.RicardoComponent.CardConfig
+import com.example.pmdm.Components.CardConfig
 
 object DataProvider {
     val animeList = listOf(
@@ -28,7 +28,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "23 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Jueves, 03 de Octubre de 2002"
+                    "Jueves, 03 de Octubre de 2002",
+            enlace1 = "https://www3.animeflv.net/anime/naruto",
+            enlace2 = "https://jkanime.net/naruto"
         ),
         CardConfig(
             id = 2,
@@ -39,7 +41,7 @@ object DataProvider {
             info = "Tipo:\n" +
                     "Serie\n\n" +
                     "Generos:\n" +
-                    "Sobrenatural, Super Poderes, Shounen, Comedia, Accionn\n\n" +
+                    "Sobrenatural, Super Poderes, Shounen, Comedia, Accion\n\n" +
                     "Studios:\n" +
                     "Pierrot\n\n" +
                     "Temporada:\n" +
@@ -53,7 +55,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Martes, 05 de Octubre de 2004"
+                    "Martes, 05 de Octubre de 2004",
+            enlace1 = "https://www3.animeflv.net/anime/bleach-tv",
+            enlace2 = "https://jkanime.net/bleach"
         ),
         CardConfig(
             id = 3,
@@ -80,7 +84,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Miercoles, 26 de Febrero de 1986"
+                    "Miercoles, 26 de Febrero de 1986",
+            enlace1 = "https://www3.animeflv.net/anime/dragon-ball-z",
+            enlace2 = "https://jkanime.net/dragon-ball-z/"
         ),
         CardConfig(
             id = 4,
@@ -105,7 +111,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Miercoles, 20 de Octubre de 1999"
+                    "Miercoles, 20 de Octubre de 1999",
+            enlace1 = "https://www3.animeflv.net/anime/one-piece-tv",
+            enlace2 = "https://jkanime.net/one-piece/"
         ),
         CardConfig(
             id = 5,
@@ -128,7 +136,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Martes, 03 de Octubre de 1995"
+                    "Martes, 03 de Octubre de 1995",
+            enlace1 = "https://www3.animeflv.net/anime/neon-genesis-evangelion",
+            enlace2 = "https://jkanime.net/evangelion/"
         ),
         CardConfig(
             id = 6,
@@ -151,7 +161,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Viernes, 06 de Octubre de 2006"
+                    "Viernes, 06 de Octubre de 2006",
+            enlace1 = "https://www3.animeflv.net/anime/code-geass",
+            enlace2 = "https://jkanime.net/code-geass-hangyaku-no-lelouch/"
         ),
         CardConfig(
             id = 7,
@@ -176,7 +188,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "23 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Miercoles, 04 de Octubre de 2000"
+                    "Miercoles, 04 de Octubre de 2000",
+            enlace1 = "https://www3.animeflv.net/anime/hajime-no-ippo",
+            enlace2 = "https://jkanime.net/hajime-no-ippo/"
         ),
         CardConfig(
             id = 8,
@@ -201,7 +215,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "23 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Jueves, 11 de Octubre de 2001"
+                    "Jueves, 11 de Octubre de 2001",
+            enlace1 = "https://www3.animeflv.net/anime/hellsing",
+            enlace2 = "https://jkanime.net/hellsing/"
         ),
         CardConfig(
             id = 9,
@@ -226,7 +242,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min.\n\n" +
                     "Emitido:\n" +
-                    "Domingo, 06 de Julio de 2025"
+                    "Domingo, 06 de Julio de 2025",
+            enlace1 = "https://www3.animeflv.net/anime/gachiakuta",
+            enlace2 = "https://jkanime.net/gachiakuta/"
         ),
         CardConfig(
             id = 10,
@@ -251,7 +269,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min.\n\n" +
                     "Emitido:\n" +
-                    "Miercoles, 04 de Octubre de 2023"
+                    "Miercoles, 04 de Octubre de 2023",
+            enlace1 = "https://www3.animeflv.net/anime/tokyo-revengers",
+            enlace2 = "https://jkanime.net/tokyo-revengers/"
         ),
         CardConfig(
             id = 11,
@@ -274,7 +294,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min por episodio.\n\n" +
                     "Emitido:\n" +
-                    "Lunes, 11 de Julio de 2016"
+                    "Lunes, 11 de Julio de 2016",
+            enlace1 = "https://www3.animeflv.net/anime/mob-psycho-100",
+            enlace2 = "https://jkanime.net/mob-psycho-100/"
         ),
         CardConfig(
             id = 12,
@@ -299,7 +321,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "23 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Sabado, 13 de Abril de 2024"
+                    "Sabado, 13 de Abril de 2024",
+            enlace1 = "https://www3.animeflv.net/anime/kaijuu-8gou",
+            enlace2 = "https://jkanime.net/kaijuu-8-gou/"
         ),
         CardConfig(
             id = 13,
@@ -324,7 +348,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Domingo, 07 de Abril de 2013"
+                    "Domingo, 07 de Abril de 2013",
+            enlace1 = "https://www3.animeflv.net/anime/shingeki-no-kyojin",
+            enlace2 ="https://jkanime.net/shingeki-no-kyojin/"
         ),
         CardConfig(
             id = 14,
@@ -349,7 +375,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Jueves, 04 de Julio de 2014"
+                    "Jueves, 04 de Julio de 2014",
+            enlace1 = "https://www3.animeflv.net/anime/tokyo-ghoul",
+            enlace2 = "https://jkanime.net/tokyo-ghoul/"
         ),
         CardConfig(
             id = 15,
@@ -374,7 +402,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "23 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Martes, 03 de Octubre de 2006"
+                    "Martes, 03 de Octubre de 2006",
+            enlace1 = "https://www3.animeflv.net/anime/death-note",
+            enlace2 = "https://jkanime.net/death-note/"
         ),
         CardConfig(
             id = 16,
@@ -399,7 +429,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "23 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Martes, 06 de Abril de 2004"
+                    "Martes, 06 de Abril de 2004",
+            enlace1 = "https://www3.animeflv.net/anime/monster",
+            enlace2 = "https://jkanime.net/monster/"
         ),
         CardConfig(
             id = 17,
@@ -424,7 +456,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Miercoles, 08 de Octubre de 1997"
+                    "Miercoles, 08 de Octubre de 1997",
+            enlace1 = "https://www3.animeflv.net/anime/berserk",
+            enlace2 = "https://jkanime.net/berserk/"
         ),
         CardConfig(
             id = 18,
@@ -449,7 +483,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Martes, 10 de Enero de 2012"
+                    "Martes, 10 de Enero de 2012",
+            enlace1 = "https://www3.animeflv.net/anime/another",
+            enlace2 = "https://jkanime.net/another/"
         ),
         CardConfig(
             id = 19,
@@ -474,7 +510,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "23 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Martes, 08 de Enero de 2001"
+                    "Martes, 08 de Enero de 2001",
+            enlace1 = "https://www3.animeflv.net/anime/drappler-baki",
+            enlace2 = "https://jkanime.net/grappler-baki-tv/"
         ),
         CardConfig(
             id = 20,
@@ -499,7 +537,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Viernes, 06 de Julio de 2020"
+                    "Viernes, 06 de Julio de 2020",
+            enlace1 = "no disponible",
+            enlace2 = "https://jkanime.net/the-god-of-high-school/"
         ),
         CardConfig(
             id = 21,
@@ -524,7 +564,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Viernes, 06 de Abril de 2018"
+                    "Viernes, 06 de Abril de 2018",
+            enlace1 = "https://www3.animeflv.net/anime/megalo-box",
+            enlace2 = "https://jkanime.net/megalo-box/"
         ),
         CardConfig(
             id = 22,
@@ -549,7 +591,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Domingo, 07 de Enero de 2019"
+                    "Domingo, 07 de Enero de 2019",
+            enlace1 = "https://www3.animeflv.net/anime/dororo",
+            enlace2 = "https://jkanime.net/dororo/"
         ),
         CardConfig(
             id = 23,
@@ -574,7 +618,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "23 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Domingo, 06 de Abril de 2019"
+                    "Domingo, 06 de Abril de 2019",
+            enlace1 = "https://www3.animeflv.net/anime/kimetsu-no-yaiba",
+            enlace2 = "https://jkanime.net/kimetsu-no-yaiba/"
         ),
         CardConfig(
             id = 24,
@@ -599,7 +645,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Viernes, 05 de Enero de 2014"
+                    "Viernes, 05 de Enero de 2014",
+            enlace1 = "https://www3.animeflv.net/anime/noragami",
+            enlace2 = "https://jkanime.net/noragami/"
         ),
         CardConfig(
             id = 25,
@@ -624,7 +672,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Sábado, 04 de Octubre de 2003"
+                    "Sábado, 04 de Octubre de 2003",
+            enlace1 = "https://www3.animeflv.net/anime/fullmetal-alchemist-brotherhood",
+            enlace2 = "https://jkanime.net/fullmetal-alchemist/"
         ),
         CardConfig(
             id = 26,
@@ -649,33 +699,11 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Martes, 03 de Octubre de 2017"
+                    "Martes, 03 de Octubre de 2017",
+            enlace1 = "https://www3.animeflv.net/anime/black-clover-tv",
+            enlace2 = "https://jkanime.net/black-clover-tv/"
         ),
-        CardConfig(
-            id = 26,
-            imageId = R.drawable.black_clover,
-            imageDesc = "Black Clover",
-            title = "BLACK CLOVER",
-            synopsis = "Black Clover sigue a Asta, un joven sin poderes mágicos en un mundo donde la magia lo es todo, y a Yuno, su amigo y rival prodigio. Ambos buscan convertirse en el Rey Mago. La serie combina acción, aventuras y desarrollo de habilidades mientras enfrentan enemigos poderosos y desafíos mágicos.",
-            info = "Tipo:\n" +
-                    "Serie\n\n" +
-                    "Generos:\n" +
-                    "Accion, Aventura, Fantasia, Magia, Shounen\n\n" +
-                    "Studios:\n" +
-                    "Studio Pierrot\n\n" +
-                    "Temporada:\n" +
-                    "Otoño 2017\n\n" +
-                    "Demografia:\n" +
-                    "Shounen\n\n" +
-                    "Idiomas:\n" +
-                    "Japonés , Español Latino\n\n" +
-                    "Episodios:\n" +
-                    "170+\n\n" +
-                    "Duracion:\n" +
-                    "24 min. por episodio\n\n" +
-                    "Emitido:\n" +
-                    "Martes, 03 de Octubre de 2017"
-        ),
+
         CardConfig(
             id = 27,
             imageId = R.drawable.boku_dake_ga_inai_machi,
@@ -699,7 +727,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "23 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Viernes, 08 de Enero de 2016"
+                    "Viernes, 08 de Enero de 2016",
+            enlace1 = "https://www3.animeflv.net/anime/boku-dake-ga-inai-machi",
+            enlace2 = "https://jkanime.net/boku-dake-ga-inai-machi/"
         ),
         CardConfig(
             id = 28,
@@ -724,7 +754,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "23 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Viernes, 05 de Julio de 2015"
+                    "Viernes, 05 de Julio de 2015",
+            enlace1 = "https://www3.animeflv.net/anime/charlotte",
+            enlace2 = "https://jkanime.net/charlotte-/"
         ),
         CardConfig(
             id = 29,
@@ -749,7 +781,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "23 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Viernes, 03 de Abril de 2010"
+                    "Viernes, 03 de Abril de 2010",
+            enlace1 = "https://www3.animeflv.net/anime/angel-beats",
+            enlace2 = "https://jkanime.net/angel-beats/"
         ),
         CardConfig(
             id = 30,
@@ -774,7 +808,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Viernes, 09 de Enero de 2015"
+                    "Viernes, 09 de Enero de 2015",
+            enlace1 = "https://www3.animeflv.net/anime/death-parade",
+            enlace2 = "https://jkanime.net/death-parade/"
         ),
         CardConfig(
             id = 31,
@@ -799,10 +835,9 @@ object DataProvider {
                     "Duracion:\n" +
                     "23 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Viernes, 12 de Octubre de 2012"
+                    "Viernes, 12 de Octubre de 2012",
+            enlace1 = "https://www3.animeflv.net/anime/psycho-pass",
+            enlace2 = "https://jkanime.net/psycho-pass/"
         )
-
     )
-
-    fun getAnimeById(id: Int): CardConfig? = animeList.find { it.id == id }
 }

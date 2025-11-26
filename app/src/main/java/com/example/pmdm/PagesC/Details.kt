@@ -3,13 +3,13 @@ package com.example.pmdm.PagesC
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.FloatingActionButton
@@ -17,15 +17,17 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pmdm.R
-import com.example.pmdm.RicardoComponent.CardConfig
-import com.example.pmdm.RicardoComponent.TextBlockComponent
-import com.example.pmdm.RicardoComponent.TextBlockConfig
+import com.example.pmdm.Components.BlockDisplayCardComponent
+import com.example.pmdm.Components.CardConfig
+import com.example.pmdm.Components.TextBlockConfig
+import com.example.pmdm.Components.TextComponent
 
 @Composable
 fun DetailsPage(anime: CardConfig) {
@@ -64,28 +66,34 @@ fun DetailsPage(anime: CardConfig) {
             item { Spacer(modifier = Modifier.height(30.dp)) }
 
             item {
-                Image(
-                    painter = painterResource(anime.imageId),
-                    contentDescription = anime.imageDesc,
-                    modifier = Modifier.size(250.dp),
-                    contentScale = ContentScale.Fit,
-                )
-                Spacer(modifier = Modifier.height(30.dp))
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ){
+                    Image(
+                        painter = painterResource(anime.imageId),
+                        contentDescription = anime.imageDesc,
+                        modifier = Modifier.size(250.dp),
+                        contentScale = ContentScale.Fit,
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    TextComponent(text = anime.title, textSize = 30.sp, textColor = Color.Cyan)
+                    Spacer(modifier = Modifier.height(10.dp))
+                }
             }
 
-            items(infos) { config ->
-                TextBlockComponent(info = listOf(config))
+            item {
+                BlockDisplayCardComponent(animeInfo = anime)
             }
 
             item { Spacer(modifier = Modifier.height(80.dp)) }
         }
         FloatingActionButton(
-            onClick = { Log.e("Prueba 3","Click en el boton de favorito") },
+            onClick = { Log.e("Prueba 3", "Click en el boton de favorito") },
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(16.dp)
         ) {
-            Icon(Icons.Filled.Add,"Boton Favorito")
+            Icon(Icons.Filled.Add, "Boton Favorito")
         }
     }
 }
@@ -115,11 +123,29 @@ fun PreviewDetails() {
     val sample = CardConfig(
         id = 1,
         imageId = R.drawable.naruto,
-        imageDesc = "Naruto",
-        title = "Naruto",
-        synopsis = "Naruto sigue a un joven ninja marginado, Naruto Uzumaki, que sueña con convertirse en Hokage para ser reconocido por todos.",
-        info = "Tipo: Serie\nEpisodios: 220\nEstudio: Pierrot\nAño: 2002"
+        imageDesc = "Naruto Uzumaki",
+        title = "NARUTO",
+        synopsis = "Naruto sigue a un joven ninja marginado, Naruto Uzumaki, que sueña con convertirse en Hokage, el líder de su aldea, para ganar reconocimiento. Lleva dentro al demonio Zorro de Nueve Colas, lo que lo hace temido por muchos. La historia muestra su crecimiento, sus amistades y sus batallas por proteger lo que ama.",
+        info = "Tipo:\n" +
+                "Serie\n\n" +
+                "Generos:\n" +
+                "Super Poderes, Shounen, Artes Marciales, Comedia, Accion\n\n" +
+                "Studios:\n" +
+                "Pierrot\n\n" +
+                "Temporada:\n" +
+                "Otoño 2002\n\n" +
+                "Demografia:\n" +
+                "Shounen\n\n" +
+                "Idiomas:\n" +
+                "Japonés\n\n" +
+                "Episodios:\n" +
+                "220\n\n" +
+                "Duracion:\n" +
+                "23 min. por episodio\n\n" +
+                "Emitido:\n" +
+                "Jueves, 03 de Octubre de 2002",
+        enlace1 = "https://www3.animeflv.net/anime/naruto",
+        enlace2 = "https://jkanime.net/naruto"
     )
-
     DetailsPage(anime = sample)
 }

@@ -1,4 +1,4 @@
-package com.example.pmdm.RicardoComponent
+package com.example.pmdm.Components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

@@ -19,9 +19,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pmdm.R
-import com.example.pmdm.RicardoComponent.BlockInputsData
-import com.example.pmdm.RicardoComponent.ButtomComponent
-import com.example.pmdm.RicardoComponent.InputFieldConfig
+import com.example.pmdm.Components.BlockInputsData
+import com.example.pmdm.Components.ButtomComponent
+import com.example.pmdm.Components.InputFieldConfig
 
 @Composable
 fun LoginPage(){

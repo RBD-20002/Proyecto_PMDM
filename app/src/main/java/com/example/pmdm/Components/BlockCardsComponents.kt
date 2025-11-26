@@ -1,4 +1,4 @@
-package com.example.pmdm.RicardoComponent
+package com.example.pmdm.Components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

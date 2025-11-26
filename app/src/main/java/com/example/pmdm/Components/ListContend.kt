@@ -1,4 +1,4 @@
-package com.example.pmdm.PagesC
+package com.example.pmdm.Components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -11,7 +11,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import com.example.pmdm.R
-import com.example.pmdm.RicardoComponent. *
 import com.example.pmdm.model.DataProvider
 
 @Composable

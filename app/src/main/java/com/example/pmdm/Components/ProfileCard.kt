@@ -1,4 +1,4 @@
-package com.example.pmdm.nicolasComponent
+package com.example.pmdm.Components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -20,7 +20,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pmdm.R
-import com.example.pmdm.RicardoComponent.CardConfig
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.ui.graphics.Color

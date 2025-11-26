@@ -1,4 +1,4 @@
-package com.example.pmdm.nicolasComponent
+package com.example.pmdm.Components
 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -12,6 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.rememberNavController
+import com.example.pmdm.navigation.Destination
 
 /**
  * Barra de navegación inferior de la aplicación.
@@ -39,10 +40,10 @@ fun NavigationBottomBar(
 ) {
     // Lista de destinos que aparecerán en la barra inferior
     val items = listOf(
-        com.example.pmdm.navigation.Destination.Start,
-        com.example.pmdm.navigation.Destination.ListContend,
-        com.example.pmdm.navigation.Destination.Fav,
-        com.example.pmdm.navigation.Destination.Profile
+        Destination.Start,
+        Destination.ListContend,
+        Destination.Fav,
+        Destination.Profile
     )
 
     // Obtiene la ruta actual para resaltar el ítem activo

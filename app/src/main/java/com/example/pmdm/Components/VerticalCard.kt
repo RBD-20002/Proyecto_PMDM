@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.pmdm.Components.CardConfig
 import com.example.pmdm.R
 
 /**
@@ -41,7 +42,7 @@ import com.example.pmdm.R
  * }
  * ```
  *
- * @param cardConfig Objeto [CardConfig] que contiene la información del anime (imagen, título e id).
+ * @param cardConfig Objeto [com.example.pmdm.Components.CardConfig] que contiene la información del anime (imagen, título e id).
  * @param navController Controlador de navegación que gestiona el cambio hacia la vista de detalles.
  * @param modifier Modificador opcional para ajustar el tamaño, espaciado o estilo visual.
  */
