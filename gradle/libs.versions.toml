@@ -14,6 +14,7 @@ navigationRuntimeKtx = "2.9.5"
 runtimeSaveable = "1.9.4"
 runtime = "1.9.4"
 ui = "1.9.4"
+roomCompiler = "2.8.4"
 
 [libraries]
 androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }

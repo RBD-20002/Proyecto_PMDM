@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.pmdm.Anime
 import com.example.pmdm.R
 
 /**
@@ -39,7 +40,22 @@ data class CardConfig(
     val enlace1: String = "",
     val enlace2: String = "",
     val favorite: Boolean ?= false
-)
+){
+    // CONSTRUCTOR NUEVO para usar con el modelo Anime
+    constructor(
+        anime: Anime  // ¡Usa el Anime que creamos arriba!
+    ) : this(
+        id = anime.id,
+        imageId = anime.imageId,
+        imageDesc = anime.imageDesc,
+        title = anime.title,
+        synopsis = anime.synopsis,
+        info = anime.info,
+        enlace1 = anime.enlace1,
+        enlace2 = anime.enlace2,
+        favorite = anime.isFavorite
+    )
+}
 
 /**
  * Componente que muestra una o varias tarjetas de contenido.
