@@ -14,12 +14,14 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.Components.BlockCardsComponents
 import com.example.pmdm.R
+import com.example.pmdm.model.CardConfig
 import com.example.pmdm.model.DataProvider
 
 @Composable
-fun ListContend(navController: NavController) {
-    val animeList = DataProvider.animeList
-
+fun ListContend(
+    navController: NavController,
+    animeList: List<CardConfig>
+){
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -35,9 +37,16 @@ fun ListContend(navController: NavController) {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun preview(){
-    val navController = rememberNavController()
-    ListContend(navController = navController)
+fun ListContendPreview() {
+    val sample = listOf(
+        CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+        CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+    )
+
+    ListContend(
+        navController = rememberNavController(),
+        animeList = sample
+    )
 }

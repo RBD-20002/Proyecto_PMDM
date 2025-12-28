@@ -36,7 +36,11 @@ import com.example.pmdm.model.DataProvider
 import kotlinx.coroutines.launch
 
 @Composable
-fun DetailsPage(anime: CardConfig) {
+fun DetailsPage(
+    anime: CardConfig,
+    isFavorite: Boolean,
+    onToggleFavorite: (CardConfig) -> Unit
+) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
@@ -82,16 +86,11 @@ fun DetailsPage(anime: CardConfig) {
         }
         FloatingActionButton(
             onClick = {
-                val favorite = DataProvider.isFavorite(animeId = anime.id)
-                DataProvider.filterFavorite(animeId = anime.id)
-
+                onToggleFavorite(anime)
                 scope.launch {
                     snackbarHostState.showSnackbar(
-                        message = if(!favorite){
-                            "${anime.title} añadido a favoritos"
-                            }else{
-                                "${anime.title} eliminado de favoritos"
-                            },
+                        message = if(!isFavorite) "${anime.title} añadido a favoritos"
+                        else "${anime.title} eliminado de favoritos",
                         duration = SnackbarDuration.Short
                     )
                 }
@@ -159,5 +158,5 @@ fun PreviewDetails() {
         enlace1 = "https://www3.animeflv.net/anime/naruto",
         enlace2 = "https://jkanime.net/naruto"
     )
-    DetailsPage(anime = sample)
+    DetailsPage(anime = sample, isFavorite = false, onToggleFavorite = {})
 }
