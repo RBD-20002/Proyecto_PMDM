@@ -23,6 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
 import com.example.pmdm.Components.CardConfig
@@ -31,6 +32,7 @@ import com.example.pmdm.Components.DataProfileComponent
 import com.example.pmdm.Components.FavColumnDisplay
 import com.example.pmdm.Components.PreviewFieldConfig
 import com.example.pmdm.Components.ProfileCard
+import com.example.pmdm.model.CardConfig
 
 /**
  * Pantalla de perfil del usuario.
@@ -65,82 +67,54 @@ import com.example.pmdm.Components.ProfileCard
  * @see DataProfileComponent
  */
 @Composable
-fun ProfilePage() {
+fun ProfilePage(
+    profileData: List<PreviewFieldConfig>,
+    favorites: List<CardConfig>,
+    canEdit: Boolean,
+    navController: NavController
+) {
     Box(Modifier.fillMaxSize()) {
-        // Imagen de fondo a pantalla completa
         Image(
             painter = painterResource(R.drawable.login_page),
             contentDescription = null,
             modifier = Modifier.matchParentSize(),
             contentScale = ContentScale.Crop
         )
+
         LazyColumn {
             item {
-                // Contenido principal
                 Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(top = 26.dp),
+                    modifier = Modifier.fillMaxSize().padding(top = 26.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    ProfileCard(
-                        cardConfig = CardConfig(
-                            id = 1,
-                            imageId = R.drawable.crocs,
-                            imageDesc = "crocs",
-                            title = "Nombre Usuario",
-                            synopsis = "",
-                            info = ""
-                        )
-                    )
+                    // Profile card
+                    ProfileCard(cardConfig = CardConfig(
+                        id = 1,
+                        imageId = R.drawable.crocs,
+                        imageDesc = "crocs",
+                        title = profileData.firstOrNull()?.value ?: "Usuario",
+                        synopsis = "",
+                        info = ""
+                    ))
 
-                    Spacer(Modifier.padding(top = 8.dp))
-
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(end = 43.dp)
-                            .clickable(onClick = { Log.i("TEST", "click en boton") }),
-                        horizontalArrangement = Arrangement.End,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(text = "Configurar", color = Color.White)
-                        Icon(
-                            imageVector = Icons.Filled.Settings,
-                            contentDescription = "Configuración",
-                            tint = Color.White,
-                            modifier = Modifier
-                                .size(30.dp)
-                                .padding(start = 10.dp, bottom = 10.dp)
-                        )
-                    }
-
-                    val previewItems = listOf(
-                        PreviewFieldConfig("USER:", "NicoDev"),
-                        PreviewFieldConfig("EMAIL:", "nico@example.com"),
-                        PreviewFieldConfig("PASS:", "********"),
-                        PreviewFieldConfig("ROLE:", "Premium")
-                    )
-
+                    // Datos del usuario
                     DataProfileComponent(
                         title = "DATOS USUARIO",
-                        items = previewItems,
+                        items = profileData,
                         borderColor = Color.White
                     )
 
-                    Spacer(Modifier.padding(top = 8.dp))
-
+                    // Favoritos
                     FavColumnDisplay(
-                        favorites = DataProvider.animeList.take(15),
-                        navController = rememberNavController()
+                        favorites = favorites,
+                        navController = navController
                     )
                 }
             }
         }
-
-
     }
 }
+
 
 /**
  * Vista previa del componente [ProfilePage].
@@ -149,8 +123,25 @@ fun ProfilePage() {
  * incluyendo la tarjeta del usuario, el botón de configuración
  * y el bloque de datos personales.
  */
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun Preview() {
-    ProfilePage()
+fun ProfilePagePreview() {
+    val sampleProfile = listOf(
+        PreviewFieldConfig("USER:", "NicoDev"),
+        PreviewFieldConfig("EMAIL:", "nico@example.com"),
+        PreviewFieldConfig("PASS:", "********"),
+        PreviewFieldConfig("ROLE:", "Premium")
+    )
+
+    val sampleFav = listOf(
+        CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+        CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+    )
+
+    ProfilePage(
+        profileData = sampleProfile,
+        favorites = sampleFav,
+        canEdit = true,
+        navController = rememberNavController()
+    )
 }

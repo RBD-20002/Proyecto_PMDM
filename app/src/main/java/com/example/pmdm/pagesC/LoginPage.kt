@@ -24,9 +24,16 @@ import com.example.pmdm.Components.ButtomComponent
 import com.example.pmdm.Components.InputFieldConfig
 
 @Composable
-fun LoginPage(){
+fun LoginPage(
+    email: String,
+    password: String,
+    onEmailChange: (String) -> Unit,
+    onPasswordChange: (String) -> Unit,
+    onLoginClick: () -> Unit,
+    onRegisterClick: () -> Unit,
+    onGuestClick: () -> Unit
+) {
     Box(modifier = Modifier.fillMaxSize()) {
-
         Image(
             painter = painterResource(id = R.drawable.login_page),
             contentDescription = "Fondo de pantalla de Login",
@@ -34,47 +41,24 @@ fun LoginPage(){
             contentScale = ContentScale.Crop
         )
 
-        Column(modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
+        Column(
+            modifier = Modifier.fillMaxSize().padding(16.dp)
         ){
-            Box(modifier = Modifier.fillMaxWidth(),
-                contentAlignment = Alignment.TopEnd
-            ){
+            // Logo
+            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.TopEnd) {
                 Image(
                     painter = painterResource(id = R.drawable.logo),
                     contentDescription = "Logo Imagen Generico",
-                    modifier = Modifier
-                        .size(90.dp)
-                        .clip(RoundedCornerShape(size = 40.dp)
-                        )
+                    modifier = Modifier.size(90.dp).clip(RoundedCornerShape(40.dp))
                 )
             }
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f),
-                contentAlignment = Alignment.Center
-            ){
-                val inputs = listOf(
-                    InputFieldConfig(
-                        TextLabel = "USER:   ",
-                        TextValue = "ENTER USER"
-                    ),
-                    InputFieldConfig(
-                        TextLabel = "EMAIL: ",
-                        TextValue = "ENTER EMAIL"
-                    ),
-                    InputFieldConfig(
-                        TextLabel = "PASS:   ",
-                        TextValue = "ENTER PASSWORD"
-                    ),
-                    InputFieldConfig(
-                        TextLabel = "CONFIRM:",
-                        TextValue = "CONFIRM PASS"
-                    )
-                )
 
+            // Inputs
+            Box(modifier = Modifier.fillMaxWidth().weight(1f), contentAlignment = Alignment.Center) {
+                val inputs = listOf(
+                    InputFieldConfig("USER:   ", email),
+                    InputFieldConfig("PASS:   ", password)
+                )
                 BlockInputsData(
                     title = "REGISTRO",
                     input = inputs,
@@ -82,32 +66,28 @@ fun LoginPage(){
                 )
             }
 
-            Box(modifier = Modifier.fillMaxWidth(),
-                contentAlignment = Alignment.TopEnd
-            ){
-                Row(
-                    modifier = Modifier.padding(10.dp),
-                    horizontalArrangement = Arrangement.spacedBy(5.dp)
-                ) {
-                    ButtomComponent(text = "CREAR CUENTA") {
-                        Log.e("Prueba","Clieck en crear cuenta")
-                    }
-
-                    ButtomComponent(text = "INICIAR SECION") {
-                        Log.e("Prueba2","Click en inicar secion")
-                    }
-
-                    ButtomComponent(text = "INVITADO") {
-                        Log.e("Prueba3","Click en invitado")
-                    }
+            // Botones
+            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.TopEnd) {
+                Row(horizontalArrangement = Arrangement.spacedBy(5.dp), modifier = Modifier.padding(10.dp)) {
+                    ButtomComponent(text = "CREAR CUENTA") { onRegisterClick() }
+                    ButtomComponent(text = "INICIAR SESIÓN") { onLoginClick() }
+                    ButtomComponent(text = "INVITADO") { onGuestClick() }
                 }
             }
         }
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun PreviewLoginPage(){
-    LoginPage()
+fun LoginPagePreview() {
+    LoginPage(
+        email = "test@example.com",
+        password = "123456",
+        onEmailChange = {},
+        onPasswordChange = {},
+        onLoginClick = {},
+        onRegisterClick = {},
+        onGuestClick = {}
+    )
 }

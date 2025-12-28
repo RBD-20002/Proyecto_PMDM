@@ -27,6 +27,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
 import com.example.pmdm.model.DataProvider
 import com.example.pmdm.RicardoComponent.VerticalAnimeCard
+import com.example.pmdm.model.CardConfig
 
 /**
  * Pantalla principal de inicio de la aplicación.
@@ -50,7 +51,11 @@ import com.example.pmdm.RicardoComponent.VerticalAnimeCard
  * @param navController Controlador de navegación para redirigir a las pantallas de detalle de anime.
  */
 @Composable
-fun StartPage(navController: androidx.navigation.NavController) {
+fun StartPage(
+    navController: androidx.navigation.NavController,
+    recommendedList: List<CardConfig>,
+    popularList: List<CardConfig>
+){
     Box(modifier = Modifier.fillMaxSize()) {
         // Fondo principal de la pantalla
         Image(
@@ -79,40 +84,32 @@ fun StartPage(navController: androidx.navigation.NavController) {
             // Sección "Recomendados"
             item {
                 Text(
-                    "Recomendados",
-                    color = Color.White,
-                    style = MaterialTheme.typography.titleMedium,
-                    modifier = Modifier.padding(start = 16.dp, bottom = 8.dp)
-                )
+                    text = "Recomendados",
+                    color = Color.White)
                 LazyRow(
-                    contentPadding = PaddingValues(horizontal = 16.dp),
                     horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    items(DataProvider.animeList, key = { it.id }) { anime ->
-                        VerticalAnimeCard(anime, navController)
+                ){
+                    items(
+                        items = recommendedList,
+                        key = { it.id }) { anime ->
+                            VerticalAnimeCard(anime, navController)
                     }
                 }
-                Spacer(Modifier.height(12.dp))
             }
 
             // Sección "Populares"
             item {
                 Text(
-                    "Populares",
-                    color = Color.White,
-                    style = MaterialTheme.typography.titleMedium,
-                    modifier = Modifier.padding(start = 16.dp, bottom = 8.dp)
-                )
+                    text = "Populares",
+                    color = Color.White)
                 LazyRow(
-                    contentPadding = PaddingValues(horizontal = 16.dp),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    // Se usa .shuffled() para variar el orden de los animes
-                    items(DataProvider.animeList.shuffled(), key = { it.id }) { anime ->
-                        VerticalAnimeCard(anime, navController)
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    items(
+                        items = popularList,
+                        key = { it.id }) { anime ->
+                            VerticalAnimeCard(anime, navController)
                     }
                 }
-                Spacer(Modifier.height(80.dp)) // Espaciado adicional al final
             }
         }
     }
@@ -127,6 +124,19 @@ fun StartPage(navController: androidx.navigation.NavController) {
 @Preview(showBackground = true)
 @Composable
 fun StartPagePreview() {
-    val navController = rememberNavController()
-    StartPage(navController = navController)
+    val sampleReco = listOf(
+        CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+        CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+    )
+    val sampleFav = listOf(
+        CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+        CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+    )
+
+    StartPage(
+        navController = rememberNavController(),
+        recommendedList = sampleFav,
+        popularList = sampleReco
+    )
 }
+

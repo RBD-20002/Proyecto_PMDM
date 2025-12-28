@@ -15,17 +15,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
 import com.example.pmdm.model.DataProvider
 import com.example.pmdm.Components.FavColumnDisplay
+import com.example.pmdm.model.CardConfig
 
 @Composable
-fun FavoritePage(navController: NavController) {
-    val listFavorite = remember { DataProvider.getListFavoriteAnime() }
-
-
+fun FavoritePage(
+    navController: NavController,
+    favoriteList: List<CardConfig>
+){
     Box(modifier = Modifier.fillMaxSize()) {
         // Fondo
         Image(
@@ -44,7 +47,6 @@ fun FavoritePage(navController: NavController) {
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-
                     FavColumnDisplay(
                         favorites = listFavorite,
                         navController = navController
@@ -52,8 +54,19 @@ fun FavoritePage(navController: NavController) {
                 }
             }
         }
-
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun FavoritePagePreview() {
+    val sample = listOf(
+        CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+        CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+    )
 
+    FavoritePage(
+        navController = rememberNavController(),
+        favoriteList = sample
+    )
+}
