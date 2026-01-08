@@ -15,7 +15,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.Components.BlockCardsComponents
 import com.example.pmdm.R
 import com.example.pmdm.model.CardConfig
-import com.example.pmdm.model.DataProvider
 
 @Composable
 fun ListContend(

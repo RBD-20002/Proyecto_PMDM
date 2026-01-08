@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.RicardoComponent.VerticalAnimeCard
+import com.example.pmdm.model.CardConfig
 import com.example.pmdm.model.DataProvider
 
 /**

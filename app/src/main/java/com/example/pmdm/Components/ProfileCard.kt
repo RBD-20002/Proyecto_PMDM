@@ -44,7 +44,7 @@ import androidx.compose.ui.graphics.Color
  */
 @Composable
 fun ProfileCard(
-    cardConfig: CardConfig,
+    cardConfig: com.example.pmdm.model.CardConfig,
     modifier: Modifier = Modifier
 ) {
     Card(
