@@ -48,7 +48,7 @@ import com.example.pmdm.R
  */
 @Composable
 fun VerticalAnimeCard(
-    cardConfig: CardConfig,
+    cardConfig: com.example.pmdm.model.CardConfig,
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
