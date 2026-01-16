@@ -1,4 +1,4 @@
-package com.example.pmdm
+package com.example.pmdm.model
 
 /**
  * Modelo SIMPLE de Anime - Para empezar

@@ -1,7 +1,7 @@
 package com.example.pmdm.model
 
 import com.example.pmdm.R
-import com.example.pmdm.Components.CardConfig
+import com.example.pmdm.model.Anime
 
 object DataProvider {
 

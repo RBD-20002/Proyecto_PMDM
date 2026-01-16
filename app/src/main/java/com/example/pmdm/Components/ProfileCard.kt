@@ -23,6 +23,7 @@ import com.example.pmdm.R
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.ui.graphics.Color
+import com.example.pmdm.model.CardConfig
 
 /**
  * Tarjeta de perfil del usuario con imagen, nombre y un icono decorativo.
@@ -93,7 +94,7 @@ fun ProfileCard(
  *
  * Muestra un ejemplo de tarjeta con datos ficticios para diseño y prueba visual.
  */
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun ProfileCardPreview() {
     val sample = CardConfig(

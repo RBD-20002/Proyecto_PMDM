@@ -78,11 +78,8 @@ data class LoginUiState(
     val errorMessage: String? = null,
     val isSuccess: Boolean = false,
     val successMessage: String = ""
-) {
+){
     // Propiedad computada para habilitar botones
     val isFormValid: Boolean
-        get() = username.isNotBlank() &&
-                email.isNotBlank() &&
-                password.length >= 6 &&
-                confirmPassword == password
+        get() = username.isNotBlank() && email.isNotBlank() && password.length >= 6 && confirmPassword == password
 }

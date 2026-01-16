@@ -19,10 +19,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
 import com.example.pmdm.model.DataProvider
-import com.example.pmdm.RicardoComponent.VerticalAnimeCard
+import com.example.pmdm.RicardoComponent.VerticalCard
 import com.example.pmdm.model.CardConfig
 
 /**
@@ -36,7 +37,7 @@ import com.example.pmdm.model.CardConfig
  * - **Fondo:** Imagen completa que sirve como background.
  * - **Carrusel superior:** Componente [CarouselStartPage] que rota automáticamente entre animes.
  * - **Listas inferiores:** Dos secciones horizontales (`Recomendados` y `Populares`)
- *   con tarjetas de anime ([VerticalAnimeCard]).
+ *   con tarjetas de anime ([VerticalCard]).
  *
  * ### Características:
  * - Diseño completamente adaptable a la pantalla.
@@ -48,7 +49,7 @@ import com.example.pmdm.model.CardConfig
  */
 @Composable
 fun StartPage(
-    navController: androidx.navigation.NavController,
+    navController: NavController,
     recommendedList: List<CardConfig>,
     popularList: List<CardConfig>
 ){
@@ -88,7 +89,7 @@ fun StartPage(
                     items(
                         items = recommendedList,
                         key = { it.id }) { anime ->
-                            VerticalAnimeCard(anime, navController)
+                            VerticalCard(cardConfig = anime, navController)
                     }
                 }
             }
@@ -103,7 +104,7 @@ fun StartPage(
                     items(
                         items = popularList,
                         key = { it.id }) { anime ->
-                            VerticalAnimeCard(anime, navController)
+                            VerticalCard(anime, navController)
                     }
                 }
             }

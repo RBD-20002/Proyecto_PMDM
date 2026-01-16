@@ -1,7 +1,7 @@
 package com.example.pmdm.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.pmdm.Anime
+import com.example.pmdm.model.Anime
 import com.example.pmdm.model.DataProvider
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

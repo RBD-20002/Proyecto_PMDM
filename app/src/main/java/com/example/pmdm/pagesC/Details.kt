@@ -28,11 +28,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pmdm.R
 import com.example.pmdm.Components.BlockDisplayCardComponent
-import com.example.pmdm.Components.CardConfig
 import com.example.pmdm.Components.SnackbarComponent
 import com.example.pmdm.Components.TextBlockConfig
 import com.example.pmdm.Components.TextComponent
-import com.example.pmdm.model.DataProvider
+import com.example.pmdm.model.CardConfig
 import kotlinx.coroutines.launch
 
 @Composable

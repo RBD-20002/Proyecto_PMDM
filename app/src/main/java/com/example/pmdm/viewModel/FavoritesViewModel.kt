@@ -1,7 +1,7 @@
 package com.example.pmdm.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.pmdm.Components.CardConfig
+import com.example.pmdm.model.CardConfig
 import com.example.pmdm.model.DataProvider
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.update
 class FavoritesViewModel : ViewModel() {
 
     private val _favorites = MutableStateFlow(value = DataProvider.favoriteAnime.toSet())
-    val favorites: StateFlow<Set<Int>> = _favorites.asStateFlow()
+    val favorites: StateFlow<Set<Int>> = favorites.asStateFlow()
 
     fun toggleFavorite(animeId: Int) {
         _favorites.update { current ->

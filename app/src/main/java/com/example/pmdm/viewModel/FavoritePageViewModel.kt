@@ -1,7 +1,7 @@
 package com.example.pmdm.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.pmdm.Components.CardConfig
+import com.example.pmdm.model.CardConfig
 import com.example.pmdm.model.DataProvider
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
