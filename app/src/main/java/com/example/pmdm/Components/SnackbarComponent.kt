@@ -6,9 +6,11 @@ import androidx.compose.material3.Snackbar
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -35,4 +37,11 @@ fun SnackbarComponent(
             )
         }
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewSnackbarComponent() {
+    val snackbarHostState = remember { SnackbarHostState() }
+    SnackbarComponent(snackbarHostState = snackbarHostState, modifier = Modifier)
 }

@@ -14,48 +14,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.pmdm.Anime
+import com.example.pmdm.model.Anime
 import com.example.pmdm.R
+import com.example.pmdm.model.CardConfig
 
-/**
- * Modelo de datos que define la configuración de una tarjeta.
- *
- * Contiene los datos necesarios para representar un elemento en una vista de tarjetas,
- * incluyendo el identificador, imagen, título y textos informativos.
- *
- * @property id Identificador único del elemento.
- * @property imageId Recurso de imagen asociado a la tarjeta.
- * @property imageDesc Descripción de la imagen para accesibilidad.
- * @property title Título principal mostrado en la tarjeta.
- * @property synopsis Sinopsis o descripción breve del contenido.
- * @property info Información adicional o detalle extendido.
- */
-data class CardConfig(
-    val id: Int,
-    val imageId: Int,
-    val imageDesc: String = "",
-    val title: String,
-    val synopsis: String,
-    val info: String,
-    val enlace1: String = "",
-    val enlace2: String = "",
-    val favorite: Boolean ?= false
-){
-    // CONSTRUCTOR NUEVO para usar con el modelo Anime
-    constructor(
-        anime: Anime  // ¡Usa el Anime que creamos arriba!
-    ) : this(
-        id = anime.id,
-        imageId = anime.imageId,
-        imageDesc = anime.imageDesc,
-        title = anime.title,
-        synopsis = anime.synopsis,
-        info = anime.info,
-        enlace1 = anime.enlace1,
-        enlace2 = anime.enlace2,
-        favorite = anime.isFavorite
-    )
-}
 
 /**
  * Componente que muestra una o varias tarjetas de contenido.
@@ -76,7 +38,7 @@ data class CardConfig(
  * @see TextComponent
  */
 @Composable
-fun CardComponent(input: List<CardConfig>, navController: NavController){
+fun CardComponent(input: List<com.example.pmdm.model.CardConfig>, navController: NavController){
 
     Column {
         input.forEach { cardConfig ->
@@ -126,28 +88,18 @@ fun CardComponent(input: List<CardConfig>, navController: NavController){
  *
  * @see CardComponent
  */
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun PreviewCard(){
-    val inputs = listOf(
-        CardConfig(
-            id = 0,
-            imageId = R.drawable.dragonball,
-            imageDesc = "Dragon Ball Z",
-            title = "DRAGON BALL Z",
-            synopsis = "",
-            info = ""
-        ),
-        CardConfig(
-            id = 0,
-            imageId = R.drawable.tokyo_revengers,
-            imageDesc = "Dragon Ball Z",
-            title = "TOKYO REVENGERS",
-            synopsis = "",
-            info = ""
-        )
+fun BlockDisplayCardComponentPreview() {
+    val sample = CardConfig(
+        id = 1,
+        imageId = R.drawable.naruto,
+        imageDesc = "Naruto Uzumaki",
+        title = "NARUTO",
+        synopsis = "Naruto sigue a un joven ninja...",
+        info = "Tipo: Serie\nGeneros: Shounen, Accion",
+        enlace1 = "",
+        enlace2 = ""
     )
-
-    CardComponent(input = inputs, navController = rememberNavController())
-
+    BlockDisplayCardComponent(animeInfo = sample)
 }

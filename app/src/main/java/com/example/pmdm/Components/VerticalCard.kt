@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.pmdm.Components.CardConfig
+import com.example.pmdm.model.CardConfig
 import com.example.pmdm.R
 
 /**
@@ -47,8 +47,8 @@ import com.example.pmdm.R
  * @param modifier Modificador opcional para ajustar el tamaño, espaciado o estilo visual.
  */
 @Composable
-fun VerticalAnimeCard(
-    cardConfig: com.example.pmdm.model.CardConfig,
+fun VerticalCard(
+    cardConfig: CardConfig,
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
@@ -82,14 +82,14 @@ fun VerticalAnimeCard(
 }
 
 /**
- * Vista previa del componente [VerticalAnimeCard].
+ * Vista previa del componente [VerticalCard].
  *
  * Muestra una tarjeta de ejemplo con un anime ficticio (Dragon Ball Z)
  * para verificar la apariencia y el espaciado en el modo de diseño.
  */
 @Preview(showBackground = true)
 @Composable
-private fun VerticalAnimeCardPreview() {
+private fun VerticalCardPreview() {
     val navController = rememberNavController()
     val sample = CardConfig(
         id = 1,
@@ -99,7 +99,7 @@ private fun VerticalAnimeCardPreview() {
         synopsis = "",
         info = ""
     )
-    VerticalAnimeCard(
+    VerticalCard(
         cardConfig = sample,
         navController = navController
     )

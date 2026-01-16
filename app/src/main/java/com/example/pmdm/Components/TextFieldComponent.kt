@@ -68,5 +68,5 @@ fun TextFieldComponent(
 @Preview
 @Composable
 fun PreviewTextField(){
-    TextFieldComponent("prueba", Color.Black)
+    TextFieldComponent(info = "prueba", Color.Black)
 }

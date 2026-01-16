@@ -1,6 +1,7 @@
 package com.example.pmdm
 
-import com.example.pmdm.Components.CardConfig
+import com.example.pmdm.model.Anime
+import com.example.pmdm.model.CardConfig
 import com.example.pmdm.model.DataProvider
 
 // Funciones de conversión DIRECTAS (no object)

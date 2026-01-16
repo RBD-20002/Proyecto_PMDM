@@ -12,9 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import com.example.pmdm.R
 import com.example.pmdm.model.CardConfig
-import com.example.pmdm.model.DataProvider
 
 
 /**
@@ -66,19 +65,18 @@ fun BlockCardsComponents(input: List<CardConfig>, navController: NavController, 
     }
 }
 
-/**
- * Vista previa del componente [BlockCardsComponents].
- *
- * Genera una lista de animes desde [DataProvider.animeList] y
- * crea un [NavController] temporal para visualizar la composición
- * de las tarjetas en el modo Preview de Android Studio.
- *
- * @see BlockCardsComponents
- */
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun PreviewCards() {
-    val animeList = DataProvider.animeList
-    val navController = rememberNavController()
-    BlockCardsComponents(input = animeList, navController = navController)
+fun PreviewBlockDisplayCardComponent() {
+    val sample = CardConfig(
+        id = 1,
+        imageId = R.drawable.naruto,
+        imageDesc = "Naruto Uzumaki",
+        title = "NARUTO",
+        synopsis = "Naruto sigue a un joven ninja...",
+        info = "Tipo: Serie\nGeneros: Shounen, Accion",
+        enlace1 = "",
+        enlace2 = ""
+    )
+    BlockDisplayCardComponent(animeInfo = sample)
 }

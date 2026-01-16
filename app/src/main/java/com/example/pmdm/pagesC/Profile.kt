@@ -21,6 +21,7 @@ import com.example.pmdm.Components.PreviewFieldConfig
 import com.example.pmdm.Components.ProfileCard
 import com.example.pmdm.model.CardConfig
 
+
 /**
  * Pantalla de perfil del usuario.
  *
@@ -58,7 +59,7 @@ fun ProfilePage(
     profileData: List<PreviewFieldConfig>,
     favorites: List<CardConfig>,
     canEdit: Boolean,
-    navController: NavController
+    navController: NavController,
 ) {
     Box(Modifier.fillMaxSize()) {
         Image(
@@ -71,19 +72,22 @@ fun ProfilePage(
         LazyColumn {
             item {
                 Column(
-                    modifier = Modifier.fillMaxSize().padding(top = 26.dp),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(top = 26.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     // Profile card
                     ProfileCard(
                         cardConfig = CardConfig(
-                        id = 1,
-                        imageId = R.drawable.crocs,
-                        imageDesc = "crocs",
-                        title = profileData.firstOrNull()?.value ?: "Usuario",
-                        synopsis = "",
-                        info = ""
-                    ))
+                            id = 1,
+                            imageId = R.drawable.crocs,
+                            imageDesc = "crocs",
+                            title = profileData.firstOrNull()?.value ?: "Usuario",
+                            synopsis = "",
+                            info = ""
+                        )
+                    )
 
                     // Datos del usuario
                     DataProfileComponent(
