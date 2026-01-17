@@ -1,4 +1,4 @@
-package com.example.pmdm.Components
+package com.example.pmdm.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -18,7 +18,8 @@ import androidx.compose.ui.unit.sp
 
 data class InputFieldConfig(
     val TextLabel: String,
-    val TextValue: String
+    val TextValue: String,
+    val placeholder: (@Composable () -> Unit)? = null
 )
 /**
  * Componente que muestra un bloque de campos de entrada con un título.
@@ -78,7 +79,8 @@ fun BlockInputsData(
                 input.forEach { inputConfig ->
                     InputDataComponent(
                         textValue = inputConfig.TextLabel,
-                        textInfo = inputConfig.TextValue
+                        textInfo = inputConfig.TextValue,
+                        placeholder = inputConfig.placeholder
                     )
                 }
             }

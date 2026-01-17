@@ -1,4 +1,4 @@
-package com.example.pmdm.PagesC
+package com.example.pmdm.pagesC
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -12,18 +12,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.pmdm.Components.BlockCardsComponents
+import com.example.pmdm.components.BlockCardsComponents
 import com.example.pmdm.R
-import com.example.pmdm.model.CardConfig
+import com.example.pmdm.state.StartPageState
 
 @Composable
 fun ListContend(
     navController: NavController,
-    animeList: List<CardConfig>
-){
+    state: StartPageState
+) {
     Box(
-        modifier = Modifier
-            .fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.TopCenter
     ) {
         Image(
@@ -32,20 +31,34 @@ fun ListContend(
             modifier = Modifier.fillMaxHeight(),
             contentScale = ContentScale.Crop
         )
-        BlockCardsComponents(input = animeList, navController = navController)
+
+        if (state.isLoading) {
+            // Loading indicator
+        } else if (state.error != null) {
+            // Error message
+        } else {
+            BlockCardsComponents(
+                input = state.animeList,
+                navController = navController
+            )
+        }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun ListContendPreview() {
-    val sample = listOf(
-        CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-        CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+    val sampleState = StartPageState(
+        animeList = listOf(
+            com.example.pmdm.model.CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+            com.example.pmdm.model.CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+        ),
+        isLoading = false,
+        error = null
     )
 
     ListContend(
         navController = rememberNavController(),
-        animeList = sample
+        state = sampleState
     )
 }

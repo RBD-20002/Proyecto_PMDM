@@ -1,4 +1,4 @@
-package com.example.pmdm.Components
+package com.example.pmdm.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
