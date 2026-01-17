@@ -1,4 +1,4 @@
-package com.example.pmdm.Components
+package com.example.pmdm.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

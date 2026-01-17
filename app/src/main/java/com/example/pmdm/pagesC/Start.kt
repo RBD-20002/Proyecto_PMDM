@@ -1,12 +1,7 @@
-package com.example.pmdm.PagesC
+package com.example.pmdm.pagesC
 
-import CarouselStartPage
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -19,42 +14,22 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.pmdm.components.TextComponent
 import com.example.pmdm.R
-import com.example.pmdm.model.DataProvider
-import com.example.pmdm.RicardoComponent.VerticalCard
-import com.example.pmdm.model.CardConfig
+import com.example.pmdm.components.CarouselStartPage
+import com.example.pmdm.components.VerticalCard
+import com.example.pmdm.state.StartPageState
 
-/**
- * Pantalla principal de inicio de la aplicación.
- *
- * Esta pantalla actúa como la portada principal, mostrando un fondo con un
- * carrusel superior de animes destacados y dos secciones horizontales con
- * listas de animes recomendados y populares.
- *
- * ### Estructura:
- * - **Fondo:** Imagen completa que sirve como background.
- * - **Carrusel superior:** Componente [CarouselStartPage] que rota automáticamente entre animes.
- * - **Listas inferiores:** Dos secciones horizontales (`Recomendados` y `Populares`)
- *   con tarjetas de anime ([VerticalCard]).
- *
- * ### Características:
- * - Diseño completamente adaptable a la pantalla.
- * - Usa datos desde [DataProvider.animeList].
- * - Integra navegación hacia la pantalla de detalles al pulsar una tarjeta.
- * - Mantiene coherencia con el tema de Material 3.
- *
- * @param navController Controlador de navegación para redirigir a las pantallas de detalle de anime.
- */
 @Composable
 fun StartPage(
     navController: NavController,
-    recommendedList: List<CardConfig>,
-    popularList: List<CardConfig>
-){
+    state: StartPageState
+) {
     Box(modifier = Modifier.fillMaxSize()) {
-        // Fondo principal de la pantalla
+        // Fondo principal
         Image(
             painter = painterResource(R.drawable.login_page),
             contentDescription = "Fondo",
@@ -62,49 +37,85 @@ fun StartPage(
             contentScale = ContentScale.Crop
         )
 
-        // Carrusel superior de animes destacados
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            CarouselStartPage()
-        }
-
-        // Listas horizontales de contenido (debajo del carrusel)
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 260.dp)
-        ) {
-            // Sección "Recomendados"
-            item {
-                Text(
-                    text = "Recomendados",
-                    color = Color.White)
-                LazyRow(
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ){
-                    items(
-                        items = recommendedList,
-                        key = { it.id }) { anime ->
-                            VerticalCard(cardConfig = anime, navController)
-                    }
+        when {
+            state.isLoading -> {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    TextComponent(text = "Cargando...", textSize = 20.sp)
                 }
             }
 
-            // Sección "Populares"
-            item {
-                Text(
-                    text = "Populares",
-                    color = Color.White)
-                LazyRow(
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    items(
-                        items = popularList,
-                        key = { it.id }) { anime ->
-                            VerticalCard(anime, navController)
+            state.error != null -> {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    TextComponent(
+                        text = "Error: ${state.error}",
+                        textSize = 16.sp,
+                        textColor = Color.Red
+                    )
+                }
+            }
+
+            else -> {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    // Carrusel con las primeras 5 imágenes
+                    CarouselStartPage(
+                        items = state.animeList.take(5)
+                    )
+                }
+
+                // Listas horizontales de contenido
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(top = 260.dp)
+                ) {
+                    // Sección "Todos los animes"
+                    item {
+                        Text(
+                            text = "Todos los Animes",
+                            color = Color.White
+                        )
+                        LazyRow(
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            items(
+                                items = state.animeList,
+                                key = { it.id }
+                            ) { anime ->
+                                VerticalCard(anime, navController)
+                            }
+                        }
+                    }
+
+                    // Sección "Populares" (primeros 5 como ejemplo)
+                    item {
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Text(
+                            text = "Populares",
+                            color = Color.White
+                        )
+                        LazyRow(
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            items(
+                                items = state.animeList.take(5),
+                                key = { it.id }
+                            ) { anime ->
+                                VerticalCard(anime, navController)
+                            }
+                        }
                     }
                 }
             }
@@ -112,28 +123,22 @@ fun StartPage(
     }
 }
 
-/**
- * Vista previa del componente [StartPage].
- *
- * Muestra un ejemplo de la pantalla principal con un `NavController` de prueba,
- * permitiendo revisar el diseño del fondo, el carrusel y las listas horizontales.
- */
 @Preview(showBackground = true)
 @Composable
 fun StartPagePreview() {
-    val sampleReco = listOf(
-        CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-        CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
-    )
-    val sampleFav = listOf(
-        CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-        CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+    val sampleState = StartPageState(
+        animeList = listOf(
+            com.example.pmdm.model.CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+            com.example.pmdm.model.CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", ""),
+            com.example.pmdm.model.CardConfig(3, R.drawable.dragonball, "Dragon Ball", "Dragon Ball Z", "", ""),
+            com.example.pmdm.model.CardConfig(4, R.drawable.tokyo_revengers, "Tokyo Revengers", "Tokyo Revengers", "", "")
+        ),
+        isLoading = false,
+        error = null
     )
 
     StartPage(
         navController = rememberNavController(),
-        recommendedList = sampleFav,
-        popularList = sampleReco
+        state = sampleState
     )
 }
-

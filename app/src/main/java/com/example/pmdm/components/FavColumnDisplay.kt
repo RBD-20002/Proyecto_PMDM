@@ -1,4 +1,4 @@
-package com.example.pmdm.Components
+package com.example.pmdm.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -18,7 +18,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
-import com.example.pmdm.RicardoComponent.VerticalCard
 import com.example.pmdm.model.CardConfig
 import com.example.pmdm.model.DataProvider
 

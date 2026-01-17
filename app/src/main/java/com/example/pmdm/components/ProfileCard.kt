@@ -1,4 +1,4 @@
-package com.example.pmdm.Components
+package com.example.pmdm.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border

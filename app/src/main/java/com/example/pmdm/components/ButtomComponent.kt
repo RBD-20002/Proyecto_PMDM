@@ -1,4 +1,4 @@
-package com.example.pmdm.Components
+package com.example.pmdm.components
 
 import android.util.Log
 import androidx.compose.foundation.layout.Box
