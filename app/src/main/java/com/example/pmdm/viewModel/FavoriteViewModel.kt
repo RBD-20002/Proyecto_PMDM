@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-class FavoritePageViewModel : ViewModel() {
+class FavoriteViewModel : ViewModel() {
 
     private val _state = MutableStateFlow(FavoritePageState())
     val state: StateFlow<FavoritePageState> = _state.asStateFlow()

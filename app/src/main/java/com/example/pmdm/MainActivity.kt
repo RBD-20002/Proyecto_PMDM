@@ -7,7 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -20,6 +23,7 @@ import com.example.pmdm.navigation.AppNavHost
 import com.example.pmdm.navigation.Destination
 import com.example.pmdm.ui.theme.PMDMTheme
 import com.example.pmdm.viewModel.SearchViewModel
+import com.example.pmdm.viewModel.StartViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,10 +43,10 @@ private fun MainContent() {
 
     // ViewModel para búsqueda
     val searchViewModel: SearchViewModel = viewModel()
-    val searchState by searchViewModel.state.collectAsStateWithLifecycle()
+    val searchState by searchViewModel.state.collectAsState()
 
     // Obtener lista de animes desde StartViewModel
-    val startViewModel: com.example.pmdm.viewModel.StartViewModel = viewModel()
+    val startViewModel: StartViewModel = viewModel()
     val startState by startViewModel.state.collectAsStateWithLifecycle()
 
     // Cargar animes al inicio
@@ -78,19 +82,24 @@ private fun MainContent() {
     Scaffold(
         topBar = {
             Column {
-                Toolbar(onSearchClick = {
-                    // Activar búsqueda
-                    searchViewModel.onQueryChange("")
-                })
+                Toolbar(
+                    onSearchClick = {
+                        // Activar búsqueda con toggle (alternar)
+                        searchViewModel.toggleSearch(!searchState.isActive)
+                    }
+                )
 
                 // Mostrar barra de búsqueda si está activa
                 if (searchState.isActive) {
                     SearchToggle(
+                        hint = "Buscar anime por título...",
                         results = searchResults,
                         externalActive = searchState.isActive,
                         onActiveChangeExternal = { active ->
-                            if (!active) {
-                                searchViewModel.onQueryChange("")
+                            if (active) {
+                                searchViewModel.toggleSearch(true)
+                            } else {
+                                searchViewModel.toggleSearch(false)
                             }
                         },
                         onQueryChangeExternal = { newQuery ->
@@ -102,7 +111,7 @@ private fun MainContent() {
                             }
                             anime?.let {
                                 navController.navigate("details/${it.id}")
-                                searchViewModel.onQueryChange("") // Resetear búsqueda
+                                searchViewModel.toggleSearch(false) // Cerrar búsqueda
                             }
                         },
                         onSearch = { searchQuery ->
@@ -111,7 +120,7 @@ private fun MainContent() {
                             }
                             anime?.let {
                                 navController.navigate("details/${it.id}")
-                                searchViewModel.onQueryChange("") // Resetear búsqueda
+                                searchViewModel.toggleSearch(false) // Cerrar búsqueda
                             }
                         }
                     )

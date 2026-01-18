@@ -14,6 +14,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.components.BlockCardsComponents
 import com.example.pmdm.R
+import com.example.pmdm.model.CardConfig
 import com.example.pmdm.state.StartPageState
 
 @Composable
@@ -28,7 +29,7 @@ fun ListContend(
         Image(
             painter = painterResource(id = R.drawable.login_page),
             contentDescription = "Fondo",
-            modifier = Modifier.fillMaxHeight(),
+            modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
 
@@ -50,8 +51,8 @@ fun ListContend(
 fun ListContendPreview() {
     val sampleState = StartPageState(
         animeList = listOf(
-            com.example.pmdm.model.CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-            com.example.pmdm.model.CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+            CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+            CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
         ),
         isLoading = false,
         error = null

@@ -11,7 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.pmdm.pagesC.*
 import com.example.pmdm.viewModel.DetailsViewModel
-import com.example.pmdm.viewModel.FavoritePageViewModel
+import com.example.pmdm.viewModel.FavoriteViewModel
 import com.example.pmdm.viewModel.LoginViewModel
 import com.example.pmdm.viewModel.ProfileViewModel
 import com.example.pmdm.viewModel.StartViewModel
@@ -108,7 +108,7 @@ fun AppNavHost(
 
         // ---------- PANTALLA DE FAVORITOS ----------
         composable(Destination.Fav.route) {
-            val viewModel: FavoritePageViewModel = viewModel()
+            val viewModel: FavoriteViewModel = viewModel()
             val state by viewModel.state.collectAsStateWithLifecycle()
 
             LaunchedEffect(Unit) {

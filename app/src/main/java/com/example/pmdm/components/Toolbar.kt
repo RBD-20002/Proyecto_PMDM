@@ -41,7 +41,7 @@ import com.example.pmdm.ui.theme.neonTextGradient
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Toolbar(
-    onSearchClick: () -> Unit
+    onSearchClick: () -> Unit,
 ) {
     // Detecta si el tema actual es oscuro (por compatibilidad visual)
     isSystemInDarkTheme()

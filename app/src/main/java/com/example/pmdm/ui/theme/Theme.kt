@@ -23,9 +23,7 @@ private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
     tertiary = Pink80,
-    background = Fondo_Oscuro,
-    primaryFixed = Icon,
-    tertiaryFixed = TextColor
+    background = Fondo_Oscuro
 )
 
 /**
@@ -38,8 +36,7 @@ private val LightColorScheme = lightColorScheme(
     primary = Purple40,
     secondary = PurpleGrey40,
     tertiary = Pink40,
-    background = Fondo_Claro,
-    primaryFixed = Icon
+    background = Fondo_Claro
 )
 
 /**
