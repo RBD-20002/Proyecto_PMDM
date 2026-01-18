@@ -39,8 +39,8 @@ import androidx.compose.ui.unit.sp
 fun TextFieldComponent(
     info: String,
     color: Color,
-    placeholderText: (@Composable () -> Unit )? = null
-){
+    placeholderText: (@Composable () -> Unit)? = null,
+) {
     var text by remember { mutableStateOf("") }
 
     TextField(
@@ -55,7 +55,8 @@ fun TextFieldComponent(
         },
         shape = RoundedCornerShape(10.dp),
         modifier = Modifier
-            .fillMaxWidth().padding(4.dp)
+            .fillMaxWidth()
+            .padding(4.dp)
     )
 }
 
@@ -68,6 +69,6 @@ fun TextFieldComponent(
  */
 @Preview
 @Composable
-fun PreviewTextField(){
+fun PreviewTextField() {
     TextFieldComponent(info = "prueba", Color.Black)
 }

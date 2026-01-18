@@ -50,7 +50,7 @@ import com.example.pmdm.R
 fun VerticalCard(
     cardConfig: CardConfig,
     navController: NavController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Card(
         modifier = modifier

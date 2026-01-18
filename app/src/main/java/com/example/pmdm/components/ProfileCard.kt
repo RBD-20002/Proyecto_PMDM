@@ -45,7 +45,7 @@ import com.example.pmdm.model.CardConfig
  */
 @Composable
 fun ProfileCard(
-    cardConfig: com.example.pmdm.model.CardConfig,
+    cardConfig: CardConfig,
     modifier: Modifier = Modifier
 ) {
     Card(

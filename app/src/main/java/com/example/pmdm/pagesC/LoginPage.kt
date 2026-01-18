@@ -33,7 +33,7 @@ fun LoginPage(
     onTogglePasswordVisibility: () -> Unit,
     onLoginClick: () -> Unit,
     onRegisterClick: () -> Unit,
-    onGuestClick: () -> Unit
+    onGuestClick: () -> Unit,
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
@@ -44,20 +44,26 @@ fun LoginPage(
         )
 
         Column(
-            modifier = Modifier.fillMaxSize().padding(16.dp)
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
         ) {
             // Logo
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.TopEnd) {
                 Image(
                     painter = painterResource(id = R.drawable.logo),
                     contentDescription = "Logo Imagen Generico",
-                    modifier = Modifier.size(90.dp).clip(RoundedCornerShape(40.dp))
+                    modifier = Modifier
+                        .size(90.dp)
+                        .clip(RoundedCornerShape(40.dp))
                 )
             }
 
             // Inputs
             Box(
-                modifier = Modifier.fillMaxWidth().weight(1f),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
                 contentAlignment = Alignment.Center
             ) {
                 BlockInputsData(
@@ -73,7 +79,9 @@ fun LoginPage(
                                     horizontalArrangement = androidx.compose.foundation.layout.Arrangement.SpaceBetween
                                 ) {
                                     TextFieldComponent(
-                                        info = if (state.password.isEmpty()) "Introduce contraseña" else "•".repeat(state.password.length),
+                                        info = if (state.password.isEmpty()) "Introduce contraseña" else "•".repeat(
+                                            state.password.length
+                                        ),
                                         color = Color.Black
                                     )
                                     IconButton(onClick = onTogglePasswordVisibility) {

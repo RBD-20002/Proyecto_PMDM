@@ -36,28 +36,28 @@ import androidx.compose.ui.unit.sp
 fun InputDataComponent(
     textValue: String,
     textInfo: String,
-    placeholder: (@Composable () -> Unit)? = null
-){
+    placeholder: (@Composable () -> Unit)? = null,
+) {
 
-        Row(
+    Row(
+        modifier = Modifier
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        TextComponent(
+            text = textValue,
+            textSize = 15.sp,
+            textColor = Color.White,
             modifier = Modifier
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ){
-            TextComponent(
-                text = textValue,
-                textSize = 15.sp,
-                textColor = Color.White,
-                modifier = Modifier
-                    .padding(3.dp)
-            )
+                .padding(3.dp)
+        )
 
-            TextFieldComponent(
-                info = textInfo,
-                color = Color.Black
-            )
-        }
+        TextFieldComponent(
+            info = textInfo,
+            color = Color.Black
+        )
+    }
 }
 
 /**
@@ -70,6 +70,6 @@ fun InputDataComponent(
  */
 @Preview
 @Composable
-fun PreviewInputData(){
-    InputDataComponent("User:","INTRODUCE USER")
+fun PreviewInputData() {
+    InputDataComponent("User:", "INTRODUCE USER")
 }

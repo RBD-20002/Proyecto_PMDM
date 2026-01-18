@@ -71,7 +71,7 @@ fun StartPage(
                 ) {
                     // Carrusel con las primeras 5 imágenes
                     CarouselStartPage(
-                        items = state.animeList.take(5)
+                        items = state.animeList.shuffled().take(5)
                     )
                 }
 
@@ -103,14 +103,14 @@ fun StartPage(
                     item {
                         Spacer(modifier = Modifier.height(16.dp))
                         Text(
-                            text = "Populares",
+                            text = "Recomendados",
                             color = Color.White
                         )
                         LazyRow(
                             horizontalArrangement = Arrangement.spacedBy(12.dp)
                         ) {
                             items(
-                                items = state.animeList.take(5),
+                                items = state.animeList.shuffled().take(10),
                                 key = { it.id }
                             ) { anime ->
                                 VerticalCard(anime, navController)
