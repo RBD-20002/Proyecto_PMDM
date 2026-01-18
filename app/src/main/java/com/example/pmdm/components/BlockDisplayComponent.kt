@@ -1,11 +1,14 @@
 package com.example.pmdm.components
 
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pmdm.R
@@ -15,6 +18,8 @@ import com.example.pmdm.model.CardConfig
 fun BlockDisplayCardComponent(
     animeInfo: CardConfig,
 ) {
+    val context = LocalContext.current
+
     Column {
         DisplayCardComponent(
             title = "INFORMACION",
@@ -40,7 +45,9 @@ fun BlockDisplayCardComponent(
                     description = "animeFLV",
                     titleButton = "Ver en AnimeFLV"
                 ) {
-                    Log.i("PruebaFLV","Click "+animeInfo.enlace1)
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(animeInfo.enlace1))
+
+                    context.startActivity(intent)
                 }
                 Spacer(modifier = Modifier.height(10.dp))
                 LinkButtonComponent(
@@ -48,7 +55,9 @@ fun BlockDisplayCardComponent(
                     description = "jkAnime",
                     titleButton = "Ver en jkAnime"
                 ) {
-                    Log.i("PruebaJK","Click "+animeInfo.enlace2)
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(animeInfo.enlace2))
+
+                    context.startActivity(intent)
                 }
             }
         )
