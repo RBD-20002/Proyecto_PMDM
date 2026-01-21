@@ -23,7 +23,7 @@ import com.example.pmdm.R
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.ui.graphics.Color
-import com.example.pmdm.model.CardConfig
+import com.example.pmdm.model.Anime
 
 /**
  * Tarjeta de perfil del usuario con imagen, nombre y un icono decorativo.
@@ -40,12 +40,12 @@ import com.example.pmdm.model.CardConfig
  * - Distribución vertical centrada.
  * - Altura y anchura fijas para mantener consistencia visual.
  *
- * @param cardConfig Objeto [CardConfig] que contiene los datos a mostrar (imagen, descripción y título).
+ * @param anime Objeto [Anime] que contiene los datos a mostrar (imagen, descripción y título).
  * @param modifier Modificador opcional para ajustar el tamaño, bordes o espaciado externo del componente.
  */
 @Composable
 fun ProfileCard(
-    cardConfig: CardConfig,
+    anime: Anime,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -61,8 +61,8 @@ fun ProfileCard(
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             // Imagen principal del perfil
             Image(
-                painter = painterResource(id = cardConfig.imageId),
-                contentDescription = cardConfig.imageDesc,
+                painter = painterResource(id = anime.imageId),
+                contentDescription = anime.imageDesc,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -71,7 +71,7 @@ fun ProfileCard(
 
             // Título o nombre de usuario
             Text(
-                text = cardConfig.title,
+                text = anime.title,
                 style = MaterialTheme.typography.bodyMedium,
                 maxLines = 1,
                 modifier = Modifier.padding(top = 6.dp, start = 8.dp, end = 8.dp)
@@ -97,7 +97,7 @@ fun ProfileCard(
 @Preview(showBackground = true)
 @Composable
 fun ProfileCardPreview() {
-    val sample = CardConfig(
+    val sample = Anime(
         id = 1,
         imageId = R.drawable.crocs,
         imageDesc = "crocs",
@@ -105,5 +105,5 @@ fun ProfileCardPreview() {
         synopsis = "",
         info = ""
     )
-    ProfileCard(cardConfig = sample)
+    ProfileCard(anime = sample)
 }

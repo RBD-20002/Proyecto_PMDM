@@ -28,14 +28,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.pmdm.model.CardConfig
+import com.example.pmdm.model.Anime
 import com.example.pmdm.model.DataProvider
 import kotlinx.coroutines.delay
 
 /**
  * Carrusel automático de imágenes de anime mostrado en la pantalla de inicio.
  *
- * Este componente presenta una lista de elementos ([CardConfig]) en formato
+ * Este componente presenta una lista de elementos ([Anime]) en formato
  * deslizable horizontal, avanzando automáticamente cada [intervalMs] milisegundos.
  *
  * Cada página muestra una imagen de anime con su título superpuesto y un
@@ -49,7 +49,7 @@ import kotlinx.coroutines.delay
  *
  * @param modifier Modificador para el tamaño o espaciado externo del carrusel.
  * @param intervalMs Tiempo en milisegundos entre cada cambio automático de imagen.
- * @param items Lista de configuraciones de tarjetas ([CardConfig]) a mostrar.
+ * @param items Lista de configuraciones de tarjetas ([Anime]) a mostrar.
  *              Por defecto usa `DataProvider.animeList`.
  */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -57,7 +57,7 @@ import kotlinx.coroutines.delay
 fun CarouselStartPage(
     modifier: Modifier = Modifier,
     intervalMs: Long = 3000L,
-    items: List<CardConfig> = DataProvider.animeList
+    items: List<Anime> = DataProvider.animeList
 ) {
     // Si la lista está vacía, no renderiza nada
     if (items.isEmpty()) return

@@ -16,7 +16,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.components.FavColumnDisplay
 import com.example.pmdm.components.TextComponent
 import com.example.pmdm.R
-import com.example.pmdm.state.FavoritePageState
+import com.example.pmdm.model.Anime
+import com.example.pmdm.ui.state.FavoritePageState
 
 @Composable
 fun FavoritePage(
@@ -77,8 +78,8 @@ fun FavoritePage(
 fun FavoritePagePreview() {
     val sampleState = FavoritePageState(
         favorites = listOf(
-            com.example.pmdm.model.CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-            com.example.pmdm.model.CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+            Anime(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+            Anime(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
         ),
         isEmpty = false
     )

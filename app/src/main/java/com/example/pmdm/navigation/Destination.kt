@@ -94,11 +94,10 @@ sealed class Destination(
     )
 
     companion object {
-        /**
-         * Lista de pantallas visibles en la barra de navegación inferior.
-         *
-         * Excluye las pantallas auxiliares (por ejemplo, `Login` o `Details`).
-         */
+        // Para MainBottomBar (logueados)
         val entries: List<Destination> = listOf(Start, ListContend, Fav, Profile)
+
+        // Para GuestBottomBar (invitados)
+        val guestEntries: List<Destination> = listOf(Start, ListContend, Login)
     }
 }

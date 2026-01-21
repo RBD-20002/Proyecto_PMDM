@@ -3,13 +3,17 @@ package com.example.pmdm.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.pmdm.pagesC.*
+import com.example.pmdm.viewModel.AuthViewModel
 import com.example.pmdm.viewModel.DetailsViewModel
 import com.example.pmdm.viewModel.FavoriteViewModel
 import com.example.pmdm.viewModel.LoginViewModel
@@ -19,7 +23,8 @@ import com.example.pmdm.viewModel.StartViewModel
 @Composable
 fun AppNavHost(
     navController: NavHostController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    authViewModel: AuthViewModel  // ← NUEVO PARÁMETRO
 ) {
     NavHost(
         navController = navController,
@@ -82,23 +87,23 @@ fun AppNavHost(
                 onPasswordChange = { viewModel.onPasswordChange(it) },
                 onTogglePasswordVisibility = { viewModel.togglePasswordVisibility() },
                 onLoginClick = {
-                    // Ejemplo: validación simple
-                    if (state.email.isNotBlank() && state.password.isNotBlank()) {
+                    if (state.email == "ricardo03-03-02@hotmail.com" && state.password == "RBD90-") {
+                        authViewModel.login(state.email, state.password)  // ← USA AuthViewModel
                         navController.navigate(Destination.Profile.route) {
                             popUpTo(Destination.Login.route) { inclusive = true }
                         }
                     }
-                    // En un caso real, aquí harías llamada API
                 },
                 onRegisterClick = {
-                    // Navegar a pantalla de registro (si la tuvieras)
-                    // Por ahora, vamos a Profile
-                    navController.navigate(Destination.Profile.route) {
-                        popUpTo(Destination.Login.route) { inclusive = true }
+                    if (state.email.isNotBlank() && state.password.isNotBlank()) {
+                        authViewModel.login(state.email, state.password)  // ← USA AuthViewModel
+                        navController.navigate(Destination.Profile.route) {
+                            popUpTo(Destination.Login.route) { inclusive = true }
+                        }
                     }
                 },
                 onGuestClick = {
-                    // Modo invitado - ir al inicio
+                    authViewModel.loginAsGuest()  // ← USA AuthViewModel
                     navController.navigate(Destination.Start.route) {
                         popUpTo(Destination.Login.route) { inclusive = true }
                     }
@@ -121,11 +126,12 @@ fun AppNavHost(
             )
         }
 
-        // ---------- PANTALLA DE DETALLES (RUTA DINÁMICA) ----------
+        // ---------- PANTALLA DE DETALLES ----------
         composable("details/{id}") { backStackEntry ->
             val id = backStackEntry.arguments?.getString("id")?.toIntOrNull()
             val viewModel: DetailsViewModel = viewModel()
             val state by viewModel.state.collectAsStateWithLifecycle()
+            val authState by authViewModel.state.collectAsStateWithLifecycle()  // ← Estado de auth
 
             LaunchedEffect(id) {
                 if (id != null) {
@@ -137,9 +143,8 @@ fun AppNavHost(
                 state = state,
                 onToggleFavorite = {
                     viewModel.toggleFavorite()
-                    // Si quisieras actualizar otras pantallas:
-                    // Podrías usar un evento compartido o recargar
-                }
+                },
+                isUserLoggedIn = authState.isLoggedIn  // ← Pasar estado real
             )
         }
     }
