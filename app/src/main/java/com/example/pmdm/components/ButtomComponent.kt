@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun ButtomComponent(
     text: String,
-    action: () -> Unit,
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    action: () -> Unit
 ){
     Box(modifier = Modifier
         .width(width = 110.dp)
@@ -34,7 +34,7 @@ fun ButtomComponent(
                 disabledContainerColor = Color.LightGray,
                 disabledContentColor = Color.Red
             ),
-            enabled = enabled  // ← AQUÍ SE USA
+            enabled = enabled
         ) {
             TextComponent(text = text, textSize = 8.sp)
         }
