@@ -1,7 +1,7 @@
 package com.example.pmdm.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.example.pmdm.ui.state.LoginPageState
+import com.example.pmdm.state.LoginPageState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,29 +13,14 @@ class LoginViewModel : ViewModel() {
     val state: StateFlow<LoginPageState> = _state.asStateFlow()
 
     fun onEmailChange(email: String) {
-        _state.update {
-            it.copy(
-                email = email,
-                isLoginEnabled = isFormValid(email, it.password) // ← NUEVO
-            )
-        }
+        _state.update { it.copy(email = email) }
     }
 
     fun onPasswordChange(password: String) {
-        _state.update {
-            it.copy(
-                password = password,
-                isLoginEnabled = isFormValid(it.email, password) // ← NUEVO
-            )
-        }
+        _state.update { it.copy(password = password) }
     }
 
     fun togglePasswordVisibility() {
         _state.update { it.copy(passwordVisible = !it.passwordVisible) }
-    }
-
-    // Función privada para validar el formulario
-    private fun isFormValid(email: String, password: String): Boolean {
-        return email.isNotBlank() && password.isNotBlank()
     }
 }

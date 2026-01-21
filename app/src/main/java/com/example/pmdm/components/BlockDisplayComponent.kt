@@ -2,6 +2,7 @@ package com.example.pmdm.components
 
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -11,11 +12,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pmdm.R
-import com.example.pmdm.model.Anime
+import com.example.pmdm.model.CardConfig
 
 @Composable
 fun BlockDisplayCardComponent(
-    animeInfo: Anime,
+    animeInfo: CardConfig,
 ) {
     val context = LocalContext.current
 
@@ -67,7 +68,7 @@ fun BlockDisplayCardComponent(
 @Preview
 @Composable
 fun PreviewDisplayCard() {
-    val inputs = Anime(
+    val inputs = CardConfig(
         id = 1,
         imageId = R.drawable.naruto,
         imageDesc = "Naruto Uzumaki",

@@ -1,6 +1,5 @@
 package com.example.pmdm.pagesC
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,7 +23,7 @@ import com.example.pmdm.components.ButtomComponent
 import com.example.pmdm.components.InputFieldConfig
 import com.example.pmdm.components.TextFieldComponent
 import com.example.pmdm.R
-import com.example.pmdm.ui.state.LoginPageState
+import com.example.pmdm.state.LoginPageState
 
 @Composable
 fun LoginPage(
@@ -77,7 +76,7 @@ fun LoginPage(
                             placeholder = {
                                 Row(
                                     modifier = Modifier.fillMaxWidth(),
-                                    horizontalArrangement = Arrangement.SpaceBetween
+                                    horizontalArrangement = androidx.compose.foundation.layout.Arrangement.SpaceBetween
                                 ) {
                                     TextFieldComponent(
                                         info = if (state.password.isEmpty()) "Introduce contraseña" else "•".repeat(
@@ -105,7 +104,7 @@ fun LoginPage(
                 )
             }
 
-            // Botones - ¡AQUÍ ESTÁ LA CORRECCIÓN!
+            // Botones
             Box(
                 modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.TopEnd
@@ -114,14 +113,9 @@ fun LoginPage(
                     horizontalArrangement = Arrangement.spacedBy(5.dp),
                     modifier = Modifier.padding(10.dp)
                 ) {
-                    ButtomComponent(text = "CREAR CUENTA") { onRegisterClick() }  // ← enabled por defecto (true)
-
-                    ButtomComponent(
-                        text = "INICIAR SESIÓN",
-                        enabled = state.isLoginEnabled  // ← ¡ESTE USA EL ESTADO!
-                    ) { onLoginClick() }
-
-                    ButtomComponent(text = "INVITADO") { onGuestClick() }  // ← enabled por defecto (true)
+                    ButtomComponent(text = "CREAR CUENTA") { onRegisterClick() }
+                    ButtomComponent(text = "INICIAR SESIÓN") { onLoginClick() }
+                    ButtomComponent(text = "INVITADO") { onGuestClick() }
                 }
             }
 

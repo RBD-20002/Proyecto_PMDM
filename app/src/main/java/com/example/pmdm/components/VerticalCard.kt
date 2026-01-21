@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.pmdm.model.Anime
+import com.example.pmdm.model.CardConfig
 import com.example.pmdm.R
 
 /**
@@ -42,13 +42,13 @@ import com.example.pmdm.R
  * }
  * ```
  *
- * @param anime Objeto [com.example.pmdm.components.CardConfig] que contiene la información del anime (imagen, título e id).
+ * @param cardConfig Objeto [com.example.pmdm.components.CardConfig] que contiene la información del anime (imagen, título e id).
  * @param navController Controlador de navegación que gestiona el cambio hacia la vista de detalles.
  * @param modifier Modificador opcional para ajustar el tamaño, espaciado o estilo visual.
  */
 @Composable
 fun VerticalCard(
-    anime: Anime,
+    cardConfig: CardConfig,
     navController: NavController,
     modifier: Modifier = Modifier,
 ) {
@@ -56,13 +56,13 @@ fun VerticalCard(
         modifier = modifier
             .width(140.dp)
             .height(220.dp),
-        onClick = { navController.navigate("details/${anime.id}") }
+        onClick = { navController.navigate("details/${cardConfig.id}") }
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             // Imagen principal del anime
             Image(
-                painter = painterResource(id = anime.imageId),
-                contentDescription = anime.imageDesc,
+                painter = painterResource(id = cardConfig.imageId),
+                contentDescription = cardConfig.imageDesc,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -72,7 +72,7 @@ fun VerticalCard(
 
             // Título del anime
             Text(
-                text = anime.title,
+                text = cardConfig.title,
                 style = MaterialTheme.typography.bodyMedium,
                 maxLines = 1,
                 modifier = Modifier.padding(top = 6.dp, start = 8.dp, end = 8.dp)
@@ -91,7 +91,7 @@ fun VerticalCard(
 @Composable
 private fun VerticalCardPreview() {
     val navController = rememberNavController()
-    val sample = Anime(
+    val sample = CardConfig(
         id = 1,
         imageId = R.drawable.dragonball,
         imageDesc = "Goku",
@@ -100,7 +100,7 @@ private fun VerticalCardPreview() {
         info = ""
     )
     VerticalCard(
-        anime = sample,
+        cardConfig = sample,
         navController = navController
     )
 }

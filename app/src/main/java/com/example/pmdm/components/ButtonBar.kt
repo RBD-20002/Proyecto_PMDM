@@ -34,7 +34,7 @@ import com.example.pmdm.navigation.Destination
  * @param modifier Modificador opcional para ajustar estilo o tamaño del componente.
  */
 @Composable
-fun MainButtonBar(
+fun NavigationBottomBar(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
@@ -88,5 +88,5 @@ fun MainButtonBar(
 @Composable
 fun ButtomPreview() {
     val navController = rememberNavController()
-    MainButtonBar(navController = navController)
+    NavigationBottomBar(navController = navController)
 }

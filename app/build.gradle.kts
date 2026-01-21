@@ -57,8 +57,8 @@ dependencies {
 
     // Lifecycle
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 
     // Testing
     testImplementation(libs.junit)
@@ -68,4 +68,22 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+
+    // Núcleo de CameraX y back‑end de Camera2
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.camera.camera2)
+    // Gestiona el ciclo de vida para que el uso de la cámara se vincule al LifecycleOwner
+    implementation(libs.androidx.camera.lifecycle)
+    // Vistafinder nativa para Compose (SurfaceRequest)
+    implementation(libs.androidx.camera.compose)
+    // Librería de permisos de Accompanist
+    implementation(libs.accompanist.permissions)
+
+
+    //
+    implementation(libs.coil.compose)
+
+
+
 }

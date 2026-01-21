@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
-import com.example.pmdm.model.Anime
+import com.example.pmdm.model.CardConfig
 import com.example.pmdm.model.DataProvider
 
 /**
@@ -32,13 +32,13 @@ import com.example.pmdm.model.DataProvider
  * - Cada fila contiene dos tarjetas ([VerticalCard]).
  *
  * @param title Título que se mostrará encima de la lista (por defecto "Tus Favoritos").
- * @param favorites Lista de animes a mostrar (usa objetos [Anime]).
+ * @param favorites Lista de animes a mostrar (usa objetos [CardConfig]).
  * @param navController Controlador de navegación opcional. Si no se pasa,
  * se crea uno localmente con `rememberNavController()` para evitar errores.
  */
 @Composable
 fun FavColumnDisplay(
-    favorites: List<Anime>,
+    favorites: List<CardConfig>,
     navController: NavController
 ) {
     // Si no se recibe un NavController, se crea uno local
@@ -71,7 +71,7 @@ fun FavColumnDisplay(
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 for (anime in group) {
-                    VerticalCard(anime = anime, navController = navController)
+                    VerticalCard(cardConfig = anime, navController = navController)
                 }
             }
         }
@@ -88,8 +88,8 @@ fun FavColumnDisplay(
 @Composable
 fun FavColumnDisplayPreview() {
     val sampleFav = listOf(
-        Anime(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-        Anime(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+        CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+        CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
     )
     FavColumnDisplay(favorites = sampleFav, navController = rememberNavController())
 }

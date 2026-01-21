@@ -1,4 +1,4 @@
-package com.example.pmdm.ui.state
+package com.example.pmdm.state
 
 data class SearchState(
     val query: String = "",

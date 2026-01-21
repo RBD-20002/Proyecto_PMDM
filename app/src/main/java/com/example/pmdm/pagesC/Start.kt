@@ -21,8 +21,7 @@ import com.example.pmdm.components.TextComponent
 import com.example.pmdm.R
 import com.example.pmdm.components.CarouselStartPage
 import com.example.pmdm.components.VerticalCard
-import com.example.pmdm.model.Anime
-import com.example.pmdm.ui.state.StartPageState
+import com.example.pmdm.state.StartPageState
 
 @Composable
 fun StartPage(
@@ -129,10 +128,10 @@ fun StartPage(
 fun StartPagePreview() {
     val sampleState = StartPageState(
         animeList = listOf(
-            Anime(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-            Anime(2, R.drawable.onepiece, "One Piece", "One Piece", "", ""),
-            Anime(3, R.drawable.dragonball, "Dragon Ball", "Dragon Ball Z", "", ""),
-            Anime(4, R.drawable.tokyo_revengers, "Tokyo Revengers", "Tokyo Revengers", "", "")
+            com.example.pmdm.model.CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+            com.example.pmdm.model.CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", ""),
+            com.example.pmdm.model.CardConfig(3, R.drawable.dragonball, "Dragon Ball", "Dragon Ball Z", "", ""),
+            com.example.pmdm.model.CardConfig(4, R.drawable.tokyo_revengers, "Tokyo Revengers", "Tokyo Revengers", "", "")
         ),
         isLoading = false,
         error = null

@@ -1,11 +1,14 @@
 package com.example.pmdm.model
 
+/**
+ * Modelo SIMPLE de Anime - Para empezar
+ */
 data class Anime(
     val id: Int,
-    val imageId: Int,
     val title: String,
     val synopsis: String,
     val info: String,
+    val imageId: Int,
     val imageDesc: String,
     val enlace1: String = "",
     val enlace2: String = "",

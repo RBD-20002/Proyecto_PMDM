@@ -13,13 +13,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.pmdm.R
-import com.example.pmdm.model.Anime
+import com.example.pmdm.model.CardConfig
 
 
 /**
  * Componente que muestra una cuadrícula de tarjetas en una lista vertical.
  *
- * Cada fila contiene hasta dos tarjetas generadas a partir de los objetos [Anime].
+ * Cada fila contiene hasta dos tarjetas generadas a partir de los objetos [CardConfig].
  * Si hay un número impar de elementos, se inserta un [Spacer] para mantener la simetría visual.
  *
  * ### Características:
@@ -35,7 +35,7 @@ import com.example.pmdm.model.Anime
  * @see CardComponent
  */
 @Composable
-fun BlockCardsComponents(input: List<Anime>, navController: NavController, modifier: Modifier = Modifier) {
+fun BlockCardsComponents(input: List<CardConfig>, navController: NavController, modifier: Modifier = Modifier) {
     LazyColumn(modifier = Modifier
         .fillMaxWidth()
         .padding(5.dp),
@@ -68,7 +68,7 @@ fun BlockCardsComponents(input: List<Anime>, navController: NavController, modif
 @Preview(showBackground = true)
 @Composable
 fun PreviewBlockDisplayCardComponent() {
-    val sample = Anime(
+    val sample = CardConfig(
         id = 1,
         imageId = R.drawable.naruto,
         imageDesc = "Naruto Uzumaki",

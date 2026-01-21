@@ -1,7 +1,13 @@
 package com.example.pmdm.pagesC
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,15 +20,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.pmdm.R
 import com.example.pmdm.components.DataProfileComponent
 import com.example.pmdm.components.FavColumnDisplay
 import com.example.pmdm.components.PreviewFieldConfig
 import com.example.pmdm.components.ProfileCard
-import com.example.pmdm.R
-import com.example.pmdm.ui.state.ProfilePageState
 import com.example.pmdm.components.TextComponent
-import com.example.pmdm.model.Anime
+import com.example.pmdm.model.CardConfig
 import com.example.pmdm.model.User
+import com.example.pmdm.navigation.Destination
+import com.example.pmdm.state.ProfilePageState
 
 @Composable
 fun ProfilePage(
@@ -33,50 +40,48 @@ fun ProfilePage(
         Image(
             painter = painterResource(R.drawable.login_page),
             contentDescription = null,
-            modifier = Modifier.matchParentSize(),
+            modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
 
         if (!state.isLoggedIn) {
-            // Mostrar mensaje de no logueado o redirigir a login
             Column(
                 modifier = Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                TextComponent(
-                    text = "No has iniciado sesión",
-                    textSize = 24.sp
-                )
+                TextComponent(text = "No has iniciado sesión", textSize = 24.sp)
                 Spacer(modifier = Modifier.height(16.dp))
-                TextComponent(
-                    text = "Inicia sesión para ver tu perfil",
-                    textSize = 16.sp
-                )
+                TextComponent(text = "Inicia sesión para ver tu perfil", textSize = 16.sp)
             }
         } else {
             state.user?.let { user ->
                 LazyColumn {
                     item {
                         Column(
-                            modifier = Modifier.fillMaxSize().padding(top = 26.dp),
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(top = 26.dp),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            // Profile card
+                            // ✅ Aquí usamos profileImageUri del state
                             ProfileCard(
-                                anime = com.example.pmdm.model.Anime(
+                                cardConfig = CardConfig(
                                     id = 1,
-                                    imageId = R.drawable.crocs,
+                                    imageId = R.drawable.crocs, // fallback si no hay foto
                                     imageDesc = "crocs",
                                     title = user.username,
                                     synopsis = "",
                                     info = ""
-                                )
+                                ),
+                                profileImageUri = state.profileImageUri,
+                                onCameraClick = {
+                                    navController.navigate(Destination.Camera.route)
+                                }
                             )
 
                             Spacer(modifier = Modifier.height(16.dp))
 
-                            // Datos del usuario
                             val profileData = listOf(
                                 PreviewFieldConfig("USUARIO:", user.username),
                                 PreviewFieldConfig("EMAIL:", user.email),
@@ -91,7 +96,6 @@ fun ProfilePage(
 
                             Spacer(modifier = Modifier.height(24.dp))
 
-                            // Favoritos
                             if (state.favorites.isNotEmpty()) {
                                 FavColumnDisplay(
                                     favorites = state.favorites,
@@ -113,9 +117,10 @@ fun ProfilePagePreview() {
         user = User("NicoDev", "nico@example.com"),
         isLoggedIn = true,
         favorites = listOf(
-            Anime(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-            Anime(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
-        )
+            CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+            CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+        ),
+        profileImageUri = null
     )
 
     ProfilePage(

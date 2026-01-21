@@ -25,15 +25,13 @@ import com.example.pmdm.components.BlockDisplayCardComponent
 import com.example.pmdm.components.SnackbarComponent
 import com.example.pmdm.components.TextComponent
 import com.example.pmdm.R
-import com.example.pmdm.model.Anime
-import com.example.pmdm.ui.state.DetailsPageState
+import com.example.pmdm.state.DetailsPageState
 import kotlinx.coroutines.launch
 
 @Composable
 fun DetailsPage(
     state: DetailsPageState?,
-    onToggleFavorite: () -> Unit,
-    isUserLoggedIn: Boolean = false  // ← NUEVO PARÁMETRO
+    onToggleFavorite: () -> Unit
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -84,34 +82,31 @@ fun DetailsPage(
             item { Spacer(modifier = Modifier.height(80.dp)) }
         }
 
-        // FLOATING ACTION BUTTON: Solo si el usuario está logueado
-        if (isUserLoggedIn) {  // ← CONDICIÓN AÑADIDA
-            FloatingActionButton(
-                onClick = {
-                    onToggleFavorite()
-                    scope.launch {
-                        snackbarHostState.showSnackbar(
-                            message = if (!state.isFavorite)
-                                "${state.anime.title} añadido a favoritos"
-                            else
-                                "${state.anime.title} eliminado de favoritos",
-                            duration = SnackbarDuration.Short
-                        )
-                    }
-                },
-                modifier = Modifier
-                    .align(Alignment.BottomEnd)
-                    .padding(16.dp)
-            ) {
-                Icon(
-                    imageVector = if (state.isFavorite)
-                        Icons.Default.Favorite
-                    else
-                        Icons.Default.FavoriteBorder,
-                    contentDescription = "Toggle favorito",
-                    tint = if (state.isFavorite) Color.Red else Color.Gray
-                )
-            }
+        FloatingActionButton(
+            onClick = {
+                onToggleFavorite()
+                scope.launch {
+                    snackbarHostState.showSnackbar(
+                        message = if (!state.isFavorite)
+                            "${state.anime.title} añadido a favoritos"
+                        else
+                            "${state.anime.title} eliminado de favoritos",
+                        duration = SnackbarDuration.Short
+                    )
+                }
+            },
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(16.dp)
+        ) {
+            Icon(
+                imageVector = if (state.isFavorite)
+                    Icons.Default.Favorite
+                else
+                    Icons.Default.FavoriteBorder,
+                contentDescription = "Toggle favorito",
+                tint = if (state.isFavorite) Color.Red else Color.Gray
+            )
         }
 
         SnackbarComponent(
@@ -125,7 +120,7 @@ fun DetailsPage(
 @Composable
 fun PreviewDetails() {
     val sampleState = DetailsPageState(
-        anime = Anime(
+        anime = com.example.pmdm.model.CardConfig(
             id = 1,
             imageId = R.drawable.naruto,
             imageDesc = "Naruto Uzumaki",
@@ -137,9 +132,5 @@ fun PreviewDetails() {
         ),
         isFavorite = true
     )
-    DetailsPage(
-        state = sampleState,
-        onToggleFavorite = {},
-        isUserLoggedIn = false  // Para ver el FAB en el preview
-    )
+    DetailsPage(state = sampleState, onToggleFavorite = {})
 }
