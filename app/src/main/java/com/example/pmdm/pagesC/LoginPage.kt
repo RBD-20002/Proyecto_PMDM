@@ -1,6 +1,6 @@
 package com.example.pmdm.pagesC
 
-import ButtonComponent
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
