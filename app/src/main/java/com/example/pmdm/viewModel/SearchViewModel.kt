@@ -1,7 +1,7 @@
 package com.example.pmdm.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.example.pmdm.state.SearchState
+import com.example.pmdm.ui.state.SearchState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

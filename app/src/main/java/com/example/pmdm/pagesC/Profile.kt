@@ -19,8 +19,10 @@ import com.example.pmdm.components.FavColumnDisplay
 import com.example.pmdm.components.PreviewFieldConfig
 import com.example.pmdm.components.ProfileCard
 import com.example.pmdm.R
-import com.example.pmdm.state.ProfilePageState
+import com.example.pmdm.ui.state.ProfilePageState
 import com.example.pmdm.components.TextComponent
+import com.example.pmdm.model.Anime
+import com.example.pmdm.model.User
 
 @Composable
 fun ProfilePage(
@@ -62,7 +64,7 @@ fun ProfilePage(
                         ) {
                             // Profile card
                             ProfileCard(
-                                cardConfig = com.example.pmdm.model.CardConfig(
+                                anime = com.example.pmdm.model.Anime(
                                     id = 1,
                                     imageId = R.drawable.crocs,
                                     imageDesc = "crocs",
@@ -108,11 +110,11 @@ fun ProfilePage(
 @Composable
 fun ProfilePagePreview() {
     val sampleState = ProfilePageState(
-        user = com.example.pmdm.model.User("NicoDev", "nico@example.com"),
+        user = User("NicoDev", "nico@example.com"),
         isLoggedIn = true,
         favorites = listOf(
-            com.example.pmdm.model.CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-            com.example.pmdm.model.CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+            Anime(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+            Anime(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
         )
     )
 

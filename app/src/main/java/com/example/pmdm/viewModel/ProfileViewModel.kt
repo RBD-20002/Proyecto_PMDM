@@ -3,7 +3,7 @@ package com.example.pmdm.viewModel
 import androidx.lifecycle.ViewModel
 import com.example.pmdm.model.DataProvider
 import com.example.pmdm.model.User
-import com.example.pmdm.state.ProfilePageState
+import com.example.pmdm.ui.state.ProfilePageState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

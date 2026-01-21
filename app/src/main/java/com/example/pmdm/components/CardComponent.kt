@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.R
-import com.example.pmdm.model.CardConfig
+import com.example.pmdm.model.Anime
 
 
 /**
@@ -30,14 +30,14 @@ import com.example.pmdm.model.CardConfig
  * - Ajusta la imagen con [ContentScale.FillBounds] para ocupar el alto completo.
  * - Muestra el título usando el componente [TextComponent].
  *
- * @param input Lista de configuraciones [CardConfig] que definen las tarjetas a mostrar.
+ * @param input Lista de configuraciones [Anime] que definen las tarjetas a mostrar.
  * @param navController Controlador de navegación que gestiona el evento de clic.
  *
- * @see CardConfig
+ * @see Anime
  * @see TextComponent
  */
 @Composable
-fun CardComponent(input: List<com.example.pmdm.model.CardConfig>, navController: NavController){
+fun CardComponent(input: List<com.example.pmdm.model.Anime>, navController: NavController){
 
     Column {
         input.forEach { cardConfig ->
@@ -90,7 +90,7 @@ fun CardComponent(input: List<com.example.pmdm.model.CardConfig>, navController:
 @Preview(showBackground = true)
 @Composable
 fun BlockDisplayCardComponentPreview() {
-    val sample = CardConfig(
+    val sample = Anime(
         id = 1,
         imageId = R.drawable.naruto,
         imageDesc = "Naruto Uzumaki",
