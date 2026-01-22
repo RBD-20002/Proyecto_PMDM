@@ -1,9 +1,9 @@
 package com.example.pmdm.viewModel
 
 import androidx.lifecycle.ViewModel
+import com.example.pmdm.ui.state.AuthState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import com.example.pmdm.ui.state.AuthState
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
@@ -13,7 +13,6 @@ class AuthViewModel : ViewModel() {
     val state: StateFlow<AuthState> = _state.asStateFlow()
 
     fun login(email: String, password: String) {
-        // Lógica simple de login
         _state.update {
             it.copy(
                 isLoggedIn = true,
@@ -25,15 +24,13 @@ class AuthViewModel : ViewModel() {
     }
 
     fun logout() {
-        _state.update {
-            AuthState() // Reset al estado inicial
-        }
+        _state.update { AuthState() }
     }
 
     fun loginAsGuest() {
         _state.update {
             it.copy(
-                isLoggedIn = false, // Invitado no está "logueado" pero puede navegar
+                isLoggedIn = false,
                 userEmail = "invitado",
                 isLoading = false,
                 error = null
@@ -42,14 +39,10 @@ class AuthViewModel : ViewModel() {
     }
 
     fun setLoading(loading: Boolean) {
-        _state.update {
-            it.copy(isLoading = loading)
-        }
+        _state.update { it.copy(isLoading = loading) }
     }
 
     fun setError(error: String?) {
-        _state.update {
-            it.copy(error = error)
-        }
+        _state.update { it.copy(error = error) }
     }
 }

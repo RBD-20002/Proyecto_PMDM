@@ -24,23 +24,15 @@ import com.example.pmdm.viewModel.LoginViewModel
 import com.example.pmdm.viewModel.ProfileViewModel
 import com.example.pmdm.viewModel.StartViewModel
 
-/**
- * Define el NavHost de la aplicación, enlazando cada ruta con su pantalla composable.
- *
- * Con la integración de la cámara se añade una entrada adicional para la ruta "camera".
- * Para la cámara se reutiliza el mismo ProfileViewModel que la pantalla de perfil, de modo
- * que la imagen capturada se guarde en el estado del usuario.
- */
 @Composable
 fun AppNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
     authViewModel: AuthViewModel
-
 ) {
     NavHost(
         navController = navController,
-        startDestination = Destination.Start.route,
+        startDestination = Destination.Login.route,
         modifier = modifier
     ) {
         composable(Destination.Start.route) {
@@ -49,50 +41,80 @@ fun AppNavHost(
             LaunchedEffect(Unit) { vm.loadAnimes() }
             StartPage(navController = navController, state = state)
         }
+
         composable(Destination.ListContend.route) {
             val vm: StartViewModel = viewModel()
             val state by vm.state.collectAsStateWithLifecycle()
             LaunchedEffect(Unit) { vm.loadAnimes() }
             ListContend(navController = navController, state = state)
         }
+
         composable(Destination.Profile.route) {
             val vm: ProfileViewModel = viewModel()
             val state by vm.state.collectAsStateWithLifecycle()
             LaunchedEffect(Unit) { vm.loadProfile() }
             ProfilePage(state = state, navController = navController)
         }
+
         composable(Destination.Login.route) {
             val vm: LoginViewModel = viewModel()
             val state by vm.state.collectAsStateWithLifecycle()
+
             LoginPage(
                 state = state,
                 onEmailChange = { vm.onEmailChange(it) },
                 onPasswordChange = { vm.onPasswordChange(it) },
                 onTogglePasswordVisibility = { vm.togglePasswordVisibility() },
-                onLoginClick = { /* tu lógica */ },
-                onRegisterClick = { /* tu lógica */ },
-                onGuestClick = { /* tu lógica */ }
+
+                onLoginClick = {
+                    // ✅ CREDENCIALES CORRECTAS (AJUSTA AQUÍ si quieres otras)
+                    if (state.email == "abc" && state.password == "123") {
+                        vm.setLoginError(null)
+                        authViewModel.login(state.email, state.password)
+
+                        navController.navigate(Destination.Start.route) {
+                            popUpTo(Destination.Login.route) { inclusive = true }
+                        }
+                    } else {
+                        vm.setLoginError("Correo o contraseña incorrectos")
+                    }
+                },
+
+                onRegisterClick = {
+                    // Si tienes pantalla de registro, navega aquí.
+                },
+
+                onGuestClick = {
+                    vm.setLoginError(null)
+                    authViewModel.loginAsGuest()
+
+                    navController.navigate(Destination.Start.route) {
+                        popUpTo(Destination.Login.route) { inclusive = true }
+                    }
+                }
             )
         }
+
         composable(Destination.Fav.route) {
             val vm: FavoriteViewModel = viewModel()
             val state by vm.state.collectAsStateWithLifecycle()
             LaunchedEffect(Unit) { vm.loadFavorites() }
             FavoritePage(navController = navController, state = state)
         }
+
         composable("details/{id}") { backStackEntry ->
             val id = backStackEntry.arguments?.getString("id")?.toIntOrNull()
             val vm: DetailsViewModel = viewModel()
             val state by vm.state.collectAsStateWithLifecycle()
             LaunchedEffect(id) { if (id != null) vm.loadAnime(id) }
+
             DetailsPage(
                 state = state,
                 onToggleFavorite = { vm.toggleFavorite() },
-                isUserLoggedIn = true // puedes usar el AuthViewModel para validar esto
+                isUserLoggedIn = authViewModel.state.value.isLoggedIn
             )
         }
 
-        // ✅ Pantalla de cámara: reutiliza ProfileViewModel de la pantalla de perfil
         composable(Destination.Camera.route) { cameraEntry ->
             val profileEntry = remember(cameraEntry) {
                 navController.getBackStackEntry(Destination.Profile.route)

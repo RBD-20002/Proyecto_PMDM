@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
+import com.example.pmdm.navigation.AppNavHost
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -17,7 +18,6 @@ import com.example.pmdm.components.GuestBottomBar
 import com.example.pmdm.components.MainButtonBar
 import com.example.pmdm.components.SearchToggle
 import com.example.pmdm.components.Toolbar
-import com.example.pmdm.navigation.AppNavHost
 import com.example.pmdm.ui.theme.PMDMTheme
 import com.example.pmdm.viewModel.AuthViewModel
 import com.example.pmdm.viewModel.SearchViewModel
@@ -39,27 +39,24 @@ class MainActivity : ComponentActivity() {
 private fun MainContent() {
     val navController = rememberNavController()
 
-    // ViewModels - SIGUIENDO TU ESTILO
     val searchViewModel: SearchViewModel = viewModel()
     val searchState by searchViewModel.state.collectAsStateWithLifecycle()
 
     val startViewModel: StartViewModel = viewModel()
     val startState by startViewModel.state.collectAsStateWithLifecycle()
 
-    // NUEVO: AuthViewModel para controlar el estado de login
+    // Auth
     val authViewModel: AuthViewModel = viewModel()
     val authState by authViewModel.state.collectAsStateWithLifecycle()
 
-    // Obtener ruta actual
+    // Ruta actual
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route
 
-    // Cargar animes al inicio
     LaunchedEffect(Unit) {
         startViewModel.loadAnimes()
     }
 
-    // Filtrar resultados de búsqueda
     val searchResults: List<String> = if (searchState.query.isBlank()) {
         emptyList()
     } else {
@@ -68,25 +65,20 @@ private fun MainContent() {
         }.map { it.title }
     }
 
-    // LÓGICA DE VISIBILIDAD - SEGÚN TUS INDICACIONES:
     // Toolbar y BottomBar se muestran en TODAS las páginas MENOS en login
     val shouldShowToolbarAndBottomBar = currentRoute != "login"
 
-    // SearchBar solo se muestra en algunas pantallas (opcional)
+    // SearchBar solo en algunas pantallas
     val shouldShowSearch = currentRoute in listOf("start", "listContend", "favoritos")
 
     Scaffold(
         topBar = {
-            // TOOLBAR: Se muestra en TODAS las páginas menos en login
             if (shouldShowToolbarAndBottomBar) {
                 Column {
                     Toolbar(
-                        onSearchClick = {
-                            searchViewModel.activateSearch()
-                        }
+                        onSearchClick = { searchViewModel.activateSearch() }
                     )
 
-                    // Barra de búsqueda (opcional, solo en algunas pantallas)
                     if (shouldShowSearch && searchState.isActive) {
                         SearchToggle(
                             hint = "Buscar anime...",
@@ -123,24 +115,19 @@ private fun MainContent() {
             }
         },
         bottomBar = {
-            // BOTTOM BAR: Se muestra en TODAS las páginas menos en login
-            // Cambia según si el usuario está logueado o no
             if (shouldShowToolbarAndBottomBar) {
                 if (authState.isLoggedIn) {
-                    // USUARIO LOGUEADO: MainButtonBar (4 items)
                     MainButtonBar(navController = navController)
                 } else {
-                    // USUARIO INVITADO: GuestBottomBar (3 items)
                     GuestBottomBar(navController = navController)
                 }
             }
         }
     ) { innerPadding ->
-        // NAVHOST principal - LE PASAMOS EL AuthViewModel
         AppNavHost(
             navController = navController,
             modifier = Modifier.padding(innerPadding),
-            authViewModel = authViewModel  // ← PASAMOS EL VIEWMODEL
+            authViewModel = authViewModel
         )
     }
 }
