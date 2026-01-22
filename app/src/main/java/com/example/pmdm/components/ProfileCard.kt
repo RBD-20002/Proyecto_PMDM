@@ -26,67 +26,60 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.pmdm.R
-import com.example.pmdm.model.CardConfig
+import com.example.pmdm.model.Anime
 
 /**
- * Tarjeta de perfil del usuario con imagen, nombre y botón de cámara.
+ * Tarjeta de perfil del usuario que muestra la imagen de perfil, el nombre
+ * y un botón para cambiar la foto mediante la cámara.
  *
- * ✅ Si profileImageUri != null → se muestra esa foto (sacada con CameraX)
- * ✅ Si profileImageUri == null → fallback a cardConfig.imageId (crocs)
+ * - Si [profileImageUri] no es nulo, muestra la foto capturada con CameraX.
+ * - En caso contrario muestra la imagen del [Anime] asociada (por defecto se
+ *   utiliza el recurso `R.drawable.crocs`).
+ *
+ * @param anime Objeto [Anime] que proporciona el título y el drawable de respaldo.
+ * @param profileImageUri [Uri] de la foto tomada; null para usar la imagen por defecto.
+ * @param onCameraClick callback que se ejecuta al pulsar el icono de cámara.
  */
 @Composable
 fun ProfileCard(
-    cardConfig: CardConfig,
+    anime: Anime,
     profileImageUri: Uri?,
     modifier: Modifier = Modifier,
     onCameraClick: () -> Unit = {}
 ) {
     Card(
         modifier = modifier
-            .border(
-                width = 2.dp,
-                color = Color.Black,
-                shape = RoundedCornerShape(2.dp)
-            )
+            .border(width = 2.dp, color = Color.Black, shape = RoundedCornerShape(2.dp))
             .width(140.dp)
             .height(220.dp)
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-
-            // ✅ FOTO (Uri) o fallback a drawable (crocs)
             if (profileImageUri != null) {
+                // ✅ Mostrar la foto capturada
                 AsyncImage(
                     model = profileImageUri,
                     contentDescription = "Foto de perfil",
                     contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(170.dp)
+                    modifier = Modifier.fillMaxWidth().height(170.dp)
                 )
             } else {
+                // Fallback a la imagen del anime (crocs)
                 Image(
-                    painter = painterResource(id = cardConfig.imageId),
-                    contentDescription = cardConfig.imageDesc,
+                    painter = painterResource(id = anime.imageId),
+                    contentDescription = anime.imageDesc,
                     contentScale = ContentScale.Fit,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(170.dp)
+                    modifier = Modifier.fillMaxWidth().height(170.dp)
                 )
             }
-
-            // Nombre
+            // Nombre o título
             Text(
-                text = cardConfig.title,
+                text = anime.title,
                 style = MaterialTheme.typography.bodyMedium,
                 maxLines = 1,
                 modifier = Modifier.padding(top = 6.dp, start = 8.dp, end = 8.dp)
             )
-
-            // Botón cámara
-            IconButton(
-                onClick = onCameraClick,
-                modifier = Modifier.padding(top = 4.dp)
-            ) {
+            // Botón de cámara para tomar una nueva foto
+            IconButton(onClick = onCameraClick, modifier = Modifier.padding(top = 4.dp)) {
                 Icon(
                     imageVector = Icons.Default.PhotoCamera,
                     contentDescription = "Cambiar foto"
@@ -99,7 +92,7 @@ fun ProfileCard(
 @Preview(showBackground = true)
 @Composable
 fun ProfileCardPreview() {
-    val sample = CardConfig(
+    val sample = Anime(
         id = 1,
         imageId = R.drawable.crocs,
         imageDesc = "crocs",
@@ -107,10 +100,5 @@ fun ProfileCardPreview() {
         synopsis = "",
         info = ""
     )
-
-    ProfileCard(
-        cardConfig = sample,
-        profileImageUri = null,
-        onCameraClick = {}
-    )
+    ProfileCard(anime = sample, profileImageUri = null, onCameraClick = {})
 }

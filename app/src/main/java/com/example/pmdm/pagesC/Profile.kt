@@ -26,11 +26,15 @@ import com.example.pmdm.components.FavColumnDisplay
 import com.example.pmdm.components.PreviewFieldConfig
 import com.example.pmdm.components.ProfileCard
 import com.example.pmdm.components.TextComponent
-import com.example.pmdm.model.CardConfig
+import com.example.pmdm.model.Anime
 import com.example.pmdm.model.User
 import com.example.pmdm.navigation.Destination
-import com.example.pmdm.state.ProfilePageState
+import com.example.pmdm.ui.state.ProfilePageState
 
+/**
+ * Pantalla del perfil de usuario.  Muestra un mensaje si no está logueado,
+ * y en caso contrario muestra la tarjeta de perfil, los datos y la lista de favoritos.
+ */
 @Composable
 fun ProfilePage(
     state: ProfilePageState,
@@ -43,7 +47,6 @@ fun ProfilePage(
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
-
         if (!state.isLoggedIn) {
             Column(
                 modifier = Modifier.fillMaxSize(),
@@ -59,16 +62,14 @@ fun ProfilePage(
                 LazyColumn {
                     item {
                         Column(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(top = 26.dp),
+                            modifier = Modifier.fillMaxSize().padding(top = 26.dp),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            // ✅ Aquí usamos profileImageUri del state
+                            // Tarjeta de perfil con foto capturada o imagen por defecto
                             ProfileCard(
-                                cardConfig = CardConfig(
+                                anime = Anime(
                                     id = 1,
-                                    imageId = R.drawable.crocs, // fallback si no hay foto
+                                    imageId = R.drawable.crocs,
                                     imageDesc = "crocs",
                                     title = user.username,
                                     synopsis = "",
@@ -79,28 +80,20 @@ fun ProfilePage(
                                     navController.navigate(Destination.Camera.route)
                                 }
                             )
-
                             Spacer(modifier = Modifier.height(16.dp))
-
                             val profileData = listOf(
                                 PreviewFieldConfig("USUARIO:", user.username),
                                 PreviewFieldConfig("EMAIL:", user.email),
                                 PreviewFieldConfig("ROL:", "Premium")
                             )
-
                             DataProfileComponent(
                                 title = "DATOS USUARIO",
                                 items = profileData,
                                 borderColor = Color.White
                             )
-
                             Spacer(modifier = Modifier.height(24.dp))
-
                             if (state.favorites.isNotEmpty()) {
-                                FavColumnDisplay(
-                                    favorites = state.favorites,
-                                    navController = navController
-                                )
+                                FavColumnDisplay(favorites = state.favorites, navController = navController)
                             }
                         }
                     }
@@ -117,14 +110,10 @@ fun ProfilePagePreview() {
         user = User("NicoDev", "nico@example.com"),
         isLoggedIn = true,
         favorites = listOf(
-            CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-            CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+            Anime(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+            Anime(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
         ),
         profileImageUri = null
     )
-
-    ProfilePage(
-        state = sampleState,
-        navController = rememberNavController()
-    )
+    ProfilePage(state = sampleState, navController = rememberNavController())
 }

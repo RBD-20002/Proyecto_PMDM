@@ -1,7 +1,6 @@
 package com.example.pmdm.model
 
 import com.example.pmdm.R
-import com.example.pmdm.model.Anime
 
 object DataProvider {
 
@@ -19,12 +18,12 @@ object DataProvider {
         return favoriteAnime.contains(animeId)
     }
 
-    fun getListFavoriteAnime(): List<CardConfig> {
+    fun getListFavoriteAnime(): List<Anime> {
         return animeList.filter { favoriteAnime.contains(it.id) }
     }
 
     val animeList = listOf(
-        CardConfig(
+        Anime(
             id = 1,
             imageId = R.drawable.naruto,
             imageDesc = "Naruto Uzumaki",
@@ -51,7 +50,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/naruto",
             enlace2 = "https://jkanime.net/naruto"
         ),
-        CardConfig(
+        Anime(
             id = 2,
             imageId = R.drawable.bleach,
             imageDesc = "Ichigo Kurosaki",
@@ -78,7 +77,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/bleach-tv",
             enlace2 = "https://jkanime.net/bleach"
         ),
-        CardConfig(
+        Anime(
             id = 3,
             imageId = R.drawable.dragonball,
             imageDesc = "Goku",
@@ -107,7 +106,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/dragon-ball-z",
             enlace2 = "https://jkanime.net/dragon-ball-z/"
         ),
-        CardConfig(
+        Anime(
             id = 4,
             imageId = R.drawable.onepiece,
             imageDesc = "Luffy",
@@ -134,7 +133,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/one-piece-tv",
             enlace2 = "https://jkanime.net/one-piece/"
         ),
-        CardConfig(
+        Anime(
             id = 5,
             imageId = R.drawable.evangelion,
             imageDesc = "Evangelion",
@@ -159,7 +158,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/neon-genesis-evangelion",
             enlace2 = "https://jkanime.net/evangelion/"
         ),
-        CardConfig(
+        Anime(
             id = 6,
             imageId = R.drawable.code_geas,
             imageDesc = "Code Geass",
@@ -184,7 +183,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/code-geass",
             enlace2 = "https://jkanime.net/code-geass-hangyaku-no-lelouch/"
         ),
-        CardConfig(
+        Anime(
             id = 7,
             imageId = R.drawable.hajime_no_ippo,
             imageDesc = "Hajime no Ippo",
@@ -211,7 +210,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/hajime-no-ippo",
             enlace2 = "https://jkanime.net/hajime-no-ippo/"
         ),
-        CardConfig(
+        Anime(
             id = 8,
             imageId = R.drawable.hellsing,
             imageDesc = "Hellsing",
@@ -238,7 +237,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/hellsing",
             enlace2 = "https://jkanime.net/hellsing/"
         ),
-        CardConfig(
+        Anime(
             id = 9,
             imageId = R.drawable.gachiakuta,
             imageDesc = "Gachiakuta",
@@ -265,7 +264,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/gachiakuta",
             enlace2 = "https://jkanime.net/gachiakuta/"
         ),
-        CardConfig(
+        Anime(
             id = 10,
             imageId = R.drawable.tokyo_revengers,
             imageDesc = "Tokyo Revengers",
@@ -292,7 +291,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/tokyo-revengers",
             enlace2 = "https://jkanime.net/tokyo-revengers/"
         ),
-        CardConfig(
+        Anime(
             id = 11,
             imageId = R.drawable.mob_psycho,
             imageDesc = "Mob Psycho 100",
@@ -317,7 +316,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/mob-psycho-100",
             enlace2 = "https://jkanime.net/mob-psycho-100/"
         ),
-        CardConfig(
+        Anime(
             id = 12,
             imageId = R.drawable.kaijuu_8gou,
             imageDesc = "Kaijuu 8-gou",
@@ -344,7 +343,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/kaijuu-8gou",
             enlace2 = "https://jkanime.net/kaijuu-8-gou/"
         ),
-        CardConfig(
+        Anime(
             id = 13,
             imageId = R.drawable.shingeki_no_kyojin,
             imageDesc = "Shingeki no Kyojin",
@@ -371,7 +370,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/shingeki-no-kyojin",
             enlace2 ="https://jkanime.net/shingeki-no-kyojin/"
         ),
-        CardConfig(
+        Anime(
             id = 14,
             imageId = R.drawable.tokyo_ghoul,
             imageDesc = "Tokyo Ghoul",
@@ -398,7 +397,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/tokyo-ghoul",
             enlace2 = "https://jkanime.net/tokyo-ghoul/"
         ),
-        CardConfig(
+        Anime(
             id = 15,
             imageId = R.drawable.death_note,
             imageDesc = "Death Note",
@@ -425,7 +424,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/death-note",
             enlace2 = "https://jkanime.net/death-note/"
         ),
-        CardConfig(
+        Anime(
             id = 16,
             imageId = R.drawable.monster,
             imageDesc = "Monster",
@@ -452,7 +451,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/monster",
             enlace2 = "https://jkanime.net/monster/"
         ),
-        CardConfig(
+        Anime(
             id = 17,
             imageId = R.drawable.berserk,
             imageDesc = "Berserk",
@@ -479,7 +478,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/berserk",
             enlace2 = "https://jkanime.net/berserk/"
         ),
-        CardConfig(
+        Anime(
             id = 18,
             imageId = R.drawable.another,
             imageDesc = "Another",
@@ -506,7 +505,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/another",
             enlace2 = "https://jkanime.net/another/"
         ),
-        CardConfig(
+        Anime(
             id = 19,
             imageId = R.drawable.grappler_baki,
             imageDesc = "Grappler Baki",
@@ -533,7 +532,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/drappler-baki",
             enlace2 = "https://jkanime.net/grappler-baki-tv/"
         ),
-        CardConfig(
+        Anime(
             id = 20,
             imageId = R.drawable.the_god_of_high_school,
             imageDesc = "The God of High School",
@@ -560,7 +559,7 @@ object DataProvider {
             enlace1 = "no disponible",
             enlace2 = "https://jkanime.net/the-god-of-high-school/"
         ),
-        CardConfig(
+        Anime(
             id = 21,
             imageId = R.drawable.megalo_box,
             imageDesc = "Megalo Box",
@@ -587,7 +586,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/megalo-box",
             enlace2 = "https://jkanime.net/megalo-box/"
         ),
-        CardConfig(
+        Anime(
             id = 22,
             imageId = R.drawable.dororo,
             imageDesc = "Dororo",
@@ -614,7 +613,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/dororo",
             enlace2 = "https://jkanime.net/dororo/"
         ),
-        CardConfig(
+        Anime(
             id = 23,
             imageId = R.drawable.kimetsu_no_yaiba,
             imageDesc = "Kimetsu no Yaiba",
@@ -641,7 +640,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/kimetsu-no-yaiba",
             enlace2 = "https://jkanime.net/kimetsu-no-yaiba/"
         ),
-        CardConfig(
+        Anime(
             id = 24,
             imageId = R.drawable.noragami,
             imageDesc = "Noragami",
@@ -668,7 +667,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/noragami",
             enlace2 = "https://jkanime.net/noragami/"
         ),
-        CardConfig(
+        Anime(
             id = 25,
             imageId = R.drawable.fullmetal_alchemist,
             imageDesc = "Fullmetal Alchemist",
@@ -695,7 +694,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/fullmetal-alchemist-brotherhood",
             enlace2 = "https://jkanime.net/fullmetal-alchemist/"
         ),
-        CardConfig(
+        Anime(
             id = 26,
             imageId = R.drawable.black_clover,
             imageDesc = "Black Clover",
@@ -723,7 +722,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/black-clover-tv/"
         ),
 
-        CardConfig(
+        Anime(
             id = 27,
             imageId = R.drawable.boku_dake_ga_inai_machi,
             imageDesc = "Boku dake ga Inai Machi",
@@ -750,7 +749,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/boku-dake-ga-inai-machi",
             enlace2 = "https://jkanime.net/boku-dake-ga-inai-machi/"
         ),
-        CardConfig(
+        Anime(
             id = 28,
             imageId = R.drawable.charlotte,
             imageDesc = "Charlotte",
@@ -777,7 +776,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/charlotte",
             enlace2 = "https://jkanime.net/charlotte-/"
         ),
-        CardConfig(
+        Anime(
             id = 29,
             imageId = R.drawable.angel_beats,
             imageDesc = "Angel Beats!",
@@ -804,7 +803,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/angel-beats",
             enlace2 = "https://jkanime.net/angel-beats/"
         ),
-        CardConfig(
+        Anime(
             id = 30,
             imageId = R.drawable.death_parade,
             imageDesc = "Death Parade",
@@ -831,7 +830,7 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/death-parade",
             enlace2 = "https://jkanime.net/death-parade/"
         ),
-        CardConfig(
+        Anime(
             id = 31,
             imageId = R.drawable.psycho_pass,
             imageDesc = "Psycho-Pass",

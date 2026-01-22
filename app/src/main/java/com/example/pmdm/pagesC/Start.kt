@@ -21,7 +21,8 @@ import com.example.pmdm.components.TextComponent
 import com.example.pmdm.R
 import com.example.pmdm.components.CarouselStartPage
 import com.example.pmdm.components.VerticalCard
-import com.example.pmdm.state.StartPageState
+import com.example.pmdm.model.Anime
+import com.example.pmdm.ui.state.StartPageState
 
 @Composable
 fun StartPage(
@@ -63,33 +64,34 @@ fun StartPage(
             }
 
             else -> {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(horizontal = 16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    // Carrusel con las primeras 5 imágenes
-                    CarouselStartPage(
-                        items = state.animeList.shuffled().take(5)
-                    )
-                }
-
-                // Listas horizontales de contenido
                 LazyColumn(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(top = 260.dp)
+                        .padding(horizontal = 16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    contentPadding = PaddingValues(bottom = 80.dp) // para que no tape la bottom bar
                 ) {
-                    // Sección "Todos los animes"
+                    // 1) Carrusel como primer item
+                    item {
+                        Spacer(modifier = Modifier.height(12.dp))
+                        CarouselStartPage(
+                            items = state.animeList.shuffled().take(5),
+                            modifier = Modifier.fillMaxWidth()
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
+                    }
+
+                    // 2) Sección "Todos los Animes"
                     item {
                         Text(
                             text = "Todos los Animes",
                             color = Color.White
                         )
-                        LazyRow(
-                            horizontalArrangement = Arrangement.spacedBy(12.dp)
-                        ) {
+                        Spacer(modifier = Modifier.height(8.dp))
+                    }
+
+                    item {
+                        LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                             items(
                                 items = state.animeList,
                                 key = { it.id }
@@ -97,18 +99,20 @@ fun StartPage(
                                 VerticalCard(anime, navController)
                             }
                         }
+                        Spacer(modifier = Modifier.height(16.dp))
                     }
 
-                    // Sección "Populares" (primeros 5 como ejemplo)
+                    // 3) Sección "Recomendados"
                     item {
-                        Spacer(modifier = Modifier.height(16.dp))
                         Text(
                             text = "Recomendados",
                             color = Color.White
                         )
-                        LazyRow(
-                            horizontalArrangement = Arrangement.spacedBy(12.dp)
-                        ) {
+                        Spacer(modifier = Modifier.height(8.dp))
+                    }
+
+                    item {
+                        LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                             items(
                                 items = state.animeList.shuffled().take(10),
                                 key = { it.id }
@@ -128,10 +132,10 @@ fun StartPage(
 fun StartPagePreview() {
     val sampleState = StartPageState(
         animeList = listOf(
-            com.example.pmdm.model.CardConfig(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-            com.example.pmdm.model.CardConfig(2, R.drawable.onepiece, "One Piece", "One Piece", "", ""),
-            com.example.pmdm.model.CardConfig(3, R.drawable.dragonball, "Dragon Ball", "Dragon Ball Z", "", ""),
-            com.example.pmdm.model.CardConfig(4, R.drawable.tokyo_revengers, "Tokyo Revengers", "Tokyo Revengers", "", "")
+            Anime(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
+            Anime(2, R.drawable.onepiece, "One Piece", "One Piece", "", ""),
+            Anime(3, R.drawable.dragonball, "Dragon Ball", "Dragon Ball Z", "", ""),
+            Anime(4, R.drawable.tokyo_revengers, "Tokyo Revengers", "Tokyo Revengers", "", "")
         ),
         isLoading = false,
         error = null
