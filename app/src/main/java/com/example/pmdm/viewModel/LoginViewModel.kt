@@ -16,7 +16,7 @@ class LoginViewModel : ViewModel() {
         _state.update {
             it.copy(
                 email = email,
-                isLoginEnabled = isFormValid(email, it.password) // ← NUEVO
+                isLoginEnabled = isFormValid(email, it.password)
             )
         }
     }
@@ -25,7 +25,7 @@ class LoginViewModel : ViewModel() {
         _state.update {
             it.copy(
                 password = password,
-                isLoginEnabled = isFormValid(it.email, password) // ← NUEVO
+                isLoginEnabled = isFormValid(it.email, password)
             )
         }
     }
@@ -34,7 +34,10 @@ class LoginViewModel : ViewModel() {
         _state.update { it.copy(passwordVisible = !it.passwordVisible) }
     }
 
-    // Función privada para validar el formulario
+    fun setLoginError(errorMessage: String?) {
+        _state.update { it.copy(loginError = errorMessage) }
+    }
+
     private fun isFormValid(email: String, password: String): Boolean {
         return email.isNotBlank() && password.isNotBlank()
     }
