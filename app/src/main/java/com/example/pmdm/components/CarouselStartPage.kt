@@ -59,14 +59,12 @@ fun CarouselStartPage(
     intervalMs: Long = 3000L,
     items: List<Anime> = DataProvider.animeList
 ) {
-    // Si la lista está vacía, no renderiza nada
     if (items.isEmpty()) return
 
-    // Controla el estado del pager (posición actual, tamaño total, etc.)
     val pagerState = rememberPagerState(pageCount = { items.size })
 
-    // Efecto lanzado que cambia de página automáticamente cada cierto intervalo
-    LaunchedEffect(pagerState.currentPage, items.size, intervalMs) {
+    // Auto-scroll
+    LaunchedEffect(items.size, intervalMs) {
         while (true) {
             delay(intervalMs)
             val next = (pagerState.currentPage + 1) % items.size
@@ -74,24 +72,26 @@ fun CarouselStartPage(
         }
     }
 
-    // Contenedor principal del carrusel
-    Box(modifier = modifier) {
+
+    // ✅ Importante: aquí fijamos el tamaño del carrusel para que TODAS las páginas midan igual
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(220.dp)
+    ) {
         HorizontalPager(
             state = pagerState,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(220.dp),
-            pageSpacing = 12.dp
+            modifier = Modifier.fillMaxSize(),
+            pageSpacing = 0.dp
         ) { page ->
             val anime = items[page]
 
-            // Contenedor de cada página individual
+            // ✅ Cada página ocupa exactamente el mismo tamaño del Pager
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .clip(MaterialTheme.shapes.extraLarge)
             ) {
-                // Imagen principal
                 Image(
                     painter = painterResource(id = anime.imageId),
                     contentDescription = anime.imageDesc,
@@ -99,7 +99,7 @@ fun CarouselStartPage(
                     modifier = Modifier.fillMaxSize()
                 )
 
-                // Degradado superior oscuro para mejorar legibilidad del texto
+                // Degradado superior
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -112,7 +112,7 @@ fun CarouselStartPage(
                         .align(Alignment.TopStart)
                 )
 
-                // Título del anime
+                // Título
                 Text(
                     text = anime.title,
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
@@ -124,7 +124,7 @@ fun CarouselStartPage(
             }
         }
 
-        // Indicadores de posición (círculos inferiores)
+        // Indicadores
         Row(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
@@ -147,19 +147,12 @@ fun CarouselStartPage(
     }
 }
 
-/**
- * Vista previa del carrusel con datos de ejemplo de [DataProvider].
- *
- * Muestra el componente con dimensiones fijas y relleno horizontal
- * para visualizar su comportamiento en el modo de diseño.
- */
 @Preview(showBackground = true)
 @Composable
 private fun AutoCarouselFromDataPreview() {
     CarouselStartPage(
         modifier = Modifier
             .fillMaxWidth()
-            .height(240.dp)
             .padding(horizontal = 16.dp, vertical = 12.dp)
     )
 }
