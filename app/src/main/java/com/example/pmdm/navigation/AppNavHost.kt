@@ -11,6 +11,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.pmdm.pagesC.CameraPage
+import com.example.pmdm.pagesC.CreateAcountPage
 import com.example.pmdm.pagesC.DetailsPage
 import com.example.pmdm.pagesC.FavoritePage
 import com.example.pmdm.pagesC.ListContend
@@ -18,6 +19,7 @@ import com.example.pmdm.pagesC.LoginPage
 import com.example.pmdm.pagesC.ProfilePage
 import com.example.pmdm.pagesC.StartPage
 import com.example.pmdm.viewModel.AuthViewModel
+import com.example.pmdm.viewModel.CreateAccountViewModel
 import com.example.pmdm.viewModel.DetailsViewModel
 import com.example.pmdm.viewModel.FavoriteViewModel
 import com.example.pmdm.viewModel.LoginViewModel
@@ -81,7 +83,7 @@ fun AppNavHost(
                 },
 
                 onRegisterClick = {
-                    // Si tienes pantalla de registro, navega aquí.
+                    navController.navigate("createAccount")
                 },
 
                 onGuestClick = {
@@ -125,5 +127,28 @@ fun AppNavHost(
                 onPhotoTaken = { uri -> profileVm.updateProfileImage(uri) }
             )
         }
+
+        composable("createAccount") {
+            val vm: CreateAccountViewModel = viewModel()
+            val state by vm.state.collectAsStateWithLifecycle()
+
+            if (state.success) {
+                LaunchedEffect(Unit) {
+                    vm.clearState()
+                    navController.popBackStack()
+                }
+            }
+
+            CreateAcountPage(
+                state = state,
+                onUsernameChange = vm::onUsernameChange,
+                onEmailChange = vm::onEmailChange,
+                onPasswordChange = vm::onPasswordChange,
+                onRepeatPasswordChange = vm::onRepeatPasswordChange,
+                onCreateClick = vm::onCreateClick,
+                onCancelClick = { navController.popBackStack() }
+            )
+        }
+
     }
 }

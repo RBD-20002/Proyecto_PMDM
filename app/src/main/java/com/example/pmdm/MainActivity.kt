@@ -66,7 +66,7 @@ private fun MainContent() {
     }
 
     // Toolbar y BottomBar se muestran en TODAS las páginas MENOS en login
-    val shouldShowToolbarAndBottomBar = currentRoute != "login"
+    val shouldShowToolbarAndBottomBar = currentRoute !in listOf("login", "createAccount")
 
     // SearchBar solo en algunas pantallas
     val shouldShowSearch = currentRoute in listOf("start", "listContend", "favoritos")

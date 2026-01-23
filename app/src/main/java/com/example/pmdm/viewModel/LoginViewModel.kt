@@ -16,6 +16,7 @@ class LoginViewModel : ViewModel() {
         _state.update {
             it.copy(
                 email = email,
+                emailError = if (email.isBlank()) "El email no puede estar vacío" else null,
                 isLoginEnabled = isFormValid(email, it.password)
             )
         }
@@ -25,10 +26,12 @@ class LoginViewModel : ViewModel() {
         _state.update {
             it.copy(
                 password = password,
+                passwordError = if (password.isBlank()) "La contraseña no puede estar vacía" else null,
                 isLoginEnabled = isFormValid(it.email, password)
             )
         }
     }
+
 
     fun togglePasswordVisibility() {
         _state.update { it.copy(passwordVisible = !it.passwordVisible) }
