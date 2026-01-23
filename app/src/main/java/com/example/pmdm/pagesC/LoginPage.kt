@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pmdm.R
 import com.example.pmdm.components.ButtomComponent
+import com.example.pmdm.components.TextComponent
 import com.example.pmdm.ui.state.LoginPageState
 
 @Composable
@@ -31,12 +32,12 @@ fun LoginPage(
     onTogglePasswordVisibility: () -> Unit,
     onLoginClick: () -> Unit,
     onRegisterClick: () -> Unit,
-    onGuestClick: () -> Unit,
+    onGuestClick: () -> Unit
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = painterResource(id = R.drawable.login_page),
-            contentDescription = "Fondo de pantalla de Login",
+            contentDescription = "Fondo Login",
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
@@ -46,20 +47,30 @@ fun LoginPage(
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.TopEnd) {
+            Box(
+                modifier = Modifier.fillMaxWidth(),
+                contentAlignment = Alignment.TopEnd
+            ) {
                 Image(
                     painter = painterResource(id = R.drawable.logo),
-                    contentDescription = "Logo Imagen Generico",
+                    contentDescription = "Logo",
                     modifier = Modifier
                         .size(90.dp)
                         .clip(RoundedCornerShape(40.dp))
                 )
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(120.dp))
 
-            // ✅ EMAIL (aquí sí actualiza el estado)
-            Text(text = "EMAIL:", color = Color.White)
+            TextComponent(
+                text = "INICIAR SESIÓN",
+                textSize = 20.sp,
+                textColor = Color.White
+            )
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            TextComponent(text = "EMAIL:", textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.email,
                 onValueChange = onEmailChange,
@@ -67,10 +78,9 @@ fun LoginPage(
                 singleLine = true
             )
 
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
-            // ✅ PASSWORD (aquí sí actualiza el estado)
-            Text(text = "CONTRASEÑA:", color = Color.White)
+            TextComponent(text = "PASSWORD:", textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.password,
                 onValueChange = onPasswordChange,
@@ -84,21 +94,17 @@ fun LoginPage(
                     IconButton(onClick = onTogglePasswordVisibility) {
                         Icon(
                             imageVector = if (state.passwordVisible)
-                                Icons.Default.Visibility
+                                Icons.Default.VisibilityOff
                             else
-                                Icons.Default.VisibilityOff,
-                            contentDescription = if (state.passwordVisible)
-                                "Ocultar contraseña"
-                            else
-                                "Mostrar contraseña"
+                                Icons.Default.Visibility,
+                            contentDescription = "Toggle password visibility"
                         )
                     }
                 }
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(24.dp))
 
-            // Botones
             Box(
                 modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.TopEnd
@@ -107,33 +113,45 @@ fun LoginPage(
                     horizontalArrangement = Arrangement.spacedBy(5.dp),
                     modifier = Modifier.padding(10.dp)
                 ) {
-                    ButtomComponent(text = "CREAR CUENTA") { onRegisterClick() }
-
                     ButtomComponent(
-                        text = "INICIAR SESIÓN",
+                        text = "ENTRAR",
                         enabled = state.isLoginEnabled
-                    ) { onLoginClick() }
+                    ) {
+                        onLoginClick()
+                    }
 
-                    ButtomComponent(text = "INVITADO") { onGuestClick() }
-                }
-            }
+                    Spacer(modifier = Modifier.height(12.dp))
 
-            // Error
-            state.loginError?.let { error ->
-                Box(
-                    modifier = Modifier.fillMaxWidth(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    com.example.pmdm.components.TextComponent(
-                        text = error,
-                        textSize = 14.sp,
-                        textColor = Color.Red
-                    )
+                    ButtomComponent(text = "CREAR CUENTA") {
+                        onRegisterClick()
+                    }
+
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    ButtomComponent(text = "ENTRAR COMO INVITADO") {
+                        onGuestClick()
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    state.loginError?.let { error ->
+                        Box(
+                            modifier = Modifier.fillMaxWidth(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            TextComponent(
+                                text = error,
+                                textColor = Color.Red,
+                                textSize = 14.sp
+                            )
+                        }
+                    }
                 }
             }
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
