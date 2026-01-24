@@ -133,8 +133,8 @@ fun StartPagePreview() {
     val sampleState = StartPageState(
         animeList = listOf(
             Anime(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-            Anime(2, R.drawable.onepiece, "One Piece", "One Piece", "", ""),
-            Anime(3, R.drawable.dragonball, "Dragon Ball", "Dragon Ball Z", "", ""),
+            Anime(2, R.drawable.one_piece, "One Piece", "One Piece", "", ""),
+            Anime(3, R.drawable.dragon_ball, "Dragon Ball", "Dragon Ball Z", "", ""),
             Anime(4, R.drawable.tokyo_revengers, "Tokyo Revengers", "Tokyo Revengers", "", "")
         ),
         isLoading = false,

@@ -93,7 +93,7 @@ private fun VerticalCardPreview() {
     val navController = rememberNavController()
     val sample = Anime(
         id = 1,
-        imageId = R.drawable.dragonball,
+        imageId = R.drawable.dragon_ball,
         imageDesc = "Goku",
         title = "DRAGON BALL Z",
         synopsis = "",
