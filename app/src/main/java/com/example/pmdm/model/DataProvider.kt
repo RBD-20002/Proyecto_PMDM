@@ -6,15 +6,15 @@ object DataProvider {
 
     val favoriteAnime = mutableSetOf<Int>()
 
-    fun filterFavorite(animeId: Int){
-        if(favoriteAnime.contains(animeId)){
+    fun filterFavorite(animeId: Int) {
+        if (favoriteAnime.contains(animeId)) {
             favoriteAnime.remove(animeId)
-        }else{
+        } else {
             favoriteAnime.add(animeId)
         }
     }
 
-    fun isFavorite(animeId: Int): Boolean{
+    fun isFavorite(animeId: Int): Boolean {
         return favoriteAnime.contains(animeId)
     }
 
@@ -368,7 +368,7 @@ object DataProvider {
                     "Emitido:\n" +
                     "Domingo, 07 de Abril de 2013",
             enlace1 = "https://www3.animeflv.net/anime/shingeki-no-kyojin",
-            enlace2 ="https://jkanime.net/shingeki-no-kyojin/"
+            enlace2 = "https://jkanime.net/shingeki-no-kyojin/"
         ),
         Anime(
             id = 14,
@@ -991,32 +991,34 @@ object DataProvider {
             enlace2 = "https://jkanime.net/mononoke-hime"
         ),
         Anime(
-            id = 36,
-            imageId = R.drawable.mononoke_hime,
-            imageDesc = "San",
-            title = "MONONOKE HIME",
-            synopsis = "Mononoke Hime sigue a Ashitaka, un joven príncipe que se ve envuelto en un conflicto entre los humanos y los espíritus del bosque. La historia explora la relación entre la naturaleza y la humanidad, con combates épicos y dilemas morales en un mundo lleno de criaturas místicas.",
+            id = 37,
+            imageId = R.drawable.enen_no_shouboutai,
+            imageDesc = "Shinra Kusakabe",
+            title = "ENEN NO SHOUBOUTAI",
+            synopsis = "Enen no Shouboutai sigue a Shinra Kusakabe, un pirocinético con la habilidad de encender sus pies a voluntad, quien se une a la Compañía 8 de la Fuerza Especial de Fuego para combatir a los \"Infernales\", humanos que se convierten en criaturas de fuego, y descubrir la verdad detrás de un misterioso incendio que marcó su pasado.",
             info = "Tipo:\n" +
-                    "Película\n\n" +
+                    "Serie\n\n" +
                     "Generos:\n" +
-                    "Accion, Aventura, Fantasia, Drama\n\n" +
+                    "Acción, Ciencia Ficción, Shounen\n\n" +
                     "Studios:\n" +
-                    "Studio Ghibli\n\n" +
+                    "David Production\n\n" +
                     "Temporada:\n" +
-                    "1997\n\n" +
+                    "Verano 2019\n\n" +
                     "Demografia:\n" +
-                    "Seinen\n\n" +
+                    "Shounen\n\n" +
                     "Idiomas:\n" +
-                    "Japonés , Español Latino\n\n" +
+                    "Japonés\n\n" +
+                    "Episodios:\n" +
+                    "24 (T1)\n\n" +
                     "Duracion:\n" +
-                    "133 min.\n\n" +
+                    "24 min. por episodio\n\n" +
                     "Emitido:\n" +
-                    "Viernes, 12 de Julio de 1997",
-            enlace1 = "https://www3.animeflv.net/anime/mononoke-hime",
-            enlace2 = "https://jkanime.net/mononoke-hime"
+                    "viernes, 05 de Julio de 2019",
+            enlace1 = "https://www3.animeflv.net/anime/enen-no-shouboutai",
+            enlace2 = "https://jkanime.net/enen-no-shouboutai"
         ),
         Anime(
-            id = 37,
+            id = 38,
             imageId = R.drawable.log_horizon,
             imageDesc = "Shiroe",
             title = "LOG HORIZON",
@@ -1043,7 +1045,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/log-horizon"
         ),
         Anime(
-            id = 38,
+            id = 39,
             imageId = R.drawable.overlord,
             imageDesc = "Ainz Ooal Gown",
             title = "OVERLORD",
@@ -1070,7 +1072,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/overlord"
         ),
         Anime(
-            id = 39,
+            id = 40,
             imageId = R.drawable.drifters,
             imageDesc = "Shimazu Toyohisa",
             title = "DRIFTERS",
@@ -1097,7 +1099,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/drifters"
         ),
         Anime(
-            id = 40,
+            id = 41,
             imageId = R.drawable.nakitai_watashi_wa_neko_wo_kaburu,
             imageDesc = "Miko Tsukimi",
             title = "NAKITAI WATASHI WA NEKO WO KABURU",
@@ -1122,7 +1124,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/nakitai-watashi-wa-neko-wo-kaburu"
         ),
         Anime(
-            id = 41,
+            id = 42,
             imageId = R.drawable.koe_no_katachi,
             imageDesc = "Shouya Ishida",
             title = "KOE NO KATACHI",
@@ -1147,7 +1149,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/koe-no-katachi"
         ),
         Anime(
-            id = 42,
+            id = 43,
             imageId = R.drawable.dead_mount_death_play,
             imageDesc = "Polka",
             title = "DEAD MOUNT DEATH PLAY",
@@ -1174,7 +1176,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/dead-mount-death-play"
         ),
         Anime(
-            id = 43,
+            id = 44,
             imageId = R.drawable.kaminaki_sekai_no_kamisama_katsudou,
             imageDesc = "Natsume",
             title = "KAMINAKI SEKAI NO KAMISAMA KATSUDOU",
@@ -1201,7 +1203,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/kaminaki-sekai-no-kamisama-katsudou"
         ),
         Anime(
-            id = 44,
+            id = 45,
             imageId = R.drawable.leadale_no_daichi_nite,
             imageDesc = "Leila",
             title = "LEADALE NO DAICHI NITE",
@@ -1228,7 +1230,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/leadale-no-daichi-nite"
         ),
         Anime(
-            id = 45,
+            id = 46,
             imageId = R.drawable.jitsu_wa_ore_saikyou_deshita,
             imageDesc = "Orato",
             title = "JITSU WA ORE, SAIKYOU DESHITA?",
@@ -1255,7 +1257,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/jitsu-wa-ore-saikyou-deshita"
         ),
         Anime(
-            id = 46,
+            id = 47,
             imageId = R.drawable.darwins_game,
             imageDesc = "Darwins Game",
             title = "DARWIN’S GAME",
@@ -1282,7 +1284,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/darwins-game"
         ),
         Anime(
-            id = 47,
+            id = 48,
             imageId = R.drawable.eighty_six,
             imageDesc = "86 Eighty Six",
             title = "86 - EIGHTY SIX",
@@ -1309,7 +1311,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/86-eighty-six"
         ),
         Anime(
-            id = 48,
+            id = 49,
             imageId = R.drawable.ninety_one_days,
             imageDesc = "91 Days",
             title = "91 DAYS",
@@ -1336,7 +1338,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/91-days"
         ),
         Anime(
-            id = 49,
+            id = 50,
             imageId = R.drawable.spy_kyoushitsu,
             imageDesc = "Spy Kyoshitsu",
             title = "SPY KYOSHITSU",
@@ -1363,7 +1365,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/spy-kyoushitsu/"
         ),
         Anime(
-            id = 50,
+            id = 51,
             imageId = R.drawable.cestvs_the_roman_fighter,
             imageDesc = "Cestvs Roman Fighter",
             title = "CESTVS: THE ROMAN FIGHTER",
@@ -1390,7 +1392,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/cestvs-the-roman-fighter"
         ),
         Anime(
-            id = 51,
+            id = 52,
             imageId = R.drawable.sai_dokushin_chuuken_boukensha_no_nichijou,
             imageDesc = "29‑sai Dokushin Chuuken Boukensha no Nichijou",
             title = "29‑SAI DOKUSHIN CHUUKEN BOUKENSHA NO NICHIJOU",
@@ -1417,7 +1419,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/29-sai-dokushin-chuuken-boukensha-no-nichijou/"
         ),
         Anime(
-            id = 52,
+            id = 53,
             imageId = R.drawable.toujima_tanzaburou_wa_kamen_rider_ni_naritai,
             imageDesc = "Toujima Tanzaburou wa Kamen Rider ni Naritai",
             title = "TOUJIMA TANZABUROU WA KAMEN RIDER NI NARITAI",
@@ -1444,7 +1446,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/toujima-tanzaburou-wa-kamen-rider-ni-naritai"
         ),
         Anime(
-            id = 53,
+            id = 54,
             imageId = R.drawable.yuusha_no_kuzu,
             imageDesc = "Yuusha no Kuzu",
             title = "YUUSHA NO KUZU",
@@ -1471,7 +1473,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/yuusha-no-kuzu"
         ),
         Anime(
-            id = 54,
+            id = 55,
             imageId = R.drawable.mayonaka_heart_tune,
             imageDesc = "Mayonaka Heart Tune",
             title = "MAYONAKA HEART TUNE",
@@ -1498,7 +1500,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/mayonaka-heart-tune"
         ),
         Anime(
-            id = 55,
+            id = 56,
             imageId = R.drawable.mugen_gacha,
             imageDesc = "Mugen Gacha",
             title = "MUGEN GACHA",
@@ -1525,7 +1527,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/shinjiteita-nakama-tachi-ni-dungeon-okuchi-de-korosarekaketa-ga-gift-mugen-gacha-de-level-9999-no-nakama-tachi-wo-te-ni-irete-moto-party-member-to-sekai-ni-fukushuu-zamaa-shimasu/"
         ),
         Anime(
-            id = 56,
+            id = 57,
             imageId = R.drawable.sanda,
             imageDesc = "Sanda",
             title = "SANDA",
@@ -1552,7 +1554,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/sanda"
         ),
         Anime(
-            id = 57,
+            id = 58,
             imageId = R.drawable.blue_lock,
             imageDesc = "Blue Lock",
             title = "BLUE LOCK",
@@ -1579,7 +1581,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/blue-lock"
         ),
         Anime(
-            id = 58,
+            id = 59,
             imageId = R.drawable.the_new_gate,
             imageDesc = "The New Gate",
             title = "THE NEW GATE",
@@ -1606,7 +1608,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/the-new-gate"
         ),
         Anime(
-            id = 59,
+            id = 60,
             imageId = R.drawable.mushoku_no_eyuu,
             imageDesc = "Mushoku no Eiyuu",
             title = "MUSHOKU NO EIYUU: BETSU NI SKILL NANKA IRANAKATTA N DA GA",
@@ -1633,7 +1635,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/mushoku-no-eiyuu-betsu-ni-skill-nanka-iranakatta-n-da-ga/"
         ),
         Anime(
-            id = 60,
+            id = 61,
             imageId = R.drawable.tougen_anki,
             imageDesc = "Togen Anki",
             title = "TOGEN ANKI",
@@ -1660,7 +1662,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/tougen-anki/"
         ),
         Anime(
-            id = 61,
+            id = 62,
             imageId = R.drawable.si_vis_sound_of_heroes,
             imageDesc = "SI‑VIS The Sound of Heroes",
             title = "SI‑VIS: THE SOUND OF HEROES",
@@ -1687,7 +1689,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/si-vis-the-sound-of-heroes/"
         ),
         Anime(
-            id = 62,
+            id = 63,
             imageId = R.drawable.unnamed_memory,
             imageDesc = "Unnamed Memory",
             title = "UNNAMED MEMORY",
@@ -1714,7 +1716,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/unnamed-memory"
         ),
         Anime(
-            id = 63,
+            id = 64,
             imageId = R.drawable.sokushi_cheat_ga_saikyou,
             imageDesc = "Sokushi Cheat ga Saikyou",
             title = "SOKUSHI CHEAT GA SAIKYOU",
@@ -1741,7 +1743,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/sokushi-cheat-ga-saikyou-sugite-isekai-no-yatsura-ga-marude-aite-ni-naranai-n-desu-ga/"
         ),
         Anime(
-            id = 64,
+            id = 65,
             imageId = R.drawable.ramen_akaneko,
             imageDesc = "Ramen Akaneko",
             title = "RAMEN AKANEKO",
@@ -1768,7 +1770,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/ramen-akaneko"
         ),
         Anime(
-            id = 65,
+            id = 66,
             imageId = R.drawable.ninja_to_gokudou,
             imageDesc = "Ninja to Gokudou",
             title = "NINJA TO GOKUDOU",
@@ -1795,7 +1797,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/ninja-to-gokudou"
         ),
         Anime(
-            id = 66,
+            id = 67,
             imageId = R.drawable.kikaijikake_no_marie,
             imageDesc = "Kikaijikake no Marie",
             title = "KIKAijikake NO MARIE",
@@ -1822,7 +1824,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/kikaijikake-no-marie"
         ),
         Anime(
-            id = 67,
+            id = 68,
             imageId = R.drawable.digimon_beatbreak,
             imageDesc = "Digimon Beatbreak",
             title = "DIGIMON BEATBREAK",
@@ -1849,7 +1851,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/digimon-beatbreak"
         ),
         Anime(
-            id = 68,
+            id = 69,
             imageId = R.drawable.watari_kun_no_xx_ga_houkai_sunzen,
             imageDesc = "Watari-kun no xx ga Houkai Sunzen",
             title = "WATARI‑KUN NO XX GA HOUKAI SUNZEN",
@@ -1876,7 +1878,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/watari-kun-no-xx-ga-houkai-sunzen"
         ),
         Anime(
-            id = 69,
+            id = 70,
             imageId = R.drawable.saikyou_no_shienshoku,
             imageDesc = "Saikyou no Shienshoku",
             title = "SAIKYOU NO SHIENSHOKU \"WAJUTSUSHI\" DE ARU ORE WA SEKAI SAIKYOU CLAN WO SHITAGAERU",
@@ -1903,7 +1905,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/saikyou-no-shienshoku-wajutsushi-de-aru-ore-wa-sekai-saikyou-clan-wo-shitagaeru/"
         ),
         Anime(
-            id = 70,
+            id = 71,
             imageId = R.drawable.botsuraku_yotei_no_kizoku,
             imageDesc = "Botsuraku Yotei no Kizoku",
             title = "BOTSU RAKU YOTEI NO KIZOKU DAKEDO, HIMA DATTA KARA MAHOU WO KIWAMETEMITA",
@@ -1930,7 +1932,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/botsuraku-yotei-no-kizoku-dakedo-hima-datta-kara-mahou-wo-kiwametemita"
         ),
         Anime(
-            id = 71,
+            id = 72,
             imageId = R.drawable.alma_chan_wa_kazoku_ni_naritai,
             imageDesc = "Alma‑chan wa Kazoku ni Naritai",
             title = "ALMA‑CHAN WA KAZOKU NI NARITAI",
@@ -1957,7 +1959,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/alma-chan-wa-kazoku-ni-naritai"
         ),
         Anime(
-            id = 72,
+            id = 73,
             imageId = R.drawable.shabake,
             imageDesc = "Shabake",
             title = "SHABAKE",
@@ -1984,7 +1986,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/shabake/"
         ),
         Anime(
-            id = 73,
+            id = 74,
             imageId = R.drawable.shuumatsu_train_doko_e_iku,
             imageDesc = "Shuumatsu Train Doko e Iku?",
             title = "SHUUMATSU TRAIN DOKO E IKU?",
@@ -2011,7 +2013,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/shuumatsu-train-doko-e-iku"
         ),
         Anime(
-            id = 74,
+            id = 75,
             imageId = R.drawable.tate_no_yuusha_no_nariagari,
             imageDesc = "Tate no Yuusha no Nariagari",
             title = "TATE NO YUUSHA NO NARIAGARI",
@@ -2038,7 +2040,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/tate-no-yuusha-no-nariagari"
         ),
         Anime(
-            id = 75,
+            id = 76,
             imageId = R.drawable.tengen_toppa_gurren_lagann,
             imageDesc = "Tengen Toppa Gurren Lagann",
             title = "TENGEN ROPPA GURREN LAGANN",
@@ -2065,7 +2067,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/tengen-toppa/"
         ),
         Anime(
-            id = 76,
+            id = 77,
             imageId = R.drawable.dr_stone,
             imageDesc = "Dr. Stone",
             title = "DR. STONE",
@@ -2092,7 +2094,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/dr-stone"
         ),
         Anime(
-            id = 77,
+            id = 78,
             imageId = R.drawable.one_punch_man,
             imageDesc = "One Punch Man",
             title = "ONE PUNCH MAN",
@@ -2119,7 +2121,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/one-punch-man"
         ),
         Anime(
-            id = 80,
+            id = 79,
             imageId = R.drawable.boku_no_hero,
             imageDesc = "Boku no Hero Academia",
             title = "BUKO NO HERO ACADEMIA",
@@ -2146,7 +2148,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/boku-no-hero-academia/"
         ),
         Anime(
-            id = 81,
+            id = 80,
             imageId = R.drawable.dark_moon,
             imageDesc = "Dark Moon: Tsuki no Saidan",
             title = "DARK MOON: TSUKI NO SAIDAN",
@@ -2173,7 +2175,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/dark-moon-tsuki-no-saidan/"
         ),
         Anime(
-            id = 82,
+            id = 81,
             imageId = R.drawable.dorohedoro,
             imageDesc = "Dorohedoro",
             title = "DOROHEDORO",
@@ -2200,7 +2202,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/dorohedoro/"
         ),
         Anime(
-            id = 83,
+            id = 82,
             imageId = R.drawable.mushoku_tensei,
             imageDesc = "Mushoku Tensei",
             title = "MUSHOKU TENSEI",
@@ -2227,7 +2229,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/mushoku-tensei-isekai-ittara-honki-dasu/"
         ),
         Anime(
-            id = 84,
+            id = 83,
             imageId = R.drawable.kono_subarashii,
             imageDesc = "Kono Subarashii Sekai ni Shukufuku wo!",
             title = "KONO SUBARASHII SEKAI NI SHUKUFUKU WO!",
@@ -2254,7 +2256,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/kono-subarashii-sekai-ni-shukufuku-wo/"
         ),
         Anime(
-            id = 85,
+            id = 84,
             imageId = R.drawable.no_game_no_life,
             imageDesc = "No Game No Life",
             title = "NO GAME NO LIFE",
@@ -2281,7 +2283,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/no-game-no-life/"
         ),
         Anime(
-            id = 86,
+            id = 85,
             imageId = R.drawable.eromanga_sensei,
             imageDesc = "Eromanga Sensei",
             title = "EROMANGA SENSEI",
@@ -2308,7 +2310,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/eromanga-sensei/"
         ),
         Anime(
-            id = 87,
+            id = 86,
             imageId = R.drawable.sword_art_online,
             imageDesc = "Sword Art Online",
             title = "SWORD ART ONLINE",
@@ -2335,7 +2337,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/sword-art-online/"
         ),
         Anime(
-            id = 88,
+            id = 87,
             imageId = R.drawable.hunter_x_hunter,
             imageDesc = "Hunter x Hunter",
             title = "HUNTER X HUNTER",
@@ -2362,7 +2364,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/hunter-x-hunter/"
         ),
         Anime(
-            id = 89,
+            id = 88,
             imageId = R.drawable.beastars,
             imageDesc = "Beastars",
             title = "BEASTARS",
@@ -2389,7 +2391,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/beastars/"
         ),
         Anime(
-            id = 90,
+            id = 89,
             imageId = R.drawable.kekkai_sensen,
             imageDesc = "Kekkai Sensen",
             title = "KEKKAI SENSEN",
@@ -2416,7 +2418,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/kekkai-sensen/"
         ),
         Anime(
-            id = 91,
+            id = 90,
             imageId = R.drawable.saenai_heroine_no_sodatekata,
             imageDesc = "Saenai Heroine no Sodatekata",
             title = "SAENAI HEROINE NO SODATEKATA",
@@ -2443,7 +2445,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/saenai-heroine-no-sodatekata/"
         ),
         Anime(
-            id = 92,
+            id = 91,
             imageId = R.drawable.kino_no_tabi,
             imageDesc = "Kino no Tabi: The Beautiful World",
             title = "KINO NO TABI: THE BEAUTIFUL WORLD",
@@ -2470,7 +2472,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/kino-no-tabi-the-beautiful-world/"
         ),
         Anime(
-            id = 93,
+            id = 92,
             imageId = R.drawable.akame_ga_kill,
             imageDesc = "Akame ga Kill!",
             title = "AKAME GA KILL!",
@@ -2497,7 +2499,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/akame-ga-kill/"
         ),
         Anime(
-            id = 94,
+            id = 93,
             imageId = R.drawable.mahouka_koukou_no_rettousei,
             imageDesc = "Mahouka Koukou no Rettousei",
             title = "MAHOUKA KOUKOU NO RETTOUSEI",
@@ -2524,7 +2526,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/mahouka-koukou-no-rettousei/"
         ),
         Anime(
-            id = 95,
+            id = 94,
             imageId = R.drawable.magi,
             imageDesc = "Magi: The Labyrinth of Magic",
             title = "MAGI: THE LABYRINTH OF MAGIC",
@@ -2551,7 +2553,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/magi/"
         ),
         Anime(
-            id = 96,
+            id = 95,
             imageId = R.drawable.tensei_shitara_slime_datta_ken,
             imageDesc = "Tensei Shitara Slime Datta Ken",
             title = "TENSEI SHITARA SLIME DATTA KEN",
@@ -2578,7 +2580,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/tensei-shitara-slime-datta-ken/"
         ),
         Anime(
-            id = 97,
+            id = 96,
             imageId = R.drawable.shokugeki_no_souma,
             imageDesc = "Shokugeki no Souma",
             title = "SHOKUGEKI NO SOUMA",
@@ -2605,7 +2607,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/shokugeki-no-souma/"
         ),
         Anime(
-            id = 98,
+            id = 97,
             imageId = R.drawable.horimiya,
             imageDesc = "Horimiya",
             title = "HORIMIYA",
@@ -2632,7 +2634,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/horimiya/"
         ),
         Anime(
-            id = 99,
+            id = 98,
             imageId = R.drawable.gangsta,
             imageDesc = "Gangsta",
             title = "GANGSTA",
@@ -2659,7 +2661,7 @@ object DataProvider {
             enlace2 = "https://jkanime.net/gangsta-/"
         ),
         Anime(
-            id = 100,
+            id = 99,
             imageId = R.drawable.made_in_abyss,
             imageDesc = "Made in Abyss",
             title = "MADE IN ABYSS",
@@ -2684,6 +2686,224 @@ object DataProvider {
                     "2017",
             enlace1 = "https://www3.animeflv.net/anime/made-in-abyss",
             enlace2 = "https://jkanime.net/made-in-abyss/"
+        ),
+        Anime(
+            id = 100,
+            imageId = R.drawable.oshi_no_ko,
+            imageDesc = "Aqua y Ruby Hoshino",
+            title = "OSHI NO KO",
+            synopsis = "Oshi no Ko sigue a Gorou Amamiya, un ginecólogo que renace como Aquamarine Hoshino, hijo de la idol Ai Hoshino, junto a su hermana gemela Ruby. A medida que crecen en la industria del entretenimiento japonés, enfrentan sus ambiciones, traiciones y el lado oscuro del mundo del espectáculo mientras buscan respuestas sobre su pasado y su identidad.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Drama, Sobrenatural, Seinen\n\n" +
+                    "Studios:\n" +
+                    "Doga Kobo\n\n" +
+                    "Temporada:\n" +
+                    "Primera: Primavera 2023, Segunda: Verano 2024, Tercera: Invierno 2026\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés\n\n" +
+                    "Episodios:\n" +
+                    "11 (T1) + 13 (T2) + en emisión (T3)\n\n" +
+                    "Duracion:\n" +
+                    "24 min. aprox. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Desde 12 de Abril de 2023",
+            enlace1 = "https://www3.animeflv.net/anime/oshi-no-ko",
+            enlace2 = "https://jkanime.net/oshi-no-ko"
+        ),
+        Anime(
+            id = 101,
+            imageId = R.drawable.jujutsu_kaisen,
+            imageDesc = "Yuji Itadori",
+            title = "JUJUTSU KAISEN",
+            synopsis = "Jujutsu Kaisen sigue a Yuji Itadori, un estudiante de secundaria que ingiere un dedo maldito para salvar a sus compañeros, convirtiéndose en el recipiente del poderoso espíritu Ryomen Sukuna. Ahora se une a los hechiceros de jujutsu para combatir maldiciones, proteger a la humanidad y enfrentarse a amenazas que desafían la lógica y el poder humano.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Acción, Aventura, Fantasía Oscura, Sobrenatural\n\n" +
+                    "Studios:\n" +
+                    "MAPPA\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2020 (T1), Verano 2023 (T2), Invierno 2026 (T3)\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés\n\n" +
+                    "Episodios:\n" +
+                    "24 (T1) + 23 (T2) + en emisión (T3)\n\n" +
+                    "Duracion:\n" +
+                    "23–24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Desde 3 de Octubre de 2020",
+            enlace1 = "https://www3.animeflv.net/anime/jujutsu-kaisen-tv",
+            enlace2 = "https://jkanime.net/jujutsu-kaisen-tv/"
+        ),
+        Anime(
+            id = 102,
+            imageId = R.drawable.sakamoto_days,
+            imageDesc = "Taro Sakamoto",
+            title = "SAKAMOTO DAYS",
+            synopsis = "Sakamoto Days sigue a Taro Sakamoto, un antiguo asesino legendario retirado que vive una vida tranquila como dueño de una tienda de conveniencia con su familia. Cuando antiguos enemigos y colegas del mundo criminal vuelven para buscarlo, Sakamoto debe utilizar sus habilidades letales para proteger a sus seres queridos mientras mantiene su fachada de hombre común.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Acción, Comedia, Vida Cotidiana, Shounen\n\n" +
+                    "Studios:\n" +
+                    "TMS Entertainment\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2025 (Parte 1) y Verano 2025 (Parte 2)\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés\n\n" +
+                    "Episodios:\n" +
+                    "22 (Temporada 1 – 2 cours)\n\n" +
+                    "Duracion:\n" +
+                    "≈24–25 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "11 de Enero de 2025 – 23 de Septiembre de 2025",
+            enlace1 = "https://www3.animeflv.net/anime/sakamoto-days",
+            enlace2 = "https://jkanime.net/sakamoto-days"
+        ),
+        Anime(
+            id = 103,
+            imageId = R.drawable.yakusoku_no_neverland,
+            imageDesc = "Emma",
+            title = "YAKUSOKU NO NEVERLAND",
+            synopsis = "Yakusoku no Neverland sigue a Emma, Norman y Ray, niños que viven en el Orfanato Grace Field, descubriendo que están siendo criados como alimento para demonios. Los protagonistas idean un plan para escapar y salvar a sus compañeros mientras enfrentan peligros, engaños y la implacable inteligencia de sus guardianes demoníacos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Suspenso, Misterio, Psicologico, Shounen\n\n" +
+                    "Studios:\n" +
+                    "CloverWorks\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 2019 (T1), Verano 2021 (T2)\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés\n\n" +
+                    "Episodios:\n" +
+                    "12 (T1) + 11 (T2)\n\n" +
+                    "Duracion:\n" +
+                    "23 min. aprox. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Desde 11 de Enero de 2019",
+            enlace1 = "https://www3.animeflv.net/anime/yakusoku-no-neverland",
+            enlace2 = "https://jkanime.net/yakusoku-no-neverland"
+        ),
+        Anime(
+            id = 104,
+            imageId = R.drawable.parasyte,
+            imageDesc = "Shinichi Izumi",
+            title = "PARASYTE -THE MAXIM-",
+            synopsis = "Parasyte sigue a Shinichi Izumi, un estudiante de secundaria cuya mano derecha es infectada por un parásito alienígena llamado Migi. Mientras otros parásitos atacan y consumen humanos, Shinichi y Migi deben coexistir y luchar para sobrevivir, enfrentando dilemas morales y la amenaza constante de criaturas que buscan dominar a la humanidad.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Acción, Ciencia Ficción, Horror, Sobrenatural, Psicologico\n\n" +
+                    "Studios:\n" +
+                    "Madhouse\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2014\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés\n\n" +
+                    "Episodios:\n" +
+                    "24\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Desde 9 de Octubre de 2014",
+            enlace1 = "https://www3.animeflv.net/anime/kiseijuu-sei-no-kakuritsu",
+            enlace2 = "https://jkanime.net/kiseijuu-sei-no-kakuritsu/"
+        ),
+        Anime(
+            id = 105,
+            imageId = R.drawable.akira,
+            imageDesc = "Kaneda y Tetsuo",
+            title = "AKIRA",
+            synopsis = "Akira es un clásico del anime que sigue a Kaneda y Tetsuo, amigos en un Neo-Tokio post-apocalíptico. Tras un accidente que despierta poderes psíquicos en Tetsuo, se desencadena una serie de eventos catastróficos que amenazan con destruir la ciudad. La película combina acción, ciencia ficción y un análisis oscuro del poder y la corrupción.",
+            info = "Tipo:\n" +
+                    "Película\n\n" +
+                    "Generos:\n" +
+                    "Ciencia Ficción, Acción, Cyberpunk, Psicologico\n\n" +
+                    "Studios:\n" +
+                    "Tokyo Movie Shinsha (TMS)\n\n" +
+                    "Temporada:\n" +
+                    "1988\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "1 Película\n\n" +
+                    "Duracion:\n" +
+                    "124 min.\n\n" +
+                    "Emitido:\n" +
+                    "16 de Julio de 1988",
+            enlace1 = "https://www3.animeflv.net/anime/akira",
+            enlace2 = "https://jkanime.net/akira"
+        ),
+        Anime(
+            id = 106,
+            imageId = R.drawable.ushio_to_tora,
+            imageDesc = "Ushio Aotsuki y Tora",
+            title = "USHIO TO TORA",
+            synopsis = "Ushio to Tora sigue a Ushio Aotsuki, un joven que libera accidentalmente a Tora, un demonio atrapado por siglos. A pesar de su inicial enemistad, Ushio y Tora se ven obligados a unir fuerzas para enfrentar otras criaturas sobrenaturales que amenazan a la humanidad, mientras Ushio descubre secretos sobre su familia y su propio poder.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Acción, Aventura, Sobrenatural, Comedia, Shounen\n\n" +
+                    "Studios:\n" +
+                    "MAPPA, Studio VOLN\n\n" +
+                    "Temporada:\n" +
+                    "Primera: Julio 2015 – Segunda: Marzo 2016\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés\n\n" +
+                    "Episodios:\n" +
+                    "26 (T1) + 39 (T2)\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Desde 3 de Julio de 2015",
+            enlace1 = "https://www3.animeflv.net/anime/ushio-to-tora",
+            enlace2 = "https://jkanime.net/ushio-to-tora-tv/"
+        ),
+        Anime(
+            id = 107,
+            imageId = R.drawable.howl_no_ugoku_shiro,
+            imageDesc = "Sophie y Howl",
+            title = "HOWL NO UGOKU SHIRO",
+            synopsis = "Howl no Ugoku Shiro sigue a Sophie, una joven transformada en anciana por una maldición, quien se encuentra con Howl, un mago excéntrico que habita un castillo mágico ambulante. Juntos enfrentan peligros, misterios y desarrollan una relación mientras descubren secretos sobre la guerra y la magia que rodea sus vidas.",
+            info = "Tipo:\n" +
+                    "Película\n\n" +
+                    "Generos:\n" +
+                    "Fantasía, Aventura, Romance, Magia\n\n" +
+                    "Studios:\n" +
+                    "Studio Ghibli\n\n" +
+                    "Temporada:\n" +
+                    "2004\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "1 Película\n\n" +
+                    "Duracion:\n" +
+                    "119 min.\n\n" +
+                    "Emitido:\n" +
+                    "20 de Noviembre de 2004",
+            enlace1 = "https://www3.animeflv.net/anime/howl-no-ugoku-shiro",
+            enlace2 = "https://jkanime.net/howl-no-ugoku-shiro"
         )
+
+
     )
 }
