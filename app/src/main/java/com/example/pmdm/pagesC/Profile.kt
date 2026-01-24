@@ -111,7 +111,7 @@ fun ProfilePagePreview() {
         isLoggedIn = true,
         favorites = listOf(
             Anime(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-            Anime(2, R.drawable.onepiece, "One Piece", "One Piece", "", "")
+            Anime(2, R.drawable.one_piece, "One Piece", "One Piece", "", "")
         ),
         profileImageUri = null
     )

@@ -106,7 +106,6 @@ fun DataPreviewComponentPreview() {
         PreviewFieldConfig(label = "USER:", value = "NicoDev"),
         PreviewFieldConfig(label = "EMAIL:", value = "nico@example.com"),
         PreviewFieldConfig(label = "PASS:", value = "********"),
-        PreviewFieldConfig(label = "ROLE:", value = "Premium")
     )
 
     Box(

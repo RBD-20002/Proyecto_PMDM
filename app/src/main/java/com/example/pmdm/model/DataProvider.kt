@@ -79,7 +79,7 @@ object DataProvider {
         ),
         Anime(
             id = 3,
-            imageId = R.drawable.dragonball,
+            imageId = R.drawable.dragon_ball,
             imageDesc = "Goku",
             title = "DRAGON BALL Z",
             synopsis = "Dragon Ball Z narra las batallas de Goku y sus amigos para proteger la Tierra de poderosos enemigos. A lo largo de la serie enfrentan amenazas como los Saiyajin, Freezer, Cell y Majin Buu, mientras Goku alcanza nuevas formas de poder como el Super Saiyajin. Es una historia de superación, amistad y lucha constante por la paz.",
@@ -108,7 +108,7 @@ object DataProvider {
         ),
         Anime(
             id = 4,
-            imageId = R.drawable.onepiece,
+            imageId = R.drawable.one_piece,
             imageDesc = "Luffy",
             title = "ONE PIECE",
             synopsis = "One Piece sigue a Monkey D. Luffy, un joven pirata que busca el legendario tesoro “One Piece” para convertirse en el Rey de los Piratas. Con su tripulación, los Sombrero de Paja, navega por mares peligrosos enfrentando enemigos, gobiernos corruptos y misterios del mundo, todo guiado por la libertad y los sueños.",
@@ -856,6 +856,1834 @@ object DataProvider {
                     "Viernes, 12 de Octubre de 2012",
             enlace1 = "https://www3.animeflv.net/anime/psycho-pass",
             enlace2 = "https://jkanime.net/psycho-pass/"
+        ),
+        Anime(
+            id = 32,
+            imageId = R.drawable.rurouni_kenshin,
+            imageDesc = "Rurouni Kenshin",
+            title = "RUROUNI KENSHIN",
+            synopsis = "Rurouni Kenshin sigue a Himura Kenshin, un espadachín que juró nunca volver a matar después de la guerra. Viaja por Japón ayudando a personas necesitadas mientras enfrenta enemigos de su pasado, combinando acción, romance y drama histórico en la era Meiji.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Drama, Romance, Shounen\n\n" +
+                    "Studios:\n" +
+                    "Studio Deen\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 1996\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "94\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Lunes, 10 de Enero de 1996",
+            enlace1 = "https://www3.animeflv.net/anime/rurouni-kenshin",
+            enlace2 = "https://jkanime.net/rurouni-kenshin/"
+        ),
+        Anime(
+            id = 33,
+            imageId = R.drawable.blade_of_the_immortal,
+            imageDesc = "Blade of the Immortal",
+            title = "BLADE OF THE IMMORTAL",
+            synopsis = "Blade of the Immortal sigue a Manji, un samurái maldito con inmortalidad, quien busca redimirse asesinando a 1000 hombres malvados para expiar sus pecados. La serie combina acción sangrienta, drama y un intenso viaje de venganza y redención en el Japón feudal.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Samurais, Drama, Seinen\n\n" +
+                    "Studios:\n" +
+                    "Madhouse\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2008\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "13\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 13 de Octubre de 2008",
+            enlace1 = "https://www3.animeflv.net/anime/mugen-no-juunin-immortal",
+            enlace2 = "https://jkanime.net/blade-of-the-immortal"
+        ),
+        Anime(
+            id = 34,
+            imageId = R.drawable.gintama,
+            imageDesc = "Gintama",
+            title = "GINTAMA",
+            synopsis = "Gintama sigue a Gintoki Sakata, un samurái perezoso en un Japón alternativo invadido por extraterrestres, que realiza trabajos extraños para pagar sus deudas. La serie mezcla comedia absurda, acción, parodia de otros animes y momentos dramáticos, con un elenco variado y extravagante.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Comedia, Parodia, Samurai, Shounen\n\n" +
+                    "Studios:\n" +
+                    "Sunrise\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 2006\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "201+ (varias temporadas)\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Jueves, 04 de Abril de 2006",
+            enlace1 = "https://www3.animeflv.net/anime/gintama",
+            enlace2 = "https://jkanime.net/gintama"
+        ),
+        Anime(
+            id = 35,
+            imageId = R.drawable.pokemon,
+            imageDesc = "Ash Ketchum",
+            title = "POKÉMON",
+            synopsis = "Pokémon sigue a Ash Ketchum y su compañero Pikachu en su viaje para convertirse en Maestro Pokémon. Viajan por diferentes regiones capturando criaturas llamadas Pokémon, compitiendo en batallas y enfrentándose a villanos mientras aprenden sobre amistad, valentía y crecimiento personal.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Aventura, Comedia, Fantasia, Infantil, Shounen\n\n" +
+                    "Studios:\n" +
+                    "OLM, Inc.\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 1997\n\n" +
+                    "Demografia:\n" +
+                    "Kodomo\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "1000+\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Miércoles, 01 de Abril de 1997",
+            enlace1 = "https://www3.animeflv.net/anime/pokemon",
+            enlace2 = "https://jkanime.net/pokemon"
+        ),
+        Anime(
+            id = 36,
+            imageId = R.drawable.mononoke_hime,
+            imageDesc = "San",
+            title = "MONONOKE HIME",
+            synopsis = "Mononoke Hime sigue a Ashitaka, un joven príncipe que se ve envuelto en un conflicto entre los humanos y los espíritus del bosque. La historia explora la relación entre la naturaleza y la humanidad, con combates épicos y dilemas morales en un mundo lleno de criaturas místicas.",
+            info = "Tipo:\n" +
+                    "Película\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Fantasia, Drama\n\n" +
+                    "Studios:\n" +
+                    "Studio Ghibli\n\n" +
+                    "Temporada:\n" +
+                    "1997\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Duracion:\n" +
+                    "133 min.\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 12 de Julio de 1997",
+            enlace1 = "https://www3.animeflv.net/anime/mononoke-hime",
+            enlace2 = "https://jkanime.net/mononoke-hime"
+        ),
+        Anime(
+            id = 36,
+            imageId = R.drawable.mononoke_hime,
+            imageDesc = "San",
+            title = "MONONOKE HIME",
+            synopsis = "Mononoke Hime sigue a Ashitaka, un joven príncipe que se ve envuelto en un conflicto entre los humanos y los espíritus del bosque. La historia explora la relación entre la naturaleza y la humanidad, con combates épicos y dilemas morales en un mundo lleno de criaturas místicas.",
+            info = "Tipo:\n" +
+                    "Película\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Fantasia, Drama\n\n" +
+                    "Studios:\n" +
+                    "Studio Ghibli\n\n" +
+                    "Temporada:\n" +
+                    "1997\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Duracion:\n" +
+                    "133 min.\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 12 de Julio de 1997",
+            enlace1 = "https://www3.animeflv.net/anime/mononoke-hime",
+            enlace2 = "https://jkanime.net/mononoke-hime"
+        ),
+        Anime(
+            id = 37,
+            imageId = R.drawable.log_horizon,
+            imageDesc = "Shiroe",
+            title = "LOG HORIZON",
+            synopsis = "Log Horizon sigue a Shiroe y otros jugadores atrapados dentro de un MMORPG llamado Elder Tale. Deben adaptarse a este nuevo mundo, crear estrategias de supervivencia y alianzas, mientras enfrentan desafíos tanto dentro como fuera del juego en un entorno que mezcla acción, estrategia y comedia.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Fantasia, Juegos, Shounen\n\n" +
+                    "Studios:\n" +
+                    "Satelight, Studio Deen\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2013\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "25 (T1) + 25 (T2) + 12 (T3)\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Lunes, 05 de Octubre de 2013",
+            enlace1 = "https://www3.animeflv.net/anime/log-horizon",
+            enlace2 = "https://jkanime.net/log-horizon"
+        ),
+        Anime(
+            id = 38,
+            imageId = R.drawable.overlord,
+            imageDesc = "Ainz Ooal Gown",
+            title = "OVERLORD",
+            synopsis = "Overlord sigue a Momonga, un jugador atrapado dentro del juego de realidad virtual Yggdrasil cuando este se cierra. Adoptando el rol de su personaje esquelético, Ainz Ooal Gown, busca dominar este nuevo mundo mientras explora su poder, estrategia y la lealtad de sus subordinados en un reino fantástico.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Fantasia, Sobrenatural, Seinen\n\n" +
+                    "Studios:\n" +
+                    "Madhouse\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 2015\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "13 (T1) + 13 (T2) + 13 (T3)\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Lunes, 07 de Julio de 2015",
+            enlace1 = "https://www3.animeflv.net/anime/overlord",
+            enlace2 = "https://jkanime.net/overlord"
+        ),
+        Anime(
+            id = 39,
+            imageId = R.drawable.drifters,
+            imageDesc = "Shimazu Toyohisa",
+            title = "DRIFTERS",
+            synopsis = "Drifters sigue a guerreros históricos que son transportados a un mundo alternativo lleno de conflictos. Liderados por Shimazu Toyohisa, deben enfrentarse a enemigos poderosos y desconocidos mientras buscan sobrevivir y cumplir sus objetivos en este mundo lleno de fantasía, estrategia y batallas sangrientas.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Fantasia, Historico, Seinen\n\n" +
+                    "Studios:\n" +
+                    "Hoods Entertainment\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2016\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "12\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 07 de Octubre de 2016",
+            enlace1 = "https://www3.animeflv.net/anime/drifters",
+            enlace2 = "https://jkanime.net/drifters"
+        ),
+        Anime(
+            id = 40,
+            imageId = R.drawable.nakitai_watashi_wa_neko_wo_kaburu,
+            imageDesc = "Miko Tsukimi",
+            title = "NAKITAI WATASHI WA NEKO WO KABURU",
+            synopsis = "Nakitai Watashi wa Neko wo Kaburu sigue a Miko Tsukimi, una chica que encuentra una máscara mágica que le permite transformarse en un gato. La historia mezcla comedia, romance y drama mientras Miko explora sentimientos, secretos y las conexiones con las personas a su alrededor a través de su nueva forma felina.",
+            info = "Tipo:\n" +
+                    "Película\n\n" +
+                    "Generos:\n" +
+                    "Romance, Comedia, Fantasia, Escolar, Drama\n\n" +
+                    "Studios:\n" +
+                    "Shin-Ei Animation\n\n" +
+                    "Temporada:\n" +
+                    "2020\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Duracion:\n" +
+                    "102 min.\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 05 de Junio de 2020",
+            enlace1 = "https://www3.animeflv.net/",
+            enlace2 = "https://jkanime.net/nakitai-watashi-wa-neko-wo-kaburu"
+        ),
+        Anime(
+            id = 41,
+            imageId = R.drawable.koe_no_katachi,
+            imageDesc = "Shouya Ishida",
+            title = "KOE NO KATACHI",
+            synopsis = "Koe no Katachi sigue a Shouya Ishida, un joven que acosó a una compañera sorda, Shouko Nishimiya, durante la infancia. Años después busca redimirse y enmendar sus errores mientras enfrenta remordimientos, relaciones humanas y el poder del perdón en un emotivo drama escolar.",
+            info = "Tipo:\n" +
+                    "Película\n\n" +
+                    "Generos:\n" +
+                    "Drama, Escolar, Romance, Slice of Life\n\n" +
+                    "Studios:\n" +
+                    "Kyoto Animation\n\n" +
+                    "Temporada:\n" +
+                    "2016\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Duracion:\n" +
+                    "129 min.\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 17 de Septiembre de 2016",
+            enlace1 = "https://www3.animeflv.net/anime/koe-no-katachi",
+            enlace2 = "https://jkanime.net/koe-no-katachi"
+        ),
+        Anime(
+            id = 42,
+            imageId = R.drawable.dead_mount_death_play,
+            imageDesc = "Polka",
+            title = "DEAD MOUNT DEATH PLAY",
+            synopsis = "Dead Mount Death Play sigue a un legendario asesino reencarnado en un mundo moderno como Polka, un detective con habilidades sobrenaturales. La historia combina acción, misterio y elementos sobrenaturales mientras el protagonista investiga crímenes y enfrenta enemigos con poderes extraordinarios.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Sobrenatural, Misterio, Drama, Seinen\n\n" +
+                    "Studios:\n" +
+                    "Mappa\n\n" +
+                    "Temporada:\n" +
+                    "Verano 2023\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "12+\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Lunes, 04 de Julio de 2023",
+            enlace1 = "https://www3.animeflv.net/anime/dead-mount-death-play",
+            enlace2 = "https://jkanime.net/dead-mount-death-play"
+        ),
+        Anime(
+            id = 43,
+            imageId = R.drawable.kaminaki_sekai_no_kamisama_katsudou,
+            imageDesc = "Natsume",
+            title = "KAMINAKI SEKAI NO KAMISAMA KATSUDOU",
+            synopsis = "Kaminaki Sekai no Kamisama Katsudou sigue a Natsume, un joven que se encuentra en un mundo donde los dioses y espíritus influyen en la vida cotidiana. La historia combina aventura, fantasía y comedia mientras Natsume aprende a convivir y resolver conflictos divinos en un entorno desconocido y mágico.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Aventura, Fantasia, Comedia, Sobrenatural, Shounen\n\n" +
+                    "Studios:\n" +
+                    "Studio Deen\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2024\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "12+\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Lunes, 01 de Abril de 2024",
+            enlace1 = "https://www3.animeflv.net/anime/kaminaki-sekai-no-kamisama-katsudou",
+            enlace2 = "https://jkanime.net/kaminaki-sekai-no-kamisama-katsudou"
+        ),
+        Anime(
+            id = 44,
+            imageId = R.drawable.leadale_no_daichi_nite,
+            imageDesc = "Leila",
+            title = "LEADALE NO DAICHI NITE",
+            synopsis = "Leadale no Daichi nite sigue a Keina Kagami, quien tras un accidente queda atrapada en el mundo de su juego de realidad virtual como su personaje, Leila. La historia combina fantasía, aventura y comedia mientras Keina explora este mundo, haciendo amigos y enfrentando desafíos para reconstruir su nueva vida.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Aventura, Fantasia, Comedia, Vida, Isekai\n\n" +
+                    "Studios:\n" +
+                    "Maho Film\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 2022\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "12\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Viernes, 09 de Enero de 2022",
+            enlace1 = "https://www3.animeflv.net/anime/leadale-no-daichi-nite",
+            enlace2 = "https://jkanime.net/leadale-no-daichi-nite"
+        ),
+        Anime(
+            id = 45,
+            imageId = R.drawable.jitsu_wa_ore_saikyou_deshita,
+            imageDesc = "Orato",
+            title = "JITSU WA ORE, SAIKYOU DESHITA?",
+            synopsis = "Jitsu wa Ore, Saikyou deshita? sigue a Orato, un joven aparentemente normal que esconde un pasado como héroe invencible. Ahora vive tranquilamente hasta que su identidad y habilidades comienzan a atraer problemas y aventuras, mezclando comedia, acción y romance en un mundo moderno con toques sobrenaturales.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Comedia, Romance, Sobrenatural, Isekai\n\n" +
+                    "Studios:\n" +
+                    "FelixFilm\n\n" +
+                    "Temporada:\n" +
+                    "Verano 2023\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés , Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "12+\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Martes, 04 de Julio de 2023",
+            enlace1 = "https://www3.animeflv.net/anime/jitsu-wa-ore-saikyou-deshita",
+            enlace2 = "https://jkanime.net/jitsu-wa-ore-saikyou-deshita"
+        ),
+        Anime(
+            id = 46,
+            imageId = R.drawable.darwins_game,
+            imageDesc = "Darwins Game",
+            title = "DARWIN’S GAME",
+            synopsis = "Darwin’s Game sigue a Kaname Sudō, un estudiante normal que recibe una invitación para probar una aplicación de juego móvil. Pronto descubre que el juego es mortal y obliga a los participantes a luchar entre sí a vida o muerte usando habilidades llamadas Sigils.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Suspenso, Ciencia Ficcion\n\n" +
+                    "Studios:\n" +
+                    "Nexus\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 2020\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "12\n\n" +
+                    "Duracion:\n" +
+                    "23 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "3 de Enero de 2020",
+            enlace1 = "https://www3.animeflv.net/anime/darwins-game",
+            enlace2 = "https://jkanime.net/darwins-game"
+        ),
+        Anime(
+            id = 47,
+            imageId = R.drawable.eighty_six,
+            imageDesc = "86 Eighty Six",
+            title = "86 - EIGHTY SIX",
+            synopsis = "En la República de San Magnolia, una guerra sin ‘víctimas’ es propaganda; los soldados reales, etiquetados como ‘86’, luchan y mueren pilotando drones. La historia sigue a Shinei Nouzen y la Handler Vladilena Milize mientras enfrentan la brutal realidad de la guerra y la discriminación.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Drama, Ciencia Ficcion, Mecha, Militar\n\n" +
+                    "Studios:\n" +
+                    "A-1 Pictures\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2021\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "11+\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "11 de Abril de 2021",
+            enlace1 = "https://www3.animeflv.net/anime/86-eighty-six",
+            enlace2 = "https://jkanime.net/86-eighty-six"
+        ),
+        Anime(
+            id = 48,
+            imageId = R.drawable.ninety_one_days,
+            imageDesc = "91 Days",
+            title = "91 DAYS",
+            synopsis = "Ambientado en la era de la Ley Seca en Estados Unidos, Angelo Lagusa adopta el alias Avilio Bruno tras la muerte de su familia por la mafia. Siete años después regresa a Lawless para infiltrarse en la familia Vanetti y buscar venganza en un mundo de crimen y traición.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Drama, Thriller, Historico\n\n" +
+                    "Studios:\n" +
+                    "Shuka\n\n" +
+                    "Temporada:\n" +
+                    "Verano 2016\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "12\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "9 de Julio de 2016",
+            enlace1 = "https://www3.animeflv.net/anime/91-days",
+            enlace2 = "https://jkanime.net/91-days"
+        ),
+        Anime(
+            id = 49,
+            imageId = R.drawable.spy_kyoushitsu,
+            imageDesc = "Spy Kyoshitsu",
+            title = "SPY KYOSHITSU",
+            synopsis = "Tras una guerra devastadora, los gobiernos recurren a estrategias encubiertas: en una academia de élite, estudiantes entrenan como espías para enfrentar conflictos futuros. La serie mezcla intriga, acción y drama en un mundo donde cada movimiento puede ser mortal.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Misterio, Thriller\n\n" +
+                    "Studios:\n" +
+                    "Desconocido\n\n" +
+                    "Temporada:\n" +
+                    "Desconocida\n\n" +
+                    "Demografia:\n" +
+                    "Shounen/Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "Desconocido\n\n" +
+                    "Duracion:\n" +
+                    "24 min. aprox.\n\n" +
+                    "Emitido:\n" +
+                    "Desconocido",
+            enlace1 = "https://www3.animeflv.net/anime/spy-kyoushitsu",
+            enlace2 = "https://jkanime.net/spy-kyoushitsu/"
+        ),
+        Anime(
+            id = 50,
+            imageId = R.drawable.cestvs_the_roman_fighter,
+            imageDesc = "Cestvs Roman Fighter",
+            title = "CESTVS: THE ROMAN FIGHTER",
+            synopsis = "Ambientada en el año 54 D.C., la historia sigue a Cestus, un joven esclavo entrenado como boxeador en una academia romana. Enfrentando brutales combates y su propio destino, lucha para ganar libertad y respeto en un mundo despiadado de gladiadores.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Historico, Deportes\n\n" +
+                    "Studios:\n" +
+                    "Desconocido\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2021\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "11\n\n" +
+                    "Duracion:\n" +
+                    "24 min. por episodio\n\n" +
+                    "Emitido:\n" +
+                    "2021",
+            enlace1 = "https://www3.animeflv.net/anime/cestvs-the-roman-fighter",
+            enlace2 = "https://jkanime.net/cestvs-the-roman-fighter"
+        ),
+        Anime(
+            id = 51,
+            imageId = R.drawable.sai_dokushin_chuuken_boukensha_no_nichijou,
+            imageDesc = "29‑sai Dokushin Chuuken Boukensha no Nichijou",
+            title = "29‑SAI DOKUSHIN CHUUKEN BOUKENSHA NO NICHIJOU",
+            synopsis = "Un aventurero de 29 años que nunca ha tenido novia lleva una vida común en una ciudad tranquila hasta que pequeñas misiones y encuentros inesperados empiezan a complicar su vida diaria con humor y acción.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Comedia\n\n" +
+                    "Studios:\n" +
+                    "Desconocido\n\n" +
+                    "Temporada:\n" +
+                    "2026\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2026",
+            enlace1 = "https://www3.animeflv.net/anime/29sai-dokushin-chuuken-boukensha-no-nichijou",
+            enlace2 = "https://jkanime.net/29-sai-dokushin-chuuken-boukensha-no-nichijou/"
+        ),
+        Anime(
+            id = 52,
+            imageId = R.drawable.toujima_tanzaburou_wa_kamen_rider_ni_naritai,
+            imageDesc = "Toujima Tanzaburou wa Kamen Rider ni Naritai",
+            title = "TOUJIMA TANZABUROU WA KAMEN RIDER NI NARITAI",
+            synopsis = "Tras un accidente misterioso, un hombre común despierta con la determinación de convertirse en un héroe estilo Kamen Rider y proteger a los demás en una ciudad plagada de peligros sobrenaturales.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Drama, Sobrenatural\n\n" +
+                    "Studios:\n" +
+                    "Desconocido\n\n" +
+                    "Temporada:\n" +
+                    "2026\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2026",
+            enlace1 = "https://www3.animeflv.net/anime/toujima-tanzaburou-wa-kamen-rider-ni-naritai",
+            enlace2 = "https://jkanime.net/toujima-tanzaburou-wa-kamen-rider-ni-naritai"
+        ),
+        Anime(
+            id = 53,
+            imageId = R.drawable.yuusha_no_kuzu,
+            imageDesc = "Yuusha no Kuzu",
+            title = "YUUSHA NO KUZU",
+            synopsis = "Después de derrotar al Rey Demonio, un héroe fracasado y sus compañeros viven aventuras absurdas y caóticas mientras intentan adaptarse a la vida civil en un mundo fantasioso lleno de problemas ridículos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Comedia, Fantasia, Aventura\n\n" +
+                    "Studios:\n" +
+                    "Desconocido\n\n" +
+                    "Temporada:\n" +
+                    "2026\n\n" +
+                    "Demografia:\n" +
+                    "Shounen/Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2026",
+            enlace1 = "https://www3.animeflv.net/anime/yuusha-no-kuzu",
+            enlace2 = "https://jkanime.net/yuusha-no-kuzu"
+        ),
+        Anime(
+            id = 54,
+            imageId = R.drawable.mayonaka_heart_tune,
+            imageDesc = "Mayonaka Heart Tune",
+            title = "MAYONAKA HEART TUNE",
+            synopsis = "Una serie centrada en músicos callejeros que buscan éxito y reconocimiento mientras enfrentan desafíos personales y del mundo del espectáculo en un ambiente urbano vibrante.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Musica, Drama, Slice of Life\n\n" +
+                    "Studios:\n" +
+                    "Desconocido\n\n" +
+                    "Temporada:\n" +
+                    "2026\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2026",
+            enlace1 = "https://www3.animeflv.net/anime/mayonaka-heart-tune",
+            enlace2 = "https://jkanime.net/mayonaka-heart-tune"
+        ),
+        Anime(
+            id = 55,
+            imageId = R.drawable.mugen_gacha,
+            imageDesc = "Mugen Gacha",
+            title = "MUGEN GACHA",
+            synopsis = "En un mundo dominado por objetos místicos llamados Gachas que otorgan poderes extremos, un joven intenta dominar sus misterios mientras se enfrenta a peligros mortales y otros usuarios sin escrúpulos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Fantasia, Aventura\n\n" +
+                    "Studios:\n" +
+                    "Desconocido\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Shounen/Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "10+\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/mugen-gacha",
+            enlace2 = "https://jkanime.net/shinjiteita-nakama-tachi-ni-dungeon-okuchi-de-korosarekaketa-ga-gift-mugen-gacha-de-level-9999-no-nakama-tachi-wo-te-ni-irete-moto-party-member-to-sekai-ni-fukushuu-zamaa-shimasu/"
+        ),
+        Anime(
+            id = 56,
+            imageId = R.drawable.sanda,
+            imageDesc = "Sanda",
+            title = "SANDA",
+            synopsis = "Una historia de supervivencia en un mundo post‑apocalíptico donde un guerrero solitario debe enfrentarse a bárbaros, criaturas mutantes y su propio pasado para encontrar un lugar seguro.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Supervivencia, Misterio\n\n" +
+                    "Studios:\n" +
+                    "Desconocido\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español Latino\n\n" +
+                    "Episodios:\n" +
+                    "1+\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/sanda",
+            enlace2 = "https://jkanime.net/sanda"
+        ),
+        Anime(
+            id = 57,
+            imageId = R.drawable.blue_lock,
+            imageDesc = "Blue Lock",
+            title = "BLUE LOCK",
+            synopsis = "Tras una derrota devastadora en la Copa Mundial, Japón lanza el proyecto Blue Lock: un programa brutal para crear al mejor delantero egoísta del mundo. Los participantes compiten sin piedad entre sí por un solo lugar.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Deportes, Accion, Psicológico\n\n" +
+                    "Studios:\n" +
+                    "8bit\n\n" +
+                    "Temporada:\n" +
+                    "2022\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "24+\n\n" +
+                    "Duracion:\n" +
+                    "24 min por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Octubre 2022",
+            enlace1 = "https://www3.animeflv.net/anime/blue-lock",
+            enlace2 = "https://jkanime.net/blue-lock"
+        ),
+        Anime(
+            id = 58,
+            imageId = R.drawable.the_new_gate,
+            imageDesc = "The New Gate",
+            title = "THE NEW GATE",
+            synopsis = "Después de triunfar en un juego mortal de realidad virtual, Shin es transportado a un nuevo mundo donde los peligros son reales y viejos enemigos reaparecen mientras intenta sobrevivir y encontrar respuestas.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Isekai\n\n" +
+                    "Studios:\n" +
+                    "Arvo Animation\n\n" +
+                    "Temporada:\n" +
+                    "2022\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "12\n\n" +
+                    "Duracion:\n" +
+                    "24 min por episodio\n\n" +
+                    "Emitido:\n" +
+                    "Abril 2022",
+            enlace1 = "https://www3.animeflv.net/anime/the-new-gate",
+            enlace2 = "https://jkanime.net/the-new-gate"
+        ),
+        Anime(
+            id = 59,
+            imageId = R.drawable.mushoku_no_eyuu,
+            imageDesc = "Mushoku no Eiyuu",
+            title = "MUSHOKU NO EIYUU: BETSU NI SKILL NANKA IRANAKATTA N DA GA",
+            synopsis = "Un hombre reencarna en un mundo de fantasía tras una vida de fracasos, decidido a empezar de cero. Sin habilidades destacadas, su ingenio y perseverancia lo llevarán por caminos insospechados.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Fantasia, Aventura\n\n" +
+                    "Studios:\n" +
+                    "Studio ???\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min por episodio\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/mushoku-no-eiyuu-betsu-ni-skill-nanka-iranakatta-n-da-ga",
+            enlace2 = "https://jkanime.net/mushoku-no-eiyuu-betsu-ni-skill-nanka-iranakatta-n-da-ga/"
+        ),
+        Anime(
+            id = 60,
+            imageId = R.drawable.tougen_anki,
+            imageDesc = "Togen Anki",
+            title = "TOGEN ANKI",
+            synopsis = "En un mundo donde monstruos amenazan la paz, Anki Togen despierta con un poder misterioso que puede salvar o destruirlo todo. Debe dominarlo mientras enfrenta amenazas mortales y descubre oscuros secretos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Sobrenatural, Fantasia\n\n" +
+                    "Studios:\n" +
+                    "???\n\n" +
+                    "Temporada:\n" +
+                    "2024–2025\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min por episodio\n\n" +
+                    "Emitido:\n" +
+                    "2024",
+            enlace1 = "https://www3.animeflv.net/anime/tougen-anki",
+            enlace2 = "https://jkanime.net/tougen-anki/"
+        ),
+        Anime(
+            id = 61,
+            imageId = R.drawable.si_vis_sound_of_heroes,
+            imageDesc = "SI‑VIS The Sound of Heroes",
+            title = "SI‑VIS: THE SOUND OF HEROES",
+            synopsis = "Un grupo de jóvenes con habilidades únicas es reclutado en una academia especial para entrenar y proteger al mundo de amenazas desconocidas, aprendiendo a dominar su poder en combates intensos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Fantasia, Supernatural\n\n" +
+                    "Studios:\n" +
+                    "???\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/sivis-the-sound-of-heroes",
+            enlace2 = "https://jkanime.net/si-vis-the-sound-of-heroes/"
+        ),
+        Anime(
+            id = 62,
+            imageId = R.drawable.unnamed_memory,
+            imageDesc = "Unnamed Memory",
+            title = "UNNAMED MEMORY",
+            synopsis = "Un joven sin recuerdos lucha por sobrevivir en un mundo devastado mientras descubre fragmentos de su pasado que podrían cambiar el destino de todo lo que conoce.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Drama, Sobrenatural\n\n" +
+                    "Studios:\n" +
+                    "???\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/unnamed-memory",
+            enlace2 = "https://jkanime.net/unnamed-memory"
+        ),
+        Anime(
+            id = 63,
+            imageId = R.drawable.sokushi_cheat_ga_saikyou,
+            imageDesc = "Sokushi Cheat ga Saikyou",
+            title = "SOKUSHI CHEAT GA SAIKYOU",
+            synopsis = "Tras ser transportado a otro mundo, un estudiante obtiene un poder letal llamado ‘Death Cheat’. Con él debe aprender a dominarlo para protegerse de monstruos y otros aventureros sin escrúpulos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Isekai, Aventura\n\n" +
+                    "Studios:\n" +
+                    "???\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/sokushi-cheat-ga-saikyou-sugite-isekai-no-yatsura-ga-marude-aite-ni-naranai-n-desu-ga",
+            enlace2 = "https://jkanime.net/sokushi-cheat-ga-saikyou-sugite-isekai-no-yatsura-ga-marude-aite-ni-naranai-n-desu-ga/"
+        ),
+        Anime(
+            id = 64,
+            imageId = R.drawable.ramen_akaneko,
+            imageDesc = "Ramen Akaneko",
+            title = "RAMEN AKANEKO",
+            synopsis = "Un chef solitario con un pasado misterioso abre un pequeño puesto de ramen. Cada episodio combina acciones cotidianas con decisiones de vida, mostrando cómo la comida puede transformar destinos y relaciones.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Slice of Life, Comedia, Gourmet\n\n" +
+                    "Studios:\n" +
+                    "???\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/ramen-akaneko",
+            enlace2 = "https://jkanime.net/ramen-akaneko"
+        ),
+        Anime(
+            id = 65,
+            imageId = R.drawable.ninja_to_gokudou,
+            imageDesc = "Ninja to Gokudou",
+            title = "NINJA TO GOKUDOU",
+            synopsis = "Shinoha, un ninja tradicional, colisiona con Kiwami, un gánster moderno, y ambos terminan aliados forzados mientras enfrentan caos, traición y peligros fuera de la ley en un Japón más rudo de lo que imaginaban.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Comedia, Crimen\n\n" +
+                    "Studios:\n" +
+                    "–\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/ninja-to-gokudou",
+            enlace2 = "https://jkanime.net/ninja-to-gokudou"
+        ),
+        Anime(
+            id = 66,
+            imageId = R.drawable.kikaijikake_no_marie,
+            imageDesc = "Kikaijikake no Marie",
+            title = "KIKAijikake NO MARIE",
+            synopsis = "Marie es una chica con habilidades mecánicas extraordinarias que decide crear inventos que la ayudan a resolver crímenes y misterios en una ciudad futurista, enfrentándose a rivales robóticos cada vez más peligrosos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Sci‑Fi, Aventura\n\n" +
+                    "Studios:\n" +
+                    "–\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Shounen/Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/kikaijikake-no-marie",
+            enlace2 = "https://jkanime.net/kikaijikake-no-marie"
+        ),
+        Anime(
+            id = 67,
+            imageId = R.drawable.digimon_beatbreak,
+            imageDesc = "Digimon Beatbreak",
+            title = "DIGIMON BEATBREAK",
+            synopsis = "En un nuevo mundo digital, varios DigiDestinados emergen para enfrentar amenazas misteriosas con sus Digimon compañeros, descubriendo secretos que podrían cambiar ambos mundos para siempre.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Fantasia\n\n" +
+                    "Studios:\n" +
+                    "–\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/digimon-beatbreak",
+            enlace2 = "https://jkanime.net/digimon-beatbreak"
+        ),
+        Anime(
+            id = 68,
+            imageId = R.drawable.watari_kun_no_xx_ga_houkai_sunzen,
+            imageDesc = "Watari-kun no xx ga Houkai Sunzen",
+            title = "WATARI‑KUN NO XX GA HOUKAI SUNZEN",
+            synopsis = "La vida de un estudiante cambia radicalmente cuando su relación con una compañera se vuelve impredecible y peligrosa, forzándolo a tomar decisiones extremas mientras intenta mantener su mundo intacto.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Drama, Suspenso\n\n" +
+                    "Studios:\n" +
+                    "–\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/watarikun-no-xx-ga-houkai-sunzen",
+            enlace2 = "https://jkanime.net/watari-kun-no-xx-ga-houkai-sunzen"
+        ),
+        Anime(
+            id = 69,
+            imageId = R.drawable.saikyou_no_shienshoku,
+            imageDesc = "Saikyou no Shienshoku",
+            title = "SAIKYOU NO SHIENSHOKU \"WAJUTSUSHI\" DE ARU ORE WA SEKAI SAIKYOU CLAN WO SHITAGAERU",
+            synopsis = "Noel, el más débil de su clase, usa su ingenio para volverse el más fuerte y protegerlo todo, desafiando sistemas de poder y subestimaciones en un mundo lleno de magia y combates.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Fantasia, Aventura\n\n" +
+                    "Studios:\n" +
+                    "–\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/saikyou-no-shienshoku-wajutsushi-de-aru-ore-wa-sekai-saikyou-clan-wo-shitagaeru",
+            enlace2 = "https://jkanime.net/saikyou-no-shienshoku-wajutsushi-de-aru-ore-wa-sekai-saikyou-clan-wo-shitagaeru/"
+        ),
+        Anime(
+            id = 70,
+            imageId = R.drawable.botsuraku_yotei_no_kizoku,
+            imageDesc = "Botsuraku Yotei no Kizoku",
+            title = "BOTSU RAKU YOTEI NO KIZOKU DAKEDO, HIMA DATTA KARA MAHOU WO KIWAMETEMITA",
+            synopsis = "Un noble desocupado decide dominar la magia en un mundo de fantasía, pero sus métodos poco convencionales y su actitud despreocupada lo llevan a situaciones caóticas y divertidas.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Comedia, Fantasia, Aventura\n\n" +
+                    "Studios:\n" +
+                    "–\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/botsuraku-yotei-no-kizoku-dakedo-hima-datta-kara-mahou-wo-kiwametemita",
+            enlace2 = "https://jkanime.net/botsuraku-yotei-no-kizoku-dakedo-hima-datta-kara-mahou-wo-kiwametemita"
+        ),
+        Anime(
+            id = 71,
+            imageId = R.drawable.alma_chan_wa_kazoku_ni_naritai,
+            imageDesc = "Alma‑chan wa Kazoku ni Naritai",
+            title = "ALMA‑CHAN WA KAZOKU NI NARITAI",
+            synopsis = "Un robot autónomo quiere convertirse en parte de una familia humana y enfrenta desafíos sociales y emocionales mientras descubre qué significa pertenecer y ser amado.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Comedia, Sci‑Fi, Slice of Life\n\n" +
+                    "Studios:\n" +
+                    "–\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/almachan-wa-kazoku-ni-naritai",
+            enlace2 = "https://jkanime.net/alma-chan-wa-kazoku-ni-naritai"
+        ),
+        Anime(
+            id = 72,
+            imageId = R.drawable.shabake,
+            imageDesc = "Shabake",
+            title = "SHABAKE",
+            synopsis = "En una ciudad moderna plagada de monstruos sobrenaturales conocidos como youkai, varios cazadores jóvenes se unen para proteger a los ciudadanos y desentrañar antiguos misterios.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Sobrenatural\n\n" +
+                    "Studios:\n" +
+                    "–\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/shabake",
+            enlace2 = "https://jkanime.net/shabake/"
+        ),
+        Anime(
+            id = 73,
+            imageId = R.drawable.shuumatsu_train_doko_e_iku,
+            imageDesc = "Shuumatsu Train Doko e Iku?",
+            title = "SHUUMATSU TRAIN DOKO E IKU?",
+            synopsis = "Un tren misterioso recorre un mundo post‑apocalíptico lleno de peligros y criaturas extrañas; los pocos pasajeros restantes deben unirse para enfrentar el destino incierto de la humanidad.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Misterio, Aventura\n\n" +
+                    "Studios:\n" +
+                    "–\n\n" +
+                    "Temporada:\n" +
+                    "2025\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "En emisión\n\n" +
+                    "Duracion:\n" +
+                    "24 min aprox.\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/shuumatsu-train-doko-e-iku",
+            enlace2 = "https://jkanime.net/shuumatsu-train-doko-e-iku"
+        ),
+        Anime(
+            id = 74,
+            imageId = R.drawable.tate_no_yuusha_no_nariagari,
+            imageDesc = "Tate no Yuusha no Nariagari",
+            title = "TATE NO YUUSHA NO NARIAGARI",
+            synopsis = "Naofumi es convocado a otro mundo como el Héroe del Escudo. Traicionado y menospreciado, debe sobrevivir y proteger el reino mientras crece en poder y aprende a confiar en aliados inesperados.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Fantasia, Isekai\n\n" +
+                    "Studios:\n" +
+                    "Kinema Citrus\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2019\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "25+\n\n" +
+                    "Duracion:\n" +
+                    "24 min por episodio\n\n" +
+                    "Emitido:\n" +
+                    "2019",
+            enlace1 = "https://www3.animeflv.net/anime/tate-no-yuusha-no-nariagari",
+            enlace2 = "https://jkanime.net/tate-no-yuusha-no-nariagari"
+        ),
+        Anime(
+            id = 75,
+            imageId = R.drawable.tengen_toppa_gurren_lagann,
+            imageDesc = "Tengen Toppa Gurren Lagann",
+            title = "TENGEN ROPPA GURREN LAGANN",
+            synopsis = "Simon y Kamina viven bajo tierra hasta que descubren la superficie y luchan contra fuerzas opresoras. Su determinación y espíritu guerrero los lleva a pilotar mechas y desafiar el destino del universo.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Mecha, Aventura\n\n" +
+                    "Studios:\n" +
+                    "Gainax\n\n" +
+                    "Temporada:\n" +
+                    "2007\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "27\n\n" +
+                    "Duracion:\n" +
+                    "24 min por episodio\n\n" +
+                    "Emitido:\n" +
+                    "2007",
+            enlace1 = "https://www3.animeflv.net/anime/tengen-toppa",
+            enlace2 = "https://jkanime.net/tengen-toppa/"
+        ),
+        Anime(
+            id = 76,
+            imageId = R.drawable.dr_stone,
+            imageDesc = "Dr. Stone",
+            title = "DR. STONE",
+            synopsis = "Tras un misterioso fenómeno que petrificó a la humanidad, Senku despierta miles de años después con el objetivo de reconstruir la civilización mediante la ciencia, enfrentando desafíos y enemigos humanos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Ciencia Ficcion, Aventura\n\n" +
+                    "Studios:\n" +
+                    "TMS Entertainment\n\n" +
+                    "Temporada:\n" +
+                    "Verano 2019\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "24+\n\n" +
+                    "Duracion:\n" +
+                    "24 min por episodio\n\n" +
+                    "Emitido:\n" +
+                    "2019",
+            enlace1 = "https://www3.animeflv.net/anime/dr-stone",
+            enlace2 = "https://jkanime.net/dr-stone"
+        ),
+        Anime(
+            id = 77,
+            imageId = R.drawable.one_punch_man,
+            imageDesc = "One Punch Man",
+            title = "ONE PUNCH MAN",
+            synopsis = "Saitama entrena hasta volverse increíblemente poderoso, derrotando enemigos con un solo golpe. Mientras busca emoción en la vida de héroe, descubre desafíos que ponen a prueba su aburrimiento y su fuerza.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Comedia, Superpoderes\n\n" +
+                    "Studios:\n" +
+                    "Madhouse / J.C.Staff\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2015\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "12+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2015",
+            enlace1 = "https://www3.animeflv.net/anime/one-punch-man",
+            enlace2 = "https://jkanime.net/one-punch-man"
+        ),
+        Anime(
+            id = 80,
+            imageId = R.drawable.boku_no_hero,
+            imageDesc = "Boku no Hero Academia",
+            title = "BUKO NO HERO ACADEMIA",
+            synopsis = "Izuku Midoriya nace sin poderes en un mundo donde casi todos los tienen. Sueña con ser héroe y recibe la habilidad de All Might, enfrentando villanos y superando retos para convertirse en el mayor héroe.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Superpoderes, Escolar\n\n" +
+                    "Studios:\n" +
+                    "Bones\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2016\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "88+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2016",
+            enlace1 = "https://www3.animeflv.net/anime/boku-no-hero-academia-2016",
+            enlace2 = "https://jkanime.net/boku-no-hero-academia/"
+        ),
+        Anime(
+            id = 81,
+            imageId = R.drawable.dark_moon,
+            imageDesc = "Dark Moon: Tsuki no Saidan",
+            title = "DARK MOON: TSUKI NO SAIDAN",
+            synopsis = "Un grupo de investigadores se enfrenta a misteriosas fuerzas sobrenaturales en un mundo donde la luna oculta secretos oscuros que podrían cambiar la realidad.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Misterio, Sobrenatural\n\n" +
+                    "Studios:\n" +
+                    "Studio Deen\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2025\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "12+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2025",
+            enlace1 = "https://www3.animeflv.net/anime/dark-moon-tsuki-no-saidan",
+            enlace2 = "https://jkanime.net/dark-moon-tsuki-no-saidan/"
+        ),
+        Anime(
+            id = 82,
+            imageId = R.drawable.dorohedoro,
+            imageDesc = "Dorohedoro",
+            title = "DOROHEDORO",
+            synopsis = "En una ciudad oscura y caótica llamada Hole, un hombre reptil busca recuperar su memoria y descubrir quién lo transformó, enfrentando magos y criminales en un mundo brutal.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Comedia Negra, Sobrenatural\n\n" +
+                    "Studios:\n" +
+                    "MAPPA\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2020\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "12+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2020",
+            enlace1 = "https://www3.animeflv.net/anime/dorohedoro",
+            enlace2 = "https://jkanime.net/dorohedoro/"
+        ),
+        Anime(
+            id = 83,
+            imageId = R.drawable.mushoku_tensei,
+            imageDesc = "Mushoku Tensei",
+            title = "MUSHOKU TENSEI",
+            synopsis = "Un hombre reencarna en un mundo de magia como Rudeus Greyrat y busca aprovechar su nueva vida para superar sus errores pasados y convertirse en un gran mago.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Fantasia, Aventura, Magia\n\n" +
+                    "Studios:\n" +
+                    "Studio Bind\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 2021\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "23+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2021",
+            enlace1 = "https://www3.animeflv.net/anime/mushoku-tensei-isekai-ittara-honki-dasu",
+            enlace2 = "https://jkanime.net/mushoku-tensei-isekai-ittara-honki-dasu/"
+        ),
+        Anime(
+            id = 84,
+            imageId = R.drawable.kono_subarashii,
+            imageDesc = "Kono Subarashii Sekai ni Shukufuku wo!",
+            title = "KONO SUBARASHII SEKAI NI SHUKUFUKU WO!",
+            synopsis = "Kazuma Satou muere de manera ridícula y es transportado a un mundo de fantasía, formando un grupo con la diosa Aqua y otros compañeros inusuales en hilarantes aventuras.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Comedia, Fantasia, Aventura\n\n" +
+                    "Studios:\n" +
+                    "Studio Deen\n\n" +
+                    "Temporada:\n" +
+                    "Enero 2016\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "10+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2016",
+            enlace1 = "https://www3.animeflv.net/anime/kono-subarashii-sekai-ni-shukufuku-wo",
+            enlace2 = "https://jkanime.net/kono-subarashii-sekai-ni-shukufuku-wo/"
+        ),
+        Anime(
+            id = 85,
+            imageId = R.drawable.no_game_no_life,
+            imageDesc = "No Game No Life",
+            title = "NO GAME NO LIFE",
+            synopsis = "Los hermanos Sora y Shiro, expertos jugadores, son transportados a un mundo donde todo se decide mediante juegos, y deben enfrentarse al dios de los juegos para salvar ese mundo.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Fantasia, Comedia, Aventura\n\n" +
+                    "Studios:\n" +
+                    "Madhouse\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2014\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "12+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2014",
+            enlace1 = "https://www3.animeflv.net/anime/no-game-no-life",
+            enlace2 = "https://jkanime.net/no-game-no-life/"
+        ),
+        Anime(
+            id = 86,
+            imageId = R.drawable.eromanga_sensei,
+            imageDesc = "Eromanga Sensei",
+            title = "EROMANGA SENSEI",
+            synopsis = "Masamune Izumi, escritor de novelas ligeras, descubre que su ilustradora misteriosa y talentosa es su propia hermana menor, enfrentando situaciones cómicas y desafíos creativos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Comedia, Escolar, Drama\n\n" +
+                    "Studios:\n" +
+                    "A-1 Pictures\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2017\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "12+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2017",
+            enlace1 = "https://www3.animeflv.net/anime/eromangasensei",
+            enlace2 = "https://jkanime.net/eromanga-sensei/"
+        ),
+        Anime(
+            id = 87,
+            imageId = R.drawable.sword_art_online,
+            imageDesc = "Sword Art Online",
+            title = "SWORD ART ONLINE",
+            synopsis = "Kirito queda atrapado junto a miles de jugadores en un MMORPG de realidad virtual donde morir en el juego significa morir en la vida real, luchando por sobrevivir y escapar.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Fantasia, Aventura, Romance\n\n" +
+                    "Studios:\n" +
+                    "A-1 Pictures\n\n" +
+                    "Temporada:\n" +
+                    "Verano 2012\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "25+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2012",
+            enlace1 = "https://www3.animeflv.net/anime/sword-art-online",
+            enlace2 = "https://jkanime.net/sword-art-online/"
+        ),
+        Anime(
+            id = 88,
+            imageId = R.drawable.hunter_x_hunter,
+            imageDesc = "Hunter x Hunter",
+            title = "HUNTER X HUNTER",
+            synopsis = "Gon Freecss busca convertirse en un Hunter como su padre, enfrentando peligrosos desafíos, pruebas y enemigos mientras forma amistades que marcarán su camino.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Aventura, Fantasia\n\n" +
+                    "Studios:\n" +
+                    "Madhouse\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2011\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "148+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2011",
+            enlace1 = "https://www3.animeflv.net/anime/hunter-x-hunter",
+            enlace2 = "https://jkanime.net/hunter-x-hunter/"
+        ),
+        Anime(
+            id = 89,
+            imageId = R.drawable.beastars,
+            imageDesc = "Beastars",
+            title = "BEASTARS",
+            synopsis = "En una sociedad de animales antropomórficos, Legoshi, un lobo tímido, navega por conflictos de poder, emociones y relaciones mientras descubre su identidad y deseos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Drama, Escolar, Misterio, Vida Cotidiana\n\n" +
+                    "Studios:\n" +
+                    "Orange\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2019\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "12+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2019",
+            enlace1 = "https://www3.animeflv.net/anime/beastars",
+            enlace2 = "https://jkanime.net/beastars/"
+        ),
+        Anime(
+            id = 90,
+            imageId = R.drawable.kekkai_sensen,
+            imageDesc = "Kekkai Sensen",
+            title = "KEKKAI SENSEN",
+            synopsis = "Leonardo Watch, un joven con ojos especiales, se une a Libra, un grupo que protege a la ciudad de Nueva York mezclada con dimensiones sobrenaturales y criaturas extrañas.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Sobrenatural, Comedia, Fantasia\n\n" +
+                    "Studios:\n" +
+                    "Bones\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2015\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "12+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2015",
+            enlace1 = "https://www3.animeflv.net/anime/kekkai-sensen",
+            enlace2 = "https://jkanime.net/kekkai-sensen/"
+        ),
+        Anime(
+            id = 91,
+            imageId = R.drawable.saenai_heroine_no_sodatekata,
+            imageDesc = "Saenai Heroine no Sodatekata",
+            title = "SAENAI HEROINE NO SODATEKATA",
+            synopsis = "Tomoya Aki, un otaku decidido, intenta crear un juego visual novel exitoso junto a un grupo de talentosas chicas, enfrentando desafíos creativos y cómicas situaciones románticas.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Comedia, Escolar, Drama\n\n" +
+                    "Studios:\n" +
+                    "A-1 Pictures\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2015\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "12+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2015",
+            enlace1 = "https://www3.animeflv.net/anime/saenai-heroine-no-sodatekata",
+            enlace2 = "https://jkanime.net/saenai-heroine-no-sodatekata/"
+        ),
+        Anime(
+            id = 92,
+            imageId = R.drawable.kino_no_tabi,
+            imageDesc = "Kino no Tabi: The Beautiful World",
+            title = "KINO NO TABI: THE BEAUTIFUL WORLD",
+            synopsis = "Kino viaja de país en país con su motocicleta parlante, Hermès, explorando distintas culturas y filosofías mientras reflexiona sobre la naturaleza humana y la vida.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Aventura, Filosofico, Drama\n\n" +
+                    "Studios:\n" +
+                    "Studio Deen\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2003\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "13+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2003",
+            enlace1 = "https://www3.animeflv.net/anime/kino-no-tabi-the-beautiful-world-the-animated-series",
+            enlace2 = "https://jkanime.net/kino-no-tabi-the-beautiful-world/"
+        ),
+        Anime(
+            id = 93,
+            imageId = R.drawable.akame_ga_kill,
+            imageDesc = "Akame ga Kill!",
+            title = "AKAME GA KILL!",
+            synopsis = "Tatsumi se une a Night Raid, un grupo de asesinos, para luchar contra la corrupción del Imperio, enfrentando enemigos poderosos y dilemas morales en un mundo violento.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Fantasia, Aventura\n\n" +
+                    "Studios:\n" +
+                    "White Fox\n\n" +
+                    "Temporada:\n" +
+                    "Verano 2014\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "24+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2014",
+            enlace1 = "https://www3.animeflv.net/anime/akame-ga-kill",
+            enlace2 = "https://jkanime.net/akame-ga-kill/"
+        ),
+        Anime(
+            id = 94,
+            imageId = R.drawable.mahouka_koukou_no_rettousei,
+            imageDesc = "Mahouka Koukou no Rettousei",
+            title = "MAHOUKA KOUKOU NO RETTOUSEI",
+            synopsis = "Tatsuya Shiba y su hermana Miyuki asisten a la Primera Escuela de Magia, donde Tatsuya oculta habilidades extraordinarias mientras enfrenta conflictos sociales y rivalidades mágicas.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Fantasia, Escolar, Magia\n\n" +
+                    "Studios:\n" +
+                    "Madhouse\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2014\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "26+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2014",
+            enlace1 = "https://www3.animeflv.net/anime/mahouka-koukou-no-rettousei",
+            enlace2 = "https://jkanime.net/mahouka-koukou-no-rettousei/"
+        ),
+        Anime(
+            id = 95,
+            imageId = R.drawable.magi,
+            imageDesc = "Magi: The Labyrinth of Magic",
+            title = "MAGI: THE LABYRINTH OF MAGIC",
+            synopsis = "Alibaba y Aladdin exploran mazmorras misteriosas llenas de tesoros y peligros, mientras se enfrentan a reinos corruptos y descubren secretos del mundo mágico.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Aventura, Fantasia, Accion\n\n" +
+                    "Studios:\n" +
+                    "A-1 Pictures\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2012\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "25+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2012",
+            enlace1 = "https://www3.animeflv.net/anime/magi",
+            enlace2 = "https://jkanime.net/magi/"
+        ),
+        Anime(
+            id = 96,
+            imageId = R.drawable.tensei_shitara_slime_datta_ken,
+            imageDesc = "Tensei Shitara Slime Datta Ken",
+            title = "TENSEI SHITARA SLIME DATTA KEN",
+            synopsis = "Satoru Mikami reencarna como un slime en un mundo de fantasía, usando habilidades únicas para formar alianzas, expandir su reino y enfrentar poderosos enemigos.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Fantasia, Aventura, Comedia\n\n" +
+                    "Studios:\n" +
+                    "8bit\n\n" +
+                    "Temporada:\n" +
+                    "Otoño 2018\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "24+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2018",
+            enlace1 = "https://www3.animeflv.net/anime/tensei-shitara-slime-datta-ken",
+            enlace2 = "https://jkanime.net/tensei-shitara-slime-datta-ken/"
+        ),
+        Anime(
+            id = 97,
+            imageId = R.drawable.shokugeki_no_souma,
+            imageDesc = "Shokugeki no Souma",
+            title = "SHOKUGEKI NO SOUMA",
+            synopsis = "Souma Yukihira entra a la Academia Tootsuki, una escuela culinaria de élite, donde participa en intensos duelos de cocina para superar desafíos y demostrar su talento.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Comedia, Escolar, Vida Cotidiana, Gastronomia\n\n" +
+                    "Studios:\n" +
+                    "J.C. Staff\n\n" +
+                    "Temporada:\n" +
+                    "Primavera 2015\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "24+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2015",
+            enlace1 = "https://www3.animeflv.net/anime/shokugeki-no-souma",
+            enlace2 = "https://jkanime.net/shokugeki-no-souma/"
+        ),
+        Anime(
+            id = 98,
+            imageId = R.drawable.horimiya,
+            imageDesc = "Horimiya",
+            title = "HORIMIYA",
+            synopsis = "Kyoko Hori y Izumi Miyamura descubren lados ocultos de sus personalidades y desarrollan una relación inesperada mientras enfrentan los altibajos de la vida escolar.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Comedia, Escolar, Romance, Vida Cotidiana\n\n" +
+                    "Studios:\n" +
+                    "CloverWorks\n\n" +
+                    "Temporada:\n" +
+                    "Invierno 2021\n\n" +
+                    "Demografia:\n" +
+                    "Shounen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "13+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2021",
+            enlace1 = "https://www3.animeflv.net/anime/horimiya",
+            enlace2 = "https://jkanime.net/horimiya/"
+        ),
+        Anime(
+            id = 99,
+            imageId = R.drawable.gangsta,
+            imageDesc = "Gangsta",
+            title = "GANGSTA",
+            synopsis = "En la ciudad de Ergastulum, dos mercenarios realizan trabajos peligrosos para criminales y policías mientras se enfrentan a mafias, corrupción y el peligro constante de la violencia.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Accion, Drama, Crimen, Seinen\n\n" +
+                    "Studios:\n" +
+                    "Manglobe\n\n" +
+                    "Temporada:\n" +
+                    "Verano 2015\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "12+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2015",
+            enlace1 = "https://www3.animeflv.net/anime/gangsta",
+            enlace2 = "https://jkanime.net/gangsta-/"
+        ),
+        Anime(
+            id = 100,
+            imageId = R.drawable.made_in_abyss,
+            imageDesc = "Made in Abyss",
+            title = "MADE IN ABYSS",
+            synopsis = "Riko, una niña exploradora, desciende al Abismo en busca de su madre, enfrentando criaturas mortales, misterios y secretos de un mundo subterráneo lleno de maravillas y peligros.",
+            info = "Tipo:\n" +
+                    "Serie\n\n" +
+                    "Generos:\n" +
+                    "Aventura, Fantasia, Misterio, Drama\n\n" +
+                    "Studios:\n" +
+                    "Kinema Citrus\n\n" +
+                    "Temporada:\n" +
+                    "Verano 2017\n\n" +
+                    "Demografia:\n" +
+                    "Seinen\n\n" +
+                    "Idiomas:\n" +
+                    "Japonés, Español\n\n" +
+                    "Episodios:\n" +
+                    "13+\n\n" +
+                    "Duracion:\n" +
+                    "24 min\n\n" +
+                    "Emitido:\n" +
+                    "2017",
+            enlace1 = "https://www3.animeflv.net/anime/made-in-abyss",
+            enlace2 = "https://jkanime.net/made-in-abyss/"
         )
     )
 }
