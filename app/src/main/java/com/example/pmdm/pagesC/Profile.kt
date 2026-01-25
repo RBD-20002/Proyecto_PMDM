@@ -83,8 +83,7 @@ fun ProfilePage(
                             Spacer(modifier = Modifier.height(16.dp))
                             val profileData = listOf(
                                 PreviewFieldConfig("USUARIO:", user.username),
-                                PreviewFieldConfig("EMAIL:", user.email),
-                                PreviewFieldConfig("ROL:", "Premium")
+                                PreviewFieldConfig("EMAIL:", user.email)
                             )
                             DataProfileComponent(
                                 title = "DATOS USUARIO",
@@ -107,7 +106,7 @@ fun ProfilePage(
 @Composable
 fun ProfilePagePreview() {
     val sampleState = ProfilePageState(
-        user = User("NicoDev", "nico@example.com"),
+        user = User(username = "NicoDev", email =  "nico@example.com", password = "123"),
         isLoggedIn = true,
         favorites = listOf(
             Anime(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),

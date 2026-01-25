@@ -1,32 +1,40 @@
 package com.example.pmdm.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.example.pmdm.model.DataProvider
+import androidx.lifecycle.viewModelScope
+import com.example.pmdm.data.repository.AnimeRepository
 import com.example.pmdm.ui.state.DetailsPageState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DetailsViewModel : ViewModel() {
-
+@HiltViewModel
+class DetailsViewModel @Inject constructor(
+    private val animeRepository: AnimeRepository
+) : ViewModel() {
     private val _state = MutableStateFlow<DetailsPageState?>(null)
     val state: StateFlow<DetailsPageState?> = _state.asStateFlow()
 
     fun loadAnime(animeId: Int) {
-        val anime = DataProvider.animeList.find { it.id == animeId }
-        if (anime != null) {
-            _state.value = DetailsPageState(
-                anime = anime,
-                isFavorite = DataProvider.isFavorite(animeId)
-            )
+        viewModelScope.launch {
+            try {
+                val anime = animeRepository.getAnimeById(animeId.toString())
+                val isFav = animeRepository.getFavorites().any { it.id == animeId }
+                _state.value = DetailsPageState(anime = anime, isFavorite = isFav)
+            } catch (_: Exception) {
+                _state.value = null
+            }
         }
     }
 
     fun toggleFavorite() {
         _state.update { current ->
             current?.let {
-                DataProvider.filterFavorite(it.anime.id)
+                animeRepository.toggleFavorite(it.anime)
                 it.copy(isFavorite = !it.isFavorite)
             }
         }
