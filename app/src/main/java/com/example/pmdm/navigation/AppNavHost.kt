@@ -5,8 +5,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -37,29 +37,31 @@ fun AppNavHost(
         startDestination = Destination.Login.route,
         modifier = modifier
     ) {
+
         composable(Destination.Start.route) {
-            val vm: StartViewModel = viewModel()
+            val vm: StartViewModel = hiltViewModel()
             val state by vm.state.collectAsStateWithLifecycle()
             LaunchedEffect(Unit) { vm.loadAnimes() }
             StartPage(navController = navController, state = state)
         }
 
         composable(Destination.ListContend.route) {
-            val vm: StartViewModel = viewModel()
+            val vm: StartViewModel = hiltViewModel()
             val state by vm.state.collectAsStateWithLifecycle()
             LaunchedEffect(Unit) { vm.loadAnimes() }
             ListContend(navController = navController, state = state)
         }
 
         composable(Destination.Profile.route) {
-            val vm: ProfileViewModel = viewModel()
+            val vm: ProfileViewModel = hiltViewModel()
             val state by vm.state.collectAsStateWithLifecycle()
             LaunchedEffect(Unit) { vm.loadProfile() }
             ProfilePage(state = state, navController = navController)
         }
 
         composable(Destination.Login.route) {
-            val vm: LoginViewModel = viewModel()
+            // ✅ FIX PRINCIPAL
+            val vm: LoginViewModel = hiltViewModel()
             val state by vm.state.collectAsStateWithLifecycle()
 
             LoginPage(
@@ -69,7 +71,6 @@ fun AppNavHost(
                 onTogglePasswordVisibility = { vm.togglePasswordVisibility() },
 
                 onLoginClick = {
-                    // ✅ CREDENCIALES CORRECTAS (AJUSTA AQUÍ si quieres otras)
                     if (state.email == "abc" && state.password == "123") {
                         vm.setLoginError(null)
                         authViewModel.login(state.email, state.password)
@@ -98,7 +99,7 @@ fun AppNavHost(
         }
 
         composable(Destination.Fav.route) {
-            val vm: FavoriteViewModel = viewModel()
+            val vm: FavoriteViewModel = hiltViewModel()
             val state by vm.state.collectAsStateWithLifecycle()
             LaunchedEffect(Unit) { vm.loadFavorites() }
             FavoritePage(navController = navController, state = state)
@@ -106,9 +107,13 @@ fun AppNavHost(
 
         composable("details/{id}") { backStackEntry ->
             val id = backStackEntry.arguments?.getString("id")?.toIntOrNull()
-            val vm: DetailsViewModel = viewModel()
+
+            val vm: DetailsViewModel = hiltViewModel()
             val state by vm.state.collectAsStateWithLifecycle()
-            LaunchedEffect(id) { if (id != null) vm.loadAnime(id) }
+
+            LaunchedEffect(id) {
+                if (id != null) vm.loadAnime(id)
+            }
 
             DetailsPage(
                 state = state,
@@ -121,7 +126,10 @@ fun AppNavHost(
             val profileEntry = remember(cameraEntry) {
                 navController.getBackStackEntry(Destination.Profile.route)
             }
-            val profileVm: ProfileViewModel = viewModel(viewModelStoreOwner = profileEntry)
+
+            // ✅ MISMO STORE OWNER (para compartir VM con Profile), pero ahora con Hilt
+            val profileVm: ProfileViewModel = hiltViewModel(viewModelStoreOwner = profileEntry)
+
             CameraPage(
                 navController = navController,
                 onPhotoTaken = { uri -> profileVm.updateProfileImage(uri) }
@@ -129,7 +137,7 @@ fun AppNavHost(
         }
 
         composable("createAccount") {
-            val vm: CreateAccountViewModel = viewModel()
+            val vm: CreateAccountViewModel = hiltViewModel()
             val state by vm.state.collectAsStateWithLifecycle()
 
             if (state.success) {
@@ -149,6 +157,5 @@ fun AppNavHost(
                 onCancelClick = { navController.popBackStack() }
             )
         }
-
     }
 }

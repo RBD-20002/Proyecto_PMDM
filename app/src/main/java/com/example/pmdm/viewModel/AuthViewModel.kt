@@ -1,22 +1,31 @@
 package com.example.pmdm.viewModel
 
 import androidx.lifecycle.ViewModel
+import com.example.pmdm.data.repository.UserRepository
 import com.example.pmdm.ui.state.AuthState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import javax.inject.Inject
 
-class AuthViewModel : ViewModel() {
-
+@HiltViewModel
+class AuthViewModel @Inject constructor(
+    private val userRepository: UserRepository
+) : ViewModel() {
     private val _state = MutableStateFlow(AuthState())
     val state: StateFlow<AuthState> = _state.asStateFlow()
 
     fun login(email: String, password: String) {
+        _state.update { it.copy(isLoading = true, error = null) }
+        // En una app real, aquí podrías llamar a un endpoint de autenticación remota.
+        userRepository.login(username = email.substringBefore("@"), email = email, password = password)
+        val session = userRepository.session.value
         _state.update {
             it.copy(
-                isLoggedIn = true,
-                userEmail = email,
+                isLoggedIn = session.isLoggedIn,
+                userEmail = session.user?.email ?: "",
                 isLoading = false,
                 error = null
             )
@@ -24,10 +33,12 @@ class AuthViewModel : ViewModel() {
     }
 
     fun logout() {
-        _state.update { AuthState() }
+        userRepository.logout()
+        _state.value = AuthState()
     }
 
     fun loginAsGuest() {
+        userRepository.loginAsGuest()
         _state.update {
             it.copy(
                 isLoggedIn = false,

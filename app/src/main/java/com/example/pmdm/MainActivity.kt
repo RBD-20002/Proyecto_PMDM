@@ -3,30 +3,30 @@ package com.example.pmdm
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.*
-import com.example.pmdm.navigation.AppNavHost
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.components.GuestBottomBar
 import com.example.pmdm.components.MainButtonBar
 import com.example.pmdm.components.SearchToggle
 import com.example.pmdm.components.Toolbar
+import com.example.pmdm.navigation.AppNavHost
 import com.example.pmdm.ui.theme.PMDMTheme
 import com.example.pmdm.viewModel.AuthViewModel
 import com.example.pmdm.viewModel.SearchViewModel
 import com.example.pmdm.viewModel.StartViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             PMDMTheme {
                 MainContent()
@@ -39,14 +39,15 @@ class MainActivity : ComponentActivity() {
 private fun MainContent() {
     val navController = rememberNavController()
 
-    val searchViewModel: SearchViewModel = viewModel()
+    // ✅ CAMBIO: viewModel() -> hiltViewModel()
+    val searchViewModel: SearchViewModel = hiltViewModel()
     val searchState by searchViewModel.state.collectAsStateWithLifecycle()
 
-    val startViewModel: StartViewModel = viewModel()
+    val startViewModel: StartViewModel = hiltViewModel()
     val startState by startViewModel.state.collectAsStateWithLifecycle()
 
     // Auth
-    val authViewModel: AuthViewModel = viewModel()
+    val authViewModel: AuthViewModel = hiltViewModel()
     val authState by authViewModel.state.collectAsStateWithLifecycle()
 
     // Ruta actual

@@ -2903,7 +2903,5 @@ object DataProvider {
             enlace1 = "https://www3.animeflv.net/anime/howl-no-ugoku-shiro",
             enlace2 = "https://jkanime.net/howl-no-ugoku-shiro"
         )
-
-
     )
 }

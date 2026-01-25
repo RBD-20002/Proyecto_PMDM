@@ -1,8 +1,9 @@
 package com.example.pmdm.model
 
 data class User(
+    var id: String? = null,
     val username: String,
     val email: String,
-    val role: String = "Guest",
+    val password: String,
     val profileImageId: Int? = null
 )

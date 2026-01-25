@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    alias(libs.plugins.hilt.android)
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -39,6 +42,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
     // Core Android
     implementation(libs.androidx.core.ktx)
@@ -57,6 +64,7 @@ dependencies {
 
     // Lifecycle
     implementation(libs.androidx.lifecycle.runtime.ktx)
+
     // Utilizamos versiones fijas de lifecycle-*-compose para mantener compatibilidad
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
@@ -69,10 +77,18 @@ dependencies {
     implementation(libs.accompanist.permissions)
     implementation(libs.androidx.camera.view)
 
+    // Retrofit
+    implementation(libs.retrofit2)
+    implementation(libs.retrofit2.converter.gson)
+    implementation(libs.okhttp.logging)
 
     // Coil para cargar imágenes por Uri
     implementation(libs.coil.compose)
-    implementation(libs.androidx.camera.view)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     // Testing
     testImplementation(libs.junit)
