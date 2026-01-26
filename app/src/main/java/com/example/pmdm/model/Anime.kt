@@ -1,8 +1,8 @@
 package com.example.pmdm.model
 
 data class Anime(
-    val id: Int,
-    val imageId: Int,
+    val id: String,
+    val imageId: String,
     val title: String,
     val synopsis: String,
     val info: String,

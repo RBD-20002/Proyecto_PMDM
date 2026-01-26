@@ -2,6 +2,7 @@ package com.example.pmdm.di
 
 import com.example.pmdm.data.service.AnimeService
 import com.example.pmdm.data.service.ImageService
+import com.example.pmdm.data.service.UserService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +15,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    private const val BASE_URL = "https://api.example.com/"
+    private const val BASE_URL = "http://192.168.1.141:5131/"
 
     @Provides
     @Singleton
@@ -33,4 +34,9 @@ object NetworkModule {
     @Singleton
     fun provideImageService(retrofit: Retrofit): ImageService =
         retrofit.create(ImageService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideUserService(retrofit: Retrofit): UserService =
+        retrofit.create(UserService::class.java)
 }

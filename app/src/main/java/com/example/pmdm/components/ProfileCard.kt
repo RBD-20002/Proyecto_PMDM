@@ -64,12 +64,13 @@ fun ProfileCard(
                 )
             } else {
                 // Fallback a la imagen del anime (crocs)
-                Image(
-                    painter = painterResource(id = anime.imageId),
+                AsyncImage(
+                    model = "http://10.0.2.2:5131/images/${anime.imageId}",
                     contentDescription = anime.imageDesc,
                     contentScale = ContentScale.Fit,
                     modifier = Modifier.fillMaxWidth().height(170.dp)
                 )
+
             }
             // Nombre o título
             Text(
@@ -93,8 +94,8 @@ fun ProfileCard(
 @Composable
 fun ProfileCardPreview() {
     val sample = Anime(
-        id = 1,
-        imageId = R.drawable.crocs,
+        id = "crocs",
+        imageId = "crocs",
         imageDesc = "crocs",
         title = "Nombre Usuario",
         synopsis = "",

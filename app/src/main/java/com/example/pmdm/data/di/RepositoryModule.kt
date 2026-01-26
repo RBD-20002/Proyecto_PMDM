@@ -5,6 +5,7 @@ import com.example.pmdm.data.repository.ImageRepository
 import com.example.pmdm.data.repository.UserRepository
 import com.example.pmdm.data.service.AnimeService
 import com.example.pmdm.data.service.ImageService
+import com.example.pmdm.data.service.UserService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,7 +23,7 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideUserRepository(): UserRepository = UserRepository()
+    fun provideUserRepository(userService: UserService): UserRepository = UserRepository(userService = userService)
 
     @Provides
     @Singleton

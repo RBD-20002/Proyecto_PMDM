@@ -28,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.example.pmdm.model.Anime
 import com.example.pmdm.model.DataProvider
 import kotlinx.coroutines.delay
@@ -92,8 +93,8 @@ fun CarouselStartPage(
                     .fillMaxSize()
                     .clip(MaterialTheme.shapes.extraLarge)
             ) {
-                Image(
-                    painter = painterResource(id = anime.imageId),
+                AsyncImage(
+                    model = "http://10.0.2.2:5131/images/${anime.imageId}",
                     contentDescription = anime.imageDesc,
                     contentScale = ContentScale.Fit,
                     modifier = Modifier.fillMaxSize()
