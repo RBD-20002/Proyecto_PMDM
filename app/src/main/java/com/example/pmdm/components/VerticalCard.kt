@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import coil.compose.AsyncImage
 import com.example.pmdm.model.Anime
 import com.example.pmdm.R
 
@@ -60,8 +61,8 @@ fun VerticalCard(
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             // Imagen principal del anime
-            Image(
-                painter = painterResource(id = anime.imageId),
+            AsyncImage(
+                model = "http://10.0.2.2:5131/images/${anime.imageId}",
                 contentDescription = anime.imageDesc,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
@@ -69,7 +70,7 @@ fun VerticalCard(
                     .height(170.dp)
                     .padding(top = 5.dp)
             )
-
+            
             // Título del anime
             Text(
                 text = anime.title,
@@ -92,8 +93,8 @@ fun VerticalCard(
 private fun VerticalCardPreview() {
     val navController = rememberNavController()
     val sample = Anime(
-        id = 1,
-        imageId = R.drawable.dragon_ball,
+        id = "dragon_ball",
+        imageId = "dragon_ball",
         imageDesc = "Goku",
         title = "DRAGON BALL Z",
         synopsis = "",

@@ -1,18 +1,30 @@
 package com.example.pmdm.data.dto
 
-/**
- * DTO de Anime que replica los campos del modelo de dominio
- */
+import com.google.gson.annotations.SerializedName
+
 data class AnimeDto(
+
+    @SerializedName("id")
     val id: String,
+
+    @SerializedName("imageId")
     val imageId: String,
-    val title: String,
-    val synopsis: String,
-    val info: String,
+
+    @SerializedName("imageDesc")
     val imageDesc: String,
-    val enlace1: String = "",
-    val enlace2: String = "",
-    val isPopular: Boolean = false,
-    val isRecommended: Boolean = false,
-    val isFavorite: Boolean = false
+
+    @SerializedName("title")
+    val title: String,
+
+    @SerializedName("synopsis")
+    val synopsis: String,
+
+    @SerializedName("info")
+    val info: String,
+
+    @SerializedName("enlace1")
+    val enlace1: String,
+
+    @SerializedName("enlace2")
+    val enlace2: String
 )

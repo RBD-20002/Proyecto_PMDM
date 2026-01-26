@@ -37,7 +37,6 @@ class CreateAccountViewModel @Inject constructor(
             _state.update { it.copy(error = "Las contraseñas no coinciden") }
             return
         }
-        userRepository.register(s.username, s.email, s.password)
         _state.update { it.copy(success = true, error = null) }
     }
 

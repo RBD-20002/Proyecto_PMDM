@@ -21,6 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.example.pmdm.components.BlockDisplayCardComponent
 import com.example.pmdm.components.SnackbarComponent
 import com.example.pmdm.components.TextComponent
@@ -61,12 +62,13 @@ fun DetailsPage(
 
             item {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Image(
-                        painter = painterResource(state.anime.imageId),
+                    AsyncImage(
+                        model = "http://10.0.2.2:5131/images/${state.anime.imageId}",
                         contentDescription = state.anime.imageDesc,
                         modifier = Modifier.size(250.dp),
                         contentScale = ContentScale.Fit,
                     )
+
                     Spacer(modifier = Modifier.height(10.dp))
                     TextComponent(
                         text = state.anime.title,
@@ -126,8 +128,8 @@ fun DetailsPage(
 fun PreviewDetails() {
     val sampleState = DetailsPageState(
         anime = Anime(
-            id = 1,
-            imageId = R.drawable.naruto,
+            id = "naruto",
+            imageId = "naruto",
             imageDesc = "Naruto Uzumaki",
             title = "NARUTO",
             synopsis = "Naruto sigue a un joven ninja...",

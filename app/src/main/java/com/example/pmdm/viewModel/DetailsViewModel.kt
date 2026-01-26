@@ -19,10 +19,10 @@ class DetailsViewModel @Inject constructor(
     private val _state = MutableStateFlow<DetailsPageState?>(null)
     val state: StateFlow<DetailsPageState?> = _state.asStateFlow()
 
-    fun loadAnime(animeId: Int) {
+    fun loadAnime(animeId: String) {
         viewModelScope.launch {
             try {
-                val anime = animeRepository.getAnimeById(animeId.toString())
+                val anime = animeRepository.getAnimeById(animeId)
                 val isFav = animeRepository.getFavorites().any { it.id == animeId }
                 _state.value = DetailsPageState(anime = anime, isFavorite = isFav)
             } catch (_: Exception) {

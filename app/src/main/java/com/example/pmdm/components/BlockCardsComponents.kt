@@ -69,8 +69,8 @@ fun BlockCardsComponents(input: List<Anime>, navController: NavController, modif
 @Composable
 fun PreviewBlockDisplayCardComponent() {
     val sample = Anime(
-        id = 1,
-        imageId = R.drawable.naruto,
+        id = "naruto",
+        imageId = "naruto",
         imageDesc = "Naruto Uzumaki",
         title = "NARUTO",
         synopsis = "Naruto sigue a un joven ninja...",

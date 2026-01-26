@@ -1,13 +1,20 @@
 package com.example.pmdm.data.dto
 
-/**
- * DTO de User. Mantiene los mismos campos que el modelo original,
- * añadiendo un identificador y una contraseña.
- */
+import com.google.gson.annotations.SerializedName
+
 data class UserDto(
-    var id: String,
+    @SerializedName("id")
+    val id: String,
+
+    @SerializedName("userName")
     val username: String,
+
+    @SerializedName("email")
     val email: String,
+
+    @SerializedName("passwd")
     val password: String,
-    val profileImageId: Int? = null
+
+    @SerializedName("profileImageId")
+    val profileImageId: String?
 )

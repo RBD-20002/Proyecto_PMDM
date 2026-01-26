@@ -32,6 +32,19 @@ fun AppNavHost(
     modifier: Modifier = Modifier,
     authViewModel: AuthViewModel
 ) {
+    // ✅ Observar estado de auth para navegar cuando el login sea REAL (API) y tenga éxito
+    val authState by authViewModel.state.collectAsStateWithLifecycle()
+
+    // ✅ Navegación reactiva: cuando pase a logueado, ir a Start y limpiar Login del backstack
+    LaunchedEffect(authState.isLoggedIn) {
+        if (authState.isLoggedIn) {
+            navController.navigate(Destination.Start.route) {
+                popUpTo(Destination.Login.route) { inclusive = true }
+                launchSingleTop = true
+            }
+        }
+    }
+
     NavHost(
         navController = navController,
         startDestination = Destination.Login.route,
@@ -60,7 +73,6 @@ fun AppNavHost(
         }
 
         composable(Destination.Login.route) {
-            // ✅ FIX PRINCIPAL
             val vm: LoginViewModel = hiltViewModel()
             val state by vm.state.collectAsStateWithLifecycle()
 
@@ -70,17 +82,10 @@ fun AppNavHost(
                 onPasswordChange = { vm.onPasswordChange(it) },
                 onTogglePasswordVisibility = { vm.togglePasswordVisibility() },
 
+                // ✅ YA NO hay if "abc/123": aquí se dispara el login real (API) vía AuthViewModel
                 onLoginClick = {
-                    if (state.email == "abc" && state.password == "123") {
-                        vm.setLoginError(null)
-                        authViewModel.login(state.email, state.password)
-
-                        navController.navigate(Destination.Start.route) {
-                            popUpTo(Destination.Login.route) { inclusive = true }
-                        }
-                    } else {
-                        vm.setLoginError("Correo o contraseña incorrectos")
-                    }
+                    vm.setLoginError(null)
+                    authViewModel.login(state.email, state.password)
                 },
 
                 onRegisterClick = {
@@ -90,11 +95,12 @@ fun AppNavHost(
                 onGuestClick = {
                     vm.setLoginError(null)
                     authViewModel.loginAsGuest()
-
                     navController.navigate(Destination.Start.route) {
                         popUpTo(Destination.Login.route) { inclusive = true }
+                        launchSingleTop = true
                     }
                 }
+
             )
         }
 
@@ -105,20 +111,22 @@ fun AppNavHost(
             FavoritePage(navController = navController, state = state)
         }
 
-        composable("details/{id}") { backStackEntry ->
-            val id = backStackEntry.arguments?.getString("id")?.toIntOrNull()
+        // ✅ FIX: el nombre del parámetro debe coincidir
+        composable("details/{animeId}") { backStackEntry ->
+            val animeId = backStackEntry.arguments?.getString("animeId") ?: return@composable
 
             val vm: DetailsViewModel = hiltViewModel()
             val state by vm.state.collectAsStateWithLifecycle()
 
-            LaunchedEffect(id) {
-                if (id != null) vm.loadAnime(id)
+            // ✅ FIX: LaunchedEffect con clave correcta, sin "id" fantasma
+            LaunchedEffect(animeId) {
+                vm.loadAnime(animeId = animeId)
             }
 
             DetailsPage(
                 state = state,
                 onToggleFavorite = { vm.toggleFavorite() },
-                isUserLoggedIn = authViewModel.state.value.isLoggedIn
+                isUserLoggedIn = authState.isLoggedIn
             )
         }
 
@@ -127,7 +135,7 @@ fun AppNavHost(
                 navController.getBackStackEntry(Destination.Profile.route)
             }
 
-            // ✅ MISMO STORE OWNER (para compartir VM con Profile), pero ahora con Hilt
+            // ✅ Compartir el mismo ProfileViewModel usando el mismo ViewModelStoreOwner
             val profileVm: ProfileViewModel = hiltViewModel(viewModelStoreOwner = profileEntry)
 
             CameraPage(

@@ -122,13 +122,19 @@ fun LoginPage(
 
                     Spacer(modifier = Modifier.height(12.dp))
 
-                    ButtomComponent(text = "CREAR CUENTA") {
+                    ButtomComponent(
+                        text = "CREAR CUENTA",
+                        enabled = true
+                    ) {
                         onRegisterClick()
                     }
 
                     Spacer(modifier = Modifier.height(12.dp))
 
-                    ButtomComponent(text = "ENTRAR COMO INVITADO") {
+                    ButtomComponent(
+                        text = "ENTRAR COMO INVITADO",
+                        enabled = true
+                    ) {
                         onGuestClick()
                     }
 

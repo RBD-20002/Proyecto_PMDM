@@ -46,24 +46,32 @@ class LoginViewModel @Inject constructor(
     /**
      * Llama al UserRepository para iniciar sesión cuando el formulario es válido.
      */
-    fun onLoginClick() {
+    fun onLoginClick(onResult: (Boolean) -> Unit = {}) {
         val current = _state.value
-        if (current.isLoginEnabled) {
-            viewModelScope.launch {
-                try {
-                    userRepository.login(
-                        username = current.email.substringBefore("@"),
-                        email = current.email,
-                        password = current.password
-                    )
-                } catch (e: Exception) {
-                    _state.update { it.copy(loginError = e.message) }
-                }
-            }
-        } else {
+        if (!current.isLoginEnabled) {
             _state.update { it.copy(loginError = "Complete ambos campos para iniciar sesión") }
+            return
+        }
+
+        viewModelScope.launch {
+            try {
+                val ok = userRepository.login(
+                    email = current.email,
+                    password = current.password
+                )
+                if (!ok) {
+                    _state.update { it.copy(loginError = "Correo o contraseña incorrectos") }
+                } else {
+                    _state.update { it.copy(loginError = null) }
+                }
+                onResult(ok)
+            } catch (e: Exception) {
+                _state.update { it.copy(loginError = e.message ?: "Error de conexión") }
+                onResult(false)
+            }
         }
     }
+
 
     fun setLoginError(errorMessage: String?) {
         _state.update { it.copy(loginError = errorMessage) }

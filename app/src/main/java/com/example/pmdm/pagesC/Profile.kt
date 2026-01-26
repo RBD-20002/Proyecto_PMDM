@@ -68,8 +68,8 @@ fun ProfilePage(
                             // Tarjeta de perfil con foto capturada o imagen por defecto
                             ProfileCard(
                                 anime = Anime(
-                                    id = 1,
-                                    imageId = R.drawable.crocs,
+                                    id = "crocs",
+                                    imageId = "crocs",
                                     imageDesc = "crocs",
                                     title = user.username,
                                     synopsis = "",
@@ -109,8 +109,8 @@ fun ProfilePagePreview() {
         user = User(username = "NicoDev", email =  "nico@example.com", password = "123"),
         isLoggedIn = true,
         favorites = listOf(
-            Anime(1, R.drawable.naruto, "Naruto", "Naruto", "", ""),
-            Anime(2, R.drawable.one_piece, "One Piece", "One Piece", "", "")
+            Anime("naruto", "naruto", "Naruto", "Naruto", "", ""),
+            Anime("one_piece", "one_piece", "One Piece", "One Piece", "", "")
         ),
         profileImageUri = null
     )

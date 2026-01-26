@@ -14,29 +14,29 @@ class AnimeRepository(
 
     private fun AnimeDto.toDomain(): Anime {
         return Anime(
-            id = id.toIntOrNull() ?: 0,
-            imageId = imageId.toIntOrNull() ?: 0,
+            id = id,
+            imageId = imageId,
             title = title,
             synopsis = synopsis,
             info = info,
             imageDesc = imageDesc,
             enlace1 = enlace1,
             enlace2 = enlace2,
-            isPopular = isPopular,
-            isRecommended = isRecommended,
+            isPopular = false,
+            isRecommended = false,
             isFavorite = favorites.contains(id)
         )
     }
 
     suspend fun getAnimeList(): List<Anime> {
-        val dtos = animeService.getAnimeList()
+        val dtos = animeService.getAllAnimes()
         val list = dtos.map { it.toDomain() }
         cachedAnimes = list
         return list
     }
 
     suspend fun searchAnimes(query: String): List<Anime> {
-        val dtos = animeService.searchAnimes(query)
+        val dtos = animeService.searchAnimes(value = query)
         val list = dtos.map { it.toDomain() }
         cachedAnimes = list
         return list

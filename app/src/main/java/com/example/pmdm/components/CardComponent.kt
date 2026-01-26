@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import coil.compose.AsyncImage
 import com.example.pmdm.R
 import com.example.pmdm.model.Anime
 
@@ -37,7 +38,7 @@ import com.example.pmdm.model.Anime
  * @see TextComponent
  */
 @Composable
-fun CardComponent(input: List<com.example.pmdm.model.Anime>, navController: NavController){
+fun CardComponent(input: List<Anime>, navController: NavController){
 
     Column {
         input.forEach { cardConfig ->
@@ -53,10 +54,11 @@ fun CardComponent(input: List<com.example.pmdm.model.Anime>, navController: NavC
                             .width(65.dp)
                             .fillMaxHeight()
                     ){
-                        Image(
-                            painter = painterResource(id = cardConfig.imageId),
+                        AsyncImage(
+                            model = "http://10.0.2.2:5131/images/${cardConfig.imageId}",
                             contentDescription = cardConfig.imageDesc,
-                            contentScale = ContentScale.FillBounds
+                            contentScale = ContentScale.FillBounds,
+                            modifier = Modifier.fillMaxSize()
                         )
                     }
                     Box(
@@ -91,8 +93,8 @@ fun CardComponent(input: List<com.example.pmdm.model.Anime>, navController: NavC
 @Composable
 fun BlockDisplayCardComponentPreview() {
     val sample = Anime(
-        id = 1,
-        imageId = R.drawable.naruto,
+        id = "naruto",
+        imageId = "naruto",
         imageDesc = "Naruto Uzumaki",
         title = "NARUTO",
         synopsis = "Naruto sigue a un joven ninja...",
