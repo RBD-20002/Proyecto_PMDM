@@ -49,7 +49,8 @@ fun ProfileCard(
 ) {
     Card(
         modifier = modifier
-            .border(width = 2.dp, color = Color.Black, shape = RoundedCornerShape(2.dp))
+            .border(width = 2.dp, color = Color.Black.copy(alpha = 0.7f),
+                shape = RoundedCornerShape(2.dp))
             .width(140.dp)
             .height(220.dp)
     ) {

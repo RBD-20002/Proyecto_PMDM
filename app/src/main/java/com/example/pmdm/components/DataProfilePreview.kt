@@ -51,7 +51,7 @@ fun DataProfileComponent(
     title: String = "DATOS USUARIO",
     items: List<PreviewFieldConfig>,
     borderColor: Color = Color.Black,
-    backgroundColor: Color = Color(0xFF0A0D1F)
+    backgroundColor: Color = Color(0xFF0A0D1F).copy(alpha = 0.5f)
 ) {
     Column(
         modifier = Modifier

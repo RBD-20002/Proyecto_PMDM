@@ -109,9 +109,12 @@ fun LoginPage(
                 modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.TopEnd
             ) {
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(5.dp),
-                    modifier = Modifier.padding(10.dp)
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(10.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,          // los alinea a la derecha como antes
+                    verticalArrangement = Arrangement.spacedBy(5.dp)
                 ) {
                     ButtomComponent(
                         text = "ENTRAR",
@@ -132,7 +135,7 @@ fun LoginPage(
                     Spacer(modifier = Modifier.height(12.dp))
 
                     ButtomComponent(
-                        text = "ENTRAR COMO INVITADO",
+                        text = "INVITADO",
                         enabled = true
                     ) {
                         onGuestClick()

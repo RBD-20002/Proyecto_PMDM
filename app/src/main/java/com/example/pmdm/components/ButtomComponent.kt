@@ -29,9 +29,9 @@ fun ButtomComponent(
             modifier = Modifier
                 .fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color.DarkGray,
+                containerColor = Color.DarkGray.copy(alpha = 0.7f),
                 contentColor = Color.White,
-                disabledContainerColor = Color.LightGray,
+                disabledContainerColor = Color.LightGray.copy(alpha = 0.4f),
                 disabledContentColor = Color.Red
             ),
             enabled = enabled
