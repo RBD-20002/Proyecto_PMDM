@@ -8,8 +8,14 @@ data class ComplexSearchRequest(
 )
 
 data class SearchFilter(
+    @SerializedName("field")
     val field: String,
-    val operator: SearchOperator,
+
+    // IMPORTANTE: la API espera un número (0..4), no el nombre del enum
+    @SerializedName("operator")
+    val operator: Int,
+
+    @SerializedName("value")
     val value: String
 )
 

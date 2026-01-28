@@ -1,5 +1,6 @@
 package com.example.pmdm.di
 
+import com.example.pmdm.data.network.ApiConfig
 import com.example.pmdm.data.service.AnimeService
 import com.example.pmdm.data.service.ImageService
 import com.example.pmdm.data.service.UserService
@@ -15,14 +16,14 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    //private const val BASE_URL = "http://192.168.1.141:5131/"   // Ricardo
-    private const val BASE_URL = "http://10.0.2.2:5131/"   //Nico
+
+
 
     @Provides
     @Singleton
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(ApiConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

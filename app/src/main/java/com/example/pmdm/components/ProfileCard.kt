@@ -66,7 +66,7 @@ fun ProfileCard(
             } else {
                 // Fallback a la imagen del anime (crocs)
                 AsyncImage(
-                    model = "http://10.0.2.2:5131/images/${anime.imageId}",
+                    model = anime.imageUrl,
                     contentDescription = anime.imageDesc,
                     contentScale = ContentScale.Fit,
                     modifier = Modifier.fillMaxWidth().height(170.dp)
@@ -96,7 +96,7 @@ fun ProfileCard(
 fun ProfileCardPreview() {
     val sample = Anime(
         id = "crocs",
-        imageId = "crocs",
+        imageUrl = "crocs",
         imageDesc = "crocs",
         title = "Nombre Usuario",
         synopsis = "",

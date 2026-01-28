@@ -4,6 +4,11 @@ import com.example.pmdm.R
 
 object DataProvider {
 
+    // ✅ IP/URL de tu API (móvil físico)
+    private const val BASE_URL = "http://192.168.1.41:5131"
+
+    private fun img(id: String): String = "$BASE_URL/images/$id"
+
     val favoriteAnime = mutableSetOf<String>()
 
     fun filterFavorite(animeId: String) {
@@ -25,7 +30,7 @@ object DataProvider {
     val animeList = listOf(
         Anime(
             id = "naruto",
-            imageId = "naruto",
+            imageUrl = img("naruto"),
             imageDesc = "Naruto Uzumaki",
             title = "NARUTO",
             synopsis = "Naruto sigue a un joven ninja marginado, Naruto Uzumaki, que sueña con convertirse en Hokage, el líder de su aldea, para ganar reconocimiento. Lleva dentro al demonio Zorro de Nueve Colas, lo que lo hace temido por muchos. La historia muestra su crecimiento, sus amistades y sus batallas por proteger lo que ama.",
@@ -52,7 +57,7 @@ object DataProvider {
         ),
         Anime(
             id = "bleach",
-            imageId = "bleach",
+            imageUrl = img("bleach"),
             imageDesc = "Ichigo Kurosaki",
             title = "BLEACH",
             synopsis = "Bleach cuenta la historia de Ichigo Kurosaki, un adolescente que obtiene los poderes de una Shinigami, Rukia Kuchiki. Con ellos, debe proteger a los vivos de los espíritus malignos llamados Hollows y guiar almas al más allá. A medida que avanza, descubre conspiraciones y enfrenta enemigos cada vez más poderosos en el mundo espiritual.",
@@ -79,7 +84,7 @@ object DataProvider {
         ),
         Anime(
             id = "dragon_ball",
-            imageId = "dragon_ball",
+            imageUrl = img("dragon_ball"),
             imageDesc = "Goku",
             title = "DRAGON BALL Z",
             synopsis = "Dragon Ball Z narra las batallas de Goku y sus amigos para proteger la Tierra de poderosos enemigos. A lo largo de la serie enfrentan amenazas como los Saiyajin, Freezer, Cell y Majin Buu, mientras Goku alcanza nuevas formas de poder como el Super Saiyajin. Es una historia de superación, amistad y lucha constante por la paz.",
@@ -108,7 +113,7 @@ object DataProvider {
         ),
         Anime(
             id = "one_piece",
-            imageId = "one_piece",
+            imageUrl = img("one_piece"),
             imageDesc = "Luffy",
             title = "ONE PIECE",
             synopsis = "One Piece sigue a Monkey D. Luffy, un joven pirata que busca el legendario tesoro “One Piece” para convertirse en el Rey de los Piratas. Con su tripulación, los Sombrero de Paja, navega por mares peligrosos enfrentando enemigos, gobiernos corruptos y misterios del mundo, todo guiado por la libertad y los sueños.",
@@ -135,7 +140,7 @@ object DataProvider {
         ),
         Anime(
             id = "evangelion",
-            imageId = "evangelion",
+            imageUrl = img("evangelion"),
             imageDesc = "Evangelion",
             title = "EVANGELION",
             synopsis = "Neon Genesis Evangelion sigue a Shinji Ikari, un adolescente reclutado para pilotar un mecha llamado EVA y defender a la humanidad de criaturas llamadas Ángeles. Mientras lucha, enfrenta conflictos psicológicos, traumas y el peso de un mundo al borde del colapso. La serie explora identidad, soledad y el sentido de la existencia.",
@@ -160,7 +165,7 @@ object DataProvider {
         ),
         Anime(
             id = "code_geas",
-            imageId = "code_geas",
+            imageUrl = img("code_geas"),
             imageDesc = "Code Geass",
             title = "CODE GEASS",
             synopsis = "Code Geass sigue a Lelouch Lamperouge, un ex príncipe del Imperio de Britannia que obtiene el poder del “Geass”, capaz de controlar la voluntad de los demás. Con él lidera una rebelión bajo la identidad de Zero para liberar a Japón del dominio imperial. La serie mezcla estrategia, política y dilemas morales sobre poder y justicia.",
@@ -185,7 +190,7 @@ object DataProvider {
         ),
         Anime(
             id = "hajime_no_ippo",
-            imageId = "hajime_no_ippo",
+            imageUrl = img("hajime_no_ippo"),
             imageDesc = "Hajime no Ippo",
             title = "HAJIME NO IPPO",
             synopsis = "Hajime no Ippo sigue a Ippo Makunouchi, un estudiante tímido que descubre su talento para el boxeo tras ser ayudado por un campeón. A través del entrenamiento y la competencia, Ippo aprende sobre fuerza, respeto y perseverancia, enfrentando duros rivales para convertirse en un verdadero boxeador profesional.",
@@ -212,7 +217,7 @@ object DataProvider {
         ),
         Anime(
             id = "hellsing",
-            imageId = "hellsing",
+            imageUrl = img("hellsing"),
             imageDesc = "Hellsing",
             title = "HELLSING",
             synopsis = "Hellsing sigue a Alucard, un vampiro inmortal que trabaja para la organización Hellsing, encargada de eliminar amenazas sobrenaturales en Inglaterra. Junto a Integra Hellsing y Seras Victoria, combate monstruos, cultos y una milicia nazi que busca desatar el caos. Es una historia oscura sobre poder, fe y la naturaleza del mal.",
@@ -239,7 +244,7 @@ object DataProvider {
         ),
         Anime(
             id = "gachiakuta",
-            imageId = "gachiakuta",
+            imageUrl = img("gachiakuta"),
             imageDesc = "Gachiakuta",
             title = "GACHIAKUTA",
             synopsis = "Gachiakuta sigue a Rudo, un joven marginado que vive en un mundo donde los “impuros” y la basura son arrojados al Abismo. Tras ser acusado falsamente de asesinato, cae al fondo y descubre una sociedad olvidada que transforma desechos en armas llamadas Jinki. Busca justicia, venganza y la verdad sobre su mundo corrupto.",
@@ -266,7 +271,7 @@ object DataProvider {
         ),
         Anime(
             id = "tokyo_revengers",
-            imageId = "tokyo_revengers",
+            imageUrl = img("tokyo_revengers"),
             imageDesc = "Tokyo Revengers",
             title = "TOKYO REVENGERS",
             synopsis = "Tokyo Revengers sigue a Takemichi Hanagaki, un joven fracasado que descubre que puede viajar al pasado tras la muerte de su exnovia. Decide usar esa habilidad para cambiar el rumbo de su vida y evitar tragedias, infiltrándose en pandillas juveniles. La historia combina acción, redención y segundas oportunidades.",
@@ -293,7 +298,7 @@ object DataProvider {
         ),
         Anime(
             id = "mob_psycho",
-            imageId = "mob_psycho",
+            imageUrl = img("mob_psycho"),
             imageDesc = "Mob Psycho 100",
             title = "MOB PSYCHO 100",
             synopsis = "Mob Psycho 100 sigue a Shigeo “Mob” Kageyama, un estudiante con poderes psíquicos inmensos que intenta llevar una vida normal y controlar sus emociones. Trabaja para un supuesto exorcista sin poderes mientras enfrenta espíritus, enemigos psíquicos y su propio crecimiento personal. La historia combina acción y reflexión sobre identidad y autocontrol.",
@@ -318,7 +323,7 @@ object DataProvider {
         ),
         Anime(
             id = "kaijuu_8gou",
-            imageId = "kaijuu_8gou",
+            imageUrl = img("kaijuu_8gou"),
             imageDesc = "Kaijuu 8-gou",
             title = "KAIJUU 8-GOU",
             synopsis = "Kaijuu 8-gou sigue a Kafka Hibino, un hombre de 32 años que trabaja limpiando los restos de monstruos gigantes que atacan Japón. Tras un encuentro inesperado, obtiene la habilidad de transformarse en un kaijuu. Decide usar este poder para cumplir su sueño de unirse a las Fuerzas de Defensa y luchar contra las criaturas que antes solo podía observar.",
@@ -345,7 +350,7 @@ object DataProvider {
         ),
         Anime(
             id = "shingeki_no_kyojin",
-            imageId = "shingeki_no_kyojin",
+            imageUrl = img("shingeki_no_kyojin"),
             imageDesc = "Shingeki no Kyojin",
             title = "SHINGEKI NO KYOJIN",
             synopsis = "Shingeki no Kyojin sigue a Eren Jaeger, un joven que vive en un mundo asediado por titanes, gigantes que devoran humanos. Tras la destrucción de su hogar y la muerte de su madre, jura exterminarlos. La historia revela oscuros secretos sobre la humanidad, los titanes y la verdadera naturaleza del mundo en una narrativa intensa y trágica.",
@@ -372,7 +377,7 @@ object DataProvider {
         ),
         Anime(
             id = "tokyo_ghoul",
-            imageId = "tokyo_ghoul",
+            imageUrl = img("tokyo_ghoul"),
             imageDesc = "Tokyo Ghoul",
             title = "TOKYO GHOUL",
             synopsis = "Tokyo Ghoul sigue a Ken Kaneki, un estudiante universitario que tras un accidente recibe los órganos de un ghoul, una criatura que se alimenta de carne humana. Convertido en mitad humano, mitad ghoul, debe aprender a sobrevivir entre ambos mundos mientras lucha por mantener su humanidad en una sociedad dividida y violenta.",
@@ -399,7 +404,7 @@ object DataProvider {
         ),
         Anime(
             id = "death_note",
-            imageId = "death_note",
+            imageUrl = img("death_note"),
             imageDesc = "Death Note",
             title = "DEATH NOTE",
             synopsis = "Death Note sigue a Light Yagami, un estudiante prodigio que encuentra un cuaderno con el poder de matar a cualquiera cuyo nombre se escriba en él. Bajo el alias de Kira, busca crear un mundo libre de criminales, pero su justicia retorcida lo enfrenta a L, un enigmático detective decidido a detenerlo.",
@@ -426,7 +431,7 @@ object DataProvider {
         ),
         Anime(
             id = "monster",
-            imageId = "monster",
+            imageUrl = img("monster"),
             imageDesc = "Monster",
             title = "MONSTER",
             synopsis = "Monster sigue al neurocirujano Kenzo Tenma, quien salva la vida de un niño herido que luego se convierte en un asesino en serie. Años después, Tenma se ve envuelto en una oscura conspiración mientras busca detener al monstruo que él mismo salvó. La historia explora la moralidad, la culpa y la naturaleza del mal.",
@@ -453,7 +458,7 @@ object DataProvider {
         ),
         Anime(
             id = "berserk",
-            imageId ="berserk",
+            imageUrl = img("berserk"),
             imageDesc = "Berserk",
             title = "BERSERK",
             synopsis = "Berserk sigue a Guts, un guerrero solitario que viaja por un mundo medieval brutal dominado por demonios y corrupción. Tras ser traicionado por su antiguo camarada Griffith, jura venganza mientras lucha contra monstruos y su propio destino marcado por una maldición. Es una historia de violencia, ambición y supervivencia.",
@@ -480,7 +485,7 @@ object DataProvider {
         ),
         Anime(
             id = "another",
-            imageId = "another",
+            imageUrl = img("another"),
             imageDesc = "Another",
             title = "ANOTHER",
             synopsis = "Another sigue a Koichi Sakakibara, un estudiante que se transfiere a una escuela donde una clase está maldita. Un misterioso fenómeno causa muertes horribles entre los alumnos y sus familias. Junto a su compañera Mei Misaki, intenta descubrir el origen de la maldición y detenerla antes de que todos mueran.",
@@ -507,7 +512,7 @@ object DataProvider {
         ),
         Anime(
             id = "grappler_baki",
-            imageId = "grappler_baki",
+            imageUrl = img("grappler_baki"),
             imageDesc = "Grappler Baki",
             title = "GRAPPLER BAKI",
             synopsis = "Grappler Baki sigue a Baki Hanma, un joven luchador decidido a superar a su padre, Yujiro Hanma, el ser más fuerte del mundo. A través de combates brutales y entrenamientos extremos, Baki se enfrenta a poderosos rivales en torneos subterráneos, demostrando su crecimiento físico y mental en la búsqueda de la fuerza absoluta.",
@@ -534,7 +539,7 @@ object DataProvider {
         ),
         Anime(
             id = "the_god_of_high_school",
-            imageId = "the_god_of_high_school",
+            imageUrl = img("the_god_of_high_school"),
             imageDesc = "The God of High School",
             title = "THE GOD OF HIGH SCHOOL",
             synopsis = "The God of High School sigue a Jin Mori, un adolescente que participa en un torneo de artes marciales donde los concursantes luchan usando habilidades sobrenaturales. A medida que avanza la competencia, descubre conspiraciones que amenazan al mundo, y debe enfrentarse a enemigos cada vez más poderosos mientras descubre la verdad sobre su propio pasado.",
@@ -561,7 +566,7 @@ object DataProvider {
         ),
         Anime(
             id = "megalo_box",
-            imageId ="megalo_box",
+            imageUrl = img("megalo_box"),
             imageDesc = "Megalo Box",
             title = "MEGALO BOX",
             synopsis = "Megalo Box sigue a Joe, un boxeador que lucha en combates ilegales usando exoesqueletos mecánicos para mejorar su fuerza. Deseando enfrentar a los mejores sin depender de la tecnología, adopta la identidad de 'Gearless Joe'. La serie explora la lucha por la dignidad, la superación personal y el espíritu del boxeo puro.",
@@ -588,7 +593,7 @@ object DataProvider {
         ),
         Anime(
             id = "dororo",
-            imageId = "dororo",
+            imageUrl = img("dororo"),
             imageDesc = "Dororo",
             title = "DORORO",
             synopsis = "Dororo sigue a Hyakkimaru, un joven despojado de sus órganos al nacer por un pacto de su padre con demonios, y a Dororo, un niño ladrón que lo acompaña. Juntos viajan enfrentando monstruos y demonios para recuperar las partes perdidas de Hyakkimaru, explorando temas de venganza, humanidad y redención en un Japón feudal oscuro.",
@@ -615,7 +620,7 @@ object DataProvider {
         ),
         Anime(
             id = "kimetsu_no_yaiba",
-            imageId = "kimetsu_no_yaiba",
+            imageUrl = img("kimetsu_no_yaiba"),
             imageDesc = "Kimetsu no Yaiba",
             title = "KIMETSU NO YAIBA",
             synopsis = "Kimetsu no Yaiba sigue a Tanjiro Kamado, un joven que busca vengar a su familia asesinada por demonios y salvar a su hermana Nezuko, convertida en demonio. Se une al Cuerpo de Exterminio de Demonios y enfrenta enemigos poderosos mientras aprende técnicas de espada y desarrolla su fuerza física y espiritual.",
@@ -642,7 +647,7 @@ object DataProvider {
         ),
         Anime(
             id = "noragami",
-            imageId = "noragami",
+            imageUrl = img("noragami"),
             imageDesc = "Noragami",
             title = "NORAGAMI",
             synopsis = "Noragami sigue a Yato, un dios menor que realiza trabajos menores por cinco yen, y a Hiyori Iki, una chica que se convierte en medio espíritu tras un accidente. Juntos enfrentan problemas del mundo espiritual y combaten espíritus maliciosos mientras Yato busca ganar reconocimiento y seguidores para alcanzar su verdadero potencial.",
@@ -669,7 +674,7 @@ object DataProvider {
         ),
         Anime(
             id = "fullmetal_alchemist",
-            imageId = "fullmetal_alchemist",
+            imageUrl = img("fullmetal_alchemist"),
             imageDesc = "Fullmetal Alchemist",
             title = "FULLMETAL ALCHEMIST",
             synopsis = "Fullmetal Alchemist sigue a los hermanos Edward y Alphonse Elric, quienes tras un fallido experimento de alquimia buscan la Piedra Filosofal para recuperar sus cuerpos perdidos. La serie explora temas de sacrificio, ética, guerra y el precio del poder mientras los hermanos enfrentan enemigos y conspiraciones ocultas.",
@@ -696,7 +701,7 @@ object DataProvider {
         ),
         Anime(
             id = "black_clover",
-            imageId = "black_clover",
+            imageUrl = img("black_clover"),
             imageDesc = "Black Clover",
             title = "BLACK CLOVER",
             synopsis = "Black Clover sigue a Asta, un joven sin poderes mágicos en un mundo donde la magia lo es todo, y a Yuno, su amigo y rival prodigio. Ambos buscan convertirse en el Rey Mago. La serie combina acción, aventuras y desarrollo de habilidades mientras enfrentan enemigos poderosos y desafíos mágicos.",
@@ -723,7 +728,7 @@ object DataProvider {
         ),
         Anime(
             id = "boku_dake_ga_inai_machi",
-            imageId = "boku_dake_ga_inai_machi",
+            imageUrl = img("boku_dake_ga_inai_machi"),
             imageDesc = "Boku dake ga Inai Machi",
             title = "BOKU DAKE GA INAI MACHI",
             synopsis = "Boku dake ga Inai Machi sigue a Satoru Fujinuma, un hombre que posee la habilidad de retroceder en el tiempo momentos antes de que ocurra un desastre. Cuando su madre es asesinada, Satoru es enviado al pasado, a su infancia, para prevenir un secuestro que desencadenó una serie de tragedias, enfrentando misterios y peligros mientras intenta cambiar el destino.",
@@ -750,7 +755,7 @@ object DataProvider {
         ),
         Anime(
             id = "charlotte",
-            imageId = "charlotte",
+            imageUrl = img("charlotte"),
             imageDesc = "Charlotte",
             title = "CHARLOTTE",
             synopsis = "Charlotte sigue a Yuu Otosaka, un adolescente que descubre que tiene la habilidad de poseer temporalmente el cuerpo de otros. Reclutado por Nao Tomori, se une a una escuela especial para jóvenes con poderes. La serie mezcla comedia, drama y acción mientras los personajes enfrentan las consecuencias de sus habilidades y buscan proteger a otros con poderes similares.",
@@ -777,7 +782,7 @@ object DataProvider {
         ),
         Anime(
             id = "angel_beats",
-            imageId = "angel_beats",
+            imageUrl = img("angel_beats"),
             imageDesc = "Angel Beats!",
             title = "ANGEL BEATS!",
             synopsis = "Angel Beats! sigue a Otonashi, un joven que despierta en una vida después de la muerte sin recuerdos de su vida pasada. Se une a la SSS, un grupo de estudiantes que luchan contra Angel, una misteriosa chica que controla la escuela, mientras enfrentan traumas y buscan cumplir sus deseos pendientes antes de descansar en paz.",
@@ -804,7 +809,7 @@ object DataProvider {
         ),
         Anime(
             id = "death_parade",
-            imageId = "death_parade",
+            imageUrl = img("death_parade"),
             imageDesc = "Death Parade",
             title = "DEATH PARADE",
             synopsis = "Death Parade sigue a Decim, un árbitro en un bar donde las almas recién fallecidas deben competir en juegos para decidir su destino: reencarnación o vacío. La serie explora la naturaleza humana, la moral y las emociones a través de las historias de quienes llegan al bar, revelando secretos y conflictos internos de cada persona.",
@@ -831,7 +836,7 @@ object DataProvider {
         ),
         Anime(
             id = "psycho_pass",
-            imageId = "psycho_pass",
+            imageUrl = img("psycho_pass"),
             imageDesc = "Psycho-Pass",
             title = "PSYCHO-PASS",
             synopsis = "Psycho-Pass sigue a Akane Tsunemori, una oficial novata en la unidad de crimen del sistema Sybil, que controla la sociedad mediante la medición de la probabilidad de que alguien cometa un crimen. La serie explora justicia, moralidad y control social mientras Akane enfrenta casos complejos y criminales con diferentes motivaciones.",
@@ -858,7 +863,7 @@ object DataProvider {
         ),
         Anime(
             id = "rurouni_kenshin",
-            imageId = "rurouni_kenshin",
+            imageUrl = img("rurouni_kenshin"),
             imageDesc = "Rurouni Kenshin",
             title = "RUROUNI KENSHIN",
             synopsis = "Rurouni Kenshin sigue a Himura Kenshin, un espadachín que juró nunca volver a matar después de la guerra. Viaja por Japón ayudando a personas necesitadas mientras enfrenta enemigos de su pasado, combinando acción, romance y drama histórico en la era Meiji.",
@@ -885,7 +890,7 @@ object DataProvider {
         ),
         Anime(
             id = "blade_of_the_immortal",
-            imageId = "blade_of_the_immortal",
+            imageUrl = img("blade_of_the_immortal"),
             imageDesc = "Blade of the Immortal",
             title = "BLADE OF THE IMMORTAL",
             synopsis = "Blade of the Immortal sigue a Manji, un samurái maldito con inmortalidad, quien busca redimirse asesinando a 1000 hombres malvados para expiar sus pecados. La serie combina acción sangrienta, drama y un intenso viaje de venganza y redención en el Japón feudal.",
@@ -912,7 +917,7 @@ object DataProvider {
         ),
         Anime(
             id = "gintama",
-            imageId = "gintama",
+            imageUrl = img("gintama"),
             imageDesc = "Gintama",
             title = "GINTAMA",
             synopsis = "Gintama sigue a Gintoki Sakata, un samurái perezoso en un Japón alternativo invadido por extraterrestres, que realiza trabajos extraños para pagar sus deudas. La serie mezcla comedia absurda, acción, parodia de otros animes y momentos dramáticos, con un elenco variado y extravagante.",
@@ -939,7 +944,7 @@ object DataProvider {
         ),
         Anime(
             id = "pokemon",
-            imageId = "pokemon",
+            imageUrl = img("pokemon"),
             imageDesc = "Ash Ketchum",
             title = "POKÉMON",
             synopsis = "Pokémon sigue a Ash Ketchum y su compañero Pikachu en su viaje para convertirse en Maestro Pokémon. Viajan por diferentes regiones capturando criaturas llamadas Pokémon, compitiendo en batallas y enfrentándose a villanos mientras aprenden sobre amistad, valentía y crecimiento personal.",
@@ -966,7 +971,7 @@ object DataProvider {
         ),
         Anime(
             id = "mononoke_hime",
-            imageId = "mononoke_hime",
+            imageUrl = img("mononoke_hime"),
             imageDesc = "San",
             title = "MONONOKE HIME",
             synopsis = "Mononoke Hime sigue a Ashitaka, un joven príncipe que se ve envuelto en un conflicto entre los humanos y los espíritus del bosque. La historia explora la relación entre la naturaleza y la humanidad, con combates épicos y dilemas morales en un mundo lleno de criaturas místicas.",
@@ -991,7 +996,7 @@ object DataProvider {
         ),
         Anime(
             id = "enen_no_shouboutai",
-            imageId = "enen_no_shouboutai",
+            imageUrl = img("enen_no_shouboutai"),
             imageDesc = "Shinra Kusakabe",
             title = "ENEN NO SHOUBOUTAI",
             synopsis = "Enen no Shouboutai sigue a Shinra Kusakabe, un pirocinético con la habilidad de encender sus pies a voluntad, quien se une a la Compañía 8 de la Fuerza Especial de Fuego para combatir a los \"Infernales\", humanos que se convierten en criaturas de fuego, y descubrir la verdad detrás de un misterioso incendio que marcó su pasado.",
@@ -1018,7 +1023,7 @@ object DataProvider {
         ),
         Anime(
             id = "log_horizon",
-            imageId = "log_horizon",
+            imageUrl = img("log_horizon"),
             imageDesc = "Shiroe",
             title = "LOG HORIZON",
             synopsis = "Log Horizon sigue a Shiroe y otros jugadores atrapados dentro de un MMORPG llamado Elder Tale. Deben adaptarse a este nuevo mundo, crear estrategias de supervivencia y alianzas, mientras enfrentan desafíos tanto dentro como fuera del juego en un entorno que mezcla acción, estrategia y comedia.",
@@ -1045,7 +1050,7 @@ object DataProvider {
         ),
         Anime(
             id = "overlord",
-            imageId =  "overlord",
+            imageUrl = img("overlord"),
             imageDesc = "Ainz Ooal Gown",
             title = "OVERLORD",
             synopsis = "Overlord sigue a Momonga, un jugador atrapado dentro del juego de realidad virtual Yggdrasil cuando este se cierra. Adoptando el rol de su personaje esquelético, Ainz Ooal Gown, busca dominar este nuevo mundo mientras explora su poder, estrategia y la lealtad de sus subordinados en un reino fantástico.",
@@ -1072,7 +1077,7 @@ object DataProvider {
         ),
         Anime(
             id = "drifters",
-            imageId = "drifters",
+            imageUrl = img("drifters"),
             imageDesc = "Shimazu Toyohisa",
             title = "DRIFTERS",
             synopsis = "Drifters sigue a guerreros históricos que son transportados a un mundo alternativo lleno de conflictos. Liderados por Shimazu Toyohisa, deben enfrentarse a enemigos poderosos y desconocidos mientras buscan sobrevivir y cumplir sus objetivos en este mundo lleno de fantasía, estrategia y batallas sangrientas.",
@@ -1099,7 +1104,7 @@ object DataProvider {
         ),
         Anime(
             id = "nakitai_watashi_wa_neko_wo_kaburu",
-            imageId = "nakitai_watashi_wa_neko_wo_kaburu",
+            imageUrl = img("nakitai_watashi_wa_neko_wo_kaburu"),
             imageDesc = "Miko Tsukimi",
             title = "NAKITAI WATASHI WA NEKO WO KABURU",
             synopsis = "Nakitai Watashi wa Neko wo Kaburu sigue a Miko Tsukimi, una chica que encuentra una máscara mágica que le permite transformarse en un gato. La historia mezcla comedia, romance y drama mientras Miko explora sentimientos, secretos y las conexiones con las personas a su alrededor a través de su nueva forma felina.",
@@ -1124,7 +1129,7 @@ object DataProvider {
         ),
         Anime(
             id = "koe_no_katachi",
-            imageId = "koe_no_katachi",
+            imageUrl = img("koe_no_katachi"),
             imageDesc = "Shouya Ishida",
             title = "KOE NO KATACHI",
             synopsis = "Koe no Katachi sigue a Shouya Ishida, un joven que acosó a una compañera sorda, Shouko Nishimiya, durante la infancia. Años después busca redimirse y enmendar sus errores mientras enfrenta remordimientos, relaciones humanas y el poder del perdón en un emotivo drama escolar.",
@@ -1149,7 +1154,7 @@ object DataProvider {
         ),
         Anime(
             id = "dead_mount_death_play",
-            imageId = "dead_mount_death_play",
+            imageUrl = img("dead_mount_death_play"),
             imageDesc = "Polka",
             title = "DEAD MOUNT DEATH PLAY",
             synopsis = "Dead Mount Death Play sigue a un legendario asesino reencarnado en un mundo moderno como Polka, un detective con habilidades sobrenaturales. La historia combina acción, misterio y elementos sobrenaturales mientras el protagonista investiga crímenes y enfrenta enemigos con poderes extraordinarios.",
@@ -1176,7 +1181,7 @@ object DataProvider {
         ),
         Anime(
             id = "kaminaki_sekai_no_kamisama_katsudou",
-            imageId = "kaminaki_sekai_no_kamisama_katsudou",
+            imageUrl = img("kaminaki_sekai_no_kamisama_katsudou"),
             imageDesc = "Natsume",
             title = "KAMINAKI SEKAI NO KAMISAMA KATSUDOU",
             synopsis = "Kaminaki Sekai no Kamisama Katsudou sigue a Natsume, un joven que se encuentra en un mundo donde los dioses y espíritus influyen en la vida cotidiana. La historia combina aventura, fantasía y comedia mientras Natsume aprende a convivir y resolver conflictos divinos en un entorno desconocido y mágico.",
@@ -1203,7 +1208,7 @@ object DataProvider {
         ),
         Anime(
             id = "leadale_no_daichi_nite",
-            imageId ="leadale_no_daichi_nite",
+            imageUrl = img("leadale_no_daichi_nite"),
             imageDesc = "Leila",
             title = "LEADALE NO DAICHI NITE",
             synopsis = "Leadale no Daichi nite sigue a Keina Kagami, quien tras un accidente queda atrapada en el mundo de su juego de realidad virtual como su personaje, Leila. La historia combina fantasía, aventura y comedia mientras Keina explora este mundo, haciendo amigos y enfrentando desafíos para reconstruir su nueva vida.",
@@ -1230,7 +1235,7 @@ object DataProvider {
         ),
         Anime(
             id = "jitsu_wa_ore_saikyou_deshita",
-            imageId = "jitsu_wa_ore_saikyou_deshita",
+            imageUrl = img("jitsu_wa_ore_saikyou_deshita"),
             imageDesc = "Orato",
             title = "JITSU WA ORE, SAIKYOU DESHITA?",
             synopsis = "Jitsu wa Ore, Saikyou deshita? sigue a Orato, un joven aparentemente normal que esconde un pasado como héroe invencible. Ahora vive tranquilamente hasta que su identidad y habilidades comienzan a atraer problemas y aventuras, mezclando comedia, acción y romance en un mundo moderno con toques sobrenaturales.",
@@ -1257,7 +1262,7 @@ object DataProvider {
         ),
         Anime(
             id = "darwins_game",
-            imageId = "darwins_game",
+            imageUrl = img("darwins_game"),
             imageDesc = "Darwins Game",
             title = "DARWIN’S GAME",
             synopsis = "Darwin’s Game sigue a Kaname Sudō, un estudiante normal que recibe una invitación para probar una aplicación de juego móvil. Pronto descubre que el juego es mortal y obliga a los participantes a luchar entre sí a vida o muerte usando habilidades llamadas Sigils.",
@@ -1284,7 +1289,7 @@ object DataProvider {
         ),
         Anime(
             id = "eighty_six",
-            imageId = "eighty_six",
+            imageUrl = img("eighty_six"),
             imageDesc = "86 Eighty Six",
             title = "86 - EIGHTY SIX",
             synopsis = "En la República de San Magnolia, una guerra sin ‘víctimas’ es propaganda; los soldados reales, etiquetados como ‘86’, luchan y mueren pilotando drones. La historia sigue a Shinei Nouzen y la Handler Vladilena Milize mientras enfrentan la brutal realidad de la guerra y la discriminación.",
@@ -1311,7 +1316,7 @@ object DataProvider {
         ),
         Anime(
             id = "ninety_one_days",
-            imageId = "ninety_one_days",
+            imageUrl = img("ninety_one_days"),
             imageDesc = "91 Days",
             title = "91 DAYS",
             synopsis = "Ambientado en la era de la Ley Seca en Estados Unidos, Angelo Lagusa adopta el alias Avilio Bruno tras la muerte de su familia por la mafia. Siete años después regresa a Lawless para infiltrarse en la familia Vanetti y buscar venganza en un mundo de crimen y traición.",
@@ -1338,7 +1343,7 @@ object DataProvider {
         ),
         Anime(
             id = "spy_kyoushitsu",
-            imageId =  "spy_kyoushitsu",
+            imageUrl = img("spy_kyoushitsu"),
             imageDesc = "Spy Kyoshitsu",
             title = "SPY KYOSHITSU",
             synopsis = "Tras una guerra devastadora, los gobiernos recurren a estrategias encubiertas: en una academia de élite, estudiantes entrenan como espías para enfrentar conflictos futuros. La serie mezcla intriga, acción y drama en un mundo donde cada movimiento puede ser mortal.",
@@ -1365,7 +1370,7 @@ object DataProvider {
         ),
         Anime(
             id = "cestvs_the_roman_fighter",
-            imageId =  "cestvs_the_roman_fighter",
+            imageUrl = img("cestvs_the_roman_fighter"),
             imageDesc = "Cestvs Roman Fighter",
             title = "CESTVS: THE ROMAN FIGHTER",
             synopsis = "Ambientada en el año 54 D.C., la historia sigue a Cestus, un joven esclavo entrenado como boxeador en una academia romana. Enfrentando brutales combates y su propio destino, lucha para ganar libertad y respeto en un mundo despiadado de gladiadores.",
@@ -1392,7 +1397,7 @@ object DataProvider {
         ),
         Anime(
             id = "sai_dokushin_chuuken_boukensha_no_nichijou",
-            imageId =  "sai_dokushin_chuuken_boukensha_no_nichijou",
+            imageUrl = img("sai_dokushin_chuuken_boukensha_no_nichijou"),
             imageDesc = "29‑sai Dokushin Chuuken Boukensha no Nichijou",
             title = "29‑SAI DOKUSHIN CHUUKEN BOUKENSHA NO NICHIJOU",
             synopsis = "Un aventurero de 29 años que nunca ha tenido novia lleva una vida común en una ciudad tranquila hasta que pequeñas misiones y encuentros inesperados empiezan a complicar su vida diaria con humor y acción.",
@@ -1419,7 +1424,7 @@ object DataProvider {
         ),
         Anime(
             id = "toujima_tanzaburou_wa_kamen_rider_ni_naritai",
-            imageId = "toujima_tanzaburou_wa_kamen_rider_ni_naritai",
+            imageUrl = img("toujima_tanzaburou_wa_kamen_rider_ni_naritai"),
             imageDesc = "Toujima Tanzaburou wa Kamen Rider ni Naritai",
             title = "TOUJIMA TANZABUROU WA KAMEN RIDER NI NARITAI",
             synopsis = "Tras un accidente misterioso, un hombre común despierta con la determinación de convertirse en un héroe estilo Kamen Rider y proteger a los demás en una ciudad plagada de peligros sobrenaturales.",
@@ -1446,7 +1451,7 @@ object DataProvider {
         ),
         Anime(
             id = "yuusha_no_kuzu",
-            imageId =  "yuusha_no_kuzu",
+            imageUrl = img("yuusha_no_kuzu"),
             imageDesc = "Yuusha no Kuzu",
             title = "YUUSHA NO KUZU",
             synopsis = "Después de derrotar al Rey Demonio, un héroe fracasado y sus compañeros viven aventuras absurdas y caóticas mientras intentan adaptarse a la vida civil en un mundo fantasioso lleno de problemas ridículos.",
@@ -1473,7 +1478,7 @@ object DataProvider {
         ),
         Anime(
             id = "mayonaka_heart_tune",
-            imageId ="mayonaka_heart_tune",
+            imageUrl = img("mayonaka_heart_tune"),
             imageDesc = "Mayonaka Heart Tune",
             title = "MAYONAKA HEART TUNE",
             synopsis = "Una serie centrada en músicos callejeros que buscan éxito y reconocimiento mientras enfrentan desafíos personales y del mundo del espectáculo en un ambiente urbano vibrante.",
@@ -1500,7 +1505,7 @@ object DataProvider {
         ),
         Anime(
             id = "mugen_gacha",
-            imageId =  "mugen_gacha",
+            imageUrl = img("mugen_gacha"),
             imageDesc = "Mugen Gacha",
             title = "MUGEN GACHA",
             synopsis = "En un mundo dominado por objetos místicos llamados Gachas que otorgan poderes extremos, un joven intenta dominar sus misterios mientras se enfrenta a peligros mortales y otros usuarios sin escrúpulos.",
@@ -1527,7 +1532,7 @@ object DataProvider {
         ),
         Anime(
             id = "sanda",
-            imageId = "sanda",
+            imageUrl = img("sanda"),
             imageDesc = "Sanda",
             title = "SANDA",
             synopsis = "Una historia de supervivencia en un mundo post‑apocalíptico donde un guerrero solitario debe enfrentarse a bárbaros, criaturas mutantes y su propio pasado para encontrar un lugar seguro.",
@@ -1554,7 +1559,7 @@ object DataProvider {
         ),
         Anime(
             id = "blue_lock",
-            imageId = "blue_lock",
+            imageUrl = img("blue_lock"),
             imageDesc = "Blue Lock",
             title = "BLUE LOCK",
             synopsis = "Tras una derrota devastadora en la Copa Mundial, Japón lanza el proyecto Blue Lock: un programa brutal para crear al mejor delantero egoísta del mundo. Los participantes compiten sin piedad entre sí por un solo lugar.",
@@ -1581,7 +1586,7 @@ object DataProvider {
         ),
         Anime(
             id = "the_new_gate",
-            imageId = "the_new_gate",
+            imageUrl = img("the_new_gate"),
             imageDesc = "The New Gate",
             title = "THE NEW GATE",
             synopsis = "Después de triunfar en un juego mortal de realidad virtual, Shin es transportado a un nuevo mundo donde los peligros son reales y viejos enemigos reaparecen mientras intenta sobrevivir y encontrar respuestas.",
@@ -1608,7 +1613,7 @@ object DataProvider {
         ),
         Anime(
             id = "mushoku_no_eyuu",
-            imageId = "mushoku_no_eyuu",
+            imageUrl = img("mushoku_no_eyuu"),
             imageDesc = "Mushoku no Eiyuu",
             title = "MUSHOKU NO EIYUU: BETSU NI SKILL NANKA IRANAKATTA N DA GA",
             synopsis = "Un hombre reencarna en un mundo de fantasía tras una vida de fracasos, decidido a empezar de cero. Sin habilidades destacadas, su ingenio y perseverancia lo llevarán por caminos insospechados.",
@@ -1635,7 +1640,7 @@ object DataProvider {
         ),
         Anime(
             id = "tougen_anki",
-            imageId = "tougen_anki",
+            imageUrl = img("tougen_anki"),
             imageDesc = "Togen Anki",
             title = "TOGEN ANKI",
             synopsis = "En un mundo donde monstruos amenazan la paz, Anki Togen despierta con un poder misterioso que puede salvar o destruirlo todo. Debe dominarlo mientras enfrenta amenazas mortales y descubre oscuros secretos.",
@@ -1662,7 +1667,7 @@ object DataProvider {
         ),
         Anime(
             id = "si_vis_sound_of_heroes",
-            imageId ="si_vis_sound_of_heroes",
+            imageUrl = img("si_vis_sound_of_heroes"),
             imageDesc = "SI‑VIS The Sound of Heroes",
             title = "SI‑VIS: THE SOUND OF HEROES",
             synopsis = "Un grupo de jóvenes con habilidades únicas es reclutado en una academia especial para entrenar y proteger al mundo de amenazas desconocidas, aprendiendo a dominar su poder en combates intensos.",
@@ -1689,7 +1694,7 @@ object DataProvider {
         ),
         Anime(
             id = "unnamed_memory",
-            imageId = "unnamed_memory",
+            imageUrl = img("unnamed_memory"),
             imageDesc = "Unnamed Memory",
             title = "UNNAMED MEMORY",
             synopsis = "Un joven sin recuerdos lucha por sobrevivir en un mundo devastado mientras descubre fragmentos de su pasado que podrían cambiar el destino de todo lo que conoce.",
@@ -1716,7 +1721,7 @@ object DataProvider {
         ),
         Anime(
             id = "sokushi_cheat_ga_saikyou",
-            imageId = "sokushi_cheat_ga_saikyou",
+            imageUrl = img("sokushi_cheat_ga_saikyou"),
             imageDesc = "Sokushi Cheat ga Saikyou",
             title = "SOKUSHI CHEAT GA SAIKYOU",
             synopsis = "Tras ser transportado a otro mundo, un estudiante obtiene un poder letal llamado ‘Death Cheat’. Con él debe aprender a dominarlo para protegerse de monstruos y otros aventureros sin escrúpulos.",
@@ -1743,7 +1748,7 @@ object DataProvider {
         ),
         Anime(
             id = "ramen_akaneko",
-            imageId = "ramen_akaneko",
+            imageUrl = img("ramen_akaneko"),
             imageDesc = "Ramen Akaneko",
             title = "RAMEN AKANEKO",
             synopsis = "Un chef solitario con un pasado misterioso abre un pequeño puesto de ramen. Cada episodio combina acciones cotidianas con decisiones de vida, mostrando cómo la comida puede transformar destinos y relaciones.",
@@ -1770,7 +1775,7 @@ object DataProvider {
         ),
         Anime(
             id = "ninja_to_gokudou",
-            imageId = "ninja_to_gokudou",
+            imageUrl = img("ninja_to_gokudou"),
             imageDesc = "Ninja to Gokudou",
             title = "NINJA TO GOKUDOU",
             synopsis = "Shinoha, un ninja tradicional, colisiona con Kiwami, un gánster moderno, y ambos terminan aliados forzados mientras enfrentan caos, traición y peligros fuera de la ley en un Japón más rudo de lo que imaginaban.",
@@ -1797,7 +1802,7 @@ object DataProvider {
         ),
         Anime(
             id = "kikaijikake_no_marie",
-            imageId = "kikaijikake_no_marie",
+            imageUrl = img("kikaijikake_no_marie"),
             imageDesc = "Kikaijikake no Marie",
             title = "KIKAijikake NO MARIE",
             synopsis = "Marie es una chica con habilidades mecánicas extraordinarias que decide crear inventos que la ayudan a resolver crímenes y misterios en una ciudad futurista, enfrentándose a rivales robóticos cada vez más peligrosos.",
@@ -1824,7 +1829,7 @@ object DataProvider {
         ),
         Anime(
             id = "digimon_beatbreak",
-            imageId = "digimon_beatbreak",
+            imageUrl = img("digimon_beatbreak"),
             imageDesc = "Digimon Beatbreak",
             title = "DIGIMON BEATBREAK",
             synopsis = "En un nuevo mundo digital, varios DigiDestinados emergen para enfrentar amenazas misteriosas con sus Digimon compañeros, descubriendo secretos que podrían cambiar ambos mundos para siempre.",
@@ -1851,7 +1856,7 @@ object DataProvider {
         ),
         Anime(
             id = "watari_kun_no_xx_ga_houkai_sunzen",
-            imageId = "watari_kun_no_xx_ga_houkai_sunzen",
+            imageUrl = img("watari_kun_no_xx_ga_houkai_sunzen"),
             imageDesc = "Watari-kun no xx ga Houkai Sunzen",
             title = "WATARI‑KUN NO XX GA HOUKAI SUNZEN",
             synopsis = "La vida de un estudiante cambia radicalmente cuando su relación con una compañera se vuelve impredecible y peligrosa, forzándolo a tomar decisiones extremas mientras intenta mantener su mundo intacto.",
@@ -1878,7 +1883,7 @@ object DataProvider {
         ),
         Anime(
             id = "saikyou_no_shienshoku",
-            imageId =  "saikyou_no_shienshoku",
+            imageUrl = img("saikyou_no_shienshoku"),
             imageDesc = "Saikyou no Shienshoku",
             title = "SAIKYOU NO SHIENSHOKU \"WAJUTSUSHI\" DE ARU ORE WA SEKAI SAIKYOU CLAN WO SHITAGAERU",
             synopsis = "Noel, el más débil de su clase, usa su ingenio para volverse el más fuerte y protegerlo todo, desafiando sistemas de poder y subestimaciones en un mundo lleno de magia y combates.",
@@ -1905,7 +1910,7 @@ object DataProvider {
         ),
         Anime(
             id = "botsuraku_yotei_no_kizoku",
-            imageId = "botsuraku_yotei_no_kizoku",
+            imageUrl = img("botsuraku_yotei_no_kizoku"),
             imageDesc = "Botsuraku Yotei no Kizoku",
             title = "BOTSU RAKU YOTEI NO KIZOKU DAKEDO, HIMA DATTA KARA MAHOU WO KIWAMETEMITA",
             synopsis = "Un noble desocupado decide dominar la magia en un mundo de fantasía, pero sus métodos poco convencionales y su actitud despreocupada lo llevan a situaciones caóticas y divertidas.",
@@ -1932,7 +1937,7 @@ object DataProvider {
         ),
         Anime(
             id = "alma_chan_wa_kazoku_ni_naritai",
-            imageId = "alma_chan_wa_kazoku_ni_naritai",
+            imageUrl = img("alma_chan_wa_kazoku_ni_naritai"),
             imageDesc = "Alma‑chan wa Kazoku ni Naritai",
             title = "ALMA‑CHAN WA KAZOKU NI NARITAI",
             synopsis = "Un robot autónomo quiere convertirse en parte de una familia humana y enfrenta desafíos sociales y emocionales mientras descubre qué significa pertenecer y ser amado.",
@@ -1959,7 +1964,7 @@ object DataProvider {
         ),
         Anime(
             id = "shabake",
-            imageId ="shabake",
+            imageUrl = img("shabake"),
             imageDesc = "Shabake",
             title = "SHABAKE",
             synopsis = "En una ciudad moderna plagada de monstruos sobrenaturales conocidos como youkai, varios cazadores jóvenes se unen para proteger a los ciudadanos y desentrañar antiguos misterios.",
@@ -1986,7 +1991,7 @@ object DataProvider {
         ),
         Anime(
             id = "shuumatsu_train_doko_e_iku",
-            imageId = "shuumatsu_train_doko_e_iku",
+            imageUrl = img("shuumatsu_train_doko_e_iku"),
             imageDesc = "Shuumatsu Train Doko e Iku?",
             title = "SHUUMATSU TRAIN DOKO E IKU?",
             synopsis = "Un tren misterioso recorre un mundo post‑apocalíptico lleno de peligros y criaturas extrañas; los pocos pasajeros restantes deben unirse para enfrentar el destino incierto de la humanidad.",
@@ -2013,7 +2018,7 @@ object DataProvider {
         ),
         Anime(
             id = "tate_no_yuusha_no_nariagari",
-            imageId ="tate_no_yuusha_no_nariagari",
+            imageUrl = img("tate_no_yuusha_no_nariagari"),
             imageDesc = "Tate no Yuusha no Nariagari",
             title = "TATE NO YUUSHA NO NARIAGARI",
             synopsis = "Naofumi es convocado a otro mundo como el Héroe del Escudo. Traicionado y menospreciado, debe sobrevivir y proteger el reino mientras crece en poder y aprende a confiar en aliados inesperados.",
@@ -2040,7 +2045,7 @@ object DataProvider {
         ),
         Anime(
             id = "tengen_toppa_gurren_lagann",
-            imageId = "tengen_toppa_gurren_lagann",
+            imageUrl = img("tengen_toppa_gurren_lagann"),
             imageDesc = "Tengen Toppa Gurren Lagann",
             title = "TENGEN ROPPA GURREN LAGANN",
             synopsis = "Simon y Kamina viven bajo tierra hasta que descubren la superficie y luchan contra fuerzas opresoras. Su determinación y espíritu guerrero los lleva a pilotar mechas y desafiar el destino del universo.",
@@ -2067,7 +2072,7 @@ object DataProvider {
         ),
         Anime(
             id = "dr_stone",
-            imageId = "dr_stone",
+            imageUrl = img("dr_stone"),
             imageDesc = "Dr. Stone",
             title = "DR. STONE",
             synopsis = "Tras un misterioso fenómeno que petrificó a la humanidad, Senku despierta miles de años después con el objetivo de reconstruir la civilización mediante la ciencia, enfrentando desafíos y enemigos humanos.",
@@ -2094,7 +2099,7 @@ object DataProvider {
         ),
         Anime(
             id = "one_punch_man",
-            imageId = "one_punch_man",
+            imageUrl = img("one_punch_man"),
             imageDesc = "One Punch Man",
             title = "ONE PUNCH MAN",
             synopsis = "Saitama entrena hasta volverse increíblemente poderoso, derrotando enemigos con un solo golpe. Mientras busca emoción en la vida de héroe, descubre desafíos que ponen a prueba su aburrimiento y su fuerza.",
@@ -2121,7 +2126,7 @@ object DataProvider {
         ),
         Anime(
             id = "boku_no_hero",
-            imageId = "boku_no_hero",
+            imageUrl = img("boku_no_hero"),
             imageDesc = "Boku no Hero Academia",
             title = "BUKO NO HERO ACADEMIA",
             synopsis = "Izuku Midoriya nace sin poderes en un mundo donde casi todos los tienen. Sueña con ser héroe y recibe la habilidad de All Might, enfrentando villanos y superando retos para convertirse en el mayor héroe.",
@@ -2148,7 +2153,7 @@ object DataProvider {
         ),
         Anime(
             id = "dark_moon",
-            imageId = "dark_moon",
+            imageUrl = img("dark_moon"),
             imageDesc = "Dark Moon: Tsuki no Saidan",
             title = "DARK MOON: TSUKI NO SAIDAN",
             synopsis = "Un grupo de investigadores se enfrenta a misteriosas fuerzas sobrenaturales en un mundo donde la luna oculta secretos oscuros que podrían cambiar la realidad.",
@@ -2175,7 +2180,7 @@ object DataProvider {
         ),
         Anime(
             id = "dorohedoro",
-            imageId ="dorohedoro",
+            imageUrl = img("dorohedoro"),
             imageDesc = "Dorohedoro",
             title = "DOROHEDORO",
             synopsis = "En una ciudad oscura y caótica llamada Hole, un hombre reptil busca recuperar su memoria y descubrir quién lo transformó, enfrentando magos y criminales en un mundo brutal.",
@@ -2202,7 +2207,7 @@ object DataProvider {
         ),
         Anime(
             id = "mushoku_tensei",
-            imageId ="mushoku_tensei",
+            imageUrl = img("mushoku_tensei"),
             imageDesc = "Mushoku Tensei",
             title = "MUSHOKU TENSEI",
             synopsis = "Un hombre reencarna en un mundo de magia como Rudeus Greyrat y busca aprovechar su nueva vida para superar sus errores pasados y convertirse en un gran mago.",
@@ -2229,7 +2234,7 @@ object DataProvider {
         ),
         Anime(
             id = "kono_subarashii",
-            imageId ="kono_subarashii",
+            imageUrl = img("kono_subarashii"),
             imageDesc = "Kono Subarashii Sekai ni Shukufuku wo!",
             title = "KONO SUBARASHII SEKAI NI SHUKUFUKU WO!",
             synopsis = "Kazuma Satou muere de manera ridícula y es transportado a un mundo de fantasía, formando un grupo con la diosa Aqua y otros compañeros inusuales en hilarantes aventuras.",
@@ -2256,7 +2261,7 @@ object DataProvider {
         ),
         Anime(
             id = "no_game_no_life",
-            imageId = "no_game_no_life",
+            imageUrl = img("no_game_no_life"),
             imageDesc = "No Game No Life",
             title = "NO GAME NO LIFE",
             synopsis = "Los hermanos Sora y Shiro, expertos jugadores, son transportados a un mundo donde todo se decide mediante juegos, y deben enfrentarse al dios de los juegos para salvar ese mundo.",
@@ -2283,7 +2288,7 @@ object DataProvider {
         ),
         Anime(
             id = "eromanga_sensei",
-            imageId = "eromanga_sensei",
+            imageUrl = img("eromanga_sensei"),
             imageDesc = "Eromanga Sensei",
             title = "EROMANGA SENSEI",
             synopsis = "Masamune Izumi, escritor de novelas ligeras, descubre que su ilustradora misteriosa y talentosa es su propia hermana menor, enfrentando situaciones cómicas y desafíos creativos.",
@@ -2310,7 +2315,7 @@ object DataProvider {
         ),
         Anime(
             id = "sword_art_online",
-            imageId = "sword_art_online",
+            imageUrl = img("sword_art_online"),
             imageDesc = "Sword Art Online",
             title = "SWORD ART ONLINE",
             synopsis = "Kirito queda atrapado junto a miles de jugadores en un MMORPG de realidad virtual donde morir en el juego significa morir en la vida real, luchando por sobrevivir y escapar.",
@@ -2337,7 +2342,7 @@ object DataProvider {
         ),
         Anime(
             id = "hunter_x_hunter",
-            imageId = "hunter_x_hunter",
+            imageUrl = img("hunter_x_hunter"),
             imageDesc = "Hunter x Hunter",
             title = "HUNTER X HUNTER",
             synopsis = "Gon Freecss busca convertirse en un Hunter como su padre, enfrentando peligrosos desafíos, pruebas y enemigos mientras forma amistades que marcarán su camino.",
@@ -2364,7 +2369,7 @@ object DataProvider {
         ),
         Anime(
             id = "beastars",
-            imageId = "beastars",
+            imageUrl = img("beastars"),
             imageDesc = "Beastars",
             title = "BEASTARS",
             synopsis = "En una sociedad de animales antropomórficos, Legoshi, un lobo tímido, navega por conflictos de poder, emociones y relaciones mientras descubre su identidad y deseos.",
@@ -2391,7 +2396,7 @@ object DataProvider {
         ),
         Anime(
             id = "kekkai_sensen",
-            imageId ="kekkai_sensen",
+            imageUrl = img("kekkai_sensen"),
             imageDesc = "Kekkai Sensen",
             title = "KEKKAI SENSEN",
             synopsis = "Leonardo Watch, un joven con ojos especiales, se une a Libra, un grupo que protege a la ciudad de Nueva York mezclada con dimensiones sobrenaturales y criaturas extrañas.",
@@ -2418,7 +2423,7 @@ object DataProvider {
         ),
         Anime(
             id = "saenai_heroine_no_sodatekata",
-            imageId = "saenai_heroine_no_sodatekata",
+            imageUrl = img("saenai_heroine_no_sodatekata"),
             imageDesc = "Saenai Heroine no Sodatekata",
             title = "SAENAI HEROINE NO SODATEKATA",
             synopsis = "Tomoya Aki, un otaku decidido, intenta crear un juego visual novel exitoso junto a un grupo de talentosas chicas, enfrentando desafíos creativos y cómicas situaciones románticas.",
@@ -2445,7 +2450,7 @@ object DataProvider {
         ),
         Anime(
             id = "kino_no_tabi",
-            imageId ="kino_no_tabi",
+            imageUrl = img("kino_no_tabi"),
             imageDesc = "Kino no Tabi: The Beautiful World",
             title = "KINO NO TABI: THE BEAUTIFUL WORLD",
             synopsis = "Kino viaja de país en país con su motocicleta parlante, Hermès, explorando distintas culturas y filosofías mientras reflexiona sobre la naturaleza humana y la vida.",
@@ -2472,7 +2477,7 @@ object DataProvider {
         ),
         Anime(
             id = "akame_ga_kill",
-            imageId =  "akame_ga_kill",
+            imageUrl = img("akame_ga_kill"),
             imageDesc = "Akame ga Kill!",
             title = "AKAME GA KILL!",
             synopsis = "Tatsumi se une a Night Raid, un grupo de asesinos, para luchar contra la corrupción del Imperio, enfrentando enemigos poderosos y dilemas morales en un mundo violento.",
@@ -2499,7 +2504,7 @@ object DataProvider {
         ),
         Anime(
             id = "mahouka_koukou_no_rettousei",
-            imageId =  "mahouka_koukou_no_rettousei",
+            imageUrl = img("mahouka_koukou_no_rettousei"),
             imageDesc = "Mahouka Koukou no Rettousei",
             title = "MAHOUKA KOUKOU NO RETTOUSEI",
             synopsis = "Tatsuya Shiba y su hermana Miyuki asisten a la Primera Escuela de Magia, donde Tatsuya oculta habilidades extraordinarias mientras enfrenta conflictos sociales y rivalidades mágicas.",
@@ -2526,7 +2531,7 @@ object DataProvider {
         ),
         Anime(
             id = "magi",
-            imageId ="magi",
+            imageUrl = img("magi"),
             imageDesc = "Magi: The Labyrinth of Magic",
             title = "MAGI: THE LABYRINTH OF MAGIC",
             synopsis = "Alibaba y Aladdin exploran mazmorras misteriosas llenas de tesoros y peligros, mientras se enfrentan a reinos corruptos y descubren secretos del mundo mágico.",
@@ -2553,7 +2558,7 @@ object DataProvider {
         ),
         Anime(
             id = "tensei_shitara_slime_datta_ken",
-            imageId = "tensei_shitara_slime_datta_ken",
+            imageUrl = img("tensei_shitara_slime_datta_ken"),
             imageDesc = "Tensei Shitara Slime Datta Ken",
             title = "TENSEI SHITARA SLIME DATTA KEN",
             synopsis = "Satoru Mikami reencarna como un slime en un mundo de fantasía, usando habilidades únicas para formar alianzas, expandir su reino y enfrentar poderosos enemigos.",
@@ -2580,7 +2585,7 @@ object DataProvider {
         ),
         Anime(
             id = "shokugeki_no_souma",
-            imageId = "shokugeki_no_souma",
+            imageUrl = img("shokugeki_no_souma"),
             imageDesc = "Shokugeki no Souma",
             title = "SHOKUGEKI NO SOUMA",
             synopsis = "Souma Yukihira entra a la Academia Tootsuki, una escuela culinaria de élite, donde participa en intensos duelos de cocina para superar desafíos y demostrar su talento.",
@@ -2607,7 +2612,7 @@ object DataProvider {
         ),
         Anime(
             id = "horimiya",
-            imageId = "horimiya",
+            imageUrl = img("horimiya"),
             imageDesc = "Horimiya",
             title = "HORIMIYA",
             synopsis = "Kyoko Hori y Izumi Miyamura descubren lados ocultos de sus personalidades y desarrollan una relación inesperada mientras enfrentan los altibajos de la vida escolar.",
@@ -2634,7 +2639,7 @@ object DataProvider {
         ),
         Anime(
             id = "gangsta",
-            imageId = "gangsta",
+            imageUrl = img("gangsta"),
             imageDesc = "Gangsta",
             title = "GANGSTA",
             synopsis = "En la ciudad de Ergastulum, dos mercenarios realizan trabajos peligrosos para criminales y policías mientras se enfrentan a mafias, corrupción y el peligro constante de la violencia.",
@@ -2661,7 +2666,7 @@ object DataProvider {
         ),
         Anime(
             id = "made_in_abyss",
-            imageId =  "made_in_abyss",
+            imageUrl = img("made_in_abyss"),
             imageDesc = "Made in Abyss",
             title = "MADE IN ABYSS",
             synopsis = "Riko, una niña exploradora, desciende al Abismo en busca de su madre, enfrentando criaturas mortales, misterios y secretos de un mundo subterráneo lleno de maravillas y peligros.",
@@ -2688,7 +2693,7 @@ object DataProvider {
         ),
         Anime(
             id = "oshi_no_ko",
-            imageId = "oshi_no_ko",
+            imageUrl = img("oshi_no_ko"),
             imageDesc = "Aqua y Ruby Hoshino",
             title = "OSHI NO KO",
             synopsis = "Oshi no Ko sigue a Gorou Amamiya, un ginecólogo que renace como Aquamarine Hoshino, hijo de la idol Ai Hoshino, junto a su hermana gemela Ruby. A medida que crecen en la industria del entretenimiento japonés, enfrentan sus ambiciones, traiciones y el lado oscuro del mundo del espectáculo mientras buscan respuestas sobre su pasado y su identidad.",
@@ -2715,7 +2720,7 @@ object DataProvider {
         ),
         Anime(
             id = "jujutsu_kaisen",
-            imageId = "jujutsu_kaisen",
+            imageUrl = img("jujutsu_kaisen"),
             imageDesc = "Yuji Itadori",
             title = "JUJUTSU KAISEN",
             synopsis = "Jujutsu Kaisen sigue a Yuji Itadori, un estudiante de secundaria que ingiere un dedo maldito para salvar a sus compañeros, convirtiéndose en el recipiente del poderoso espíritu Ryomen Sukuna. Ahora se une a los hechiceros de jujutsu para combatir maldiciones, proteger a la humanidad y enfrentarse a amenazas que desafían la lógica y el poder humano.",
@@ -2742,7 +2747,7 @@ object DataProvider {
         ),
         Anime(
             id = "sakamoto_days",
-            imageId = "sakamoto_days",
+            imageUrl = img("sakamoto_days"),
             imageDesc = "Taro Sakamoto",
             title = "SAKAMOTO DAYS",
             synopsis = "Sakamoto Days sigue a Taro Sakamoto, un antiguo asesino legendario retirado que vive una vida tranquila como dueño de una tienda de conveniencia con su familia. Cuando antiguos enemigos y colegas del mundo criminal vuelven para buscarlo, Sakamoto debe utilizar sus habilidades letales para proteger a sus seres queridos mientras mantiene su fachada de hombre común.",
@@ -2769,7 +2774,7 @@ object DataProvider {
         ),
         Anime(
             id = "yakusoku_no_neverland",
-            imageId ="yakusoku_no_neverland",
+            imageUrl = img("yakusoku_no_neverland"),
             imageDesc = "Emma",
             title = "YAKUSOKU NO NEVERLAND",
             synopsis = "Yakusoku no Neverland sigue a Emma, Norman y Ray, niños que viven en el Orfanato Grace Field, descubriendo que están siendo criados como alimento para demonios. Los protagonistas idean un plan para escapar y salvar a sus compañeros mientras enfrentan peligros, engaños y la implacable inteligencia de sus guardianes demoníacos.",
@@ -2796,7 +2801,7 @@ object DataProvider {
         ),
         Anime(
             id = "parasyte",
-            imageId = "parasyte",
+            imageUrl = img("parasyte"),
             imageDesc = "Shinichi Izumi",
             title = "PARASYTE -THE MAXIM-",
             synopsis = "Parasyte sigue a Shinichi Izumi, un estudiante de secundaria cuya mano derecha es infectada por un parásito alienígena llamado Migi. Mientras otros parásitos atacan y consumen humanos, Shinichi y Migi deben coexistir y luchar para sobrevivir, enfrentando dilemas morales y la amenaza constante de criaturas que buscan dominar a la humanidad.",
@@ -2823,7 +2828,7 @@ object DataProvider {
         ),
         Anime(
             id = "akira",
-            imageId = "akira",
+            imageUrl = img("akira"),
             imageDesc = "Kaneda y Tetsuo",
             title = "AKIRA",
             synopsis = "Akira es un clásico del anime que sigue a Kaneda y Tetsuo, amigos en un Neo-Tokio post-apocalíptico. Tras un accidente que despierta poderes psíquicos en Tetsuo, se desencadena una serie de eventos catastróficos que amenazan con destruir la ciudad. La película combina acción, ciencia ficción y un análisis oscuro del poder y la corrupción.",
@@ -2850,7 +2855,7 @@ object DataProvider {
         ),
         Anime(
             id = "ushio_to_tora",
-            imageId = "ushio_to_tora",
+            imageUrl = img("ushio_to_tora"),
             imageDesc = "Ushio Aotsuki y Tora",
             title = "USHIO TO TORA",
             synopsis = "Ushio to Tora sigue a Ushio Aotsuki, un joven que libera accidentalmente a Tora, un demonio atrapado por siglos. A pesar de su inicial enemistad, Ushio y Tora se ven obligados a unir fuerzas para enfrentar otras criaturas sobrenaturales que amenazan a la humanidad, mientras Ushio descubre secretos sobre su familia y su propio poder.",
@@ -2877,7 +2882,7 @@ object DataProvider {
         ),
         Anime(
             id = "howl_no_ugoku_shiro",
-            imageId = "howl_no_ugoku_shiro",
+            imageUrl = img("howl_no_ugoku_shiro"),
             imageDesc = "Sophie y Howl",
             title = "HOWL NO UGOKU SHIRO",
             synopsis = "Howl no Ugoku Shiro sigue a Sophie, una joven transformada en anciana por una maldición, quien se encuentra con Howl, un mago excéntrico que habita un castillo mágico ambulante. Juntos enfrentan peligros, misterios y desarrollan una relación mientras descubren secretos sobre la guerra y la magia que rodea sus vidas.",

@@ -1,6 +1,10 @@
 package com.example.pmdm.data.repository
 
 import com.example.pmdm.data.dto.AnimeDto
+import com.example.pmdm.data.dto.ComplexSearchRequest
+import com.example.pmdm.data.dto.SearchFilter
+import com.example.pmdm.data.dto.SearchOperator
+import com.example.pmdm.data.network.ApiConfig
 import com.example.pmdm.data.service.AnimeService
 import com.example.pmdm.model.Anime
 
@@ -13,9 +17,12 @@ class AnimeRepository(
     private var cachedAnimes: List<Anime> = emptyList()
 
     private fun AnimeDto.toDomain(): Anime {
+        val base = "http://192.168.1.41:5131"  // o pásalo por config
+        val url = imageId.takeIf { it.isNotBlank() }?.let { "$base/images/$it" }
+
         return Anime(
             id = id,
-            imageId = imageId,
+            imageUrl = "${ApiConfig.BASE_URL}images/$imageId",
             title = title,
             synopsis = synopsis,
             info = info,
@@ -28,19 +35,42 @@ class AnimeRepository(
         )
     }
 
+
     suspend fun getAnimeList(): List<Anime> {
-        val dtos = animeService.getAllAnimes()
+        val req = ComplexSearchRequest(
+            filters = listOf(
+                SearchFilter(
+                    field = "title",
+                    operator = SearchOperator.Contains.code,
+                    value = ""
+                )
+            )
+        )
+
+        val dtos = animeService.getAllAnimes(req)
         val list = dtos.map { it.toDomain() }
         cachedAnimes = list
         return list
     }
 
+
     suspend fun searchAnimes(query: String): List<Anime> {
-        val dtos = animeService.searchAnimes(value = query)
+        val req = ComplexSearchRequest(
+            filters = listOf(
+                SearchFilter(
+                    field = "title",
+                    operator = SearchOperator.Contains.code,
+                    value = query
+                )
+            )
+        )
+
+        val dtos = animeService.getAllAnimes(req) // mismo endpoint complex-search
         val list = dtos.map { it.toDomain() }
         cachedAnimes = list
         return list
     }
+
 
     suspend fun getAnimeById(id: String): Anime {
         return animeService.getAnimeById(id).toDomain()

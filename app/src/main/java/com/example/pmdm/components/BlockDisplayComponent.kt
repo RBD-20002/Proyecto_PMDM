@@ -69,7 +69,7 @@ fun BlockDisplayCardComponent(
 fun PreviewDisplayCard() {
     val inputs = Anime(
         id = "naruto",
-        imageId = "naruto",
+        imageUrl = "naruto",
         imageDesc = "Naruto Uzumaki",
         title = "NARUTO",
         synopsis = "Naruto sigue a un joven ninja marginado, Naruto Uzumaki, que sueña con convertirse en Hokage, el líder de su aldea, para ganar reconocimiento. Lleva dentro al demonio Zorro de Nueve Colas, lo que lo hace temido por muchos. La historia muestra su crecimiento, sus amistades y sus batallas por proteger lo que ama.",

@@ -55,8 +55,7 @@ fun CardComponent(input: List<Anime>, navController: NavController){
                             .fillMaxHeight()
                     ){
                         AsyncImage(
-                            model = "http://10.0.2.2:5131/images/${cardConfig.imageId}",
-                            contentDescription = cardConfig.imageDesc,
+                            model = cardConfig.imageUrl,                            contentDescription = cardConfig.imageDesc,
                             contentScale = ContentScale.FillBounds,
                             modifier = Modifier.fillMaxSize()
                         )
@@ -94,7 +93,7 @@ fun CardComponent(input: List<Anime>, navController: NavController){
 fun BlockDisplayCardComponentPreview() {
     val sample = Anime(
         id = "naruto",
-        imageId = "naruto",
+        imageUrl = "https://placehold.co/300x400",
         imageDesc = "Naruto Uzumaki",
         title = "NARUTO",
         synopsis = "Naruto sigue a un joven ninja...",

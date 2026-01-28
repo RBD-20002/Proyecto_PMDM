@@ -63,7 +63,7 @@ fun DetailsPage(
             item {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     AsyncImage(
-                        model = "http://10.0.2.2:5131/images/${state.anime.imageId}",
+                        model = state.anime.imageUrl,
                         contentDescription = state.anime.imageDesc,
                         modifier = Modifier.size(250.dp),
                         contentScale = ContentScale.Fit,
@@ -129,7 +129,7 @@ fun PreviewDetails() {
     val sampleState = DetailsPageState(
         anime = Anime(
             id = "naruto",
-            imageId = "naruto",
+            imageUrl = "naruto",
             imageDesc = "Naruto Uzumaki",
             title = "NARUTO",
             synopsis = "Naruto sigue a un joven ninja...",

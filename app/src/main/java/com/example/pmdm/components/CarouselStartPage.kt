@@ -94,7 +94,7 @@ fun CarouselStartPage(
                     .clip(MaterialTheme.shapes.extraLarge)
             ) {
                 AsyncImage(
-                    model = "http://10.0.2.2:5131/images/${anime.imageId}",
+                    model = anime.imageUrl,
                     contentDescription = anime.imageDesc,
                     contentScale = ContentScale.Fit,
                     modifier = Modifier.fillMaxSize()

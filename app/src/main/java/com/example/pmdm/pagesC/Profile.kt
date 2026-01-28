@@ -69,7 +69,7 @@ fun ProfilePage(
                             ProfileCard(
                                 anime = Anime(
                                     id = "crocs",
-                                    imageId = "crocs",
+                                    imageUrl = "crocs",
                                     imageDesc = "crocs",
                                     title = user.username,
                                     synopsis = "",

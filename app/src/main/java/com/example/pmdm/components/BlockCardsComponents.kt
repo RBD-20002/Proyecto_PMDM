@@ -70,7 +70,7 @@ fun BlockCardsComponents(input: List<Anime>, navController: NavController, modif
 fun PreviewBlockDisplayCardComponent() {
     val sample = Anime(
         id = "naruto",
-        imageId = "naruto",
+        imageUrl = "naruto",
         imageDesc = "Naruto Uzumaki",
         title = "NARUTO",
         synopsis = "Naruto sigue a un joven ninja...",

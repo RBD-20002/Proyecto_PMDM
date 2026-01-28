@@ -62,7 +62,7 @@ fun VerticalCard(
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             // Imagen principal del anime
             AsyncImage(
-                model = "http://10.0.2.2:5131/images/${anime.imageId}",
+                model = anime.imageUrl,
                 contentDescription = anime.imageDesc,
                 contentScale = ContentScale.Fit,
                 modifier = Modifier
@@ -94,7 +94,7 @@ private fun VerticalCardPreview() {
     val navController = rememberNavController()
     val sample = Anime(
         id = "dragon_ball",
-        imageId = "dragon_ball",
+        imageUrl = "dragon_ball",
         imageDesc = "Goku",
         title = "DRAGON BALL Z",
         synopsis = "",

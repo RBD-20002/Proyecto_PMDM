@@ -11,11 +11,11 @@ import retrofit2.http.Query
 interface AnimeService {
 
     // Traer todos (truco: buscar title contains "")
-    @GET("json/anime/search")
+    @POST("json/anime/complex-search")
     suspend fun getAllAnimes(
-        @Query("field") field: String = "title",
-        @Query("value") value: String = ""
+        @Body request: ComplexSearchRequest
     ): List<AnimeDto>
+
 
 
     // Búsqueda real
