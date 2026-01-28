@@ -87,6 +87,6 @@ fun ListContendPreview() {
 
     ListContend(
         navController = rememberNavController(),
-        state = sampleState
+        state = sampleState,
     )
 }

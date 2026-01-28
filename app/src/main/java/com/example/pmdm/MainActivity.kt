@@ -3,10 +3,16 @@ package com.example.pmdm
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -28,107 +34,109 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            PMDMTheme {
-                MainContent()
-            }
+            MainContent()
         }
     }
 }
 
 @Composable
 private fun MainContent() {
-    val navController = rememberNavController()
+    // ✅ tema del sistema (se puede alternar manualmente)
+    val systemDark = isSystemInDarkTheme()
+    var darkTheme by rememberSaveable { mutableStateOf(systemDark) }
 
-    // ✅ CAMBIO: viewModel() -> hiltViewModel()
-    val searchViewModel: SearchViewModel = hiltViewModel()
-    val searchState by searchViewModel.state.collectAsStateWithLifecycle()
+    PMDMTheme(darkTheme = darkTheme) {
+        val navController = rememberNavController()
 
-    val startViewModel: StartViewModel = hiltViewModel()
-    val startState by startViewModel.state.collectAsStateWithLifecycle()
+        val searchViewModel: SearchViewModel = hiltViewModel()
+        val searchState by searchViewModel.state.collectAsStateWithLifecycle()
 
-    // Auth
-    val authViewModel: AuthViewModel = hiltViewModel()
-    val authState by authViewModel.state.collectAsStateWithLifecycle()
+        val startViewModel: StartViewModel = hiltViewModel()
+        val startState by startViewModel.state.collectAsStateWithLifecycle()
 
-    // Ruta actual
-    val backStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = backStackEntry?.destination?.route
+        val authViewModel: AuthViewModel = hiltViewModel()
+        val authState by authViewModel.state.collectAsStateWithLifecycle()
 
-    LaunchedEffect(Unit) {
-        startViewModel.loadAnimes()
-    }
+        // Ruta actual
+        val backStackEntry by navController.currentBackStackEntryAsState()
+        val currentRoute = backStackEntry?.destination?.route
 
-    val searchResults: List<String> = if (searchState.query.isBlank()) {
-        emptyList()
-    } else {
-        startState.animeList.filter { anime ->
-            anime.title.contains(searchState.query, ignoreCase = true)
-        }.map { it.title }
-    }
+        // Carga inicial
+        LaunchedEffect(Unit) {
+            startViewModel.loadAnimes()
+        }
 
-    // Toolbar y BottomBar se muestran en TODAS las páginas MENOS en login
-    val shouldShowToolbarAndBottomBar = currentRoute !in listOf("login", "createAccount")
+        val searchResults: List<String> =
+            if (searchState.query.isBlank()) emptyList()
+            else startState.animeList
+                .filter { anime -> anime.title.contains(searchState.query, ignoreCase = true) }
+                .map { it.title }
 
-    // SearchBar solo en algunas pantallas
-    val shouldShowSearch = currentRoute in listOf("start", "listContend", "favoritos")
+        // Toolbar y BottomBar se muestran en TODAS las páginas MENOS en login/createAccount
+        val shouldShowToolbarAndBottomBar = currentRoute !in listOf("login", "createAccount")
 
-    Scaffold(
-        topBar = {
-            if (shouldShowToolbarAndBottomBar) {
-                Column {
-                    Toolbar(
-                        onSearchClick = { searchViewModel.activateSearch() }
-                    )
+        // SearchBar solo en algunas pantallas
+        val shouldShowSearch = currentRoute in listOf("start", "listContend", "favoritos")
 
-                    if (shouldShowSearch && searchState.isActive) {
-                        SearchToggle(
-                            hint = "Buscar anime...",
-                            results = searchResults,
-                            externalActive = searchState.isActive,
-                            onActiveChangeExternal = { active ->
-                                if (active) searchViewModel.activateSearch()
-                                else searchViewModel.deactivateSearch()
-                            },
-                            onQueryChangeExternal = { newQuery ->
-                                searchViewModel.onQueryChange(newQuery)
-                            },
-                            onResultClick = { title ->
-                                val anime = startState.animeList.find {
-                                    it.title.equals(title, ignoreCase = true)
-                                }
-                                anime?.let {
-                                    navController.navigate("details/${it.id}")
-                                    searchViewModel.deactivateSearch()
-                                }
-                            },
-                            onSearch = { searchQuery ->
-                                val anime = startState.animeList.find {
-                                    it.title.equals(searchQuery, ignoreCase = true)
-                                }
-                                anime?.let {
-                                    navController.navigate("details/${it.id}")
-                                    searchViewModel.deactivateSearch()
-                                }
-                            }
+        Scaffold(
+            topBar = {
+                if (shouldShowToolbarAndBottomBar) {
+                    Column {
+                        Toolbar(
+                            onSearchClick = { searchViewModel.activateSearch() },
+                            onThemeClick = { darkTheme = !darkTheme } // ✅ toggle real
                         )
+
+                        if (shouldShowSearch && searchState.isActive) {
+                            SearchToggle(
+                                hint = "Buscar anime...",
+                                results = searchResults,
+                                externalActive = searchState.isActive,
+                                onActiveChangeExternal = { active ->
+                                    if (active) searchViewModel.activateSearch()
+                                    else searchViewModel.deactivateSearch()
+                                },
+                                onQueryChangeExternal = { newQuery ->
+                                    searchViewModel.onQueryChange(newQuery)
+                                },
+                                onResultClick = { title ->
+                                    val anime = startState.animeList.find {
+                                        it.title.equals(title, ignoreCase = true)
+                                    }
+                                    anime?.let {
+                                        navController.navigate("details/${it.id}")
+                                        searchViewModel.deactivateSearch()
+                                    }
+                                },
+                                onSearch = { searchQuery ->
+                                    val anime = startState.animeList.find {
+                                        it.title.equals(searchQuery, ignoreCase = true)
+                                    }
+                                    anime?.let {
+                                        navController.navigate("details/${it.id}")
+                                        searchViewModel.deactivateSearch()
+                                    }
+                                }
+                            )
+                        }
+                    }
+                }
+            },
+            bottomBar = {
+                if (shouldShowToolbarAndBottomBar) {
+                    if (authState.isLoggedIn) {
+                        MainButtonBar(navController = navController)
+                    } else {
+                        GuestBottomBar(navController = navController)
                     }
                 }
             }
-        },
-        bottomBar = {
-            if (shouldShowToolbarAndBottomBar) {
-                if (authState.isLoggedIn) {
-                    MainButtonBar(navController = navController)
-                } else {
-                    GuestBottomBar(navController = navController)
-                }
-            }
+        ) { innerPadding ->
+            AppNavHost(
+                navController = navController,
+                modifier = Modifier.padding(innerPadding),
+                authViewModel = authViewModel
+            )
         }
-    ) { innerPadding ->
-        AppNavHost(
-            navController = navController,
-            modifier = Modifier.padding(innerPadding),
-            authViewModel = authViewModel
-        )
     }
 }

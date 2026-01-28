@@ -1,6 +1,5 @@
 package com.example.pmdm.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -14,10 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 /**
- * Esquema de colores para el modo **oscuro** de la aplicación.
- *
- * Define los colores base usados en Material 3, incluyendo tonos primarios,
- * secundarios, de fondo y personalizados (como íconos o texto).
+ * Esquema de colores para modo oscuro.
  */
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -27,10 +23,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 /**
- * Esquema de colores para el modo **claro** de la aplicación.
- *
- * Mantiene una estética limpia y colorida, con colores suaves de fondo
- * y tonos primarios inspirados en púrpuras y rosados.
+ * Esquema de colores para modo claro.
  */
 private val LightColorScheme = lightColorScheme(
     primary = Purple40,
@@ -39,14 +32,26 @@ private val LightColorScheme = lightColorScheme(
     background = Fondo_Claro
 )
 
+
+val MaterialTheme.cardContainerColor: Color
+    @Composable
+    get() = if (MaterialTheme.colorScheme.background == Fondo_Oscuro) {
+        CardDarkTransparent
+    } else {
+        CardLightTransparent
+    }
+
+val MaterialTheme.cardTextColor: Color
+    @Composable
+    get() = if (MaterialTheme.colorScheme.background == Fondo_Oscuro) {
+        TextLight
+    } else {
+        TextDark
+    }
+
+
 /**
  * Gradiente de fondo adaptable al tema del sistema (claro u oscuro).
- *
- * Este gradiente se utiliza como fondo visual en pantallas o contenedores,
- * proporcionando profundidad y contraste visual.
- *
- * - En **modo oscuro**: tonos negros y azulados sutiles.
- * - En **modo claro**: mezcla vertical de rosado, azul y crema.
  */
 val MaterialTheme.backgroundGradient: Brush
     @Composable
@@ -66,38 +71,35 @@ val MaterialTheme.backgroundGradient: Brush
     }
 
 /**
- * Gradiente horizontal con efecto **neón**, inspirado en el texto del logotipo.
- *
- * Se utiliza para destacar elementos como títulos, barras o fondos decorativos
- * que requieran un aspecto brillante y moderno.
- *
- * Colores:
- * - Rosa neón → Cian → Azul eléctrico.
+ * Gradiente horizontal tipo neón (texto/logo).
  */
 val MaterialTheme.neonTextGradient: Brush
     @Composable
     get() = Brush.horizontalGradient(
         colors = listOf(
-            Color(0xFFFF00E5),  // Rosa neón (inicio)
-            Color(0xFF00FFFF),  // Cian (medio)
-            Color(0xFF0088FF)   // Azul neón (final)
+            Color(0xFFFF00E5),  // Rosa neón
+            Color(0xFF00FFFF),  // Cian
+            Color(0xFF0088FF)   // Azul eléctrico
         )
     )
 
 /**
- * Tema principal de la aplicación **PMDM**, basado en Material 3.
+ * ✅ Color “glass” para cards/paneles: gris translúcido en oscuro,
+ * blanco translúcido en claro.
  *
- * Gestiona automáticamente el esquema de colores según el modo del sistema
- * (oscuro o claro) y permite activar el modo dinámico en Android 12+.
- *
- * ### Características:
- * - Usa los esquemas [LightColorScheme] y [DarkColorScheme].
- * - Compatible con colores dinámicos (`dynamicColor = true`).
- * - Aplica la tipografía definida en [Typography].
- *
- * @param darkTheme Si `true`, aplica el esquema oscuro (por defecto usa el tema del sistema).
- * @param dynamicColor Si `true`, habilita colores dinámicos en Android 12 o superior.
- * @param content Contenido composable al que se aplicará el tema.
+ * Úsalo así en tus Cards:
+ *   containerColor = MaterialTheme.glassCardColor
+ */
+val MaterialTheme.glassCardColor: Color
+    @Composable
+    get() = if (isSystemInDarkTheme()) {
+        GlassCardDark
+    } else {
+        GlassCardLight
+    }
+
+/**
+ * Tema principal (Material 3).
  */
 @Composable
 fun PMDMTheme(
@@ -108,10 +110,8 @@ fun PMDMTheme(
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context)
-            else dynamicLightColorScheme(context)
+            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }

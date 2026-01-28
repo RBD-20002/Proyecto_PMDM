@@ -1,5 +1,6 @@
 package com.example.pmdm.data.repository
 
+import com.example.pmdm.data.dto.CreateUserRequestDto
 import com.example.pmdm.data.dto.SessionDto
 import com.example.pmdm.data.dto.UserDto
 import com.example.pmdm.data.service.UserService
@@ -13,41 +14,51 @@ class UserRepository @Inject constructor(
     private val _session = MutableStateFlow(SessionDto(isLoggedIn = false, user = null))
     val session: StateFlow<SessionDto> = _session
 
-    // ✅ LOGIN REAL: busca en API por email y valida password
-    suspend fun login(email: String, password: String): Boolean {
-        val users = userService.searchUsers(field = "email", value = email)
-        val user = users.firstOrNull()
+    suspend fun login(username: String, password: String): LoginResult {
+        return try {
+            val users = userService.searchUsers(field = "userName", value = username)
+            val user = users.firstOrNull() ?: return LoginResult.UserNotFound
 
-        return if (user != null && user.password == password) {
+            if (user.password != password) return LoginResult.WrongPassword
+
             _session.value = SessionDto(isLoggedIn = true, user = user)
-            true
-        } else {
-            _session.value = SessionDto(isLoggedIn = false, user = null)
-            false
+            LoginResult.Success
+        } catch (e: Exception) {
+            LoginResult.NetworkError(e.message)
         }
     }
 
+    suspend fun register(username: String, email: String, password: String): RegisterResult {
+        return try {
+            val exists = userService.searchUsers(field = "userName", value = username)
+            if (exists.isNotEmpty()) return RegisterResult.UsernameAlreadyExists
+
+            val resp = userService.createUser(
+                request = CreateUserRequestDto(
+                    email = email,
+                    password = password,
+                    username = username
+                )
+            )
+
+            val createdUser = UserDto(
+                id = resp.id,
+                username = username,
+                email = email,
+                password = password,
+                profileImageId = null
+            )
+            _session.value = SessionDto(isLoggedIn = true, user = createdUser)
+
+            RegisterResult.Success
+        } catch (e: Exception) {
+            RegisterResult.NetworkError(e.message)
+        }
+    }
 
     fun loginAsGuest() {
         _session.value = SessionDto(isLoggedIn = false, user = null)
     }
-
-    // ⚠️ REGISTER depende de si tu API permite crear/guardar users.
-    // Si la API tiene endpoint de "create json", aquí se implementa.
-    // Si no, deja esto como stub o solo login local.
-//    suspend fun register(username: String, email: String, password: String): Boolean {
-//        // Opción 1 (si tu API permite crear): llamar a createUser(...)
-//        // Opción 2 (si no): no se puede registrar realmente en backend
-//        // Por ahora: intento simple -> si ya existe, falla; si no existe, no puedo crearlo sin endpoint.
-//
-//        val exists = userService.searchUsers(field = "email", value = email).isNotEmpty()
-//        return if (exists) {
-//            false
-//        } else {
-//            // Aquí iría la llamada real a crear usuario en API.
-//            false
-//        }
-//    }
 
     fun logout() {
         _session.value = SessionDto(isLoggedIn = false, user = null)

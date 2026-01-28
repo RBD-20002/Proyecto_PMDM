@@ -2,6 +2,7 @@ package com.example.pmdm.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.pmdm.data.repository.LoginResult
 import com.example.pmdm.data.repository.UserRepository
 import com.example.pmdm.ui.state.LoginPageState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,15 +17,18 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val userRepository: UserRepository
 ) : ViewModel() {
+
     private val _state = MutableStateFlow(LoginPageState())
     val state: StateFlow<LoginPageState> = _state.asStateFlow()
 
-    fun onEmailChange(email: String) {
+    // ⚠️ Renómbralo si quieres: onUsernameChange
+    fun onEmailChange(userName: String) {
         _state.update {
             it.copy(
-                email = email,
-                emailError = if (email.isBlank()) "El email no puede estar vacío" else null,
-                isLoginEnabled = isFormValid(email, it.password)
+                userName = userName,
+                emailError = if (userName.isBlank()) "El usuario no puede estar vacío" else null,
+                isLoginEnabled = isFormValid(userName, it.password),
+                loginError = null // ✅ limpia error al escribir
             )
         }
     }
@@ -34,7 +38,8 @@ class LoginViewModel @Inject constructor(
             it.copy(
                 password = password,
                 passwordError = if (password.isBlank()) "La contraseña no puede estar vacía" else null,
-                isLoginEnabled = isFormValid(it.email, password)
+                isLoginEnabled = isFormValid(it.userName, password),
+                loginError = null // ✅ limpia error al escribir
             )
         }
     }
@@ -44,39 +49,46 @@ class LoginViewModel @Inject constructor(
     }
 
     /**
-     * Llama al UserRepository para iniciar sesión cuando el formulario es válido.
+     * Si quieres seguir usando login desde aquí (NO recomendado si ya usas AuthViewModel),
+     * ahora devuelve LoginResult en vez de Boolean.
      */
-    fun onLoginClick(onResult: (Boolean) -> Unit = {}) {
+    fun onLoginClick(onResult: (LoginResult) -> Unit = {}) {
         val current = _state.value
+
         if (!current.isLoginEnabled) {
             _state.update { it.copy(loginError = "Complete ambos campos para iniciar sesión") }
             return
         }
 
         viewModelScope.launch {
-            try {
-                val ok = userRepository.login(
-                    email = current.email,
-                    password = current.password
-                )
-                if (!ok) {
-                    _state.update { it.copy(loginError = "Correo o contraseña incorrectos") }
-                } else {
+            val result = userRepository.login(
+                username = current.userName,
+                password = current.password
+            )
+
+            when (result) {
+                is LoginResult.Success -> {
                     _state.update { it.copy(loginError = null) }
                 }
-                onResult(ok)
-            } catch (e: Exception) {
-                _state.update { it.copy(loginError = e.message ?: "Error de conexión") }
-                onResult(false)
+                is LoginResult.UserNotFound -> {
+                    _state.update { it.copy(loginError = "El usuario no existe") }
+                }
+                is LoginResult.WrongPassword -> {
+                    _state.update { it.copy(loginError = "La contraseña es incorrecta") }
+                }
+                is LoginResult.NetworkError -> {
+                    _state.update { it.copy(loginError = result.message ?: "Error de conexión") }
+                }
             }
+
+            onResult(result)
         }
     }
-
 
     fun setLoginError(errorMessage: String?) {
         _state.update { it.copy(loginError = errorMessage) }
     }
 
-    private fun isFormValid(email: String, password: String) =
-        email.isNotBlank() && password.isNotBlank()
+    private fun isFormValid(userName: String, password: String): Boolean =
+        userName.isNotBlank() && password.isNotBlank()
 }

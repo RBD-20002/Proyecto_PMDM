@@ -12,52 +12,35 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.pmdm.R
+import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.model.Anime
 
-
-/**
- * Componente que muestra una cuadrícula de tarjetas en una lista vertical.
- *
- * Cada fila contiene hasta dos tarjetas generadas a partir de los objetos [Anime].
- * Si hay un número impar de elementos, se inserta un [Spacer] para mantener la simetría visual.
- *
- * ### Características:
- * - Usa un [LazyColumn] para renderizado eficiente de listas.
- * - Organiza los elementos en filas con un máximo de dos tarjetas.
- * - Permite navegación a través del [NavController].
- * - Incluye márgenes y espaciado uniforme entre elementos.
- *
- * @param input Lista de configuraciones de tarjetas a renderizar.
- * @param navController Controlador de navegación para manejar interacciones.
- * @param modifier Modificador opcional para personalizar el estilo del contenedor.
- *
- * @see CardComponent
- */
 @Composable
-fun BlockCardsComponents(input: List<Anime>, navController: NavController, modifier: Modifier = Modifier) {
-    LazyColumn(modifier = Modifier
-        .fillMaxWidth()
-        .padding(5.dp),
+fun BlockCardsComponents(
+    input: List<Anime>,
+    navController: NavController,
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(5.dp),
         verticalArrangement = Arrangement.Center
-    ){
+    ) {
         input.chunked(2).forEach { pares ->
             item {
-                Row(modifier = Modifier
-                    .fillMaxWidth()
-                ){
+                Row(modifier = Modifier.fillMaxWidth()) {
                     pares.forEach { cardConfig ->
-                        Column(modifier = Modifier
-                            .weight(1f)
-                            .padding(4.dp)
-                        ){
+                        Column(
+                            modifier = Modifier
+                                .weight(1f)
+                                .padding(4.dp)
+                        ) {
                             CardComponent(input = listOf(cardConfig), navController = navController)
                         }
                     }
-                    if(pares.size == 1){
-                        Spacer(modifier = Modifier
-                            .weight(1f)
-                        )
+                    if (pares.size == 1) {
+                        Spacer(modifier = Modifier.weight(1f))
                     }
                 }
             }
@@ -67,10 +50,11 @@ fun BlockCardsComponents(input: List<Anime>, navController: NavController, modif
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewBlockDisplayCardComponent() {
+fun BlockCardsComponentsPreview() {
+    val navController = rememberNavController()
     val sample = Anime(
         id = "naruto",
-        imageUrl = "naruto",
+        imageUrl = "https://placehold.co/300x400",
         imageDesc = "Naruto Uzumaki",
         title = "NARUTO",
         synopsis = "Naruto sigue a un joven ninja...",
@@ -78,5 +62,5 @@ fun PreviewBlockDisplayCardComponent() {
         enlace1 = "",
         enlace2 = ""
     )
-    BlockDisplayCardComponent(animeInfo = sample)
+    BlockCardsComponents(input = listOf(sample, sample, sample), navController = navController)
 }

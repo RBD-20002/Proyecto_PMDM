@@ -6,7 +6,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
-import androidx.compose.material3.*
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,6 +29,7 @@ import com.example.pmdm.ui.state.LoginPageState
 @Composable
 fun LoginPage(
     state: LoginPageState,
+    authError: String?,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
     onTogglePasswordVisibility: () -> Unit,
@@ -35,6 +38,8 @@ fun LoginPage(
     onGuestClick: () -> Unit
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
+
+        // Fondo (local)
         Image(
             painter = painterResource(id = R.drawable.login_page),
             contentDescription = "Fondo Login",
@@ -70,9 +75,9 @@ fun LoginPage(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            TextComponent(text = "EMAIL:", textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = "USUARIO:", textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
-                value = state.email,
+                value = state.userName,
                 onValueChange = onEmailChange,
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
@@ -86,17 +91,15 @@ fun LoginPage(
                 onValueChange = onPasswordChange,
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
-                visualTransformation = if (state.passwordVisible)
+                visualTransformation = if (state.passwordVisible) {
                     VisualTransformation.None
-                else
-                    PasswordVisualTransformation(),
+                } else {
+                    PasswordVisualTransformation()
+                },
                 trailingIcon = {
                     IconButton(onClick = onTogglePasswordVisibility) {
                         Icon(
-                            imageVector = if (state.passwordVisible)
-                                Icons.Default.VisibilityOff
-                            else
-                                Icons.Default.Visibility,
+                            imageVector = if (state.passwordVisible) Icons.Default.VisibilityOff else Icons.Default.Visibility,
                             contentDescription = "Toggle password visibility"
                         )
                     }
@@ -105,68 +108,46 @@ fun LoginPage(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            Box(
-                modifier = Modifier.fillMaxWidth(),
-                contentAlignment = Alignment.TopEnd
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(10.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,          // los alinea a la derecha como antes
-                    verticalArrangement = Arrangement.spacedBy(5.dp)
-                ) {
-                    ButtomComponent(
-                        text = "ENTRAR",
-                        enabled = state.isLoginEnabled
-                    ) {
-                        onLoginClick()
-                    }
 
-                    Spacer(modifier = Modifier.height(12.dp))
+                ButtomComponent(
+                    text = "ENTRAR",
+                    enabled = state.isLoginEnabled
+                ) { onLoginClick() }
 
-                    ButtomComponent(
-                        text = "CREAR CUENTA",
-                        enabled = true
-                    ) {
-                        onRegisterClick()
-                    }
+                ButtomComponent(
+                    text = "CREAR CUENTA",
+                    enabled = true
+                ) { onRegisterClick() }
 
-                    Spacer(modifier = Modifier.height(12.dp))
+                ButtomComponent(
+                    text = "INVITADO",
+                    enabled = true
+                ) { onGuestClick() }
 
-                    ButtomComponent(
-                        text = "INVITADO",
-                        enabled = true
-                    ) {
-                        onGuestClick()
-                    }
-
-                    Spacer(modifier = Modifier.height(16.dp))
-
-                    state.loginError?.let { error ->
-                        Box(
-                            modifier = Modifier.fillMaxWidth(),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            TextComponent(
-                                text = error,
-                                textColor = Color.Red,
-                                textSize = 14.sp
-                            )
-                        }
-                    }
+                (authError ?: state.loginError)?.let { error ->
+                    TextComponent(
+                        text = error,
+                        textColor = Color.Red,
+                        textSize = 14.sp
+                    )
                 }
             }
         }
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun LoginPagePreview() {
     val sampleState = LoginPageState(
-        email = "abc",
+        userName = "abc",
         password = "123",
         passwordVisible = false,
         isLoginEnabled = true,
@@ -175,6 +156,7 @@ fun LoginPagePreview() {
 
     LoginPage(
         state = sampleState,
+        authError = "Usuario o contraseña incorrectos",
         onEmailChange = {},
         onPasswordChange = {},
         onTogglePasswordVisibility = {},

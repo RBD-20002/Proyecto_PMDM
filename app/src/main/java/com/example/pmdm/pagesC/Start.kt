@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,18 +18,21 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.pmdm.components.TextComponent
 import com.example.pmdm.R
 import com.example.pmdm.components.CarouselStartPage
+import com.example.pmdm.components.TextComponent
 import com.example.pmdm.components.VerticalCard
 import com.example.pmdm.model.Anime
 import com.example.pmdm.ui.state.StartPageState
+import com.example.pmdm.ui.theme.cardTextColor
 
 @Composable
 fun StartPage(
     navController: NavController,
-    state: StartPageState
+    state: StartPageState,
 ) {
+    val sectionTextColor = MaterialTheme.cardTextColor
+
     Box(modifier = Modifier.fillMaxSize()) {
         // Fondo principal
         Image(
@@ -45,7 +49,11 @@ fun StartPage(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    TextComponent(text = "Cargando...", textSize = 20.sp)
+                    TextComponent(
+                        text = "Cargando...",
+                        textSize = 20.sp,
+                        textColor = sectionTextColor
+                    )
                 }
             }
 
@@ -69,9 +77,9 @@ fun StartPage(
                         .fillMaxSize()
                         .padding(horizontal = 16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
-                    contentPadding = PaddingValues(bottom = 80.dp) // para que no tape la bottom bar
+                    contentPadding = PaddingValues(bottom = 80.dp)
                 ) {
-                    // 1) Carrusel como primer item
+                    // 1) Carrusel
                     item {
                         Spacer(modifier = Modifier.height(12.dp))
                         CarouselStartPage(
@@ -92,10 +100,7 @@ fun StartPage(
 
                     item {
                         LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                            items(
-                                items = state.animeList,
-                                key = { it.id }
-                            ) { anime ->
+                            items(items = state.animeList, key = { it.id }) { anime ->
                                 VerticalCard(anime, navController)
                             }
                         }
@@ -106,17 +111,14 @@ fun StartPage(
                     item {
                         Text(
                             text = "Recomendados",
-                            color = Color.White
+                            color = sectionTextColor
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                     }
 
                     item {
                         LazyRow(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                            items(
-                                items = state.animeList.shuffled().take(10),
-                                key = { it.id }
-                            ) { anime ->
+                            items(items = state.animeList.shuffled().take(10), key = { it.id }) { anime ->
                                 VerticalCard(anime, navController)
                             }
                         }
@@ -132,10 +134,8 @@ fun StartPage(
 fun StartPagePreview() {
     val sampleState = StartPageState(
         animeList = listOf(
-            Anime("one_piece", "one_piece", "One Piece", "One Piece", "", ""),
-            Anime("one_piece", "one_piece", "One Piece", "One Piece", "", ""),
-            Anime("one_piece", "one_piece", "One Piece", "One Piece", "", ""),
-            Anime("one_piece", "one_piece", "One Piece", "One Piece", "", "")
+            Anime("one_piece", "https://placehold.co/300x400", "desc", "One Piece", "", ""),
+            Anime("one_piece2", "https://placehold.co/300x400", "desc", "One Piece", "", ""),
         ),
         isLoading = false,
         error = null
@@ -146,5 +146,3 @@ fun StartPagePreview() {
         state = sampleState
     )
 }
-
-

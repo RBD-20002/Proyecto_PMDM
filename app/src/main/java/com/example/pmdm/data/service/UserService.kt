@@ -1,10 +1,13 @@
 package com.example.pmdm.data.service
 
 import com.example.pmdm.data.dto.ComplexSearchRequest
+import com.example.pmdm.data.dto.CreateUserRequestDto
+import com.example.pmdm.data.dto.CreateUserResponseDto
 import com.example.pmdm.data.dto.UserDto
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -23,6 +26,9 @@ interface UserService {
         @Body request: ComplexSearchRequest
     ): List<UserDto>
 
-    @GET("users/{id}")
-    suspend fun getUserById(@Path("id") id: String): UserDto
+    @PUT("json/{folder}")
+    suspend fun createUser(
+        @Path("folder") folder: String = "users",
+        @Body request: CreateUserRequestDto
+    ): CreateUserResponseDto
 }

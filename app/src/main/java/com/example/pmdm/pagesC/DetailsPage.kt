@@ -8,6 +8,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
@@ -22,27 +23,27 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.example.pmdm.R
 import com.example.pmdm.components.BlockDisplayCardComponent
 import com.example.pmdm.components.SnackbarComponent
 import com.example.pmdm.components.TextComponent
-import com.example.pmdm.R
 import com.example.pmdm.model.Anime
 import com.example.pmdm.ui.state.DetailsPageState
+import com.example.pmdm.ui.theme.cardTextColor
 import kotlinx.coroutines.launch
 
 @Composable
 fun DetailsPage(
     state: DetailsPageState?,
     onToggleFavorite: () -> Unit,
-    isUserLoggedIn: Boolean = false  // ← NUEVO PARÁMETRO
+    isUserLoggedIn: Boolean = false
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
-    // Si el estado es null, no mostrar nada o mostrar loading
-    if (state == null) {
-        return
-    }
+    if (state == null) return
+
+    val titleColor = MaterialTheme.cardTextColor
 
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
@@ -73,21 +74,20 @@ fun DetailsPage(
                     TextComponent(
                         text = state.anime.title,
                         textSize = 30.sp,
-                        textColor = Color.Cyan
+                        textColor = Color.White // ✅ antes Color.Cyan
                     )
                     Spacer(modifier = Modifier.height(10.dp))
                 }
             }
 
             item {
-                BlockDisplayCardComponent(animeInfo = state.anime)
+                BlockDisplayCardComponent(animeInfo = state.anime) // usa DisplayCardComponent (ya adaptado)
             }
 
             item { Spacer(modifier = Modifier.height(80.dp)) }
         }
 
-        // FLOATING ACTION BUTTON: Solo si el usuario está logueado
-        if (isUserLoggedIn) {  // ← CONDICIÓN AÑADIDA
+        if (isUserLoggedIn) {
             FloatingActionButton(
                 onClick = {
                     onToggleFavorite()
@@ -106,10 +106,7 @@ fun DetailsPage(
                     .padding(16.dp)
             ) {
                 Icon(
-                    imageVector = if (state.isFavorite)
-                        Icons.Default.Favorite
-                    else
-                        Icons.Default.FavoriteBorder,
+                    imageVector = if (state.isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                     contentDescription = "Toggle favorito",
                     tint = if (state.isFavorite) Color.Red else Color.Gray
                 )
@@ -129,7 +126,7 @@ fun PreviewDetails() {
     val sampleState = DetailsPageState(
         anime = Anime(
             id = "naruto",
-            imageUrl = "naruto",
+            imageUrl = "https://placehold.co/300x400",
             imageDesc = "Naruto Uzumaki",
             title = "NARUTO",
             synopsis = "Naruto sigue a un joven ninja...",
@@ -142,6 +139,6 @@ fun PreviewDetails() {
     DetailsPage(
         state = sampleState,
         onToggleFavorite = {},
-        isUserLoggedIn = false  // Para ver el FAB en el preview
+        isUserLoggedIn = false
     )
 }

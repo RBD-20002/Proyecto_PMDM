@@ -13,18 +13,21 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+import com.example.pmdm.ui.theme.cardContainerColor
+import com.example.pmdm.ui.theme.cardTextColor
+import com.example.pmdm.ui.theme.glassCardColor
 
 @Composable
 fun DisplayCardComponent(
@@ -39,29 +42,37 @@ fun DisplayCardComponent(
             .fillMaxWidth()
             .clickable { open = !open },
         shape = MaterialTheme.shapes.extraLarge,
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.cardContainerColor
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
-        Column(
-            modifier = Modifier
-                .padding(16.dp)
-        ) {
+        Column(modifier = Modifier.padding(16.dp)) {
             Row(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                TextComponent(text = title, textColor = Color.Cyan, textSize = 20.sp)
+                TextComponent(
+                    text = title,
+                    textColor = MaterialTheme.cardTextColor,
+                    textSize = 20.sp
+                )
                 Icon(
                     imageVector = if (open) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
-                    contentDescription = null
+                    contentDescription = null,
+                    tint = Color.White
                 )
             }
+
             AnimatedVisibility(open) {
                 Column {
                     Spacer(modifier = Modifier.height(10.dp))
-                    TextComponent(text = firstInfo, textSize = 15.sp)
-                    if (links != null) {
-                        links()
-                    }
+                    TextComponent(
+                        text = firstInfo,
+                        textSize = 15.sp,
+                        textColor = MaterialTheme.cardTextColor
+                    )
+                    links?.invoke()
                 }
             }
         }

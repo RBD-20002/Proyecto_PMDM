@@ -5,8 +5,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.DarkMode
+import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -30,6 +33,9 @@ import com.example.pmdm.ui.theme.neonTextGradient
  * ### Características:
  * - Logotipo centrado en la parte superior de la aplicación.
  * - Icono de búsqueda en el extremo izquierdo, con acción configurable.
+ * - ✅ Icono de tema en el extremo derecho:
+ *   - Sol si el sistema está en modo oscuro.
+ *   - Luna si el sistema está en modo claro.
  * - Fondo con gradiente de color personalizado definido en [neonTextGradient].
  * - Compatible con el sistema de temas dinámicos de Compose.
  *
@@ -37,14 +43,16 @@ import com.example.pmdm.ui.theme.neonTextGradient
  * Se utiliza como `topBar` dentro de un `Scaffold` junto con el componente [SearchToggle].
  *
  * @param onSearchClick Acción que se ejecuta al presionar el botón de búsqueda.
+ * @param onThemeClick Acción opcional al presionar el icono de tema (por si luego quieres alternar tema manualmente).
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Toolbar(
     onSearchClick: () -> Unit,
+    onThemeClick: () -> Unit = {}
 ) {
     // Detecta si el tema actual es oscuro (por compatibilidad visual)
-    isSystemInDarkTheme()
+    val isDark = isSystemInDarkTheme()
 
     val logoRes = R.drawable.logo
 
@@ -59,10 +67,22 @@ fun Toolbar(
         },
         navigationIcon = {
             // Botón de búsqueda (lado izquierdo)
-            IconButton(onClick = onSearchClick) {
+            IconButton(onClick = onSearchClick,
+                modifier = Modifier.padding(top = 5.dp)) {
                 Icon(
                     Icons.Default.Search,
                     contentDescription = "Buscar",
+                    tint = MaterialTheme.colorScheme.background
+                )
+            }
+        },
+        actions = {
+            // ✅ Icono de tema (lado derecho)
+            IconButton(onClick = onThemeClick,
+                modifier = Modifier.padding(top = 5.dp)) {
+                Icon(
+                    imageVector = if (isDark) Icons.Default.LightMode else Icons.Default.DarkMode,
+                    contentDescription = if (isDark) "Sol (modo oscuro)" else "Luna (modo claro)",
                     tint = MaterialTheme.colorScheme.background
                 )
             }
@@ -84,7 +104,7 @@ fun Toolbar(
 @Composable
 fun ToolbarPreviewLight() {
     PMDMTheme(darkTheme = false) {
-        Toolbar(onSearchClick = {})
+        Toolbar(onSearchClick = {}, onThemeClick = {})
     }
 }
 
@@ -99,6 +119,6 @@ fun ToolbarPreviewLight() {
 @Composable
 fun ToolbarPreviewDark() {
     PMDMTheme(darkTheme = true) {
-        Toolbar(onSearchClick = {})
+        Toolbar(onSearchClick = {}, onThemeClick = {})
     }
 }
