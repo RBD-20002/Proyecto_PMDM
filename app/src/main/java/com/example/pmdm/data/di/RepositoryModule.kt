@@ -1,4 +1,4 @@
-package com.example.pmdm.di
+package com.example.pmdm.data.di
 
 import com.example.pmdm.data.repository.AnimeRepository
 import com.example.pmdm.data.repository.ImageRepository
