@@ -10,9 +10,6 @@ data class AnimeDto(
     @SerializedName("imageId")
     val imageId: String,
 
-    @SerializedName("imageDesc")
-    val imageDesc: String,
-
     @SerializedName("title")
     val title: String,
 
@@ -21,6 +18,9 @@ data class AnimeDto(
 
     @SerializedName("info")
     val info: String,
+
+    @SerializedName("imageDesc")
+    val imageDesc: String,
 
     @SerializedName("enlace1")
     val enlace1: String,
