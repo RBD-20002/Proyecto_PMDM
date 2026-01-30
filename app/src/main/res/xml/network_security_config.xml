@@ -7,7 +7,7 @@
     <!-- Permite específicamente tu PC por IP -->
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">192.168.1.41</domain> //NICO
-        <domain includeSubdomains="true">192.168.1.141</domain> // Ricardo
+        <domain includeSubdomains="true">192.168.1.147</domain> // Ricardo
 
     </domain-config>
 

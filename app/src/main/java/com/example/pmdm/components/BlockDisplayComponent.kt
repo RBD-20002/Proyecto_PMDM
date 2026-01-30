@@ -6,62 +6,80 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pmdm.R
 import com.example.pmdm.model.Anime
-
 @Composable
-fun BlockDisplayCardComponent(
-    animeInfo: Anime,
-) {
+fun BlockDisplayCardComponent(animeInfo: Anime) {
     val context = LocalContext.current
+    var openedIndex by remember { mutableStateOf<Int?>(null) }
 
     Column {
         DisplayCardComponent(
-            title = "INFORMACION",
-            firstInfo = animeInfo.info
+            title = stringResource(R.string.PD_Text_1),
+            firstInfo = animeInfo.info,
+            open = openedIndex == 0,
+            onClick = {
+                openedIndex = if (openedIndex == 0) null else 0
+            }
         )
 
         Spacer(modifier = Modifier.height(15.dp))
 
         DisplayCardComponent(
-            title = "SINOPSIS:",
-            firstInfo = animeInfo.synopsis
+            title = stringResource(R.string.PD_Text_2),
+            firstInfo = animeInfo.synopsis,
+            open = openedIndex == 1,
+            onClick = {
+                openedIndex = if (openedIndex == 1) null else 1
+            }
         )
 
         Spacer(modifier = Modifier.height(15.dp))
 
         DisplayCardComponent(
-            title = "ENLACES:",
+            title = stringResource(R.string.PD_Text_3),
             firstInfo = "",
+            open = openedIndex == 2,
+            onClick = {
+                openedIndex = if (openedIndex == 2) null else 2
+            },
             links = {
                 Spacer(modifier = Modifier.height(10.dp))
                 LinkButtonComponent(
                     img = R.drawable.flv,
                     description = "animeFLV",
-                    titleButton = "Ver en AnimeFLV"
+                    titleButton = stringResource(R.string.PD_Text_4)
                 ) {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(animeInfo.enlace1))
-
-                    context.startActivity(intent)
+                    context.startActivity(
+                        Intent(Intent.ACTION_VIEW, Uri.parse(animeInfo.enlace1))
+                    )
                 }
+
                 Spacer(modifier = Modifier.height(10.dp))
+
                 LinkButtonComponent(
                     img = R.drawable.jk,
                     description = "jkAnime",
-                    titleButton = "Ver en jkAnime"
+                    titleButton = stringResource(R.string.PD_Text_5)
                 ) {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(animeInfo.enlace2))
-
-                    context.startActivity(intent)
+                    context.startActivity(
+                        Intent(Intent.ACTION_VIEW, Uri.parse(animeInfo.enlace2))
+                    )
                 }
             }
         )
     }
 }
+
 
 
 @Preview

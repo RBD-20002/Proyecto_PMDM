@@ -1,8 +1,10 @@
 package com.example.pmdm.pagesC
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -16,9 +18,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -63,25 +67,38 @@ fun DetailsPage(
 
             item {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    AsyncImage(
-                        model = state.anime.imageUrl,
-                        contentDescription = state.anime.imageDesc,
-                        modifier = Modifier.size(250.dp),
-                        contentScale = ContentScale.Fit,
-                    )
+                    Box(
+                        modifier = Modifier
+                            .border(2.dp,
+                                color = Color.White,
+                                shape = RoundedCornerShape(30.dp)
+                            )
+                            .clip(RoundedCornerShape(30.dp)
+                            )
+                    ){
+                        AsyncImage(
+                            model = state.anime.imageUrl,
+                            contentDescription = state.anime.imageDesc,
+                            modifier = Modifier
+                                .width(200.dp),
+                            contentScale = ContentScale.FillWidth
+                        )
+                    }
 
                     Spacer(modifier = Modifier.height(10.dp))
+
                     TextComponent(
                         text = state.anime.title,
                         textSize = 30.sp,
-                        textColor = Color.White // ✅ antes Color.Cyan
+                        textColor = Color.White,
+                        textAlign = TextAlign.Center
                     )
                     Spacer(modifier = Modifier.height(10.dp))
                 }
             }
 
             item {
-                BlockDisplayCardComponent(animeInfo = state.anime) // usa DisplayCardComponent (ya adaptado)
+                BlockDisplayCardComponent(animeInfo = state.anime)
             }
 
             item { Spacer(modifier = Modifier.height(80.dp)) }
@@ -128,7 +145,7 @@ fun PreviewDetails() {
             id = "naruto",
             imageUrl = "https://placehold.co/300x400",
             imageDesc = "Naruto Uzumaki",
-            title = "NARUTO",
+            title = "DATE ASDAFSAF AFSFADSA DASSA",
             synopsis = "Naruto sigue a un joven ninja...",
             info = "Tipo: Serie...",
             enlace1 = "https://www3.animeflv.net/anime/naruto",

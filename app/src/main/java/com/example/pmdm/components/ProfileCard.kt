@@ -4,6 +4,8 @@ import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -11,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PhotoCamera
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -49,12 +52,18 @@ fun ProfileCard(
 ) {
     Card(
         modifier = modifier
-            .border(width = 2.dp, color = Color.Black.copy(alpha = 0.7f),
-                shape = RoundedCornerShape(2.dp))
-            .width(140.dp)
-            .height(220.dp)
+            .padding(10.dp)
+            .border(
+                width = 2.dp,
+                color = Color.White.copy(alpha = 0.7f),
+                shape = RoundedCornerShape(2.dp)
+            )
+            .width(150.dp)
+            .height(250.dp)
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ){
             if (profileImageUri != null) {
                 // ✅ Mostrar la foto capturada
                 AsyncImage(
@@ -69,7 +78,9 @@ fun ProfileCard(
                     model = anime.imageUrl,
                     contentDescription = anime.imageDesc,
                     contentScale = ContentScale.Fit,
-                    modifier = Modifier.fillMaxWidth().height(170.dp)
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(170.dp)
                 )
 
             }
@@ -81,12 +92,23 @@ fun ProfileCard(
                 modifier = Modifier.padding(top = 6.dp, start = 8.dp, end = 8.dp)
             )
             // Botón de cámara para tomar una nueva foto
-            IconButton(onClick = onCameraClick, modifier = Modifier.padding(top = 4.dp)) {
-                Icon(
-                    imageVector = Icons.Default.PhotoCamera,
-                    contentDescription = "Cambiar foto"
+            Row() {
+                IconButtonComponent(
+                    icon = Icons.Default.PhotoCamera,
+                    description = "BOTON DE CAMARA",
+                    onClick = onCameraClick
+                )
+
+                Spacer(modifier = Modifier.width(10.dp))
+
+                IconButtonComponent(
+                    icon = Icons.Default.Settings,
+                    description = "BOTON CONFIGURACION CAMARA",
+                    onClick = { }
                 )
             }
+
+            Spacer(modifier = Modifier.height(20.dp))
         }
     }
 }

@@ -59,7 +59,8 @@ fun CardComponent(input: List<Anime>, navController: NavController) {
                             TextComponent(
                                 text = cardConfig.title,
                                 textColor = MaterialTheme.cardTextColor,
-                                textSize = 12.sp
+                                textSize = 12.sp,
+                                maxLines = 2
                             )
                         }
                     }

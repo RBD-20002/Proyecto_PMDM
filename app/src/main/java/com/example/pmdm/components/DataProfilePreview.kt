@@ -5,7 +5,9 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -13,9 +15,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.pmdm.R
 
 /**
  * Modelo de datos que representa un campo de vista previa de perfil.
@@ -48,7 +52,7 @@ data class PreviewFieldConfig(
  */
 @Composable
 fun DataProfileComponent(
-    title: String = "DATOS USUARIO",
+    title: String = stringResource(R.string.PP_Text_1),
     items: List<PreviewFieldConfig>,
     borderColor: Color = Color.Black,
     backgroundColor: Color = Color(0xFF0A0D1F).copy(alpha = 0.5f)
@@ -76,6 +80,7 @@ fun DataProfileComponent(
                         .fillMaxWidth()
                         .padding(bottom = 24.dp)
                 )
+                Spacer(modifier = Modifier.height(10.dp))
 
                 // Lista de campos (usuario, email, rol, etc.)
                 Column(
@@ -104,8 +109,7 @@ fun DataProfileComponent(
 fun DataPreviewComponentPreview() {
     val sampleItems = listOf(
         PreviewFieldConfig(label = "USER:", value = "NicoDev"),
-        PreviewFieldConfig(label = "EMAIL:", value = "nico@example.com"),
-        PreviewFieldConfig(label = "PASS:", value = "********"),
+        PreviewFieldConfig(label = "EMAIL:", value = "nico@example.com")
     )
 
     Box(

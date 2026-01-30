@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -53,16 +54,18 @@ fun ProfilePage(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                TextComponent(text = "No has iniciado sesión", textSize = 24.sp)
+                TextComponent(text = stringResource(R.string.Text_Error_Login), textSize = 24.sp)
                 Spacer(modifier = Modifier.height(16.dp))
-                TextComponent(text = "Inicia sesión para ver tu perfil", textSize = 16.sp)
+                TextComponent(text = stringResource(R.string.Text_Action_Login), textSize = 16.sp)
             }
         } else {
             state.user?.let { user ->
                 LazyColumn {
                     item {
                         Column(
-                            modifier = Modifier.fillMaxSize().padding(top = 26.dp),
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(top = 26.dp),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             // Tarjeta de perfil con foto capturada o imagen por defecto
@@ -80,13 +83,13 @@ fun ProfilePage(
                                     navController.navigate(Destination.Camera.route)
                                 }
                             )
-                            Spacer(modifier = Modifier.height(16.dp))
+                            Spacer(modifier = Modifier.height(25.dp))
                             val profileData = listOf(
-                                PreviewFieldConfig("USUARIO:", user.username),
-                                PreviewFieldConfig("EMAIL:", user.email)
+                                PreviewFieldConfig(stringResource(R.string.PP_Text_2), user.username),
+                                PreviewFieldConfig(stringResource(R.string.PP_Text_3), user.email)
                             )
                             DataProfileComponent(
-                                title = "DATOS USUARIO",
+                                title = stringResource(R.string.PP_Text_1),
                                 items = profileData,
                                 borderColor = Color.White
                             )

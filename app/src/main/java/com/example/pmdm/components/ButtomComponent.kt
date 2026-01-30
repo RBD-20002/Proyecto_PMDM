@@ -18,33 +18,32 @@ import androidx.compose.ui.unit.sp
 fun ButtomComponent(
     text: String,
     enabled: Boolean = true,
-    action: () -> Unit
-){
-    Box(modifier = Modifier
-        .width(width = 110.dp)
-        .height(height = 50.dp)
-    ){
-        Button(
-            onClick = action,
-            modifier = Modifier
-                .fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.DarkGray.copy(alpha = 0.7f),
-                contentColor = Color.White,
-                disabledContainerColor = Color.LightGray.copy(alpha = 0.4f),
-                disabledContentColor = Color.Red
-            ),
-            enabled = enabled
-        ) {
-            TextComponent(text = text, textSize = 8.sp)
-        }
+    action: () -> Unit,
+) {
+
+    Button(
+        onClick = action,
+        modifier = Modifier
+            .width(width = 150.dp)
+            .height(height = 40.dp),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = Color.DarkGray.copy(alpha = 0.7f),
+            contentColor = Color.White,
+            disabledContainerColor = Color.LightGray.copy(alpha = 0.4f),
+            disabledContentColor = Color.Red
+        ),
+        enabled = enabled
+    ) {
+        TextComponent(text = text, textSize = 10.sp)
+
     }
+
 }
 
 @Preview
 @Composable
-fun previewButtom(){
+fun previewButtom() {
     ButtomComponent("CREAR CUENTA") {
-        Log.e("Prueba","Click botom")
+        Log.e("Prueba", "Click botom")
     }
 }

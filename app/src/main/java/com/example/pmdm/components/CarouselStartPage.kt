@@ -1,7 +1,7 @@
 package com.example.pmdm.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -24,10 +24,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.example.pmdm.model.Anime
 import com.example.pmdm.model.DataProvider
@@ -58,7 +59,8 @@ import kotlinx.coroutines.delay
 fun CarouselStartPage(
     modifier: Modifier = Modifier,
     intervalMs: Long = 3000L,
-    items: List<Anime> = DataProvider.animeList
+    items: List<Anime> = DataProvider.animeList,
+    navController: NavController
 ) {
     if (items.isEmpty()) return
 
@@ -73,8 +75,6 @@ fun CarouselStartPage(
         }
     }
 
-
-    // ✅ Importante: aquí fijamos el tamaño del carrusel para que TODAS las páginas midan igual
     Box(
         modifier = modifier
             .fillMaxWidth()
@@ -87,11 +87,15 @@ fun CarouselStartPage(
         ) { page ->
             val anime = items[page]
 
-            // ✅ Cada página ocupa exactamente el mismo tamaño del Pager
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .clip(MaterialTheme.shapes.extraLarge)
+                    .clip(
+                        shape = MaterialTheme.shapes.extraLarge
+                    )
+                    .clickable{
+                        navController.navigate("details/${anime.id}")
+                    }
             ) {
                 AsyncImage(
                     model = anime.imageUrl,
@@ -151,9 +155,12 @@ fun CarouselStartPage(
 @Preview(showBackground = true)
 @Composable
 private fun AutoCarouselFromDataPreview() {
+    val navController = rememberNavController()
+
     CarouselStartPage(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 12.dp)
+            .padding(horizontal = 16.dp, vertical = 12.dp),
+        navController = navController
     )
 }

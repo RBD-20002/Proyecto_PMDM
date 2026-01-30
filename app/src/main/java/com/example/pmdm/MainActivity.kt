@@ -83,6 +83,7 @@ private fun MainContent() {
                 if (shouldShowToolbarAndBottomBar) {
                     Column {
                         Toolbar(
+                            isDark = darkTheme,
                             onSearchClick = { searchViewModel.activateSearch() },
                             onThemeClick = { darkTheme = !darkTheme } // ✅ toggle real
                         )

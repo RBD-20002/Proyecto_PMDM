@@ -1,3 +1,45 @@
 <resources>
+    <!--========================NOMBRE APLICACION========================-->
     <string name="app_name">AnimeHub</string>
+
+    <!--========================PAGINA INICIO========================-->
+    <string name="PS_Text_1">TODOS LOS ANIMES</string>
+    <string name="PS_Text_2">RECOMENDADOS</string>
+
+    <!--========================PAGINA INICIAR SECCION========================-->
+    <string name="PL_Text_1">INICIAR SESIÓN</string>
+    <string name="PL_Text_2">USUARIO:</string>
+    <string name="PL_Text_3">CONTRASEÑA:</string>
+    <string name="PL_Text_4">INICIAR SESION</string>
+    <string name="PL_Text_5">CREAR CUENTA</string>
+    <string name="PL_Text_6">INVITADO</string>
+
+    <!--========================PAGINA CREAR CUENTA========================-->
+    <string name="PCA_Text_1">CREAR CUENTA:</string>
+    <string name="PCA_Text_2">USUARIO:</string>
+    <string name="PCA_Text_3">CORREO:</string>
+    <string name="PCA_Text_4">CONTRASEÑA:</string>
+    <string name="PCA_Text_5">REPITE LA CONTRASEÑA:</string>
+    <string name="PCA_Text_6">CREAR</string>
+    <string name="PCA_Text_7">CANCELAR</string>
+
+    <!--========================PAGINA PERFIL========================-->
+    <string name="PP_Text_1">DATOS USUARIO</string>
+    <string name="PP_Text_2">USUARIO:</string>
+    <string name="PP_Text_3">EMAIL:</string>
+
+    <!--========================PAGINA FAVORITOS========================-->
+    <string name="PFP_Text_1">FAVORITOS</string>
+
+    <!--========================PAGINAS DETALLES========================-->
+    <string name="PD_Text_1">INFORMACION</string>
+    <string name="PD_Text_2">SINOPSIS:</string>
+    <string name="PD_Text_3">ENLACES:</string>
+    <string name="PD_Text_4">Ver en AnimeFLV</string>
+    <string name="PD_Text_5">Ver en jkAnime</string>
+
+    <!--========================MENSAJES EN CASOS VARIOS========================-->
+    <string name="Text_Error_Login">No has iniciado sesión</string>
+    <string name="Text_Action_Login">Inicia sesión para ver tu perfil</string>
+
 </resources>

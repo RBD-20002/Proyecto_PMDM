@@ -3,7 +3,9 @@ package com.example.pmdm.pagesC
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -15,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
@@ -47,6 +50,7 @@ fun CreateAcountPage(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .padding(16.dp)
         ) {
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.TopEnd) {
@@ -62,7 +66,7 @@ fun CreateAcountPage(
             Spacer(modifier = Modifier.height(14.dp))
 
             TextComponent(
-                text = "REGISTRO DE DATOS",
+                text = stringResource(R.string.PCA_Text_1),
                 textSize = 20.sp,
                 textColor = Color.White
             )
@@ -70,7 +74,7 @@ fun CreateAcountPage(
             Spacer(modifier = Modifier.height(14.dp))
 
             // ✅ EMAIL (aquí sí actualiza el estado)
-            TextComponent(text = "USER:", textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = stringResource(R.string.PCA_Text_2), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.username,
                 onValueChange = onUsernameChange,
@@ -80,7 +84,7 @@ fun CreateAcountPage(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            TextComponent(text = "EMAIL:", textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = stringResource(R.string.PCA_Text_3), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.email,
                 onValueChange = onEmailChange,
@@ -90,7 +94,7 @@ fun CreateAcountPage(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            TextComponent(text = "PASSWORD:", textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = stringResource(R.string.PCA_Text_4), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.password,
                 onValueChange = onPasswordChange,
@@ -101,7 +105,7 @@ fun CreateAcountPage(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            TextComponent(text = "REPIET PASSWORD:", textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = stringResource(R.string.PCA_Text_5), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.repeatPassword,
                 onValueChange = onRepeatPasswordChange,
@@ -119,9 +123,9 @@ fun CreateAcountPage(
                     horizontalArrangement = Arrangement.spacedBy(5.dp),
                     modifier = Modifier.padding(10.dp)
                 ) {
-                    ButtomComponent(text = "CREAR") { onCreateClick() }
+                    ButtomComponent(text = stringResource(R.string.PCA_Text_6)) { onCreateClick() }
 
-                    ButtomComponent(text = "CANCELAR") { onCancelClick() }
+                    ButtomComponent(text = stringResource(R.string.PCA_Text_7)) { onCancelClick() }
                 }
             }
 

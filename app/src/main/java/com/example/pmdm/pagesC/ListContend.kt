@@ -29,8 +29,7 @@ fun ListContend(
     state: StartPageState
 ) {
     Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.TopCenter
+        modifier = Modifier.fillMaxSize()
     ) {
         Image(
             painter = painterResource(id = R.drawable.login_page),
@@ -44,7 +43,7 @@ fun ListContend(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
                 ) {
-                    CircularProgressIndicator()
+                    TextComponent(text = "Cargando...", textSize = 20.sp)
                 }
             }
 

@@ -39,7 +39,7 @@ fun PreviewDataRow(
         // Etiqueta del campo (izquierda)
         TextComponent(
             text = label,
-            textSize = 15.sp,
+            textSize = 13.sp,
             textColor = Color.White,
             modifier = Modifier.padding(3.dp)
         )
@@ -47,7 +47,7 @@ fun PreviewDataRow(
         // Valor del campo (derecha)
         TextComponent(
             text = value,
-            textSize = 15.sp,
+            textSize = 12.sp,
             textColor = Color.White
         )
     }
