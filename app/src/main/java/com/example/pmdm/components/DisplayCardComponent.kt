@@ -23,6 +23,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pmdm.ui.theme.cardContainerColor
@@ -33,14 +34,14 @@ import com.example.pmdm.ui.theme.glassCardColor
 fun DisplayCardComponent(
     title: String,
     firstInfo: String,
+    open: Boolean,
+    onClick: () -> Unit,
     links: @Composable (() -> Unit)? = null,
 ) {
-    var open by remember { mutableStateOf(false) }
-
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { open = !open },
+            .clickable { onClick() },
         shape = MaterialTheme.shapes.extraLarge,
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.cardContainerColor
@@ -49,8 +50,7 @@ fun DisplayCardComponent(
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween
+                modifier = Modifier.fillMaxWidth()
             ) {
                 TextComponent(
                     text = title,
@@ -58,7 +58,10 @@ fun DisplayCardComponent(
                     textSize = 20.sp
                 )
                 Icon(
-                    imageVector = if (open) Icons.Default.KeyboardArrowUp else Icons.Default.KeyboardArrowDown,
+                    imageVector = if (open)
+                        Icons.Default.KeyboardArrowUp
+                    else
+                        Icons.Default.KeyboardArrowDown,
                     contentDescription = null,
                     tint = Color.White
                 )
@@ -78,3 +81,4 @@ fun DisplayCardComponent(
         }
     }
 }
+

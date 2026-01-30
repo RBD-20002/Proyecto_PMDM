@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -50,9 +51,7 @@ fun StartPage(
                     verticalArrangement = Arrangement.Center
                 ) {
                     TextComponent(
-                        text = "Cargando...",
-                        textSize = 20.sp,
-                        textColor = sectionTextColor
+                        text = "Cargando...", textSize = 20.sp
                     )
                 }
             }
@@ -84,7 +83,8 @@ fun StartPage(
                         Spacer(modifier = Modifier.height(12.dp))
                         CarouselStartPage(
                             items = state.animeList.shuffled().take(5),
-                            modifier = Modifier.fillMaxWidth()
+                            modifier = Modifier.fillMaxWidth(),
+                            navController = navController
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                     }
@@ -92,7 +92,7 @@ fun StartPage(
                     // 2) Sección "Todos los Animes"
                     item {
                         Text(
-                            text = "Todos los Animes",
+                            text = stringResource(R.string.PS_Text_1),
                             color = Color.White
                         )
                         Spacer(modifier = Modifier.height(8.dp))
@@ -110,8 +110,8 @@ fun StartPage(
                     // 3) Sección "Recomendados"
                     item {
                         Text(
-                            text = "Recomendados",
-                            color = sectionTextColor
+                            text = stringResource(R.string.PS_Text_2),
+                            color = Color.White
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                     }

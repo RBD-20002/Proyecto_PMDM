@@ -48,11 +48,10 @@ import com.example.pmdm.ui.theme.neonTextGradient
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Toolbar(
+    isDark: Boolean,
     onSearchClick: () -> Unit,
     onThemeClick: () -> Unit = {}
 ) {
-    // Detecta si el tema actual es oscuro (por compatibilidad visual)
-    val isDark = isSystemInDarkTheme()
 
     val logoRes = R.drawable.logo
 
@@ -62,13 +61,13 @@ fun Toolbar(
             Image(
                 painter = painterResource(id = logoRes),
                 contentDescription = "Logo de la app",
-                modifier = Modifier.size(160.dp)
+                modifier = Modifier.size(100.dp)
             )
         },
         navigationIcon = {
             // Botón de búsqueda (lado izquierdo)
             IconButton(onClick = onSearchClick,
-                modifier = Modifier.padding(top = 5.dp)) {
+                modifier = Modifier.padding(top = 10.dp)) {
                 Icon(
                     Icons.Default.Search,
                     contentDescription = "Buscar",
@@ -79,7 +78,7 @@ fun Toolbar(
         actions = {
             // ✅ Icono de tema (lado derecho)
             IconButton(onClick = onThemeClick,
-                modifier = Modifier.padding(top = 5.dp)) {
+                modifier = Modifier.padding(top = 10.dp)) {
                 Icon(
                     imageVector = if (isDark) Icons.Default.LightMode else Icons.Default.DarkMode,
                     contentDescription = if (isDark) "Sol (modo oscuro)" else "Luna (modo claro)",
@@ -104,7 +103,7 @@ fun Toolbar(
 @Composable
 fun ToolbarPreviewLight() {
     PMDMTheme(darkTheme = false) {
-        Toolbar(onSearchClick = {}, onThemeClick = {})
+        Toolbar(onSearchClick = {}, onThemeClick = {}, isDark = true)
     }
 }
 
@@ -119,6 +118,6 @@ fun ToolbarPreviewLight() {
 @Composable
 fun ToolbarPreviewDark() {
     PMDMTheme(darkTheme = true) {
-        Toolbar(onSearchClick = {}, onThemeClick = {})
+        Toolbar(onSearchClick = {}, onThemeClick = {}, isDark = false)
     }
 }

@@ -2,7 +2,9 @@ package com.example.pmdm.pagesC
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -17,6 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
@@ -51,6 +54,7 @@ fun LoginPage(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .padding(16.dp)
         ) {
             Box(
@@ -69,14 +73,14 @@ fun LoginPage(
             Spacer(modifier = Modifier.height(120.dp))
 
             TextComponent(
-                text = "INICIAR SESIÓN",
+                text = stringResource(R.string.PL_Text_1),
                 textSize = 20.sp,
                 textColor = Color.White
             )
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            TextComponent(text = "USUARIO:", textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = stringResource(R.string.PL_Text_2), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.userName,
                 onValueChange = onEmailChange,
@@ -93,7 +97,7 @@ fun LoginPage(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            TextComponent(text = "PASSWORD:", textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = stringResource(R.string.PL_Text_3), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.password,
                 onValueChange = onPasswordChange,
@@ -132,17 +136,17 @@ fun LoginPage(
             ) {
 
                 ButtomComponent(
-                    text = "ENTRAR",
+                    text = stringResource(R.string.PL_Text_4),
                     enabled = state.isLoginEnabled
                 ) { onLoginClick() }
 
                 ButtomComponent(
-                    text = "CREAR CUENTA",
+                    text = stringResource(R.string.PL_Text_5),
                     enabled = true
                 ) { onRegisterClick() }
 
                 ButtomComponent(
-                    text = "INVITADO",
+                    text = stringResource(R.string.PL_Text_6),
                     enabled = true
                 ) { onGuestClick() }
 

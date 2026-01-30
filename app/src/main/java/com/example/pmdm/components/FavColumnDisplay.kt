@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -53,11 +54,12 @@ fun FavColumnDisplay(
             .background(
                 color = Color.Gray,
                 shape = RoundedCornerShape(16.dp)
-            ).padding(5.dp)
+            )
+            .padding(5.dp)
         ) {
             // Título simple
             TextComponent(
-                text = "FAVORITOS",
+                text = stringResource(R.string.PFP_Text_1),
                 textSize = 30.sp
             )
         }

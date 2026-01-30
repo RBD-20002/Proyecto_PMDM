@@ -1,5 +1,7 @@
 package com.example.pmdm.components
 
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -38,7 +40,7 @@ fun VerticalCard(
     Card(
         modifier = modifier
             .width(130.dp)
-            .height(200.dp)
+            .height(210.dp)
             .padding(end = 5.dp),
         onClick = { navController.navigate("details/${anime.id}") },
         colors = CardDefaults.cardColors(
@@ -46,9 +48,20 @@ fun VerticalCard(
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(5.dp)
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .padding(8.dp)
         ){
+            Box(
+                modifier = Modifier
+                    .border(2.dp,
+                        color = Color.White,
+                        shape = RoundedCornerShape(30.dp)
+                    )
+                    .clip(RoundedCornerShape(30.dp)
+                    )
+            ){
             AsyncImage(
                 model = anime.imageUrl,
                 contentDescription = anime.imageDesc,
@@ -56,15 +69,17 @@ fun VerticalCard(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(170.dp)
-                    .clip(RoundedCornerShape(10.dp))
+                    .border(2.dp,color = Color.White)
+                    .clip(RoundedCornerShape(30.dp))
             )
+                }
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = anime.title,
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.cardTextColor,
                 maxLines = 1,
-                fontSize = 15.sp
+                fontSize = 10.sp
             )
         }
     }
