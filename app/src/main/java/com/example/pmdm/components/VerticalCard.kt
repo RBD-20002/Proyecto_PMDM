@@ -20,16 +20,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.example.pmdm.model.Anime
+import com.example.pmdm.navigation.Destination
 import com.example.pmdm.ui.theme.cardContainerColor
 import com.example.pmdm.ui.theme.cardTextColor
-import com.example.pmdm.ui.theme.glassCardColor
 
 @Composable
 fun VerticalCard(
@@ -42,7 +41,7 @@ fun VerticalCard(
             .width(130.dp)
             .height(210.dp)
             .padding(end = 5.dp),
-        onClick = { navController.navigate("details/${anime.id}") },
+        onClick = { navController.navigate(Destination.Details.createRoute(anime.id)) },
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.cardContainerColor
         ),
@@ -50,29 +49,28 @@ fun VerticalCard(
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .padding(8.dp)
-        ){
+            modifier = Modifier.padding(8.dp)
+        ) {
             Box(
                 modifier = Modifier
-                    .border(2.dp,
+                    .border(
+                        2.dp,
                         color = Color.White,
                         shape = RoundedCornerShape(30.dp)
                     )
-                    .clip(RoundedCornerShape(30.dp)
-                    )
-            ){
-            AsyncImage(
-                model = anime.imageUrl,
-                contentDescription = anime.imageDesc,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(170.dp)
-                    .border(2.dp,color = Color.White)
                     .clip(RoundedCornerShape(30.dp))
-            )
-                }
+            ) {
+                AsyncImage(
+                    model = anime.imageUrl,
+                    contentDescription = anime.imageDesc,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(170.dp)
+                        .border(2.dp, color = Color.White)
+                        .clip(RoundedCornerShape(30.dp))
+                )
+            }
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = anime.title,

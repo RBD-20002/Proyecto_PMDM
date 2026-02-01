@@ -18,11 +18,26 @@ sealed class Destination(
 ) {
     data object Start : Destination("start", Icons.Default.Home, "Inicio", "Pantalla de inicio")
     data object ListContend : Destination("listContend", Icons.AutoMirrored.Filled.List, "Lista", "Pantalla de lista")
-    data object Details : Destination("details/{id}", Icons.Default.Info, "Detalles", "Pantalla de detalles")
+
+    data object Details : Destination(
+        "details",
+        Icons.Default.Info,
+        "Detalles",
+        "Pantalla de detalles"
+    ) {
+        const val ROUTE_PATTERN = "details/{animeId}"
+
+        fun createRoute(animeId: String): String {
+            return "details/$animeId"
+        }
+    }
+
     data object Profile : Destination("profile", Icons.Default.Person, "Perfil", "Pantalla de perfil")
     data object Login : Destination("login", Icons.Default.AccountBox, "Login", "Pantalla de login")
     data object Fav : Destination("favoritos", Icons.Default.Stars, "Favoritos", "Pantalla de favoritos")
     data object Camera : Destination("camera", Icons.Default.PhotoCamera, "Cámara", "Pantalla de cámara")
+
+    data object CreateAccount : Destination("createAccount", Icons.Default.AccountBox, "Registro", "Pantalla de registro")
 
     companion object {
         val entries: List<Destination> = listOf(Start, ListContend, Fav, Profile)

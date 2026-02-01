@@ -16,6 +16,7 @@ import javax.inject.Inject
 class DetailsViewModel @Inject constructor(
     private val animeRepository: AnimeRepository
 ) : ViewModel() {
+
     private val _state = MutableStateFlow<DetailsPageState?>(null)
     val state: StateFlow<DetailsPageState?> = _state.asStateFlow()
 
@@ -23,7 +24,7 @@ class DetailsViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val anime = animeRepository.getAnimeById(animeId)
-                val isFav = animeRepository.getFavorites().any { it.id == animeId }
+                val isFav = animeRepository.isFavorite(animeId)
                 _state.value = DetailsPageState(anime = anime, isFavorite = isFav)
             } catch (_: Exception) {
                 _state.value = null

@@ -17,12 +17,14 @@ class AnimeRepository(
     private var cachedAnimes: List<Anime> = emptyList()
 
     private fun AnimeDto.toDomain(): Anime {
-        val base = "http://192.168.1.41:5131"  // o pásalo por config
-        val url = imageId.takeIf { it.isNotBlank() }?.let { "$base/images/$it" }
+        val imageUrl = imageId
+            .takeIf { it.isNotBlank() }
+            ?.let { "${ApiConfig.BASE_URL}images/$it" }
+            .orEmpty()
 
         return Anime(
             id = id,
-            imageUrl = "${ApiConfig.BASE_URL}images/$imageId",
+            imageUrl = imageUrl,
             title = title,
             synopsis = synopsis,
             info = info,
@@ -34,7 +36,6 @@ class AnimeRepository(
             isFavorite = favorites.contains(id)
         )
     }
-
 
     suspend fun getAnimeList(): List<Anime> {
         val req = ComplexSearchRequest(
@@ -53,7 +54,6 @@ class AnimeRepository(
         return list
     }
 
-
     suspend fun searchAnimes(query: String): List<Anime> {
         val req = ComplexSearchRequest(
             filters = listOf(
@@ -65,19 +65,18 @@ class AnimeRepository(
             )
         )
 
-        val dtos = animeService.getAllAnimes(req) // mismo endpoint complex-search
+        val dtos = animeService.getAllAnimes(req)
         val list = dtos.map { it.toDomain() }
         cachedAnimes = list
         return list
     }
-
 
     suspend fun getAnimeById(id: String): Anime {
         return animeService.getAnimeById(id).toDomain()
     }
 
     fun toggleFavorite(anime: Anime) {
-        val key = anime.id.toString()
+        val key = anime.id
         if (favorites.contains(key)) {
             favorites.remove(key)
         } else {
@@ -85,7 +84,11 @@ class AnimeRepository(
         }
     }
 
+    fun isFavorite(animeId: String): Boolean {
+        return favorites.contains(animeId)
+    }
+
     fun getFavorites(): List<Anime> {
-        return cachedAnimes.filter { favorites.contains(it.id.toString()) }
+        return cachedAnimes.filter { favorites.contains(it.id) }
     }
 }

@@ -64,12 +64,10 @@ fun CameraPage(
     val providerFuture = remember { ProcessCameraProvider.getInstance(context) }
 
     LaunchedEffect(Unit) {
-        // Solicitar permiso cuando se carga la pantalla
         cameraPermissionState.launchPermissionRequest()
     }
 
     if (!cameraPermissionState.status.isGranted) {
-        // Mensaje si el permiso no está concedido
         androidx.compose.foundation.layout.Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -83,13 +81,12 @@ fun CameraPage(
         return
     }
 
-    // Proveedor de cámara listo
     val previewView = remember { PreviewView(context) }
     val lifecycleOwner = LocalLifecycleOwner.current
     LaunchedEffect(cameraSelectorState.value) {
         val cameraProvider: ProcessCameraProvider = providerFuture.get()
         val preview = androidx.camera.core.Preview.Builder().build().apply {
-            setSurfaceProvider(previewView.surfaceProvider)
+            surfaceProvider = previewView.surfaceProvider
         }
         val imageCapture = ImageCapture.Builder().build()
         imageCaptureState.value = imageCapture
@@ -112,14 +109,12 @@ fun CameraPage(
             modifier = Modifier.fillMaxSize()
         )
 
-        // Controles superpuestos
         Row(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(24.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Botón de alternar cámara
             IconButton(onClick = {
                 cameraSelectorState.value = if (cameraSelectorState.value == CameraSelector.DEFAULT_BACK_CAMERA) {
                     CameraSelector.DEFAULT_FRONT_CAMERA
@@ -130,7 +125,6 @@ fun CameraPage(
                 Icon(Icons.Default.Cameraswitch, contentDescription = "Cambiar cámara", tint = MaterialTheme.colorScheme.onBackground)
             }
 
-            // Botón de captura
             IconButton(onClick = {
                 val imageCapture = imageCaptureState.value ?: return@IconButton
                 val name = "IMG_${System.currentTimeMillis()}"

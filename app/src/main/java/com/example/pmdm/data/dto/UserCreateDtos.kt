@@ -13,7 +13,7 @@ data class CreateUserRequestDto(
     val password: String,
 
     @SerializedName("profileImageId")
-    val profileImageId: String? = null
+    val profileImageId: String = ""
 )
 
 data class CreateUserResponseDto(

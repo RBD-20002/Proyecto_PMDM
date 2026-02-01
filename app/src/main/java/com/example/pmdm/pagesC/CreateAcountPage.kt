@@ -1,15 +1,26 @@
 package com.example.pmdm.pagesC
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
-import androidx.compose.material3.*
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,7 +38,6 @@ import com.example.pmdm.R
 import com.example.pmdm.components.ButtomComponent
 import com.example.pmdm.components.TextComponent
 import com.example.pmdm.ui.state.CreateAccountPageState
-import com.example.pmdm.ui.state.LoginPageState
 
 @Composable
 fun CreateAcountPage(
@@ -37,7 +47,9 @@ fun CreateAcountPage(
     onPasswordChange: (String) -> Unit,
     onRepeatPasswordChange: (String) -> Unit,
     onCreateClick: () -> Unit,
-    onCancelClick: () -> Unit
+    onCancelClick: () -> Unit,
+    onTogglePasswordVisibility: () -> Unit,
+    onToggleRepeatPasswordVisibility: () -> Unit
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
@@ -73,7 +85,6 @@ fun CreateAcountPage(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // ✅ EMAIL (aquí sí actualiza el estado)
             TextComponent(text = stringResource(R.string.PCA_Text_2), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.username,
@@ -98,7 +109,14 @@ fun CreateAcountPage(
             OutlinedTextField(
                 value = state.password,
                 onValueChange = onPasswordChange,
-                visualTransformation = PasswordVisualTransformation(),
+                visualTransformation = if (state.passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+                trailingIcon = {
+                    val icon = if (state.passwordVisible) Icons.Filled.VisibilityOff else Icons.Filled.Visibility
+                    val desc = if (state.passwordVisible) "Ocultar contraseña" else "Mostrar contraseña"
+                    IconButton(onClick = onTogglePasswordVisibility) {
+                        Icon(imageVector = icon, contentDescription = desc)
+                    }
+                },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
@@ -109,12 +127,18 @@ fun CreateAcountPage(
             OutlinedTextField(
                 value = state.repeatPassword,
                 onValueChange = onRepeatPasswordChange,
-                visualTransformation = PasswordVisualTransformation(),
+                visualTransformation = if (state.repeatPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+                trailingIcon = {
+                    val icon = if (state.repeatPasswordVisible) Icons.Filled.VisibilityOff else Icons.Filled.Visibility
+                    val desc = if (state.repeatPasswordVisible) "Ocultar contraseña" else "Mostrar contraseña"
+                    IconButton(onClick = onToggleRepeatPasswordVisibility) {
+                        Icon(imageVector = icon, contentDescription = desc)
+                    }
+                },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
 
-            // Botones
             Box(
                 modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.TopEnd
@@ -124,12 +148,10 @@ fun CreateAcountPage(
                     modifier = Modifier.padding(10.dp)
                 ) {
                     ButtomComponent(text = stringResource(R.string.PCA_Text_6)) { onCreateClick() }
-
                     ButtomComponent(text = stringResource(R.string.PCA_Text_7)) { onCancelClick() }
                 }
             }
 
-            // Error
             state.error?.let {
                 TextComponent(
                     text = it,
@@ -143,12 +165,11 @@ fun CreateAcountPage(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun CreateAcountPagePreview() {
-    // Creamos un estado de ejemplo para el preview
     val exampleState = CreateAccountPageState(
         username = "usuario123",
         email = "ejemplo@email.com",
-        password = "contraseña",
-        repeatPassword = "contraseña",
+        password = "Contraseña",
+        repeatPassword = "Contraseña",
         error = null
     )
 
@@ -160,7 +181,9 @@ fun CreateAcountPagePreview() {
             onPasswordChange = { },
             onRepeatPasswordChange = { },
             onCreateClick = { },
-            onCancelClick = { }
+            onCancelClick = { },
+            onTogglePasswordVisibility = { },
+            onToggleRepeatPasswordVisibility = { }
         )
     }
 }

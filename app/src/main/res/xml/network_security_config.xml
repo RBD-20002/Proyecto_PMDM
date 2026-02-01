@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
 
-    <!-- Permite HTTP (cleartext) en general -->
-    <base-config cleartextTrafficPermitted="true" />
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
 
-    <!-- Permite específicamente tu PC por IP -->
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">192.168.1.41</domain> //NICO
-        <domain includeSubdomains="true">192.168.1.147</domain> // Ricardo
+        <!-- NICO -->
+        <domain includeSubdomains="true">192.168.1.41</domain>
 
+        <!-- RICARDO -->
+        <domain includeSubdomains="true">192.168.1.147</domain>
     </domain-config>
 
 </network-security-config>

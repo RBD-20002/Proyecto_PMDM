@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.util.Locale
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,11 +22,19 @@ class AuthViewModel @Inject constructor(
     private val _state = MutableStateFlow(AuthState())
     val state: StateFlow<AuthState> = _state.asStateFlow()
 
+    /**
+     * Normalización:
+     * - username: trim + lowercase
+     * - password: trim (SIN lowercase)
+     */
     fun login(username: String, password: String) {
+        val normalizedUser = username.trim().lowercase(Locale.ROOT)
+        val normalizedPass = password.trim()
+
         _state.update { it.copy(isLoading = true, error = null) }
 
         viewModelScope.launch {
-            when (val result = userRepository.login(username, password)) {
+            when (val result = userRepository.login(normalizedUser, normalizedPass)) {
                 is LoginResult.Success -> {
                     val session = userRepository.session.value
                     _state.update {
@@ -37,20 +46,15 @@ class AuthViewModel @Inject constructor(
                         )
                     }
                 }
-                is LoginResult.UserNotFound -> {
+
+                is LoginResult.UserNotFound ->
                     _state.update { it.copy(isLoading = false, error = "El usuario no existe") }
-                }
-                is LoginResult.WrongPassword -> {
+
+                is LoginResult.WrongPassword ->
                     _state.update { it.copy(isLoading = false, error = "La contraseña es incorrecta") }
-                }
-                is LoginResult.NetworkError -> {
-                    _state.update {
-                        it.copy(
-                            isLoading = false,
-                            error = result.message ?: "Error de conexión"
-                        )
-                    }
-                }
+
+                is LoginResult.NetworkError ->
+                    _state.update { it.copy(isLoading = false, error = result.message ?: "Error de conexión") }
             }
         }
     }

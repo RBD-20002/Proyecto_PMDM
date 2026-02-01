@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.util.Locale
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,25 +22,30 @@ class LoginViewModel @Inject constructor(
     private val _state = MutableStateFlow(LoginPageState())
     val state: StateFlow<LoginPageState> = _state.asStateFlow()
 
-    // ⚠️ Renómbralo si quieres: onUsernameChange
-    fun onEmailChange(userName: String) {
+
+    fun onUsernameChange(userName: String) {
+        val normalizedUser = userName.trim().lowercase(Locale.ROOT)
+
         _state.update {
             it.copy(
-                userName = userName,
-                emailError = if (userName.isBlank()) "El usuario no puede estar vacío" else null,
-                isLoginEnabled = isFormValid(userName, it.password),
-                loginError = null // ✅ limpia error al escribir
+                userName = normalizedUser,
+                usernameError = if (normalizedUser.isBlank()) "El usuario no puede estar vacío" else null,
+                isLoginEnabled = isFormValid(normalizedUser, it.password),
+                loginError = null
             )
         }
     }
 
+
     fun onPasswordChange(password: String) {
+        val normalizedPass = password.trim()
+
         _state.update {
             it.copy(
-                password = password,
-                passwordError = if (password.isBlank()) "La contraseña no puede estar vacía" else null,
-                isLoginEnabled = isFormValid(it.userName, password),
-                loginError = null // ✅ limpia error al escribir
+                password = normalizedPass,
+                passwordError = if (normalizedPass.isBlank()) "La contraseña no puede estar vacía" else null,
+                isLoginEnabled = isFormValid(it.userName, normalizedPass),
+                loginError = null
             )
         }
     }
@@ -48,10 +54,6 @@ class LoginViewModel @Inject constructor(
         _state.update { it.copy(passwordVisible = !it.passwordVisible) }
     }
 
-    /**
-     * Si quieres seguir usando login desde aquí (NO recomendado si ya usas AuthViewModel),
-     * ahora devuelve LoginResult en vez de Boolean.
-     */
     fun onLoginClick(onResult: (LoginResult) -> Unit = {}) {
         val current = _state.value
 
@@ -67,18 +69,10 @@ class LoginViewModel @Inject constructor(
             )
 
             when (result) {
-                is LoginResult.Success -> {
-                    _state.update { it.copy(loginError = null) }
-                }
-                is LoginResult.UserNotFound -> {
-                    _state.update { it.copy(loginError = "El usuario no existe") }
-                }
-                is LoginResult.WrongPassword -> {
-                    _state.update { it.copy(loginError = "La contraseña es incorrecta") }
-                }
-                is LoginResult.NetworkError -> {
-                    _state.update { it.copy(loginError = result.message ?: "Error de conexión") }
-                }
+                is LoginResult.Success -> _state.update { it.copy(loginError = null) }
+                is LoginResult.UserNotFound -> _state.update { it.copy(loginError = "El usuario no existe") }
+                is LoginResult.WrongPassword -> _state.update { it.copy(loginError = "La contraseña es incorrecta") }
+                is LoginResult.NetworkError -> _state.update { it.copy(loginError = result.message ?: "Error de conexión") }
             }
 
             onResult(result)

@@ -31,4 +31,11 @@ interface UserService {
         @Path("folder") folder: String = "users",
         @Body request: CreateUserRequestDto
     ): CreateUserResponseDto
+
+    @POST("json/{folder}/{id}")
+    suspend fun updateUser(
+        @Path("folder") folder: String = "users",
+        @Path("id") id: String,
+        @Body user: UserDto
+    ): UserDto
 }

@@ -16,5 +16,5 @@ data class UserDto(
     val password: String,
 
     @SerializedName("profileImageId")
-    val profileImageId: String?
+    val profileImageId: String? = ""
 )

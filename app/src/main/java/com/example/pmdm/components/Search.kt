@@ -1,49 +1,41 @@
 package com.example.pmdm.components
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.pmdm.ui.theme.neonTextGradientAlpha
 
-/**
- * Componente de búsqueda interactiva con soporte para control interno o externo del estado.
- *
- * Este componente muestra una barra de búsqueda ([SearchBar]) con una lista desplegable de
- * resultados sugeridos. Puede funcionar de forma **autónoma** (controla internamente su
- * visibilidad y texto) o **controlada** por un estado externo (recibiendo callbacks de control).
- *
- * ### Características:
- * - Icono de búsqueda que activa la barra al presionarlo.
- * - Campo de texto con sugerencias dinámicas.
- * - Lista de resultados interactiva (permite seleccionar un elemento).
- * - Compatible con temas de Material 3.
- *
- * ### Modos de uso:
- * - **Modo interno**: el estado `active` y el texto se gestionan dentro del componente.
- * - **Modo externo**: el control del estado y del texto se delega al componente padre mediante:
- *   - [externalActive]
- *   - [onActiveChangeExternal]
- *   - [onQueryChangeExternal]
- *
- * @param modifier Modificador para ajustar tamaño y posición del componente.
- * @param hint Texto mostrado cuando el campo de búsqueda está vacío.
- * @param results Lista de resultados o sugerencias a mostrar debajo de la barra.
- * @param onSearch Acción ejecutada al confirmar la búsqueda (por ejemplo, presionar Enter).
- * @param onResultClick Acción ejecutada al seleccionar un resultado de la lista.
- * @param externalActive Estado opcional que define si la barra está activa (modo controlado).
- * @param onActiveChangeExternal Callback opcional para actualizar el estado de visibilidad desde fuera.
- * @param onQueryChangeExternal Callback opcional para notificar cambios en el texto desde fuera.
- */
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchToggle(
     modifier: Modifier = Modifier,
@@ -55,13 +47,9 @@ fun SearchToggle(
     onActiveChangeExternal: ((Boolean) -> Unit)? = null,
     onQueryChangeExternal: ((String) -> Unit)? = null
 ) {
-    // Estado interno de visibilidad (si no está controlado externamente)
     var internalActive by rememberSaveable { mutableStateOf(false) }
-
-    // Estado interno del texto de búsqueda
     var internalQuery by rememberSaveable { mutableStateOf("") }
 
-    // Determina si el componente está usando control interno o externo
     val active = externalActive ?: internalActive
     val setActive: (Boolean) -> Unit = onActiveChangeExternal ?: { internalActive = it }
 
@@ -71,80 +59,117 @@ fun SearchToggle(
         onQueryChangeExternal?.invoke(newQuery)
     }
 
-    Box(modifier = modifier.fillMaxWidth()) {
-        // Si está inactivo, muestra sólo el icono de búsqueda
-        if (!active) {
-            IconButton(
-                modifier = Modifier.align(Alignment.CenterEnd),
-                onClick = { setActive(true) }
+    val configuration = LocalConfiguration.current
+    val maxHeight = (configuration.screenHeightDp.dp * 0.5f)
+    val baseHeight = 68.dp
+
+    if (!active) return
+
+    Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .animateContentSize()
+            .heightIn(min = baseHeight, max = maxHeight),
+        shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.Transparent),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(0.dp)
+                .then(Modifier)
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+                    .padding(0.dp)
+                    .then(Modifier)
             ) {
-                Icon(Icons.Default.Search, contentDescription = "Buscar")
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentHeight()
+                        .padding(0.dp)
+                        .then(Modifier)
+                )
             }
         }
 
-        // Barra de búsqueda principal
-        SearchBar(
+        Box(
             modifier = Modifier
-                .align(Alignment.TopCenter)
-                .fillMaxWidth(),
-            query = query,
-            onQueryChange = { setQuery(it) },
-            onSearch = {
-                onSearch(query)
-                // Si se desea mantener abierta la barra, se puede comentar esta línea
-                setActive(false)
-            },
-            active = active,
-            onActiveChange = { setActive(it) },
-            placeholder = { Text(hint) },
-            leadingIcon = {
-                Icon(Icons.Default.Search, contentDescription = null)
-            },
-            trailingIcon = {
-                IconButton(onClick = {
-                    if (query.isNotEmpty()) {
-                        setQuery("")
-                    } else {
-                        setActive(false)
-                    }
-                }) {
-                    Icon(Icons.Default.Close, contentDescription = "Cerrar búsqueda")
-                }
-            }
+                .fillMaxWidth()
+                .wrapContentHeight()
+                .padding(0.dp)
+                .then(Modifier)
+                .background(neonTextGradientAlpha(0.50f))
+                .padding(12.dp)
         ) {
-            // Lista de resultados mostrada al escribir o buscar
-            Column(Modifier.verticalScroll(rememberScrollState())) {
-                results.forEach { r ->
-                    ListItem(
-                        headlineContent = { Text(r) },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                onResultClick(r)
-                                setQuery(r)
-                                setActive(false)
-                            }
-                    )
+            OutlinedTextField(
+                value = query,
+                onValueChange = { setQuery(it) },
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true,
+                placeholder = { Text(hint, color = Color.White.copy(alpha = 0.85f)) },
+                leadingIcon = { Icon(Icons.Default.Search, contentDescription = null, tint = Color.White) },
+                trailingIcon = {
+                    IconButton(onClick = {
+                        if (query.isNotEmpty()) setQuery("")
+                        else setActive(false)
+                    }) {
+                        Icon(Icons.Default.Close, contentDescription = "Cerrar", tint = Color.White)
+                    }
+                },
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedContainerColor = Color.Transparent,
+                    unfocusedContainerColor = Color.Transparent,
+                    focusedTextColor = Color.White,
+                    unfocusedTextColor = Color.White,
+                    focusedBorderColor = Color.White.copy(alpha = 0.7f),
+                    unfocusedBorderColor = Color.White.copy(alpha = 0.5f),
+                    cursorColor = Color.White
+                )
+            )
+
+            if (results.isNotEmpty()) {
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 60.dp)
+                        .heightIn(max = (maxHeight - baseHeight).coerceAtLeast(0.dp)),
+                    contentPadding = PaddingValues(vertical = 6.dp)
+                ) {
+                    items(results) { r ->
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    onResultClick(r)
+                                    setQuery(r)
+                                    setActive(false)
+                                }
+                                .padding(horizontal = 10.dp, vertical = 12.dp)
+                        ) {
+                            Text(text = r, style = MaterialTheme.typography.bodyMedium, color = Color.White)
+                        }
+                    }
                 }
             }
         }
     }
 }
 
-/**
- * Vista previa del componente [SearchToggle].
- *
- * Muestra la barra de búsqueda con resultados de ejemplo
- * y un tema de Material 3 aplicado para pruebas visuales.
- */
 @Preview(showBackground = true)
 @Composable
 private fun SearchTogglePreview() {
     MaterialTheme {
         Surface {
             SearchToggle(
+                externalActive = true,
                 results = listOf("Naruto", "Bleach", "One Piece"),
-                onSearch = { /* Ejemplo de búsqueda */ }
+                onQueryChangeExternal = {},
+                onResultClick = {}
             )
         }
     }

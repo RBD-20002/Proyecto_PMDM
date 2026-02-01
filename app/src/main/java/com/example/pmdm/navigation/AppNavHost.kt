@@ -8,8 +8,10 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.example.pmdm.pagesC.CameraPage
 import com.example.pmdm.pagesC.CreateAcountPage
 import com.example.pmdm.pagesC.DetailsPage
@@ -30,7 +32,8 @@ import com.example.pmdm.viewModel.StartViewModel
 fun AppNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    authViewModel: AuthViewModel
+    authViewModel: AuthViewModel,
+    startViewModel: StartViewModel
 ) {
     val authState by authViewModel.state.collectAsStateWithLifecycle()
 
@@ -49,20 +52,12 @@ fun AppNavHost(
         modifier = modifier
     ) {
         composable(Destination.Start.route) {
-            val vm: StartViewModel = hiltViewModel()
-            val state by vm.state.collectAsStateWithLifecycle()
-
-            LaunchedEffect(Unit) { vm.loadAnimes() }
-
+            val state by startViewModel.state.collectAsStateWithLifecycle()
             StartPage(navController = navController, state = state)
         }
 
         composable(Destination.ListContend.route) {
-            val vm: StartViewModel = hiltViewModel()
-            val state by vm.state.collectAsStateWithLifecycle()
-
-            LaunchedEffect(Unit) { vm.loadAnimes() }
-
+            val state by startViewModel.state.collectAsStateWithLifecycle()
             ListContend(navController = navController, state = state)
         }
 
@@ -72,8 +67,25 @@ fun AppNavHost(
 
             LaunchedEffect(Unit) { vm.loadProfile() }
 
-            ProfilePage(state = state, navController = navController)
+            ProfilePage(
+                state = state,
+                navController = navController,
+
+                onOpenImagePicker = vm::openImagePicker,
+                onCloseImagePicker = vm::closeImagePicker,
+                presetImageIds = vm.presetProfileImageIds,
+                imageUrlForId = vm::imageUrlForId,
+                onSelectPreset = vm::selectPresetImage,
+
+                onOpenEditDialog = vm::openEditDialog,
+                onCloseEditDialog = vm::closeEditDialog,
+                onEditUsernameChange = vm::onEditUsernameChange,
+                onEditEmailChange = vm::onEditEmailChange,
+                onSaveEdits = vm::saveProfileDataEdits
+            )
+
         }
+
 
         composable(Destination.Login.route) {
             val vm: LoginViewModel = hiltViewModel()
@@ -82,9 +94,9 @@ fun AppNavHost(
             LoginPage(
                 state = state,
                 authError = authState.error,
-                onEmailChange = { value ->
+                onUsernameChange = { value ->
                     authViewModel.setError(null)
-                    vm.onEmailChange(value)
+                    vm.onUsernameChange(value)
                 },
                 onPasswordChange = { value ->
                     authViewModel.setError(null)
@@ -95,7 +107,7 @@ fun AppNavHost(
                     vm.setLoginError(null)
                     authViewModel.login(username = state.userName, password = state.password)
                 },
-                onRegisterClick = { navController.navigate("createAccount") },
+                onRegisterClick = { navController.navigate(Destination.CreateAccount.route) },
                 onGuestClick = {
                     vm.setLoginError(null)
                     authViewModel.loginAsGuest()
@@ -116,7 +128,10 @@ fun AppNavHost(
             FavoritePage(navController = navController, state = state)
         }
 
-        composable("details/{animeId}") { backStackEntry ->
+        composable(
+            route = Destination.Details.ROUTE_PATTERN,
+            arguments = listOf(navArgument("animeId") { type = NavType.StringType })
+        ) { backStackEntry ->
             val animeId = backStackEntry.arguments?.getString("animeId") ?: return@composable
 
             val vm: DetailsViewModel = hiltViewModel()
@@ -143,7 +158,7 @@ fun AppNavHost(
             )
         }
 
-        composable("createAccount") {
+        composable(Destination.CreateAccount.route) {
             val vm: CreateAccountViewModel = hiltViewModel()
             val state by vm.state.collectAsStateWithLifecycle()
 
@@ -161,8 +176,11 @@ fun AppNavHost(
                 onPasswordChange = vm::onPasswordChange,
                 onRepeatPasswordChange = vm::onRepeatPasswordChange,
                 onCreateClick = vm::onCreateClick,
-                onCancelClick = { navController.popBackStack() }
+                onCancelClick = { navController.popBackStack() },
+                onTogglePasswordVisibility = vm::togglePasswordVisibility,
+                onToggleRepeatPasswordVisibility = vm::toggleRepeatPasswordVisibility
             )
+
         }
     }
 }

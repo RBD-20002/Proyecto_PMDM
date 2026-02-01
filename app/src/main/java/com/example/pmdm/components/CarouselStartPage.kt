@@ -32,28 +32,9 @@ import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.example.pmdm.model.Anime
 import com.example.pmdm.model.DataProvider
+import com.example.pmdm.navigation.Destination
 import kotlinx.coroutines.delay
 
-/**
- * Carrusel automático de imágenes de anime mostrado en la pantalla de inicio.
- *
- * Este componente presenta una lista de elementos ([Anime]) en formato
- * deslizable horizontal, avanzando automáticamente cada [intervalMs] milisegundos.
- *
- * Cada página muestra una imagen de anime con su título superpuesto y un
- * indicador inferior de posición (círculos activos/inactivos).
- *
- * ### Características principales:
- * - Avance automático entre elementos con animación.
- * - Repetición infinita (vuelve al primer elemento al llegar al final).
- * - Indicadores de posición que cambian de tamaño y opacidad según la página activa.
- * - Adaptable mediante el parámetro [modifier].
- *
- * @param modifier Modificador para el tamaño o espaciado externo del carrusel.
- * @param intervalMs Tiempo en milisegundos entre cada cambio automático de imagen.
- * @param items Lista de configuraciones de tarjetas ([Anime]) a mostrar.
- *              Por defecto usa `DataProvider.animeList`.
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CarouselStartPage(
@@ -66,14 +47,20 @@ fun CarouselStartPage(
 
     val pagerState = rememberPagerState(pageCount = { items.size })
 
-    // Auto-scroll
     LaunchedEffect(items.size, intervalMs) {
         while (true) {
             delay(intervalMs)
-            val next = (pagerState.currentPage + 1) % items.size
-            pagerState.animateScrollToPage(next)
+
+            val nextPage = pagerState.currentPage + 1
+
+            if (nextPage >= items.size) {
+                pagerState.scrollToPage(0)
+            } else {
+                pagerState.animateScrollToPage(nextPage)
+            }
         }
     }
+
 
     Box(
         modifier = modifier
@@ -90,11 +77,9 @@ fun CarouselStartPage(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .clip(
-                        shape = MaterialTheme.shapes.extraLarge
-                    )
-                    .clickable{
-                        navController.navigate("details/${anime.id}")
+                    .clip(shape = MaterialTheme.shapes.extraLarge)
+                    .clickable {
+                        navController.navigate(Destination.Details.createRoute(anime.id))
                     }
             ) {
                 AsyncImage(
@@ -104,7 +89,6 @@ fun CarouselStartPage(
                     modifier = Modifier.fillMaxSize()
                 )
 
-                // Degradado superior
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -117,7 +101,6 @@ fun CarouselStartPage(
                         .align(Alignment.TopStart)
                 )
 
-                // Título
                 Text(
                     text = anime.title,
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
@@ -129,7 +112,6 @@ fun CarouselStartPage(
             }
         }
 
-        // Indicadores
         Row(
             modifier = Modifier
                 .align(Alignment.BottomCenter)

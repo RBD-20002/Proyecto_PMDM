@@ -1,7 +1,15 @@
 package com.example.pmdm.pagesC
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -34,7 +42,7 @@ import com.example.pmdm.ui.state.LoginPageState
 fun LoginPage(
     state: LoginPageState,
     authError: String?,
-    onEmailChange: (String) -> Unit,
+    onUsernameChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
     onTogglePasswordVisibility: () -> Unit,
     onLoginClick: () -> Unit,
@@ -42,8 +50,6 @@ fun LoginPage(
     onGuestClick: () -> Unit
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
-
-        // Fondo (local)
         Image(
             painter = painterResource(id = R.drawable.login_page),
             contentDescription = "Fondo Login",
@@ -83,7 +89,7 @@ fun LoginPage(
             TextComponent(text = stringResource(R.string.PL_Text_2), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.userName,
-                onValueChange = onEmailChange,
+                onValueChange = onUsernameChange,
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true,
                 colors = OutlinedTextFieldDefaults.colors(
@@ -134,7 +140,6 @@ fun LoginPage(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-
                 ButtomComponent(
                     text = stringResource(R.string.PL_Text_4),
                     enabled = state.isLoginEnabled
@@ -176,7 +181,7 @@ fun LoginPagePreview() {
     LoginPage(
         state = sampleState,
         authError = "Usuario o contraseña incorrectos",
-        onEmailChange = {},
+        onUsernameChange = {},
         onPasswordChange = {},
         onTogglePasswordVisibility = {},
         onLoginClick = {},

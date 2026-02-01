@@ -57,7 +57,6 @@ fun Toolbar(
 
     CenterAlignedTopAppBar(
         title = {
-            // Logotipo centrado de la aplicación
             Image(
                 painter = painterResource(id = logoRes),
                 contentDescription = "Logo de la app",
@@ -65,7 +64,6 @@ fun Toolbar(
             )
         },
         navigationIcon = {
-            // Botón de búsqueda (lado izquierdo)
             IconButton(onClick = onSearchClick,
                 modifier = Modifier.padding(top = 10.dp)) {
                 Icon(
@@ -76,7 +74,6 @@ fun Toolbar(
             }
         },
         actions = {
-            // ✅ Icono de tema (lado derecho)
             IconButton(onClick = onThemeClick,
                 modifier = Modifier.padding(top = 10.dp)) {
                 Icon(

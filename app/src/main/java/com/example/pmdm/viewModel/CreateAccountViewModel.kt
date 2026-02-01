@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.util.Locale
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,10 +22,33 @@ class CreateAccountViewModel @Inject constructor(
     private val _state = MutableStateFlow(CreateAccountPageState())
     val state: StateFlow<CreateAccountPageState> = _state.asStateFlow()
 
-    fun onUsernameChange(value: String) { _state.update { it.copy(username = value, error = null) } }
-    fun onEmailChange(value: String) { _state.update { it.copy(email = value, error = null) } }
-    fun onPasswordChange(value: String) { _state.update { it.copy(password = value, error = null) } }
-    fun onRepeatPasswordChange(value: String) { _state.update { it.copy(repeatPassword = value, error = null) } }
+    fun onUsernameChange(value: String) {
+        val normalized = value.trim().lowercase(Locale.ROOT)
+        _state.update { it.copy(username = normalized, error = null) }
+    }
+
+    fun onEmailChange(value: String) {
+        val normalized = value.trim().lowercase(Locale.ROOT)
+        _state.update { it.copy(email = normalized, error = null) }
+    }
+
+    fun onPasswordChange(value: String) {
+        val normalized = value.trim()
+        _state.update { it.copy(password = normalized, error = null) }
+    }
+
+    fun onRepeatPasswordChange(value: String) {
+        val normalized = value.trim()
+        _state.update { it.copy(repeatPassword = normalized, error = null) }
+    }
+
+    fun togglePasswordVisibility() {
+        _state.update { it.copy(passwordVisible = !it.passwordVisible) }
+    }
+
+    fun toggleRepeatPasswordVisibility() {
+        _state.update { it.copy(repeatPasswordVisible = !it.repeatPasswordVisible) }
+    }
 
     fun onCreateClick() {
         val s = _state.value
@@ -40,11 +64,15 @@ class CreateAccountViewModel @Inject constructor(
 
         viewModelScope.launch {
             when (val result = userRepository.register(s.username, s.email, s.password)) {
-                is RegisterResult.Success -> _state.update { it.copy(success = true, error = null) }
-                is RegisterResult.UsernameAlreadyExists -> _state.update { it.copy(success = false, error = "El usuario ya existe") }
-                is RegisterResult.NetworkError -> _state.update { it.copy(success = false, error = result.message ?: "Error creando usuario") }
-            }
+                is RegisterResult.Success ->
+                    _state.update { it.copy(success = true, error = null) }
 
+                is RegisterResult.UsernameAlreadyExists ->
+                    _state.update { it.copy(success = false, error = "El usuario ya existe") }
+
+                is RegisterResult.NetworkError ->
+                    _state.update { it.copy(success = false, error = result.message ?: "Error creando usuario") }
+            }
         }
     }
 

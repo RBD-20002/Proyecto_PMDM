@@ -6,6 +6,6 @@ data class LoginPageState(
     val passwordVisible: Boolean = false,
     val isLoginEnabled: Boolean = false,
     val loginError: String? = null,
-    val emailError: String? = null,
+    val usernameError: String? = null,
     val passwordError: String? = null
 )
