@@ -3,43 +3,110 @@
     <string name="app_name">AnimeHub</string>
 
     <!--========================PAGINA INICIO========================-->
-    <string name="PS_Text_1">TODOS LOS ANIMES</string>
-    <string name="PS_Text_2">RECOMENDADOS</string>
+    <string name="Pag_Inicio_Text_1">TODOS LOS ANIMES</string>
+    <string name="Pag_Inicio_Text_2">RECOMENDADOS</string>
 
     <!--========================PAGINA INICIAR SECCION========================-->
-    <string name="PL_Text_1">INICIAR SESIÓN</string>
-    <string name="PL_Text_2">USUARIO:</string>
-    <string name="PL_Text_3">CONTRASEÑA:</string>
-    <string name="PL_Text_4">INICIAR SESION</string>
-    <string name="PL_Text_5">CREAR CUENTA</string>
-    <string name="PL_Text_6">INVITADO</string>
+    <string name="Pag_Inicio_Session_Text_1">INICIAR SESIÓN</string>
+    <string name="Pag_Inicio_Session_Text_2">USUARIO:</string>
+    <string name="Pag_Inicio_Session_Text_3">CONTRASEÑA:</string>
+    <string name="Pag_Inicio_Session_Text_4">INICIAR SESION</string>
+    <string name="Pag_Inicio_Session_Text_5">CREAR CUENTA</string>
+    <string name="Pag_Inicio_Session_Text_6">INVITADO</string>
 
     <!--========================PAGINA CREAR CUENTA========================-->
-    <string name="PCA_Text_1">CREAR CUENTA:</string>
-    <string name="PCA_Text_2">USUARIO:</string>
-    <string name="PCA_Text_3">CORREO:</string>
-    <string name="PCA_Text_4">CONTRASEÑA:</string>
-    <string name="PCA_Text_5">REPITE LA CONTRASEÑA:</string>
-    <string name="PCA_Text_6">CREAR</string>
-    <string name="PCA_Text_7">CANCELAR</string>
+    <string name="Pag_Crear_Cuenta_Text_1">CREAR CUENTA:</string>
+    <string name="Pag_Crear_Cuenta_Text_2">USUARIO:</string>
+    <string name="Pag_Crear_Cuenta_Text_3">CORREO:</string>
+    <string name="Pag_Crear_Cuenta_Text_4">CONTRASEÑA:</string>
+    <string name="Pag_Crear_Cuenta_Text_5">REPITE LA CONTRASEÑA:</string>
+    <string name="Pag_Crear_Cuenta_Text_6">CREAR</string>
+    <string name="Pag_Crear_Cuenta_Text_7">CANCELAR</string>
 
     <!--========================PAGINA PERFIL========================-->
-    <string name="PP_Text_1">DATOS USUARIO</string>
-    <string name="PP_Text_2">USUARIO:</string>
-    <string name="PP_Text_3">EMAIL:</string>
+    <string name="Pag_Perfil_Text_1">DATOS USUARIO</string>
+    <string name="Pag_Perfil_Text_2">USUARIO:</string>
+    <string name="Pag_Perfil_Text_3">EMAIL:</string>
 
     <!--========================PAGINA FAVORITOS========================-->
-    <string name="PFP_Text_1">FAVORITOS</string>
+    <string name="Pag_Favorito_Text_1">FAVORITOS</string>
 
     <!--========================PAGINAS DETALLES========================-->
-    <string name="PD_Text_1">INFORMACION</string>
-    <string name="PD_Text_2">SINOPSIS:</string>
-    <string name="PD_Text_3">ENLACES:</string>
-    <string name="PD_Text_4">Ver en AnimeFLV</string>
-    <string name="PD_Text_5">Ver en jkAnime</string>
+    <string name="Pag_Detalle_Text_1">INFORMACION</string>
+    <string name="Pag_Detalle_Text_2">SINOPSIS:</string>
+    <string name="Pag_Detalle_Text_3">ENLACES:</string>
+    <string name="Pag_Detalle_Text_4">Ver en AnimeFLV</string>
+    <string name="Pag_Detalle_Text_5">Ver en jkAnime</string>
 
     <!--========================MENSAJES EN CASOS VARIOS========================-->
     <string name="Text_Error_Login">No has iniciado sesión</string>
     <string name="Text_Action_Login">Inicia sesión para ver tu perfil</string>
 
+    <!--========================MENSAJES USADOS EN COMPONENTES========================-->
+    <!--========== BlockDisplayComponent ==========-->
+    <string name="Text_Anime_FLVanime">animeFLV</string>
+    <string name="Text_Anime_JkAnime">jkAnime</string>
+
+    <!--========== DataProfilePreview ==========-->
+    <string name="Text_DataProfilePreview_1">Fondo</string>
+    <string name="Text_DataProfilePreview_2">Editar datos de usuario</string>
+    <string name="Text_DataProfilePreview_3">Usuario</string>
+    <string name="Text_DataProfilePreview_4">Email</string>
+    <string name="Text_DataProfilePreview_5">Guardando...</string>
+    <string name="Text_DataProfilePreview_6">Guardar</string>
+    <string name="Text_DataProfilePreview_7">Cancelar</string>
+
+    <!--========== ProfileCard ==========-->
+    <string name="Text_ProfileCard_1">Foto de perfil</string>
+    <string name="Text_ProfileCard_2">BOTON DE CAMARA</string>
+    <string name="Text_ProfileCard_3">BOTON CONFIGURACION CAMARA</string>
+
+    <!--========== ProfileImagePickerSheet ==========-->
+    <string name="Text_ProfileImagePickerSheet_1">Elige una foto de perfil</string>
+    <string name="Text_ProfileImagePickerSheet_2">Sacar foto</string>
+
+    <!--========== SearchToggle ==========-->
+    <string name="Text_SearchToggle_1">Buscar...</string>
+    <string name="Text_SearchToggle_2">Cerrar</string>
+
+    <!--========== Toolbar ==========-->
+    <string name="Text_Toolbar_1">Logo de la app</string>
+    <string name="Text_Toolbar_2">Buscar</string>
+    <string name="Text_Toolbar_3">Sol (modo oscuro)</string>
+    <string name="Text_Toolbar_4">Luna (modo claro)</string>
+
+    <!--========== Destination ==========-->
+    <string name="Text_CameraPage_1">Se necesita permiso para usar la cámara</string>
+    <string name="Text_CameraPage_2">Conceder permiso</string>
+    <string name="Text_CameraPage_3">Cambiar cámara</string>
+    <string name="Text_CameraPage_4">Tomar foto</string>
+
+    <!--========== DetailsPage ==========-->
+    <string name="Text_DetailsPage_1">Fondo detalles</string>
+    <string name="Text_DetailsPage_2">Toggle favorito</string>
+
+    <!--========== FavoritePage ==========-->
+    <string name="Text_FavoritePage_1">Fondo lista favoritos</string>
+    <string name="Text_FavoritePage_2">No hay favoritos</string>
+    <string name="Text_FavoritePage_3">Agrega animes a favoritos para verlos aquí</string>
+
+    <!--========== ListContend ==========-->
+    <string name="Text_ListConted_1">Fondo lista contenido</string>
+    <string name="Text_ListContend_2">Cargando...</string>
+
+    <!--========== LoginPage ==========-->
+    <string name="Text_LoginPage_1">Fondo iniciar sesion</string>
+    <string name="Text_LoginPage_2">Logo</string>
+    <string name="Text_LoginPage_3">Toggle password visibility</string>
+
+    <!--========== ProfilePage ==========-->
+    <string name="Text_ProfilePage_1">Fondo perfil</string>
+    <string name="Text_ProfilePage_2">Foto de perfil</string>
+    <string name="Text_ProfilePage_3">Sin foto</string>
+    <string name="Text_ProfilePage_4">Cambiar foto de perfil</string>
+    <string name="Text_ProfilePage_5">Editar datos</string>
+
+    <!--========== StartPage ==========-->
+    <string name="Text_StartPage_1">Fondo inicio</string>
+    <string name="Text_StartPage_2">Cargando...</string>
 </resources>

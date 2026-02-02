@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -52,7 +53,7 @@ fun DetailsPage(
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = painterResource(R.drawable.login_page),
-            contentDescription = "Fondo",
+            contentDescription = stringResource(R.string.Text_DetailsPage_1),
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
@@ -69,11 +70,13 @@ fun DetailsPage(
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Box(
                         modifier = Modifier
-                            .border(2.dp,
+                            .border(
+                                2.dp,
                                 color = Color.White,
                                 shape = RoundedCornerShape(30.dp)
                             )
-                            .clip(RoundedCornerShape(30.dp)
+                            .clip(
+                                RoundedCornerShape(30.dp)
                             )
                     ){
                         AsyncImage(
@@ -124,7 +127,7 @@ fun DetailsPage(
             ) {
                 Icon(
                     imageVector = if (state.isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
-                    contentDescription = "Toggle favorito",
+                    contentDescription = stringResource(R.string.Text_DetailsPage_2),
                     tint = if (state.isFavorite) Color.Red else Color.Gray
                 )
             }

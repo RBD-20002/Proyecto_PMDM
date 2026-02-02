@@ -52,7 +52,7 @@ fun LoginPage(
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = painterResource(id = R.drawable.login_page),
-            contentDescription = "Fondo Login",
+            contentDescription = stringResource(R.string.Text_LoginPage_1),
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
@@ -69,7 +69,7 @@ fun LoginPage(
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.logo),
-                    contentDescription = "Logo",
+                    contentDescription = stringResource(R.string.Text_LoginPage_2),
                     modifier = Modifier
                         .size(90.dp)
                         .clip(RoundedCornerShape(40.dp))
@@ -79,14 +79,14 @@ fun LoginPage(
             Spacer(modifier = Modifier.height(120.dp))
 
             TextComponent(
-                text = stringResource(R.string.PL_Text_1),
+                text = stringResource(R.string.Pag_Inicio_Session_Text_1),
                 textSize = 20.sp,
                 textColor = Color.White
             )
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            TextComponent(text = stringResource(R.string.PL_Text_2), textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = stringResource(R.string.Pag_Inicio_Session_Text_2), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.userName,
                 onValueChange = onUsernameChange,
@@ -103,7 +103,7 @@ fun LoginPage(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            TextComponent(text = stringResource(R.string.PL_Text_3), textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = stringResource(R.string.Pag_Inicio_Session_Text_3), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.password,
                 onValueChange = onPasswordChange,
@@ -125,7 +125,7 @@ fun LoginPage(
                     IconButton(onClick = onTogglePasswordVisibility) {
                         Icon(
                             imageVector = if (state.passwordVisible) Icons.Default.VisibilityOff else Icons.Default.Visibility,
-                            contentDescription = "Toggle password visibility"
+                            contentDescription = stringResource(R.string.Text_LoginPage_3)
                         )
                     }
                 }
@@ -141,17 +141,17 @@ fun LoginPage(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 ButtomComponent(
-                    text = stringResource(R.string.PL_Text_4),
+                    text = stringResource(R.string.Pag_Inicio_Session_Text_4),
                     enabled = state.isLoginEnabled
                 ) { onLoginClick() }
 
                 ButtomComponent(
-                    text = stringResource(R.string.PL_Text_5),
+                    text = stringResource(R.string.Pag_Inicio_Session_Text_5),
                     enabled = true
                 ) { onRegisterClick() }
 
                 ButtomComponent(
-                    text = stringResource(R.string.PL_Text_6),
+                    text = stringResource(R.string.Pag_Inicio_Session_Text_6),
                     enabled = true
                 ) { onGuestClick() }
 

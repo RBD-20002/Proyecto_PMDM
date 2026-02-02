@@ -52,7 +52,7 @@ data class PreviewFieldConfig(
  */
 @Composable
 fun DataProfileComponent(
-    title: String = stringResource(R.string.PP_Text_1),
+    title: String = stringResource(R.string.Pag_Perfil_Text_1),
     items: List<PreviewFieldConfig>,
     borderColor: Color = Color.Black,
     backgroundColor: Color = Color(0xFF0A0D1F).copy(alpha = 0.5f)

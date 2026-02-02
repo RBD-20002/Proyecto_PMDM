@@ -10,7 +10,9 @@ import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -30,11 +32,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.navigation.NavController
+import com.example.pmdm.R
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.PermissionState
 import com.google.accompanist.permissions.isGranted
@@ -68,14 +72,14 @@ fun CameraPage(
     }
 
     if (!cameraPermissionState.status.isGranted) {
-        androidx.compose.foundation.layout.Column(
+        Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center
+            verticalArrangement = Arrangement.Center
         ) {
-            Text(text = "Se necesita permiso para usar la cámara")
+            Text(text = stringResource(R.string.Text_CameraPage_1))
             Button(onClick = { cameraPermissionState.launchPermissionRequest() }) {
-                Text(text = "Conceder permiso")
+                Text(text = stringResource(R.string.Text_CameraPage_2))
             }
         }
         return
@@ -122,7 +126,7 @@ fun CameraPage(
                     CameraSelector.DEFAULT_BACK_CAMERA
                 }
             }) {
-                Icon(Icons.Default.Cameraswitch, contentDescription = "Cambiar cámara", tint = MaterialTheme.colorScheme.onBackground)
+                Icon(Icons.Default.Cameraswitch, contentDescription = stringResource(R.string.Text_CameraPage_3), tint = MaterialTheme.colorScheme.onBackground)
             }
 
             IconButton(onClick = {
@@ -157,7 +161,7 @@ fun CameraPage(
                     }
                 )
             }) {
-                Icon(Icons.Default.PhotoCamera, contentDescription = "Tomar foto", tint = MaterialTheme.colorScheme.onBackground)
+                Icon(Icons.Default.PhotoCamera, contentDescription = stringResource(R.string.Text_CameraPage_4), tint = MaterialTheme.colorScheme.onBackground)
             }
         }
     }

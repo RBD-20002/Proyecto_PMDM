@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -28,7 +29,7 @@ fun FavoritePage(
         // Fondo
         Image(
             painter = painterResource(R.drawable.login_page),
-            contentDescription = "Fondo",
+            contentDescription = stringResource(R.string.Text_FavoritePage_1),
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
@@ -49,12 +50,12 @@ fun FavoritePage(
                         verticalArrangement = Arrangement.Center
                     ) {
                         TextComponent(
-                            text = "No hay favoritos",
+                            text = stringResource(R.string.Text_FavoritePage_2),
                             textSize = 24.sp
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         TextComponent(
-                            text = "Agrega animes a favoritos para verlos aquí",
+                            text = stringResource(R.string.Text_FavoritePage_3),
                             textSize = 16.sp
                         )
                     }

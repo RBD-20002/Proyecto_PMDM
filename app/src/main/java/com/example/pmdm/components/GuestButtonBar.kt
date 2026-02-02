@@ -1,6 +1,7 @@
 package com.example.pmdm.components
 
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
@@ -63,7 +64,7 @@ fun GuestBottomBar(
 @Composable
 fun GuestBottomBarPreview() {
     val navController = rememberNavController()
-    androidx.compose.material3.MaterialTheme {
+    MaterialTheme {
         GuestBottomBar(navController = navController)
     }
 }
@@ -72,7 +73,7 @@ fun GuestBottomBarPreview() {
 @Preview(showBackground = true, name = "GuestBottomBar - En Start")
 @Composable
 fun GuestBottomBarStartPreview() {
-    androidx.compose.material3.MaterialTheme {
+    MaterialTheme {
         val navController = rememberNavController()
         // Simula estar en la ruta "start"
         GuestBottomBar(navController = navController)

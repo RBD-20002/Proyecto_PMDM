@@ -78,14 +78,14 @@ fun CreateAcountPage(
             Spacer(modifier = Modifier.height(14.dp))
 
             TextComponent(
-                text = stringResource(R.string.PCA_Text_1),
+                text = stringResource(R.string.Pag_Crear_Cuenta_Text_1),
                 textSize = 20.sp,
                 textColor = Color.White
             )
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            TextComponent(text = stringResource(R.string.PCA_Text_2), textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = stringResource(R.string.Pag_Crear_Cuenta_Text_2), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.username,
                 onValueChange = onUsernameChange,
@@ -95,7 +95,7 @@ fun CreateAcountPage(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            TextComponent(text = stringResource(R.string.PCA_Text_3), textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = stringResource(R.string.Pag_Crear_Cuenta_Text_3), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.email,
                 onValueChange = onEmailChange,
@@ -105,7 +105,7 @@ fun CreateAcountPage(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            TextComponent(text = stringResource(R.string.PCA_Text_4), textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = stringResource(R.string.Pag_Crear_Cuenta_Text_4), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.password,
                 onValueChange = onPasswordChange,
@@ -123,7 +123,7 @@ fun CreateAcountPage(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            TextComponent(text = stringResource(R.string.PCA_Text_5), textColor = Color.White, textSize = 13.sp)
+            TextComponent(text = stringResource(R.string.Pag_Crear_Cuenta_Text_5), textColor = Color.White, textSize = 13.sp)
             OutlinedTextField(
                 value = state.repeatPassword,
                 onValueChange = onRepeatPasswordChange,
@@ -147,8 +147,8 @@ fun CreateAcountPage(
                     horizontalArrangement = Arrangement.spacedBy(5.dp),
                     modifier = Modifier.padding(10.dp)
                 ) {
-                    ButtomComponent(text = stringResource(R.string.PCA_Text_6)) { onCreateClick() }
-                    ButtomComponent(text = stringResource(R.string.PCA_Text_7)) { onCancelClick() }
+                    ButtomComponent(text = stringResource(R.string.Pag_Crear_Cuenta_Text_6)) { onCreateClick() }
+                    ButtomComponent(text = stringResource(R.string.Pag_Crear_Cuenta_Text_7)) { onCancelClick() }
                 }
             }
 

@@ -1,6 +1,7 @@
 package com.example.pmdm.components
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
@@ -24,8 +25,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.example.pmdm.R
 import com.example.pmdm.ui.theme.cardContainerColor
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -39,7 +42,7 @@ fun ProfileImagePickerSheet(
 ) {
     ModalBottomSheet(onDismissRequest = onDismiss) {
         Text(
-            text = "Elige una foto de perfil",
+            text = stringResource(R.string.Text_ProfileImagePickerSheet_1),
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
         )
@@ -60,13 +63,13 @@ fun ProfileImagePickerSheet(
                         .aspectRatio(1f),
                     onClick = onTakePhoto
                 ) {
-                    androidx.compose.foundation.layout.Box(
+                    Box(
                         modifier = Modifier.fillMaxWidth(),
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
                             imageVector = Icons.Default.PhotoCamera,
-                            contentDescription = "Sacar foto",
+                            contentDescription = stringResource(R.string.Text_ProfileImagePickerSheet_2),
                             modifier = Modifier.padding(24.dp)
                         )
                     }
