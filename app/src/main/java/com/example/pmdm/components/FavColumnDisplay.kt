@@ -59,7 +59,7 @@ fun FavColumnDisplay(
         ) {
             // Título simple
             TextComponent(
-                text = stringResource(R.string.PFP_Text_1),
+                text = stringResource(R.string.Pag_Favorito_Text_1),
                 textSize = 30.sp
             )
         }

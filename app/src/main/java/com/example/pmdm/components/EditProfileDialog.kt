@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -20,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.example.pmdm.R
@@ -40,7 +42,7 @@ fun EditProfileDialog(
         Box {
             Image(
                 painter = painterResource(id = R.drawable.login_page),
-                contentDescription = "Fondo",
+                contentDescription = stringResource(R.string.Text_DataProfilePreview_1),
                 modifier = Modifier.matchParentSize(),
                 contentScale = ContentScale.Crop
             )
@@ -56,12 +58,12 @@ fun EditProfileDialog(
                     modifier = Modifier.padding(16.dp),
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-                    Text(text = "Editar datos de usuario", style = MaterialTheme.typography.titleMedium)
+                    Text(text = stringResource(R.string.Text_DataProfilePreview_2), style = MaterialTheme.typography.titleMedium)
 
                     OutlinedTextField(
                         value = username,
                         onValueChange = onUsernameChange,
-                        label = { Text("Usuario") },
+                        label = { Text(stringResource(R.string.Text_DataProfilePreview_3)) },
                         singleLine = true,
                         enabled = !isSaving,
                         modifier = Modifier.fillMaxWidth(),
@@ -78,7 +80,7 @@ fun EditProfileDialog(
                     OutlinedTextField(
                         value = email,
                         onValueChange = onEmailChange,
-                        label = { Text("Email") },
+                        label = { Text(stringResource(R.string.Text_DataProfilePreview_4)) },
                         singleLine = true,
                         enabled = !isSaving,
                         modifier = Modifier.fillMaxWidth(),
@@ -96,17 +98,19 @@ fun EditProfileDialog(
 
                     Spacer(modifier = Modifier.height(4.dp))
 
-                    androidx.compose.foundation.layout.Row(
+                    Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(10.dp)
                     ) {
                         ButtomComponent(
-                            text = if (isSaving) "Guardando..." else "Guardar",
+                            text = if (isSaving) stringResource(R.string.Text_DataProfilePreview_5) else stringResource(
+                                R.string.Text_DataProfilePreview_6
+                            ),
                             enabled = !isSaving
                         ) { onSave() }
 
                         ButtomComponent(
-                            text = "Cancelar",
+                            text = stringResource(R.string.Text_DataProfilePreview_7),
                             enabled = !isSaving
                         ) { onCancel() }
                     }

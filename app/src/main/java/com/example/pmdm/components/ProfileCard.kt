@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -68,9 +69,11 @@ fun ProfileCard(
                 // ✅ Mostrar la foto capturada
                 AsyncImage(
                     model = profileImageUri,
-                    contentDescription = "Foto de perfil",
+                    contentDescription = stringResource(R.string.Text_ProfileCard_1),
                     contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxWidth().height(170.dp)
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(170.dp)
                 )
             } else {
                 // Fallback a la imagen del anime (crocs)
@@ -95,7 +98,7 @@ fun ProfileCard(
             Row() {
                 IconButtonComponent(
                     icon = Icons.Default.PhotoCamera,
-                    description = "BOTON DE CAMARA",
+                    description = stringResource(R.string.Text_ProfileCard_2),
                     onClick = onCameraClick
                 )
 
@@ -103,7 +106,7 @@ fun ProfileCard(
 
                 IconButtonComponent(
                     icon = Icons.Default.Settings,
-                    description = "BOTON CONFIGURACION CAMARA",
+                    description = stringResource(R.string.Text_ProfileCard_3),
                     onClick = { }
                 )
             }

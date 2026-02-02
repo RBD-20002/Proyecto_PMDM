@@ -22,6 +22,7 @@ import com.example.pmdm.R
 import com.example.pmdm.ui.theme.PMDMTheme
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.ui.res.stringResource
 import com.example.pmdm.ui.theme.neonTextGradient
 
 /**
@@ -59,7 +60,7 @@ fun Toolbar(
         title = {
             Image(
                 painter = painterResource(id = logoRes),
-                contentDescription = "Logo de la app",
+                contentDescription = stringResource(R.string.Text_Toolbar_1),
                 modifier = Modifier.size(100.dp)
             )
         },
@@ -68,7 +69,7 @@ fun Toolbar(
                 modifier = Modifier.padding(top = 10.dp)) {
                 Icon(
                     Icons.Default.Search,
-                    contentDescription = "Buscar",
+                    contentDescription = stringResource(R.string.Text_Toolbar_2),
                     tint = MaterialTheme.colorScheme.background
                 )
             }
@@ -78,7 +79,9 @@ fun Toolbar(
                 modifier = Modifier.padding(top = 10.dp)) {
                 Icon(
                     imageVector = if (isDark) Icons.Default.LightMode else Icons.Default.DarkMode,
-                    contentDescription = if (isDark) "Sol (modo oscuro)" else "Luna (modo claro)",
+                    contentDescription = if (isDark) stringResource(R.string.Text_Toolbar_3) else stringResource(
+                        R.string.Text_Toolbar_4
+                    ),
                     tint = MaterialTheme.colorScheme.background
                 )
             }

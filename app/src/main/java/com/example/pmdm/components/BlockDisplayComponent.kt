@@ -24,7 +24,7 @@ fun BlockDisplayCardComponent(animeInfo: Anime) {
 
     Column {
         DisplayCardComponent(
-            title = stringResource(R.string.PD_Text_1),
+            title = stringResource(R.string.Pag_Detalle_Text_1),
             firstInfo = animeInfo.info,
             open = openedIndex == 0,
             onClick = {
@@ -35,7 +35,7 @@ fun BlockDisplayCardComponent(animeInfo: Anime) {
         Spacer(modifier = Modifier.height(15.dp))
 
         DisplayCardComponent(
-            title = stringResource(R.string.PD_Text_2),
+            title = stringResource(R.string.Pag_Detalle_Text_2),
             firstInfo = animeInfo.synopsis,
             open = openedIndex == 1,
             onClick = {
@@ -46,7 +46,7 @@ fun BlockDisplayCardComponent(animeInfo: Anime) {
         Spacer(modifier = Modifier.height(15.dp))
 
         DisplayCardComponent(
-            title = stringResource(R.string.PD_Text_3),
+            title = stringResource(R.string.Pag_Detalle_Text_3),
             firstInfo = "",
             open = openedIndex == 2,
             onClick = {
@@ -56,8 +56,8 @@ fun BlockDisplayCardComponent(animeInfo: Anime) {
                 Spacer(modifier = Modifier.height(10.dp))
                 LinkButtonComponent(
                     img = R.drawable.flv,
-                    description = "animeFLV",
-                    titleButton = stringResource(R.string.PD_Text_4)
+                    description = stringResource(R.string.Text_Anime_FLVanime),
+                    titleButton = stringResource(R.string.Pag_Detalle_Text_4)
                 ) {
                     context.startActivity(
                         Intent(Intent.ACTION_VIEW, Uri.parse(animeInfo.enlace1))
@@ -68,8 +68,8 @@ fun BlockDisplayCardComponent(animeInfo: Anime) {
 
                 LinkButtonComponent(
                     img = R.drawable.jk,
-                    description = "jkAnime",
-                    titleButton = stringResource(R.string.PD_Text_5)
+                    description = stringResource(R.string.Text_Anime_JkAnime),
+                    titleButton = stringResource(R.string.Pag_Detalle_Text_5)
                 ) {
                     context.startActivity(
                         Intent(Intent.ACTION_VIEW, Uri.parse(animeInfo.enlace2))
