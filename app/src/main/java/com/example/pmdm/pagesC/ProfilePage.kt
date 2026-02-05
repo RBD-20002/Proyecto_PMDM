@@ -27,9 +27,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Devices
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.example.pmdm.R
 import com.example.pmdm.components.DataProfileComponent
@@ -38,6 +41,7 @@ import com.example.pmdm.components.FavColumnDisplay
 import com.example.pmdm.components.PreviewFieldConfig
 import com.example.pmdm.components.ProfileImagePickerSheet
 import com.example.pmdm.components.TextComponent
+import com.example.pmdm.model.User
 import com.example.pmdm.navigation.Destination
 import com.example.pmdm.ui.state.ProfilePageState
 import com.example.pmdm.ui.theme.cardContainerColor
@@ -134,8 +138,7 @@ fun ProfilePage(
                         IconButton(onClick = onOpenImagePicker) {
                             Icon(
                                 imageVector = Icons.Default.Settings,
-                                contentDescription = stringResource(R.string.Text_ProfilePage_4),
-                                tint = MaterialTheme.colorScheme.onBackground
+                                contentDescription = stringResource(R.string.Text_ProfilePage_4)
                             )
                         }
                     }
@@ -163,8 +166,7 @@ fun ProfilePage(
                             ) {
                                 Icon(
                                     imageVector = Icons.Default.Settings,
-                                    contentDescription = stringResource(R.string.Text_ProfilePage_5),
-                                    tint = MaterialTheme.colorScheme.onBackground
+                                    contentDescription = stringResource(R.string.Text_ProfilePage_5)
                                 )
                             }
                         }
@@ -220,3 +222,44 @@ fun ProfilePage(
         }
     }
 }
+
+@Preview
+@Composable
+fun ProfilePagePreview() {
+    val navController = rememberNavController()
+
+    val fakeState = ProfilePageState(
+        isLoggedIn = true,
+        profileImageUri = null,
+        profileImageId = "",
+        isSavingImage = false,
+        user = User(
+            username = "Juan Pérez",
+            email = "juan@email.com",
+            password = "sadsda"
+        ),
+        favorites = emptyList(),
+    )
+
+    ProfilePage(
+        state = fakeState,
+        navController = navController,
+
+        onOpenImagePicker = {},
+        onCloseImagePicker = {},
+
+        presetImageIds = listOf("1", "2", "3"),
+        imageUrlForId = { _ ->
+            // Imagen de ejemplo (puede ser cualquier URL válida)
+            "https://picsum.photos/300"
+        },
+        onSelectPreset = {},
+
+        onOpenEditDialog = {},
+        onCloseEditDialog = {},
+        onEditUsernameChange = {},
+        onEditEmailChange = {},
+        onSaveEdits = {}
+    )
+}
+
