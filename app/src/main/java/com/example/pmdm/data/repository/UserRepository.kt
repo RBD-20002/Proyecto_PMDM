@@ -39,7 +39,8 @@ class UserRepository @Inject constructor(
                 username = user.username,
                 email = user.email,
                 password = user.password,
-                profileImageId = user.profileImageId.orEmpty()
+                profileImageId = user.profileImageId.orEmpty(),
+                favoriteAnimes = user.favoriteAnimes ?: emptyList()
             )
             _session.value = SessionDto(isLoggedIn = true, user = sanitized)
 
@@ -72,7 +73,8 @@ class UserRepository @Inject constructor(
                 username = normalizedUser,
                 email = normalizedEmail,
                 password = normalizedPass,
-                profileImageId = ""
+                profileImageId = "",
+                favoriteAnimes = emptyList()
             )
 
             _session.value = SessionDto(isLoggedIn = true, user = createdUser)
@@ -93,7 +95,8 @@ class UserRepository @Inject constructor(
             username = current.username,
             email = current.email,
             password = current.password,
-            profileImageId = safeNewId
+            profileImageId = safeNewId,
+            favoriteAnimes = current.favoriteAnimes
         )
 
         userService.updateUser(id = userId, user = updated)
@@ -103,7 +106,8 @@ class UserRepository @Inject constructor(
             username = updated.username,
             email = updated.email,
             password = updated.password,
-            profileImageId = updated.profileImageId.orEmpty()
+            profileImageId = updated.profileImageId.orEmpty(),
+            favoriteAnimes = updated.favoriteAnimes
         )
 
         _session.value = _session.value.copy(user = sanitizedUpdated, isLoggedIn = true)
@@ -138,7 +142,8 @@ class UserRepository @Inject constructor(
                 username = newUsername,
                 email = newEmail,
                 password = current.password,
-                profileImageId = current.profileImageId.orEmpty()
+                profileImageId = current.profileImageId.orEmpty(),
+                favoriteAnimes = current.favoriteAnimes
             )
 
             userService.updateUser(id = userId, user = updated)
@@ -150,6 +155,10 @@ class UserRepository @Inject constructor(
         } catch (e: Exception) {
             UpdateProfileResult.NetworkError(e.message)
         }
+    }
+
+    fun updateUserInSession(user: UserDto) {
+        _session.value = _session.value.copy(user = user)
     }
 
     fun loginAsGuest() {

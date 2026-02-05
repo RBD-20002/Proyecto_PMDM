@@ -18,8 +18,11 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideAnimeRepository(animeService: AnimeService): AnimeRepository =
-        AnimeRepository(animeService)
+    fun provideAnimeRepository(
+        animeService: AnimeService,
+        userRepository: UserRepository,
+        userService: UserService
+    ): AnimeRepository = AnimeRepository(animeService, userRepository, userService)
 
     @Provides
     @Singleton

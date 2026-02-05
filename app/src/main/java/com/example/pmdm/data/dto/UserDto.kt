@@ -16,5 +16,8 @@ data class UserDto(
     val password: String,
 
     @SerializedName("profileImageId")
-    val profileImageId: String? = ""
+    val profileImageId: String? = "",
+
+    @SerializedName("favoriteAnimes")
+    val favoriteAnimes: List<String>? = emptyList()
 )

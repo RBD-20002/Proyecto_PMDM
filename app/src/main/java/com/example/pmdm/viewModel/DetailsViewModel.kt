@@ -33,10 +33,12 @@ class DetailsViewModel @Inject constructor(
     }
 
     fun toggleFavorite() {
-        _state.update { current ->
-            current?.let {
-                animeRepository.toggleFavorite(it.anime)
-                it.copy(isFavorite = !it.isFavorite)
+        viewModelScope.launch {
+            _state.update { current ->
+                current?.let {
+                    animeRepository.toggleFavorite(it.anime)
+                    it.copy(isFavorite = !it.isFavorite)
+                }
             }
         }
     }
