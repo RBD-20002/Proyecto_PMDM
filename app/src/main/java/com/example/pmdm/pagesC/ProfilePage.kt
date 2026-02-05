@@ -92,9 +92,9 @@ fun ProfilePage(
                         .padding(top = 26.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                    Column (
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Card(
                             modifier = Modifier.size(160.dp),
@@ -138,7 +138,8 @@ fun ProfilePage(
                         IconButton(onClick = onOpenImagePicker) {
                             Icon(
                                 imageVector = Icons.Default.Settings,
-                                contentDescription = stringResource(R.string.Text_ProfilePage_4)
+                                contentDescription = stringResource(R.string.Text_ProfilePage_4),
+                                tint = Color.White
                             )
                         }
                     }
@@ -166,7 +167,8 @@ fun ProfilePage(
                             ) {
                                 Icon(
                                     imageVector = Icons.Default.Settings,
-                                    contentDescription = stringResource(R.string.Text_ProfilePage_5)
+                                    contentDescription = stringResource(R.string.Text_ProfilePage_5),
+                                    tint = Color.White
                                 )
                             }
                         }
