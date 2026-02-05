@@ -8,11 +8,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.NavDestination.Companion.hierarchy
 import com.example.pmdm.navigation.Destination
 
 @Composable
@@ -51,10 +52,10 @@ fun GuestBottomBar(
                 icon = {
                     Icon(
                         imageVector = dest.icon,
-                        contentDescription = dest.contentDescription
+                        contentDescription = stringResource(id = dest.title)
                     )
                 },
-                label = { Text(dest.label) }
+                label = { Text(stringResource(id = dest.title)) }
             )
         }
     }

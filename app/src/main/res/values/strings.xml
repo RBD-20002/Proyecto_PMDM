@@ -109,4 +109,9 @@
     <!--========== StartPage ==========-->
     <string name="Text_StartPage_1">Fondo inicio</string>
     <string name="Text_StartPage_2">Cargando...</string>
+
+    <!-- Titles for bottom navigation -->
+    <string name="destination_home">Inicio</string>
+    <string name="destination_favorites">Favoritos</string>
+    <string name="destination_profile">Perfil</string>
 </resources>

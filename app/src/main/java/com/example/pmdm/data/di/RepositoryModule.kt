@@ -2,6 +2,7 @@ package com.example.pmdm.data.di
 
 import com.example.pmdm.data.repository.AnimeRepository
 import com.example.pmdm.data.repository.ImageRepository
+import com.example.pmdm.data.repository.PreferencesRepository
 import com.example.pmdm.data.repository.UserRepository
 import com.example.pmdm.data.service.AnimeService
 import com.example.pmdm.data.service.ImageService
@@ -26,7 +27,10 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideUserRepository(userService: UserService): UserRepository = UserRepository(userService = userService)
+    fun provideUserRepository(
+        userService: UserService,
+        preferencesRepository: PreferencesRepository
+    ): UserRepository = UserRepository(userService = userService, preferencesRepository = preferencesRepository)
 
     @Provides
     @Singleton

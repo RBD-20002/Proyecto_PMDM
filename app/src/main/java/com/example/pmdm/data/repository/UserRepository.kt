@@ -4,16 +4,41 @@ import com.example.pmdm.data.dto.CreateUserRequestDto
 import com.example.pmdm.data.dto.SessionDto
 import com.example.pmdm.data.dto.UserDto
 import com.example.pmdm.data.service.UserService
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 import java.util.Locale
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class UserRepository @Inject constructor(
-    private val userService: UserService
+    private val userService: UserService,
+    private val preferencesRepository: PreferencesRepository
 ) {
     private val _session = MutableStateFlow(SessionDto(isLoggedIn = false, user = null))
     val session: StateFlow<SessionDto> = _session
+
+    init {
+        CoroutineScope(Dispatchers.IO).launch {
+            val userId = preferencesRepository.loggedInUserIdFlow.first()
+            if (userId != null) {
+                try {
+                    val users = userService.searchUsers(field = "id", value = userId)
+                    val user = users.firstOrNull()
+                    if (user != null) {
+                        val sanitized = user.copy(favoriteAnimes = user.favoriteAnimes ?: emptyList())
+                        _session.value = SessionDto(isLoggedIn = true, user = sanitized)
+                    }
+                } catch (_: Exception) {
+                    // Ignorar error de red y mantener la sesión cerrada
+                }
+            }
+        }
+    }
 
     private fun normalizeUsername(input: String): String =
         input.trim().lowercase(Locale.ROOT)
@@ -34,15 +59,9 @@ class UserRepository @Inject constructor(
 
             if (normalizePassword(user.password) != normalizedPass) return LoginResult.WrongPassword
 
-            val sanitized = UserDto(
-                id = user.id,
-                username = user.username,
-                email = user.email,
-                password = user.password,
-                profileImageId = user.profileImageId.orEmpty(),
-                favoriteAnimes = user.favoriteAnimes ?: emptyList()
-            )
+            val sanitized = user.copy(favoriteAnimes = user.favoriteAnimes ?: emptyList())
             _session.value = SessionDto(isLoggedIn = true, user = sanitized)
+            preferencesRepository.saveUserId(sanitized.id)
 
             LoginResult.Success
         } catch (e: Exception) {
@@ -78,6 +97,7 @@ class UserRepository @Inject constructor(
             )
 
             _session.value = SessionDto(isLoggedIn = true, user = createdUser)
+            preferencesRepository.saveUserId(createdUser.id)
             RegisterResult.Success
         } catch (e: Exception) {
             RegisterResult.NetworkError(e.message)
@@ -90,36 +110,13 @@ class UserRepository @Inject constructor(
 
         val safeNewId = newProfileImageId?.trim().orEmpty()
 
-        val updated = UserDto(
-            id = userId,
-            username = current.username,
-            email = current.email,
-            password = current.password,
-            profileImageId = safeNewId,
-            favoriteAnimes = current.favoriteAnimes
-        )
+        val updated = current.copy(profileImageId = safeNewId)
 
         userService.updateUser(id = userId, user = updated)
 
-        val sanitizedUpdated = UserDto(
-            id = userId,
-            username = updated.username,
-            email = updated.email,
-            password = updated.password,
-            profileImageId = updated.profileImageId.orEmpty(),
-            favoriteAnimes = updated.favoriteAnimes
-        )
-
-        _session.value = _session.value.copy(user = sanitizedUpdated, isLoggedIn = true)
+        _session.value = _session.value.copy(user = updated, isLoggedIn = true)
     }
 
-    /**
-     * Actualizar username y email con comprobación de duplicados.
-     * Reglas:
-     * - username/email se guardan trim + lowercase
-     * - username no debe existir en otro usuario
-     * - email no debe existir en otro usuario
-     */
     suspend fun updateUserBasicData(userId: String, newUsernameRaw: String, newEmailRaw: String): UpdateProfileResult {
         val current = _session.value.user ?: return UpdateProfileResult.NotLoggedIn
 
@@ -137,19 +134,11 @@ class UserRepository @Inject constructor(
                 .any { it.id != userId }
             if (sameEmail) return UpdateProfileResult.EmailAlreadyExists
 
-            val updated = UserDto(
-                id = userId,
-                username = newUsername,
-                email = newEmail,
-                password = current.password,
-                profileImageId = current.profileImageId.orEmpty(),
-                favoriteAnimes = current.favoriteAnimes
-            )
+            val updated = current.copy(username = newUsername, email = newEmail)
 
             userService.updateUser(id = userId, user = updated)
 
-            val sanitizedUpdated = updated.copy(profileImageId = updated.profileImageId.orEmpty())
-            _session.value = _session.value.copy(user = sanitizedUpdated, isLoggedIn = true)
+            _session.value = _session.value.copy(user = updated, isLoggedIn = true)
 
             UpdateProfileResult.Success
         } catch (e: Exception) {
@@ -163,14 +152,19 @@ class UserRepository @Inject constructor(
 
     fun loginAsGuest() {
         _session.value = SessionDto(isLoggedIn = false, user = null)
+        CoroutineScope(Dispatchers.IO).launch {
+            preferencesRepository.clearSession()
+        }
     }
 
     fun logout() {
         _session.value = SessionDto(isLoggedIn = false, user = null)
+        CoroutineScope(Dispatchers.IO).launch {
+            preferencesRepository.clearSession()
+        }
     }
 }
 
-/**  Resultado del update de datos básicos */
 sealed class UpdateProfileResult {
     data object Success : UpdateProfileResult()
     data object UsernameAlreadyExists : UpdateProfileResult()

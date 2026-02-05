@@ -50,7 +50,7 @@ dependencies {
     // Core Android
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
-
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
     // Compose BOM y componentes
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -88,6 +88,7 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.material3)
     kapt(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
 

@@ -14,12 +14,14 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,12 +29,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.example.pmdm.R
 import com.example.pmdm.components.DataProfileComponent
@@ -41,7 +40,6 @@ import com.example.pmdm.components.FavColumnDisplay
 import com.example.pmdm.components.PreviewFieldConfig
 import com.example.pmdm.components.ProfileImagePickerSheet
 import com.example.pmdm.components.TextComponent
-import com.example.pmdm.model.User
 import com.example.pmdm.navigation.Destination
 import com.example.pmdm.ui.state.ProfilePageState
 import com.example.pmdm.ui.theme.cardContainerColor
@@ -50,7 +48,7 @@ import com.example.pmdm.ui.theme.cardContainerColor
 fun ProfilePage(
     state: ProfilePageState,
     navController: NavController,
-
+    onLogout: () -> Unit,
     onOpenImagePicker: () -> Unit,
     onCloseImagePicker: () -> Unit,
     presetImageIds: List<String>,
@@ -89,7 +87,7 @@ fun ProfilePage(
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(top = 26.dp),
+                        .padding(top = 26.dp, bottom = 26.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Column (
@@ -139,7 +137,7 @@ fun ProfilePage(
                             Icon(
                                 imageVector = Icons.Default.Settings,
                                 contentDescription = stringResource(R.string.Text_ProfilePage_4),
-                                tint = Color.White
+                                tint = MaterialTheme.colorScheme.onBackground
                             )
                         }
                     }
@@ -168,7 +166,7 @@ fun ProfilePage(
                                 Icon(
                                     imageVector = Icons.Default.Settings,
                                     contentDescription = stringResource(R.string.Text_ProfilePage_5),
-                                    tint = Color.White
+                                    tint = MaterialTheme.colorScheme.onBackground
                                 )
                             }
                         }
@@ -181,6 +179,12 @@ fun ProfilePage(
                             textColor = Color(0xFF66FF99), // verde suave
                             textSize = 14.sp
                         )
+                    }
+
+                    Spacer(modifier = Modifier.height(24.dp))
+                    
+                    Button(onClick = onLogout) {
+                        Text(text = "Cerrar Sesión")
                     }
 
                     Spacer(modifier = Modifier.height(24.dp))
@@ -224,44 +228,3 @@ fun ProfilePage(
         }
     }
 }
-
-@Preview
-@Composable
-fun ProfilePagePreview() {
-    val navController = rememberNavController()
-
-    val fakeState = ProfilePageState(
-        isLoggedIn = true,
-        profileImageUri = null,
-        profileImageId = "",
-        isSavingImage = false,
-        user = User(
-            username = "Juan Pérez",
-            email = "juan@email.com",
-            password = "sadsda"
-        ),
-        favorites = emptyList(),
-    )
-
-    ProfilePage(
-        state = fakeState,
-        navController = navController,
-
-        onOpenImagePicker = {},
-        onCloseImagePicker = {},
-
-        presetImageIds = listOf("1", "2", "3"),
-        imageUrlForId = { _ ->
-            // Imagen de ejemplo (puede ser cualquier URL válida)
-            "https://picsum.photos/300"
-        },
-        onSelectPreset = {},
-
-        onOpenEditDialog = {},
-        onCloseEditDialog = {},
-        onEditUsernameChange = {},
-        onEditEmailChange = {},
-        onSaveEdits = {}
-    )
-}
-

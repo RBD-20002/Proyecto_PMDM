@@ -35,17 +35,6 @@ fun AppNavHost(
     authViewModel: AuthViewModel,
     startViewModel: StartViewModel
 ) {
-    val authState by authViewModel.state.collectAsStateWithLifecycle()
-
-    LaunchedEffect(authState.isLoggedIn) {
-        if (authState.isLoggedIn) {
-            navController.navigate(Destination.Start.route) {
-                popUpTo(Destination.Login.route) { inclusive = true }
-                launchSingleTop = true
-            }
-        }
-    }
-
     NavHost(
         navController = navController,
         startDestination = Destination.Login.route,
@@ -70,7 +59,7 @@ fun AppNavHost(
             ProfilePage(
                 state = state,
                 navController = navController,
-
+                onLogout = { authViewModel.logout() },
                 onOpenImagePicker = vm::openImagePicker,
                 onCloseImagePicker = vm::closeImagePicker,
                 presetImageIds = vm.presetProfileImageIds,
@@ -86,21 +75,20 @@ fun AppNavHost(
 
         }
 
-
         composable(Destination.Login.route) {
             val vm: LoginViewModel = hiltViewModel()
             val state by vm.state.collectAsStateWithLifecycle()
 
             LoginPage(
                 state = state,
-                authError = authState.error,
-                onUsernameChange = { value ->
+                authError = authViewModel.state.collectAsStateWithLifecycle().value.error,
+                onUsernameChange = {
                     authViewModel.setError(null)
-                    vm.onUsernameChange(value)
+                    vm.onUsernameChange(it)
                 },
-                onPasswordChange = { value ->
+                onPasswordChange = {
                     authViewModel.setError(null)
-                    vm.onPasswordChange(value)
+                    vm.onPasswordChange(it)
                 },
                 onTogglePasswordVisibility = { vm.togglePasswordVisibility() },
                 onLoginClick = {
@@ -119,7 +107,7 @@ fun AppNavHost(
             )
         }
 
-        composable(Destination.Fav.route) {
+        composable(Destination.Favorites.route) {
             val vm: FavoriteViewModel = hiltViewModel()
             val state by vm.state.collectAsStateWithLifecycle()
 
@@ -142,7 +130,7 @@ fun AppNavHost(
             DetailsPage(
                 state = state,
                 onToggleFavorite = { vm.toggleFavorite() },
-                isUserLoggedIn = authState.isLoggedIn
+                isUserLoggedIn = authViewModel.state.collectAsStateWithLifecycle().value.isLoggedIn
             )
         }
 

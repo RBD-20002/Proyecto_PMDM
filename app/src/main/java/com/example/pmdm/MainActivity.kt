@@ -57,6 +57,14 @@ private fun MainContent() {
         val authViewModel: AuthViewModel = hiltViewModel()
         val authState by authViewModel.state.collectAsStateWithLifecycle()
 
+        LaunchedEffect(authState.isLoggedIn) {
+            val targetRoute = if (authState.isLoggedIn) Destination.Start.route else Destination.Login.route
+            navController.navigate(targetRoute) {
+                popUpTo(navController.graph.id) { inclusive = true }
+                launchSingleTop = true
+            }
+        }
+
         val backStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = backStackEntry?.destination?.route
 
@@ -66,7 +74,7 @@ private fun MainContent() {
             currentRoute in setOf(
                 Destination.Start.route,
                 Destination.ListContend.route,
-                Destination.Fav.route,
+                Destination.Favorites.route,
                 Destination.Profile.route
             ) || (currentRoute?.startsWith("details") == true)
 
