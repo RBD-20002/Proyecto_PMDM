@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,6 +17,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -45,6 +48,7 @@ fun LoginPage(
     onUsernameChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
     onTogglePasswordVisibility: () -> Unit,
+    onRememberCredentialsChange: (Boolean) -> Unit,
     onLoginClick: () -> Unit,
     onRegisterClick: () -> Unit,
     onGuestClick: () -> Unit
@@ -131,6 +135,22 @@ fun LoginPage(
                 }
             )
 
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Checkbox(
+                    checked = state.rememberCredentials,
+                    onCheckedChange = onRememberCredentialsChange,
+                    colors = CheckboxDefaults.colors(
+                        checkedColor = Color.White,
+                        uncheckedColor = Color.White,
+                        checkmarkColor = Color.Black
+                    )
+                )
+                TextComponent(text = "Recordar credenciales", textColor = Color.White, textSize = 13.sp)
+            }
+
             Spacer(modifier = Modifier.height(24.dp))
 
             Column(
@@ -184,6 +204,7 @@ fun LoginPagePreview() {
         onUsernameChange = {},
         onPasswordChange = {},
         onTogglePasswordVisibility = {},
+        onRememberCredentialsChange = {},
         onLoginClick = {},
         onRegisterClick = {},
         onGuestClick = {}

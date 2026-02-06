@@ -5,7 +5,8 @@ data class LoginPageState(
     val password: String = "",
     val passwordVisible: Boolean = false,
     val isLoginEnabled: Boolean = false,
-    val loginError: String? = null,
     val usernameError: String? = null,
-    val passwordError: String? = null
+    val passwordError: String? = null,
+    val loginError: String? = null,
+    val rememberCredentials: Boolean = false
 )
