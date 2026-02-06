@@ -137,7 +137,7 @@ fun ProfilePage(
                             Icon(
                                 imageVector = Icons.Default.Settings,
                                 contentDescription = stringResource(R.string.Text_ProfilePage_4),
-                                tint = MaterialTheme.colorScheme.onBackground
+                                tint = Color.White
                             )
                         }
                     }
@@ -166,7 +166,7 @@ fun ProfilePage(
                                 Icon(
                                     imageVector = Icons.Default.Settings,
                                     contentDescription = stringResource(R.string.Text_ProfilePage_5),
-                                    tint = MaterialTheme.colorScheme.onBackground
+                                    tint = Color.White
                                 )
                             }
                         }

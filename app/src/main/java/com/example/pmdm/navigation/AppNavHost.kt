@@ -90,14 +90,16 @@ fun AppNavHost(
                     authViewModel.setError(null)
                     vm.onPasswordChange(it)
                 },
-                onTogglePasswordVisibility = { vm.togglePasswordVisibility() },
+                onTogglePasswordVisibility = vm::togglePasswordVisibility,
+                onRememberCredentialsChange = { vm.onRememberCredentialsChange(it) },
                 onLoginClick = {
-                    vm.setLoginError(null)
+                    vm.onLoginSuccess()
+                    authViewModel.setError(null)
                     authViewModel.login(username = state.userName, password = state.password)
                 },
                 onRegisterClick = { navController.navigate(Destination.CreateAccount.route) },
                 onGuestClick = {
-                    vm.setLoginError(null)
+                    authViewModel.setError(null)
                     authViewModel.loginAsGuest()
                     navController.navigate(Destination.Start.route) {
                         popUpTo(Destination.Login.route) { inclusive = true }
