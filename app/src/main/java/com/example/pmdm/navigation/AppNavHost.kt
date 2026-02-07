@@ -28,6 +28,16 @@ import com.example.pmdm.viewModel.LoginViewModel
 import com.example.pmdm.viewModel.ProfileViewModel
 import com.example.pmdm.viewModel.StartViewModel
 
+/**
+ * Componente principal de navegación que define la estructura de navegación de la aplicación.
+ * Utiliza Jetpack Navigation Compose para gestionar las transiciones entre pantallas
+ * y la inyección de dependencias de ViewModels.
+ *
+ * @param navController Controlador de navegación que gestiona las transiciones entre pantallas
+ * @param modifier Modificador para personalizar el diseño del contenedor de navegación
+ * @param authViewModel ViewModel de autenticación compartido entre múltiples pantallas
+ * @param startViewModel ViewModel de la pantalla de inicio
+ */
 @Composable
 fun AppNavHost(
     navController: NavHostController,

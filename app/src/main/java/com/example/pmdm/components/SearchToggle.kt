@@ -38,6 +38,20 @@ import androidx.compose.ui.unit.dp
 import com.example.pmdm.R
 import com.example.pmdm.ui.theme.neonTextGradientAlpha
 
+/**
+ * Componente de búsqueda expandible que muestra un campo de texto y resultados filtrados.
+ * Soporta tanto control interno del estado como control externo a través de parámetros opcionales.
+ * Incluye animación de tamaño y gestión adaptable a diferentes tamaños de pantalla.
+ *
+ * @param modifier Modificador para personalizar el diseño del componente
+ * @param hint Texto de marcador de posición que se muestra en el campo de búsqueda vacío
+ * @param results Lista de resultados de búsqueda que se muestran debajo del campo de texto
+ * @param onSearch Función lambda que se ejecuta cuando se realiza una búsqueda (cada cambio de texto)
+ * @param onResultClick Función lambda que se ejecuta al hacer clic en un resultado de búsqueda
+ * @param externalActive Estado booleano externo opcional que controla si la búsqueda está visible
+ * @param onActiveChangeExternal Función lambda externa opcional para manejar cambios en el estado activo
+ * @param onQueryChangeExternal Función lambda externa opcional para manejar cambios en el texto de búsqueda
+ */
 @Composable
 fun SearchToggle(
     modifier: Modifier = Modifier,
@@ -162,6 +176,10 @@ fun SearchToggle(
     }
 }
 
+/**
+ * Vista previa del componente SearchToggle para visualización en el diseñador de Android Studio.
+ * Muestra el componente en estado activo con resultados de búsqueda de ejemplo.
+ */
 @Preview(showBackground = true)
 @Composable
 private fun SearchTogglePreview() {

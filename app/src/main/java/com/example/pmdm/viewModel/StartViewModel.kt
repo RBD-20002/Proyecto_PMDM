@@ -12,6 +12,12 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * ViewModel para la pantalla de inicio que gestiona la carga y estado
+ * de la lista de animes. Utiliza Hilt para la inyección de dependencias.
+ *
+ * @property animeRepository Repositorio que maneja las operaciones relacionadas con animes
+ */
 @HiltViewModel
 class StartViewModel @Inject constructor(
     private val animeRepository: AnimeRepository
@@ -20,8 +26,15 @@ class StartViewModel @Inject constructor(
     private val _state = MutableStateFlow(StartPageState(isLoading = true))
     val state: StateFlow<StartPageState> = _state.asStateFlow()
 
+    /**
+     * Inicializador que carga automáticamente los animes al crear el ViewModel.
+     */
     init { loadAnimes() }
 
+    /**
+     * Carga la lista completa de animes desde el repositorio.
+     * Maneja estados de carga y errores durante el proceso.
+     */
     fun loadAnimes() {
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true, error = null) }

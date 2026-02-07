@@ -11,22 +11,17 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 
 /**
- * Componente de texto reutilizable con estilo configurable.
+ * Componente de texto personalizado y reutilizable con valores predeterminados configurables.
+ * Simplifica el uso de Text con configuraciones comunes como tamaño, color y comportamiento de overflow.
  *
- * Permite definir el texto a mostrar, tamaño, color, número máximo de líneas
- * y comportamiento en caso de desbordamiento.
- *
- * ### Características:
- * - Por defecto, el texto es blanco y tamaño 10.sp.
- * - Si no se especifica, el desbordamiento se maneja con puntos suspensivos ([TextOverflow.Ellipsis]).
- * - El número máximo de líneas es ilimitado a menos que se indique lo contrario.
- *
- * @param text Texto que se mostrará en pantalla.
- * @param textSize Tamaño de la fuente del texto. Por defecto 10.sp.
- * @param textColor Color del texto. Por defecto blanco.
- * @param modifier Modificador opcional para personalizar la disposición o estilo.
- * @param overflow Comportamiento al desbordarse el texto. Por defecto [TextOverflow.Ellipsis].
- * @param maxLines Número máximo de líneas. Por defecto ilimitado.
+ * @param text Contenido de texto que se mostrará
+ * @param textSize Tamaño del texto (predeterminado: 10.sp)
+ * @param textColor Color del texto (predeterminado: Color.White)
+ * @param modifier Modificador para personalizar el diseño del componente de texto
+ * @param overflow Comportamiento cuando el texto excede el espacio disponible (predeterminado: Ellipsis)
+ * @param maxLines Número máximo de líneas a mostrar (predeterminado: ilimitado)
+ * @param textAlign Alineación del texto dentro del contenedor (predeterminado: Center)
+ * @param lineHeight Altura de línea del texto (predeterminado: 1.5 veces el tamaño del texto)
  */
 @Composable
 fun TextComponent(
@@ -51,9 +46,8 @@ fun TextComponent(
 }
 
 /**
- * Vista previa del componente [TextComponent].
- *
- * Muestra un ejemplo con texto "USER:" y tamaño de fuente 10.sp.
+ * Vista previa básica del componente TextComponent para visualización en el diseñador de Android Studio.
+ * Muestra el componente con texto "USER:" usando el tamaño de texto predeterminado.
  */
 @Preview
 @Composable

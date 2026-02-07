@@ -23,6 +23,13 @@ import com.example.pmdm.components.TextComponent
 import com.example.pmdm.model.Anime
 import com.example.pmdm.ui.state.StartPageState
 
+/**
+ * Pantalla que muestra la lista completa de contenido/animes disponibles.
+ * Maneja diferentes estados: carga, error y éxito al obtener la lista de animes.
+ *
+ * @param navController Controlador de navegación para redirigir a detalles de anime al hacer clic
+ * @param state Estado actual de la pantalla que contiene la lista de animes, estado de carga y errores
+ */
 @Composable
 fun ListContend(
     navController: NavController,
@@ -72,6 +79,10 @@ fun ListContend(
     }
 }
 
+/**
+ * Vista previa del componente ListContend para visualización en el diseñador de Android Studio.
+ * Muestra la pantalla de lista de contenido con dos animes de ejemplo.
+ */
 @Preview(showBackground = true)
 @Composable
 fun ListContendPreview() {

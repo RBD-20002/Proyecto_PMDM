@@ -24,6 +24,15 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import javax.inject.Inject
 
+/**
+ * ViewModel para la pantalla de perfil que gestiona la información del usuario,
+ * imágenes de perfil, favoritos y edición de datos. Utiliza Hilt para la inyección de dependencias.
+ *
+ * @property userRepository Repositorio que maneja las operaciones de usuario
+ * @property animeRepository Repositorio que maneja las operaciones relacionadas con animes
+ * @property imageRepository Repositorio que maneja las operaciones relacionadas con imágenes
+ * @property appContext Contexto de aplicación para operaciones de archivos
+ */
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val userRepository: UserRepository,
@@ -35,12 +44,18 @@ class ProfileViewModel @Inject constructor(
     private val _state = MutableStateFlow(ProfilePageState())
     val state: StateFlow<ProfilePageState> = _state.asStateFlow()
 
+    /** Lista de IDs de imágenes de perfil predefinidas disponibles para selección. */
     val presetProfileImageIds: List<String> = listOf(
         "avatar1","avatar2","avatar3","avatar4","avatar5","avatar6","avatar7"
     )
 
+    /** Inicializador que carga automáticamente el perfil al crear el ViewModel. */
     init { loadProfile() }
 
+    /**
+     * Carga la información del perfil desde los repositorios y actualiza el estado.
+     * Incluye datos del usuario, favoritos e imagen de perfil.
+     */
     fun loadProfile() {
         val session = userRepository.session.value
         val safeProfileImageId = session.user?.profileImageId?.toString().orEmpty()
@@ -58,7 +73,13 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    // ---------- Mensajes ----------
+    /*---------- Mensajes ----------*/
+
+    /**
+     * Muestra un mensaje informativo temporal en la interfaz.
+     *
+     * @param message Mensaje informativo a mostrar
+     */
     private fun showInfo(message: String) {
         viewModelScope.launch {
             _state.update { it.copy(infoMessage = message) }
@@ -67,11 +88,27 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    // ---------- Imagen ----------
+    /*---------- Imagen ----------*/
+
+    /** Abre el selector de imágenes de perfil. */
     fun openImagePicker() { _state.update { it.copy(isImagePickerOpen = true, error = null) } }
+
+    /** Cierra el selector de imágenes de perfil. */
     fun closeImagePicker() { _state.update { it.copy(isImagePickerOpen = false) } }
+
+    /**
+     * Construye la URL completa para una imagen de perfil predefinida.
+     *
+     * @param id Identificador de la imagen predefinida
+     * @return URL completa de la imagen
+     */
     fun imageUrlForId(id: String): String = "${ApiConfig.BASE_URL}images/$id"
 
+    /**
+     * Selecciona una imagen de perfil predefinida y la asigna al usuario.
+     *
+     * @param presetId ID de la imagen predefinida seleccionada
+     */
     fun selectPresetImage(presetId: String) {
         val userId = _state.value.userId
         if (userId.isBlank()) return
@@ -95,6 +132,12 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Actualiza la imagen de perfil con una foto tomada con la cámara.
+     * Sube la imagen al servidor y asocia el ID resultante al usuario.
+     *
+     * @param uri URI de la imagen capturada
+     */
     fun updateProfileImage(uri: Uri?) {
         if (uri == null) return
         val userId = _state.value.userId
@@ -135,7 +178,9 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    // ---------- Editar datos usuario/email ----------
+    /*---------- Editar datos usuario/email ----------*/
+
+    /** Abre el diálogo de edición de datos del perfil con los valores actuales. */
     fun openEditDialog() {
         val u = _state.value.user
         _state.update {
@@ -148,18 +193,33 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
+    /** Cierra el diálogo de edición de datos del perfil. */
     fun closeEditDialog() {
         _state.update { it.copy(isEditDialogOpen = false, editError = null) }
     }
 
+    /**
+     * Actualiza el nombre de usuario en el estado de edición.
+     *
+     * @param value Nuevo valor para el nombre de usuario
+     */
     fun onEditUsernameChange(value: String) {
         _state.update { it.copy(editUsername = value, editError = null) }
     }
 
+    /**
+     * Actualiza el email en el estado de edición.
+     *
+     * @param value Nuevo valor para el email
+     */
     fun onEditEmailChange(value: String) {
         _state.update { it.copy(editEmail = value, editError = null) }
     }
 
+    /**
+     * Guarda los cambios realizados en los datos del perfil.
+     * Realiza validaciones y actualiza el servidor.
+     */
     fun saveProfileDataEdits() {
         val userId = _state.value.userId
         if (userId.isBlank()) {

@@ -12,23 +12,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 /**
- * Fila de vista previa que muestra un par **etiqueta–valor** dentro de un bloque de datos.
+ * Componente que muestra una fila de datos con etiqueta y valor en una disposición horizontal.
+ * Utiliza un diseño de dos columnas con la etiqueta a la izquierda y el valor a la derecha.
  *
- * Este componente se utiliza para representar la información de un usuario (u otro tipo de datos)
- * en formato de dos columnas: la primera con la etiqueta y la segunda con el valor correspondiente.
- *
- * Generalmente se usa dentro de [DataProfileComponent] para mostrar los datos del perfil.
- *
- * ### Características:
- * - Distribuye los textos en los extremos de la fila.
- * - Mantiene un espaciado y color uniforme.
- * - Es totalmente reutilizable para mostrar pares clave-valor en otros contextos.
- *
- * @param label Texto de la etiqueta o nombre del campo (por ejemplo: `"USER:"`, `"EMAIL:"`).
- * @param value Valor asociado a la etiqueta (por ejemplo: `"NicoDev"`, `"nico@example.com"`).
+ * @param label Texto de la etiqueta que describe el tipo de dato (ej: "Usuario", "Email")
+ * @param value Valor correspondiente a la etiqueta (ej: "Paco", "paco@email.com")
  */
 @Composable
-fun PreviewDataRow(
+fun DataRow(
     label: String,
     value: String
 ) {
@@ -54,12 +45,11 @@ fun PreviewDataRow(
 }
 
 /**
- * Vista previa del componente [PreviewDataRow].
- *
- * Muestra un ejemplo simple con los textos "Usuario" y "Paco" para diseño y prueba visual.
+ * Vista previa del componente PreviewDataRow para visualización en el diseñador de Android Studio.
+ * Muestra un ejemplo de una fila de datos con etiqueta "Usuario" y valor "Paco".
  */
 @Preview
 @Composable
 fun ejemplo() {
-    PreviewDataRow("Usuario", "Paco")
+    DataRow("Usuario", "Paco")
 }

@@ -30,6 +30,15 @@ import com.example.pmdm.navigation.Destination
 import com.example.pmdm.ui.theme.cardContainerColor
 import com.example.pmdm.ui.theme.cardTextColor
 
+/**
+ * Tarjeta vertical compacta para mostrar información básica de un anime con imagen circular.
+ * Diseñada para vistas de lista o cuadrículas donde el espacio es limitado.
+ * Al hacer clic, navega a la pantalla de detalles del anime correspondiente.
+ *
+ * @param anime Objeto Anime que contiene los datos a mostrar (imagen, título, etc.)
+ * @param navController Controlador de navegación para gestionar la navegación a detalles
+ * @param modifier Modificador opcional para personalizar el diseño de la tarjeta
+ */
 @Composable
 fun VerticalCard(
     anime: Anime,
@@ -83,6 +92,10 @@ fun VerticalCard(
     }
 }
 
+/**
+ * Vista previa del componente VerticalCard para visualización en el diseñador de Android Studio.
+ * Muestra una tarjeta vertical con datos de ejemplo del anime Dragon Ball Z.
+ */
 @Preview(showBackground = true)
 @Composable
 private fun VerticalCardPreview() {

@@ -22,11 +22,25 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.example.pmdm.R
 import com.example.pmdm.ui.theme.cardContainerColor
 
+/**
+ * Diálogo modal para editar el perfil de usuario con campos para modificar nombre de usuario y correo.
+ * Incluye validación de errores, estado de carga y controles para guardar o cancelar cambios.
+ *
+ * @param username Nombre de usuario actual que se muestra en el campo de texto
+ * @param email Correo electrónico actual que se muestra en el campo de texto
+ * @param isSaving Estado booleano que indica si se está guardando (true) para deshabilitar controles
+ * @param error Mensaje de error opcional que se muestra si ocurre un problema al guardar
+ * @param onUsernameChange Función lambda que se ejecuta cuando cambia el nombre de usuario
+ * @param onEmailChange Función lambda que se ejecuta cuando cambia el correo electrónico
+ * @param onSave Función lambda que se ejecuta al hacer clic en el botón Guardar
+ * @param onCancel Función lambda que se ejecuta al hacer clic en el botón Cancelar o al cerrar el diálogo
+ */
 @Composable
 fun EditProfileDialog(
     username: String,
@@ -118,4 +132,23 @@ fun EditProfileDialog(
             }
         }
     }
+}
+
+/**
+ * Vista previa del componente EditProfileDialog para visualización en el diseñador de Android Studio.
+ * Muestra el diálogo de edición de perfil con datos de ejemplo y un mensaje de error simulado.
+ */
+@Preview
+@Composable
+fun previewEditProfile(){
+    EditProfileDialog(
+        username = "ricardo",
+        email = "ricardo@hotmail.com",
+        isSaving = false,
+        error = "fallo al modficar",
+        onUsernameChange = {},
+        onEmailChange = {},
+        onSave = {},
+        onCancel = {}
+    )
 }

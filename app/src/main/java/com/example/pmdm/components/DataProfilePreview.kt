@@ -22,10 +22,10 @@ import androidx.compose.ui.unit.sp
 import com.example.pmdm.R
 
 /**
- * Modelo de datos que representa un campo de vista previa de perfil.
+ * Clase de datos que representa la configuración de un campo para mostrar en el perfil.
  *
- * @property label Etiqueta o nombre del campo (por ejemplo: "USER:", "EMAIL:").
- * @property value Valor correspondiente al campo (por ejemplo: "NicoDev", "nico@example.com").
+ * @property label Etiqueta o nombre del campo (ej: "USER:", "EMAIL:")
+ * @property value Valor asociado al campo (ej: "NicoDev", "nico@example.com")
  */
 data class PreviewFieldConfig(
     val label: String,
@@ -33,22 +33,13 @@ data class PreviewFieldConfig(
 )
 
 /**
- * Componente que muestra una tarjeta de información de usuario con formato de perfil.
+ * Componente que muestra un bloque de datos de perfil de usuario con diseño estilizado.
+ * Presenta un título y una lista de campos con sus valores correspondientes.
  *
- * Este componente crea un bloque con un título y una lista de pares *etiqueta-valor*
- * para mostrar datos del usuario (por ejemplo, nombre, email, rol, etc.).
- *
- * Se presenta dentro de un contenedor con borde redondeado y color de fondo personalizable.
- *
- * ### Características:
- * - Muestra un título centrado en la parte superior.
- * - Lista los datos en filas con espaciado uniforme.
- * - Personalizable en colores y tamaños mediante parámetros.
- *
- * @param title Título principal del bloque (por defecto `"DATOS USUARIO"`).
- * @param items Lista de pares `label` y `value` a mostrar.
- * @param borderColor Color del borde del contenedor (por defecto negro).
- * @param backgroundColor Color de fondo del bloque (por defecto un azul oscuro).
+ * @param title Título que se mostrará en la parte superior del bloque
+ * @param items Lista de configuraciones de campo a mostrar (etiqueta y valor)
+ * @param borderColor Color del borde del contenedor
+ * @param backgroundColor Color de fondo del contenedor
  */
 @Composable
 fun DataProfileComponent(
@@ -91,7 +82,7 @@ fun DataProfileComponent(
                 ) {
                     items.forEach { item ->
                         // Cada fila muestra el label y valor correspondiente
-                        PreviewDataRow(label = item.label, value = item.value)
+                        DataRow(label = item.label, value = item.value)
                     }
                 }
             }
@@ -100,9 +91,8 @@ fun DataProfileComponent(
 }
 
 /**
- * Vista previa del componente [DataProfileComponent].
- *
- * Muestra un ejemplo de tarjeta de perfil con datos de usuario ficticios.
+ * Vista previa del componente DataProfileComponent para visualización en el diseñador de Android Studio.
+ * Muestra un bloque de datos de perfil con información de usuario de ejemplo.
  */
 @Preview
 @Composable

@@ -14,6 +14,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+/**
+ * Componente de botón personalizado reutilizable con estilo predefinido.
+ *
+ * @param text Texto que se mostrará dentro del botón
+ * @param enabled Estado de habilitación del botón (true = interactivo, false = deshabilitado)
+ * @param action Función lambda que se ejecutará cuando se haga clic en el botón
+ */
 @Composable
 fun ButtomComponent(
     text: String,
@@ -40,6 +47,10 @@ fun ButtomComponent(
 
 }
 
+/**
+ * Vista previa para visualizar el componente ButtomComponent en el diseñador de Android Studio.
+ * Muestra un botón con el texto "CREAR CUENTA" que imprime un log al hacer clic.
+ */
 @Preview
 @Composable
 fun previewButtom() {

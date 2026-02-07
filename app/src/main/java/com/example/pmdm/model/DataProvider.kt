@@ -1,16 +1,31 @@
 package com.example.pmdm.model
 
-import com.example.pmdm.R
-
+/**
+ * Objeto proveedor de datos que actúa como fuente de datos estática para la aplicación.
+ * Contiene datos de ejemplo de animes y gestiona un sistema simple de favoritos en memoria.
+ */
 object DataProvider {
 
     // ✅ IP/URL de tu API (móvil físico)
     private const val BASE_URL = "http://192.168.1.41:5131"
 
+    /**
+     * Construye la URL completa de una imagen a partir de su identificador.
+     *
+     * @param id Identificador único de la imagen
+     * @return URL completa para acceder a la imagen
+     */
     private fun img(id: String): String = "$BASE_URL/images/$id"
 
+    /** Conjunto mutable que almacena los IDs de los animes marcados como favoritos. */
     val favoriteAnime = mutableSetOf<String>()
 
+    /**
+     * Alterna el estado de favorito de un anime basado en su ID.
+     * Si ya es favorito, lo elimina; si no lo es, lo añade.
+     *
+     * @param animeId ID del anime cuyo estado de favorito se va a alternar
+     */
     fun filterFavorite(animeId: String) {
         if (favoriteAnime.contains(animeId)) {
             favoriteAnime.remove(animeId)
@@ -19,10 +34,22 @@ object DataProvider {
         }
     }
 
+    /**
+     * Verifica si un anime específico está marcado como favorito.
+     *
+     * @param animeId ID del anime a verificar
+     * @return true si el anime está marcado como favorito, false en caso contrario
+     */
     fun isFavorite(animeId: String): Boolean {
         return favoriteAnime.contains(animeId)
     }
 
+    /**
+     * Obtiene la lista completa de animes marcados como favoritos.
+     * Filtra la lista completa de animes utilizando los IDs almacenados en favoriteAnime.
+     *
+     * @return Lista de objetos Anime que han sido marcados como favoritos
+     */
     fun getListFavoriteAnime(): List<Anime> {
         return animeList.filter { favoriteAnime.contains(it.id) }
     }

@@ -16,6 +16,13 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.navigation.Destination
 
+/**
+ * Barra de navegación inferior específica para usuarios invitados (no autenticados).
+ * Muestra solo 3 destinos disponibles: Inicio, Lista de contenido y Login.
+ *
+ * @param navController Controlador de navegación para gestionar los cambios entre pantallas
+ * @param modifier Modificador opcional para personalizar el diseño de la barra
+ */
 @Composable
 fun GuestBottomBar(
     navController: NavController,
@@ -61,6 +68,10 @@ fun GuestBottomBar(
     }
 }
 
+/**
+ * Vista previa básica del componente GuestBottomBar para visualización en el diseñador de Android Studio.
+ * Muestra la barra de navegación inferior en su estado predeterminado.
+ */
 @Preview(showBackground = true, name = "GuestBottomBar Preview")
 @Composable
 fun GuestBottomBarPreview() {
@@ -70,7 +81,10 @@ fun GuestBottomBarPreview() {
     }
 }
 
-// Preview adicional para diferentes estados
+/**
+ * Vista previa adicional del componente GuestBottomBar que simula estar en la pantalla de inicio.
+ * Útil para visualizar cómo se ve la barra cuando un ítem está seleccionado.
+ */
 @Preview(showBackground = true, name = "GuestBottomBar - En Start")
 @Composable
 fun GuestBottomBarStartPreview() {

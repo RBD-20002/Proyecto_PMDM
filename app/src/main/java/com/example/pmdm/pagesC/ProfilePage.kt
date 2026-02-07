@@ -29,9 +29,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.example.pmdm.R
 import com.example.pmdm.components.DataProfileComponent
@@ -40,10 +42,31 @@ import com.example.pmdm.components.FavColumnDisplay
 import com.example.pmdm.components.PreviewFieldConfig
 import com.example.pmdm.components.ProfileImagePickerSheet
 import com.example.pmdm.components.TextComponent
+import com.example.pmdm.data.dto.UserDto
+import com.example.pmdm.model.Anime
+import com.example.pmdm.model.User
 import com.example.pmdm.navigation.Destination
 import com.example.pmdm.ui.state.ProfilePageState
 import com.example.pmdm.ui.theme.cardContainerColor
 
+/**
+ * Pantalla de perfil que muestra la información del usuario autenticado, incluyendo imagen de perfil,
+ * datos personales, animes favoritos y controles para modificar la cuenta.
+ *
+ * @param state Estado actual de la pantalla que contiene todos los datos del perfil y estados de UI
+ * @param navController Controlador de navegación para redirigir a otras pantallas
+ * @param onLogout Callback ejecutado cuando el usuario cierra sesión
+ * @param onOpenImagePicker Callback para abrir el selector de imágenes de perfil
+ * @param onCloseImagePicker Callback para cerrar el selector de imágenes de perfil
+ * @param presetImageIds Lista de IDs de imágenes predefinidas disponibles para perfil
+ * @param imageUrlForId Función que convierte un ID de imagen en su URL correspondiente
+ * @param onSelectPreset Callback ejecutado al seleccionar una imagen predefinida
+ * @param onOpenEditDialog Callback para abrir el diálogo de edición de perfil
+ * @param onCloseEditDialog Callback para cerrar el diálogo de edición de perfil
+ * @param onEditUsernameChange Callback ejecutado cuando cambia el nombre de usuario en el diálogo de edición
+ * @param onEditEmailChange Callback ejecutado cuando cambia el email en el diálogo de edición
+ * @param onSaveEdits Callback ejecutado para guardar los cambios en el perfil
+ */
 @Composable
 fun ProfilePage(
     state: ProfilePageState,
@@ -226,5 +249,52 @@ fun ProfilePage(
                 onCancel = onCloseEditDialog
             )
         }
+    }
+}
+
+/**
+ * Vista previa del componente ProfilePage para visualización en el diseñador de Android Studio.
+ * Muestra la pantalla de perfil con datos de usuario de ejemplo.
+ */
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun ProfilePagePreview() {
+
+    val sampleState = ProfilePageState(
+        isLoggedIn = true,
+        user = User(username = "ricardo", email = "ricardo@example.com", password = "123"),
+        profileImageId = "",
+        profileImageUri = null,
+        favorites = listOf(
+            Anime("naruto", "naruto", "Naruto Uzumaki", "NARUTO", "", ""),
+            Anime("one_piece", "one_piece", "Monkey D. Luffy", "ONE PIECE", "", "")
+        ),
+        isImagePickerOpen = false,
+        isEditDialogOpen = false,
+        editUsername = "AnimeLover",
+        editEmail = "anime@example.com",
+        isSavingProfileData = false,
+        editError = null,
+        error = null,
+        infoMessage = "Perfil actualizado correctamente",
+        isSavingImage = false
+    )
+
+    MaterialTheme {
+        ProfilePage(
+            state = sampleState,
+            navController = rememberNavController(),
+            onLogout = {},
+            onOpenImagePicker = {},
+            onCloseImagePicker = {},
+            presetImageIds = listOf("avatar1", "avatar2", "avatar3"),
+            imageUrlForId = { id -> "https://example.com/$id.jpg" },
+            onSelectPreset = {},
+            onOpenEditDialog = {},
+            onCloseEditDialog = {},
+            onEditUsernameChange = {},
+            onEditEmailChange = {},
+            onSaveEdits = {}
+        )
     }
 }

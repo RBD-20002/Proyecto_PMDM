@@ -14,6 +14,13 @@ import kotlinx.coroutines.launch
 import java.util.Locale
 import javax.inject.Inject
 
+/**
+ * ViewModel de autenticación que gestiona el estado de inicio de sesión,
+ * registro y cierre de sesión de usuarios.
+ * Utiliza Hilt para la inyección de dependencias y se comunica con UserRepository.
+ *
+ * @property userRepository Repositorio que maneja las operaciones de usuario
+ */
 @HiltViewModel
 class AuthViewModel @Inject constructor(
     private val userRepository: UserRepository
@@ -26,6 +33,14 @@ class AuthViewModel @Inject constructor(
      * Normalización:
      * - username: trim + lowercase
      * - password: trim (SIN lowercase)
+     */
+
+    /**
+     * Intenta autenticar a un usuario con nombre de usuario y contraseña.
+     * Normaliza los datos de entrada antes de enviarlos al repositorio.
+     *
+     * @param username Nombre de usuario proporcionado
+     * @param password Contraseña proporcionada
      */
     fun login(username: String, password: String) {
         val normalizedUser = username.trim().lowercase(Locale.ROOT)
@@ -59,6 +74,10 @@ class AuthViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Establece al usuario como invitado (sin autenticación).
+     * Actualiza el estado para reflejar el modo invitado.
+     */
     fun loginAsGuest() {
         userRepository.loginAsGuest()
         _state.update {
@@ -71,11 +90,20 @@ class AuthViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Cierra la sesión del usuario actual.
+     * Restablece el estado de autenticación a valores predeterminados.
+     */
     fun logout() {
         userRepository.logout()
         _state.value = AuthState()
     }
 
+    /**
+     * Establece manualmente un mensaje de error en el estado de autenticación.
+     *
+     * @param error Mensaje de error a mostrar, o null para limpiar el error
+     */
     fun setError(error: String?) {
         _state.update { it.copy(error = error) }
     }

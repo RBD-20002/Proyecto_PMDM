@@ -15,6 +15,14 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pmdm.model.Anime
 
+/**
+ * Componente composable que muestra una cuadrícula de tarjetas de Anime en un diseño de 2 columnas.
+ * Organiza las tarjetas en filas de a pares usando LazyColumn para un desplazamiento eficiente.
+ *
+ * @param input Lista de objetos Anime que se mostrarán en las tarjetas
+ * @param navController Controlador de navegación para manejar la navegación entre pantallas
+ * @param modifier Modificador para personalizar el diseño del contenedor principal
+ */
 @Composable
 fun BlockCardsComponents(
     input: List<Anime>,
@@ -48,6 +56,10 @@ fun BlockCardsComponents(
     }
 }
 
+/**
+ * Función de vista previa para mostrar el componente BlockCardsComponents en el diseñador de Android Studio.
+ * Crea datos de ejemplo de Anime y renderiza el componente con tres tarjetas idénticas.
+ */
 @Preview(showBackground = true)
 @Composable
 fun BlockCardsComponentsPreview() {

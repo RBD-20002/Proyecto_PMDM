@@ -40,6 +40,20 @@ import com.example.pmdm.components.ButtomComponent
 import com.example.pmdm.components.TextComponent
 import com.example.pmdm.ui.state.CreateAccountPageState
 
+/**
+ * Pantalla de creación de cuenta que permite al usuario registrarse en la aplicación.
+ * Incluye campos para nombre de usuario, email, contraseña y confirmación de contraseña.
+ *
+ * @param state Estado actual de la pantalla que contiene los valores de los campos y errores
+ * @param onUsernameChange Callback ejecutado cuando cambia el nombre de usuario
+ * @param onEmailChange Callback ejecutado cuando cambia el email
+ * @param onPasswordChange Callback ejecutado cuando cambia la contraseña
+ * @param onRepeatPasswordChange Callback ejecutado cuando cambia la confirmación de contraseña
+ * @param onCreateClick Callback ejecutado al hacer clic en el botón de crear cuenta
+ * @param onCancelClick Callback ejecutado al hacer clic en el botón de cancelar
+ * @param onTogglePasswordVisibility Callback para alternar la visibilidad de la contraseña principal
+ * @param onToggleRepeatPasswordVisibility Callback para alternar la visibilidad de la confirmación de contraseña
+ */
 @Composable
 fun CreateAcountPage(
     state: CreateAccountPageState,
@@ -191,6 +205,10 @@ fun CreateAcountPage(
     }
 }
 
+/**
+ * Vista previa del componente CreateAcountPage para visualización en el diseñador de Android Studio.
+ * Muestra la pantalla de creación de cuenta con datos de ejemplo.
+ */
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun CreateAcountPagePreview() {

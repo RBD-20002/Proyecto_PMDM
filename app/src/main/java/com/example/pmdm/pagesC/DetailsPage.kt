@@ -37,6 +37,15 @@ import com.example.pmdm.ui.state.DetailsPageState
 import com.example.pmdm.ui.theme.cardTextColor
 import kotlinx.coroutines.launch
 
+/**
+ * Pantalla de detalles que muestra información completa de un anime,
+ * incluyendo imagen, título, sinopsis, información técnica y enlaces externos.
+ * Permite a usuarios autenticados marcar/desmarcar el anime como favorito.
+ *
+ * @param state Estado actual de la pantalla que contiene los datos del anime y favorito
+ * @param onToggleFavorite Callback ejecutado cuando se hace clic en el botón de favorito
+ * @param isUserLoggedIn Indica si hay un usuario autenticado (para mostrar/ocultar funcionalidad de favoritos)
+ */
 @Composable
 fun DetailsPage(
     state: DetailsPageState?,
@@ -140,6 +149,10 @@ fun DetailsPage(
     }
 }
 
+/**
+ * Vista previa del componente DetailsPage para visualización en el diseñador de Android Studio.
+ * Muestra la pantalla de detalles con datos de ejemplo del anime Naruto.
+ */
 @Preview
 @Composable
 fun PreviewDetails() {

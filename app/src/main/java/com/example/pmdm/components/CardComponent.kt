@@ -27,6 +27,13 @@ import com.example.pmdm.navigation.Destination
 import com.example.pmdm.ui.theme.cardContainerColor
 import com.example.pmdm.ui.theme.cardTextColor
 
+/**
+ * Componente de tarjeta que muestra información básica de un Anime.
+ * Al hacer clic en la tarjeta, navega a la pantalla de detalles del anime correspondiente.
+ *
+ * @param input Lista de objetos Anime a mostrar en las tarjetas (normalmente un solo elemento)
+ * @param navController Controlador de navegación para manejar la navegación a la pantalla de detalles
+ */
 @Composable
 fun CardComponent(input: List<Anime>, navController: NavController) {
     Column {
@@ -77,6 +84,10 @@ fun CardComponent(input: List<Anime>, navController: NavController) {
     }
 }
 
+/**
+ * Vista previa del componente CardComponent para visualización en el diseñador de Android Studio.
+ * Muestra una tarjeta con datos de ejemplo del anime Naruto.
+ */
 @Preview(showBackground = true)
 @Composable
 fun CardComponentPreview() {

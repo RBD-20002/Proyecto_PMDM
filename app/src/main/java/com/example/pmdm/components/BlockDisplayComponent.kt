@@ -17,6 +17,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.pmdm.R
 import com.example.pmdm.model.Anime
+
+/**
+ * Componente que muestra un bloque de tarjetas expandibles con información detallada de un Anime.
+ * Cada sección (info, sinopsis, enlaces) puede expandirse/contraerse individualmente.
+ *
+ * @param animeInfo Objeto Anime que contiene toda la información a mostrar en las tarjetas
+ */
 @Composable
 fun BlockDisplayCardComponent(animeInfo: Anime) {
     val context = LocalContext.current
@@ -80,8 +87,10 @@ fun BlockDisplayCardComponent(animeInfo: Anime) {
     }
 }
 
-
-
+/**
+ * Vista previa del componente BlockDisplayCardComponent.
+ * Muestra cómo se vería con datos de ejemplo del anime Naruto.
+ */
 @Preview
 @Composable
 fun PreviewDisplayCard() {

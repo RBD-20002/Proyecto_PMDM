@@ -13,6 +13,13 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * ViewModel para la pantalla de inicio de sesión que gestiona el estado del formulario,
+ * la persistencia de credenciales y la validación de datos.
+ * Utiliza Hilt para la inyección de dependencias.
+ *
+ * @property credentialsRepository Repositorio que maneja el almacenamiento local de credenciales
+ */
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val credentialsRepository: CredentialsRepository
@@ -21,6 +28,10 @@ class LoginViewModel @Inject constructor(
     private val _state = MutableStateFlow(LoginPageState())
     val state: StateFlow<LoginPageState> = _state.asStateFlow()
 
+    /**
+     * Inicializador que carga las credenciales guardadas al crear el ViewModel.
+     * Restaura el estado del formulario con los datos almacenados previamente.
+     */
     init {
         viewModelScope.launch {
             val savedCredentials = credentialsRepository.savedCredentials.first()
@@ -35,6 +46,11 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Actualiza el nombre de usuario en el estado y realiza validación básica.
+     *
+     * @param userName Nuevo valor para el nombre de usuario
+     */
     fun onUsernameChange(userName: String) {
         _state.update {
             it.copy(
@@ -45,6 +61,11 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Actualiza la contraseña en el estado y realiza validación básica.
+     *
+     * @param password Nuevo valor para la contraseña
+     */
     fun onPasswordChange(password: String) {
         _state.update {
             it.copy(
@@ -55,14 +76,26 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Actualiza la preferencia de recordar credenciales.
+     *
+     * @param remember Nuevo valor para la preferencia de recordar credenciales
+     */
     fun onRememberCredentialsChange(remember: Boolean) {
         _state.update { it.copy(rememberCredentials = remember) }
     }
 
+    /**
+     * Alterna la visibilidad de la contraseña entre visible/oculta.
+     */
     fun togglePasswordVisibility() {
         _state.update { it.copy(passwordVisible = !it.passwordVisible) }
     }
 
+    /**
+     * Procesa las acciones necesarias después de un inicio de sesión exitoso.
+     * Guarda o borra las credenciales según la preferencia del usuario.
+     */
     fun onLoginSuccess() {
         viewModelScope.launch {
             if (state.value.rememberCredentials) {
@@ -73,6 +106,13 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Valida si el formulario está completo y puede habilitar el botón de inicio de sesión.
+     *
+     * @param userName Nombre de usuario a validar
+     * @param password Contraseña a validar
+     * @return true si ambos campos no están en blanco, false en caso contrario
+     */
     private fun isFormValid(userName: String, password: String): Boolean =
         userName.isNotBlank() && password.isNotBlank()
 }

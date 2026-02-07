@@ -35,6 +35,15 @@ import com.example.pmdm.model.DataProvider
 import com.example.pmdm.navigation.Destination
 import kotlinx.coroutines.delay
 
+/**
+ * Componente de carrusel automático que muestra una lista de animes con transiciones automáticas.
+ * Incluye indicadores de página y navegación a detalles al hacer clic en una imagen.
+ *
+ * @param modifier Modificador para personalizar el diseño del carrusel
+ * @param intervalMs Intervalo en milisegundos entre transiciones automáticas de diapositivas
+ * @param items Lista de objetos Anime a mostrar en el carrusel
+ * @param navController Controlador de navegación para redirigir a la pantalla de detalles del anime
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CarouselStartPage(
@@ -134,6 +143,10 @@ fun CarouselStartPage(
     }
 }
 
+/**
+ * Vista previa del componente CarouselStartPage para visualización en el diseñador de Android Studio.
+ * Muestra el carrusel con datos de ejemplo y configuración de diseño predeterminada.
+ */
 @Preview(showBackground = true)
 @Composable
 private fun AutoCarouselFromDataPreview() {
