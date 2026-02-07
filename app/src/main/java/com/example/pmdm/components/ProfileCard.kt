@@ -1,7 +1,6 @@
 package com.example.pmdm.components
 
 import android.net.Uri
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,8 +14,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Card
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +21,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -33,16 +29,13 @@ import com.example.pmdm.R
 import com.example.pmdm.model.Anime
 
 /**
- * Tarjeta de perfil del usuario que muestra la imagen de perfil, el nombre
- * y un botón para cambiar la foto mediante la cámara.
+ * Tarjeta de perfil que muestra la imagen de usuario (personal o por defecto del anime) y controles de cámara/ajustes.
+ * Permite al usuario cambiar su foto de perfil tomando una nueva foto con la cámara.
  *
- * - Si [profileImageUri] no es nulo, muestra la foto capturada con CameraX.
- * - En caso contrario muestra la imagen del [Anime] asociada (por defecto se
- *   utiliza el recurso `R.drawable.crocs`).
- *
- * @param anime Objeto [Anime] que proporciona el título y el drawable de respaldo.
- * @param profileImageUri [Uri] de la foto tomada; null para usar la imagen por defecto.
- * @param onCameraClick callback que se ejecuta al pulsar el icono de cámara.
+ * @param anime Objeto Anime que proporciona datos de respaldo (imagen y título) cuando no hay foto de perfil
+ * @param profileImageUri URI de la imagen de perfil personalizada del usuario (null si no hay foto personalizada)
+ * @param modifier Modificador para personalizar el diseño de la tarjeta
+ * @param onCameraClick Función lambda que se ejecuta al hacer clic en el botón de cámara para tomar nueva foto
  */
 @Composable
 fun ProfileCard(
@@ -116,6 +109,10 @@ fun ProfileCard(
     }
 }
 
+/**
+ * Vista previa del componente ProfileCard para visualización en el diseñador de Android Studio.
+ * Muestra la tarjeta de perfil usando datos de anime de ejemplo (sin imagen personalizada).
+ */
 @Preview(showBackground = true)
 @Composable
 fun ProfileCardPreview() {

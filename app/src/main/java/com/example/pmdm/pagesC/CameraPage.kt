@@ -2,7 +2,6 @@ package com.example.pmdm.pagesC
 
 import android.Manifest
 import android.content.ContentValues
-
 import android.net.Uri
 import android.provider.MediaStore
 import androidx.camera.core.CameraSelector
@@ -45,15 +44,11 @@ import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
 
 /**
- * Pantalla de cámara que gestiona permisos, selección de lente y captura de fotos.
+ * Pantalla de cámara que permite al usuario tomar fotografías para usar como imagen de perfil.
+ * Utiliza CameraX para capturar imágenes y maneja permisos de cámara.
  *
- * - Utiliza CameraX para mostrar la previsualización y capturar la imagen.
- * - Usa accompanist‑permissions para solicitar el permiso de cámara en tiempo de ejecución.
- * - Permite alternar entre la cámara trasera y delantera mediante un botón.
- * - Guarda la foto en el almacenamiento externo y devuelve el `Uri` capturado al volver.
- *
- * @param navController controlador de navegación para volver a la pantalla anterior.
- * @param onPhotoTaken callback que recibe el [Uri] de la foto capturada para guardarlo en el estado del perfil.
+ * @param navController Controlador de navegación para regresar a la pantalla anterior
+ * @param onPhotoTaken Callback que se ejecuta cuando se toma una foto exitosamente, recibiendo el URI de la imagen
  */
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable

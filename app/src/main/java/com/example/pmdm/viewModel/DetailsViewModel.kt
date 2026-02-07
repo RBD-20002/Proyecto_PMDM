@@ -12,6 +12,12 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * ViewModel para la pantalla de detalles de anime que gestiona la carga de información
+ * y la funcionalidad de favoritos. Utiliza Hilt para la inyección de dependencias.
+ *
+ * @property animeRepository Repositorio que maneja las operaciones relacionadas con animes
+ */
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
     private val animeRepository: AnimeRepository
@@ -20,6 +26,12 @@ class DetailsViewModel @Inject constructor(
     private val _state = MutableStateFlow<DetailsPageState?>(null)
     val state: StateFlow<DetailsPageState?> = _state.asStateFlow()
 
+    /**
+     * Carga los detalles de un anime específico desde el repositorio.
+     * Incluye información del anime y su estado de favorito para el usuario actual.
+     *
+     * @param animeId Identificador único del anime a cargar
+     */
     fun loadAnime(animeId: String) {
         viewModelScope.launch {
             try {
@@ -32,6 +44,10 @@ class DetailsViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Alterna el estado de favorito del anime actual.
+     * Actualiza tanto el repositorio como el estado local de la vista.
+     */
     fun toggleFavorite() {
         viewModelScope.launch {
             _state.update { current ->

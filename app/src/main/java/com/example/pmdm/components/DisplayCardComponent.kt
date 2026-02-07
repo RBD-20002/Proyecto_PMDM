@@ -24,6 +24,16 @@ import androidx.compose.ui.unit.sp
 import com.example.pmdm.ui.theme.cardContainerColor
 import com.example.pmdm.ui.theme.cardTextColor
 
+/**
+ * Componente de tarjeta expandible que muestra información con animación de apertura/cierre.
+ * Puede incluir contenido adicional opcional (links) cuando está expandida.
+ *
+ * @param title Título principal que se muestra en la cabecera de la tarjeta
+ * @param firstInfo Información principal que se muestra cuando la tarjeta está expandida
+ * @param open Estado booleano que indica si la tarjeta está expandida (true) o colapsada (false)
+ * @param onClick Función lambda que se ejecuta al hacer clic en la tarjeta para cambiar su estado
+ * @param links Contenido composable opcional que se muestra debajo de firstInfo cuando está expandida
+ */
 @Composable
 fun DisplayCardComponent(
     title: String,
@@ -79,6 +89,10 @@ fun DisplayCardComponent(
     }
 }
 
+/**
+ * Vista previa del componente DisplayCardComponent en estado cerrado.
+ * Muestra cómo se ve la tarjeta cuando no está expandida.
+ */
 @Preview(showBackground = true, name = "DisplayCard - Cerrado")
 @Composable
 fun DisplayCardComponentPreviewClosed() {
@@ -92,6 +106,10 @@ fun DisplayCardComponentPreviewClosed() {
     }
 }
 
+/**
+ * Vista previa del componente DisplayCardComponent en estado abierto.
+ * Muestra cómo se ve la tarjeta cuando está expandida con contenido adicional.
+ */
 @Preview(showBackground = true, name = "DisplayCard - Abierto")
 @Composable
 fun DisplayCardComponentPreviewOpen() {

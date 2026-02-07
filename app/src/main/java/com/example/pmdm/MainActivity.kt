@@ -32,6 +32,10 @@ import com.example.pmdm.viewModel.SearchViewModel
 import com.example.pmdm.viewModel.StartViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * Actividad principal de la aplicación que actúa como punto de entrada.
+ * Configura el contenido principal y maneja el ciclo de vida de la aplicación.
+ */
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +44,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/**
+ * Contenido principal de la aplicación que configura el tema, navegación y estructura general.
+ * Gestiona el estado de autenticación, búsqueda y navegación entre pantallas.
+ */
 @Composable
 private fun MainContent() {
     val systemDark = isSystemInDarkTheme()
@@ -57,6 +65,7 @@ private fun MainContent() {
         val authViewModel: AuthViewModel = hiltViewModel()
         val authState by authViewModel.state.collectAsStateWithLifecycle()
 
+        // Navegación automática basada en estado de autenticación
         LaunchedEffect(authState.isLoggedIn) {
             val targetRoute = if (authState.isLoggedIn) Destination.Start.route else Destination.Login.route
             navController.navigate(targetRoute) {
@@ -68,8 +77,10 @@ private fun MainContent() {
         val backStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = backStackEntry?.destination?.route
 
+        // Carga inicial de animes
         LaunchedEffect(Unit) { startViewModel.loadAnimes() }
 
+        // Determina si la búsqueda está habilitada en la pantalla actual
         val isSearchEnabledOnThisScreen =
             currentRoute in setOf(
                 Destination.Start.route,
@@ -78,18 +89,20 @@ private fun MainContent() {
                 Destination.Profile.route
             ) || (currentRoute?.startsWith("details") == true)
 
+        // Desactiva la búsqueda al cambiar de pantalla
         LaunchedEffect(currentRoute) {
             if (searchState.isActive) {
                 searchViewModel.deactivateSearch()
             }
         }
 
-        val searchResults: List<String> =
-            if (searchState.query.isBlank()) emptyList()
+        // Filtra resultados de búsqueda basados en la lista de animes actual
+        val searchResults: List<String> =            if (searchState.query.isBlank()) emptyList()
             else startState.animeList
                 .filter { anime -> anime.title.contains(searchState.query, ignoreCase = true) }
                 .map { it.title }
 
+        // Controla la visibilidad de la barra de herramientas y barra inferior
         val shouldShowToolbarAndBottomBar = currentRoute !in listOf(
             Destination.Login.route,
             Destination.CreateAccount.route
@@ -126,6 +139,7 @@ private fun MainContent() {
                     startViewModel = startViewModel
                 )
 
+                // Muestra el componente de búsqueda cuando está activo y habilitado
                 if (shouldShowToolbarAndBottomBar && isSearchEnabledOnThisScreen && searchState.isActive) {
                     SearchToggle(
                         modifier = Modifier

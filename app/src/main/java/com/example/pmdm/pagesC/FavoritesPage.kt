@@ -20,6 +20,13 @@ import com.example.pmdm.R
 import com.example.pmdm.model.Anime
 import com.example.pmdm.ui.state.FavoritePageState
 
+/**
+ * Pantalla que muestra la lista de animes favoritos del usuario.
+ * Muestra un mensaje informativo si no hay favoritos o una cuadrícula de tarjetas si hay favoritos.
+ *
+ * @param navController Controlador de navegación para redirigir a detalles de anime al hacer clic
+ * @param state Estado actual de la pantalla que contiene la lista de favoritos y estado de vacío
+ */
 @Composable
 fun FavoritePage(
     navController: NavController,
@@ -74,6 +81,10 @@ fun FavoritePage(
     }
 }
 
+/**
+ * Vista previa del componente FavoritePage para visualización en el diseñador de Android Studio.
+ * Muestra la pantalla de favoritos con dos animes de ejemplo.
+ */
 @Preview(showBackground = true)
 @Composable
 fun FavoritePagePreview() {

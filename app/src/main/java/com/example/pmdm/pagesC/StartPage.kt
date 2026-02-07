@@ -27,6 +27,13 @@ import com.example.pmdm.model.Anime
 import com.example.pmdm.ui.state.StartPageState
 import com.example.pmdm.ui.theme.cardTextColor
 
+/**
+ * Pantalla de inicio principal de la aplicación que muestra un carrusel destacado,
+ * lista completa de animes y sección de recomendados.
+ *
+ * @param navController Controlador de navegación para redirigir a detalles de anime al hacer clic
+ * @param state Estado actual de la pantalla que contiene la lista de animes, estado de carga y errores
+ */
 @Composable
 fun StartPage(
     navController: NavController,
@@ -129,6 +136,10 @@ fun StartPage(
     }
 }
 
+/**
+ * Vista previa del componente StartPage para visualización en el diseñador de Android Studio.
+ * Muestra la pantalla de inicio con dos animes de ejemplo.
+ */
 @Preview(showBackground = true)
 @Composable
 fun StartPagePreview() {

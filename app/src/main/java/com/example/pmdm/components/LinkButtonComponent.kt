@@ -18,6 +18,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pmdm.R
 
+/**
+ * Componente de botón con icono personalizado diseñado específicamente para enlaces externos.
+ * Combina una imagen, texto descriptivo y acción de clic en un diseño horizontal.
+ *
+ * @param img ID del recurso drawable que se muestra como icono junto al texto
+ * @param description Texto de accesibilidad que describe la imagen para lectores de pantalla
+ * @param titleButton Texto que se muestra como etiqueta del botón
+ * @param action Función lambda que se ejecuta cuando se hace clic en el botón
+ */
 @Composable
 fun LinkButtonComponent(img: Int, description: String, titleButton: String, action: () -> Unit) {
 
@@ -44,6 +53,10 @@ fun LinkButtonComponent(img: Int, description: String, titleButton: String, acti
     }
 }
 
+/**
+ * Vista previa del componente LinkButtonComponent con icono de AnimeFLV.
+ * Muestra cómo se vería un botón para enlazar al sitio de AnimeFLV.
+ */
 @Preview
 @Composable
 fun previewLinkButton() {
@@ -52,6 +65,10 @@ fun previewLinkButton() {
     }
 }
 
+/**
+ * Vista previa alternativa del componente LinkButtonComponent con icono de JKAnime.
+ * Muestra cómo se vería un botón para enlazar al sitio de JKAnime.
+ */
 @Preview
 @Composable
 fun preview2(){

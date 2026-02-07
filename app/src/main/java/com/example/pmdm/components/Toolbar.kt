@@ -3,7 +3,6 @@ package com.example.pmdm.components
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -26,25 +25,12 @@ import androidx.compose.ui.res.stringResource
 import com.example.pmdm.ui.theme.neonTextGradient
 
 /**
- * Barra superior personalizada (Toolbar) con logotipo centrado e icono de búsqueda.
+ * Barra de herramientas personalizada con logo centrado, botón de búsqueda y botón de alternancia de tema.
+ * Incluye un fondo con gradiente y gestiona la lógica de cambio entre temas claro/oscuro.
  *
- * Este componente utiliza un `CenterAlignedTopAppBar` de Material 3 para crear una barra superior
- * moderna y adaptativa, con un diseño consistente en temas claro y oscuro.
- *
- * ### Características:
- * - Logotipo centrado en la parte superior de la aplicación.
- * - Icono de búsqueda en el extremo izquierdo, con acción configurable.
- * - ✅ Icono de tema en el extremo derecho:
- *   - Sol si el sistema está en modo oscuro.
- *   - Luna si el sistema está en modo claro.
- * - Fondo con gradiente de color personalizado definido en [neonTextGradient].
- * - Compatible con el sistema de temas dinámicos de Compose.
- *
- * ### Uso típico:
- * Se utiliza como `topBar` dentro de un `Scaffold` junto con el componente [SearchToggle].
- *
- * @param onSearchClick Acción que se ejecuta al presionar el botón de búsqueda.
- * @param onThemeClick Acción opcional al presionar el icono de tema (por si luego quieres alternar tema manualmente).
+ * @param isDark Estado booleano que indica si el tema actual es oscuro (true) o claro (false)
+ * @param onSearchClick Función lambda que se ejecuta al hacer clic en el botón de búsqueda
+ * @param onThemeClick Función lambda opcional que se ejecuta al hacer clic en el botón de alternancia de tema
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -97,7 +83,8 @@ fun Toolbar(
 }
 
 /**
- * Vista previa del componente [Toolbar] en **tema claro**.
+ * Vista previa del componente Toolbar en modo de tema claro.
+ * Muestra la barra de herramientas con configuración para tema claro.
  */
 @Preview(showBackground = true, name = "Toolbar – Tema Claro")
 @Composable
@@ -108,7 +95,8 @@ fun ToolbarPreviewLight() {
 }
 
 /**
- * Vista previa del componente [Toolbar] en **tema oscuro**.
+ * Vista previa del componente Toolbar en modo de tema oscuro.
+ * Muestra la barra de herramientas con configuración para tema oscuro.
  */
 @Preview(
     showBackground = true,

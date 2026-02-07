@@ -41,6 +41,21 @@ import com.example.pmdm.components.ButtomComponent
 import com.example.pmdm.components.TextComponent
 import com.example.pmdm.ui.state.LoginPageState
 
+/**
+ * Pantalla de inicio de sesión que permite a los usuarios autenticarse en la aplicación.
+ * Incluye campos para nombre de usuario y contraseña, opciones para recordar credenciales
+ * y botones para iniciar sesión, registrarse o continuar como invitado.
+ *
+ * @param state Estado actual de la pantalla que contiene los valores de los campos y errores
+ * @param authError Error de autenticación proveniente del ViewModel de autenticación
+ * @param onUsernameChange Callback ejecutado cuando cambia el nombre de usuario
+ * @param onPasswordChange Callback ejecutado cuando cambia la contraseña
+ * @param onTogglePasswordVisibility Callback para alternar la visibilidad de la contraseña
+ * @param onRememberCredentialsChange Callback para cambiar la opción de recordar credenciales
+ * @param onLoginClick Callback ejecutado al hacer clic en el botón de iniciar sesión
+ * @param onRegisterClick Callback ejecutado al hacer clic en el botón de registrarse
+ * @param onGuestClick Callback ejecutado al hacer clic en el botón de continuar como invitado
+ */
 @Composable
 fun LoginPage(
     state: LoginPageState,
@@ -187,6 +202,10 @@ fun LoginPage(
     }
 }
 
+/**
+ * Vista previa del componente LoginPage para visualización en el diseñador de Android Studio.
+ * Muestra la pantalla de inicio de sesión con datos de ejemplo y un error simulado.
+ */
 @Preview(showBackground = true)
 @Composable
 fun LoginPagePreview() {
